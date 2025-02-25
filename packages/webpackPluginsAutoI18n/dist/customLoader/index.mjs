@@ -1,0 +1,2 @@
+import*as e from"auto-i18n-plugin-core";import*as r from"@babel/core";module.exports=function(t){var o=e.baseUtils,n=e.option,c=e.filter,a=this;if(n.includePath.length&&!o.checkAgainstRegexArray(a.resourcePath,n.includePath))return t;if(n.excludedPath.length&&o.checkAgainstRegexArray(a.resourcePath,n.excludedPath))return t;a.resourcePath.includes("Contact.vue")&&console.log(t);try{var i=r.transformSync(t,{configFile:!1,plugins:[c.default]});return(null==i?void 0:i.code)||""}catch(e){console.error(e)}return t};
+//# sourceMappingURL=index.mjs.map

@@ -12,6 +12,14 @@
 
 ---
 
+## 📚 Plugin Debugging
+
+```bash
+  pnpm install
+
+  pnpm run preview // no choose react
+```
+
 ## 📖 Supported Features
 
 - **Frameworks**: Supports all frontend frameworks compiled into JS (e.g., Vue2/3, React).

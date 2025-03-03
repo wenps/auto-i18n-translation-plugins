@@ -1,8 +1,8 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-12 18:18:51
- * @LastEditTime: 2023-11-20 13:33:55
- * @FilePath: /i18n_translation_vite/vitePluginsAutoI18n/src/filter/visitor/StringLiteral.ts
+ * @LastEditTime: 2025-03-03 11:43:28
+ * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/filter/visitor/StringLiteral.ts
  */
 import * as types from '@babel/types'
 import { baseUtils } from '../../utils/index'
@@ -13,6 +13,13 @@ export default function (path: any) {
     let value = node.value
 
     // 是否存在来源语言字符，是否在默认字符串中
+    if (option.originLang.includes('zh-cn') || option.originLang === 'zh-cn') {
+        try {
+            value = baseUtils.unicodeToChinese(value)
+        } catch (error) {
+            console.log('转换异常')
+        }
+    }
     if (
         baseUtils.hasOriginSymbols(value) &&
         option.excludedPattern.length &&

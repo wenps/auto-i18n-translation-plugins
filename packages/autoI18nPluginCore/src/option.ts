@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-26 17:34:47
- * @LastEditTime: 2025-02-16 20:32:15
+ * @LastEditTime: 2025-03-04 19:30:14
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
@@ -19,7 +19,7 @@ const DEFAULT_OPTION = {
     translateKey: '$t',
 
     /** 标记不翻译调用函数列表，避免某些调用被错误翻译 */
-    excludedCall: ['$i8n', 'require', '$$i8n', 'console.log', '$t'],
+    excludedCall: ['$i8n', 'console.log', '$t', 'require', '$$i8n'],
 
     /** 标记不用翻译的字符串模式数组，默认是匹配文件扩展名 */
     excludedPattern: [/\.\w+$/],
@@ -28,7 +28,7 @@ const DEFAULT_OPTION = {
     excludedPath: ['node_modules'] as string[],
 
     /** 指定需要翻译文件的目录路径正则（白名单） */
-    includePath: [/src\//],
+    includePath: [/src\//, /src\\/],
 
     /** 配置文件生成位置，默认为 './lang' */
     globalPath: './lang',
@@ -87,17 +87,10 @@ export type OptionInfo = {
 }
 
 /**
- * 生成用户传入的配置选项，进行必要前置处理
- * @param optionInfo 用户提供的配置选项
- * @returns 处理后的用户配置选项
- */
-/**
- * Generates a user option object by deep cloning the provided option information,
- * ensuring that the original configuration is not modified. It also initializes
- * the translator based on the user's configuration.
- *
- * @param optionInfo - The option information containing the user's option and translator details.
- * @returns A new user option object with potential translator initialization.
+ * 通过深度克隆提供的选项信息生成一个用户选项对象，
+ * 确保原始配置不被修改。它还根据用户的配置初始化翻译器。
+ * @param optionInfo - 包含用户选项和翻译器细节的选项信息。
+ * @returns 一个新的、可能已初始化翻译器的用户选项对象。
  */
 function generateUserOption(optionInfo: OptionInfo) {
     // 深拷贝用户传入的配置，防止修改原配置对象

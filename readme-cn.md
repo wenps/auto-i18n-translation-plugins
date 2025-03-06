@@ -238,3 +238,9 @@ window.$t.locale(langMap[lang], 'lang')
 本插件基于 **MIT License** 开源协议 🪪。自由使用，欢迎贡献！
 
 希望它能让您的国际化开发变得更加简单和高效！🌍✨
+
+---
+
+## 🎆 作者
+
+原始作者：wenps、xu-code、Caleb-Xu、Winfans

@@ -238,3 +238,9 @@ If you need to update translations, directly modify the `index.json` file and sa
 This plugin is available under the **MIT License** 🪪. Free to use, and contributions are welcome!
 
 We hope this plugin makes internationalization development easier and more efficient for you! 🌍✨
+
+---
+
+## 🎆 authors
+
+Original authors: wenps、xu-code、Caleb-Xu、Winfans

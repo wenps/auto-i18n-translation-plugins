@@ -140,28 +140,7 @@ translator: new YoudaoTranslator({
 Ensure to include the language configuration file at the top of your **project entry file** (e.g., `main.js`):
 
 ```javascript
-import './src/lang.js' // 📍 Must be the first import in the entry file
-```
-
----
-
-### 5️⃣ Language Configuration File Example 📂
-
-Create a file named `src/lang.js`:
-
-```javascript
-// The globalPath config generates the following files:
-import '../../lang/index' 
-import langJSON from '../../lang/index.json'
-
-const langMap = {
-  en: window?.lang?.en || _getJSONKey('en', langJSON),
-  zhcn: window?.lang?.zhcn || _getJSONKey('zhcn', langJSON),
-  ko: window?.lang?.ko || _getJSONKey('ko', langJSON),
-  ja: window?.lang?.ja || _getJSONKey('ja', langJSON)
-}
-const lang = window.localStorage.getItem('lang') || 'zhcn'
-window.$t.locale(langMap[lang], 'lang')
+import '../lang/index.js' // 📍 It must be introduced in the first line of the entry file. This file will be automatically generated when running the plug-in. By default, it is in the lang folder at the same level as the packaging configuration directory, and the index.js in it is the configuration file.
 ```
 
 ---

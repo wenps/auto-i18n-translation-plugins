@@ -142,29 +142,10 @@ translator: new YoudaoTranslator({
 请在 **项目入口文件**（如 `main.js`）的顶部引入语言配置文件：
 
 ```javascript
-import './src/lang.js' // 📍 必须在入口文件中第一行引入
+import '../lang/index.js' // 📍 必须在入口文件中第一行引入，这个文件会在运行插件时自动生成，默认在打包配置目录的同一层的lang文件夹中，其中的index.js 就是配置文件了
 ```
 
----
 
-### 5️⃣ 语言配置文件示例 📂
-
-创建 `src/lang.js`：
-
-```javascript
-// globalPath 配置 将生成以下两个文件
-import '../../lang/index' 
-import langJSON from '../../lang/index.json'
-
-const langMap = {
-  en: window?.lang?.en || _getJSONKey('en', langJSON),
-  zhcn: window?.lang?.zhcn || _getJSONKey('zhcn', langJSON),
-  ko: window?.lang?.ko || _getJSONKey('ko', langJSON),
-  ja: window?.lang?.ja || _getJSONKey('ja', langJSON)
-}
-const lang = window.localStorage.getItem('lang') || 'zhcn'
-window.$t.locale(langMap[lang], 'lang')
-```
 
 ---
 

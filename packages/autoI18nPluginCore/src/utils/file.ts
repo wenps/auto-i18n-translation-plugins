@@ -1,13 +1,14 @@
 /*
- * @Author: xiaoshanwen
- * @Date: 2023-10-12 13:28:03
- * @LastEditTime: 2025-02-14 11:45:57
+ * @Date: 2025-02-14 10:48:41
+ * @LastEditors: xiaoshan
+ * @LastEditTime: 2025-03-09 14:56:27
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/utils/file.ts
  */
 import fs from 'fs'
 import path from 'path'
 import { option } from '../option'
 import { jsonFormatter } from './json'
+import { generateId } from './base'
 
 /**
  * @description: 新建国际化配置文件夹
@@ -20,42 +21,97 @@ export function initLangFile() {
     initLangTranslateJSONFile()
     initTranslateBasicFnFile()
 }
-
 /**
- * @description: 生成国际化基础调用函数文件
- * @return {*}
+ * @description: 初始化翻译基础函数文件
+ * @returns {void}
  */
 export function initTranslateBasicFnFile() {
-    const key = option.translateKey
-    const translateBasicFnText = `(function () {
-    let ${key} = function (key, val, nameSpace) {
-      const langPackage = ${key}[nameSpace]
+    // 从配置选项中获取必要的配置信息
+    const { translateKey, namespace, originLang, targetLangList } = option
+    // 生成语言映射列表
+    const langMapList = [...targetLangList, originLang]
+        // 去除语言代码中的连字符
+        .map(item => {
+            return item.replace('-', '')
+        })
+        // 构建语言映射项
+        .map(item => {
+            return `'${item}': window?.${namespace}?.${item} || window._getJSONKey('${item}', langJSON)`
+        })
+        // 用逗号和换行符连接所有映射项
+        .join(',\n')
+    // 构建翻译基础函数的文本内容
+    const translateBasicFnText = `
+    // 导入国际化JSON文件
+    import langJSON from './index.json'
+    (function () {
+    // 定义翻译函数
+    let ${translateKey} = function (key, val, nameSpace) {
+      // 获取指定命名空间下的语言包
+      const langPackage = ${translateKey}[nameSpace];
+      // 返回翻译结果，如果不存在则返回默认值
       return (langPackage || {})[key] || val;
     };
-    let $${key} = function (val) {
+    // 定义简单翻译函数，直接返回传入的值
+    let $${translateKey} = function (val) {
       return val;
     };
-    ${key}.locale = function (locale, nameSpace) {
-      ${key}[nameSpace] = locale || {};
+    // 定义设置语言包的方法
+    ${translateKey}.locale = function (locale, nameSpace) {
+      // 将指定命名空间下的语言包设置为传入的locale
+      ${translateKey}[nameSpace] = locale || {};
     };
-    window.${key} = window.${key} || ${key};
-    window.$${key} = $${key};
+    // 将翻译函数挂载到window对象上，如果已经存在则使用已有的
+    window.${translateKey} = window.${translateKey} || ${translateKey};
+    // 将简单翻译函数挂载到window对象上
+    window.$${translateKey} = $${translateKey};
+    // 定义从JSON文件中获取指定键的语言对象的方法
     window._getJSONKey = function (key, insertJSONObj = undefined) {
-      const JSONObj = insertJSONObj
-      const langObj = {}
-      Object.keys(JSONObj).forEach((value)=>{
-        langObj[value] = JSONObj[value][key]
-      })
-      return langObj
-    }
-  })();`
+        // 获取JSON对象
+        const JSONObj = insertJSONObj;
+        // 初始化语言对象
+        const langObj = {};
+        // 遍历JSON对象的所有键
+        Object.keys(JSONObj).forEach((value) => {
+            // 将每个语言的对应键值添加到语言对象中
+            langObj[value] = JSONObj[value][key];
+        });
+        // 返回语言对象
+        return langObj;
+    };
+    })();
+    // 定义语言映射对象
+    const langMap = {
+        ${langMapList}
+    };
+    // 从本地存储中获取当前语言，如果不存在则使用源语言
+    const lang = window.localStorage.getItem('${namespace}') || '${originLang.replace('-', '')}';
+    // 根据当前语言设置翻译函数的语言包
+    window.${translateKey}.locale(langMap[lang], '${namespace}');
+  `
+    // 构建翻译基础函数文件的路径
     const indexPath = path.join(option.globalPath, 'index.js')
-    if (!fs.existsSync(indexPath)) {
-        // 不存在就创建
-        fs.writeFileSync(indexPath, translateBasicFnText) // 创建
+
+    // 新增哈希比对逻辑
+    // 标记是否需要更新文件
+    let needUpdate = true
+    // 检查文件是否已存在
+    if (fs.existsSync(indexPath)) {
+        // 生成新内容的哈希值
+        const currentHash = generateId(translateBasicFnText)
+        // 读取现有文件内容
+        const existingContent = fs.readFileSync(indexPath, 'utf-8')
+        // 生成现有内容的哈希值
+        const existingHash = generateId(existingContent)
+        // 判断是否需要更新文件
+        needUpdate = currentHash !== existingHash
+    }
+
+    // 如果需要更新文件，则写入新内容
+    if (needUpdate) {
+        fs.writeFileSync(indexPath, translateBasicFnText)
     }
 }
-
 /**
  * @description: 生成国际化JSON文件
  * @return {*}

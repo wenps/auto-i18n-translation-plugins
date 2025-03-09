@@ -202,8 +202,8 @@ declare namespace base {
  */
 declare function initLangFile(): void;
 /**
- * @description: 生成国际化基础调用函数文件
- * @return {*}
+ * @description: 初始化翻译基础函数文件
+ * @returns {void}
  */
 declare function initTranslateBasicFnFile(): void;
 /**

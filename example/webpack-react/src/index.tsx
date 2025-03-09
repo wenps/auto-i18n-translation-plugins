@@ -1,10 +1,10 @@
 /*
  * @Date: 2025-01-23 13:44:08
  * @LastEditors: xiaoshan
- * @LastEditTime: 2025-02-11 10:47:24
+ * @LastEditTime: 2025-03-09 15:02:29
  * @FilePath: /i18n_translation_vite/example/webpack-react/src/index.tsx
  */
-import './LangInit/index'
+import '../lang/index'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'

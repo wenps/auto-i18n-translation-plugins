@@ -1,11 +1,11 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-11-23 15:52:50
- * @LastEditTime: 2025-02-11 10:48:19
+ * @LastEditTime: 2025-03-09 14:58:30
  * @FilePath: /i18n_translation_vite/example/vue2/src/main.js
  */
 
-import './LangInit/index'
+import '../lang/index'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'

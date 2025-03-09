@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-26 17:34:47
- * @LastEditTime: 2025-03-04 19:30:14
+ * @LastEditTime: 2025-03-09 13:04:35
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
@@ -49,7 +49,7 @@ const DEFAULT_OPTION = {
     langKey: [] as string[],
 
     /** 命名空间，防止全局命名冲突 */
-    namespace: '',
+    namespace: 'lang',
 
     /** 是否在构建结束之后将最新的翻译重新打包到主包中，默认不打包 */
     buildToDist: false,
@@ -82,9 +82,7 @@ export let option: OptionType = { ...DEFAULT_OPTION }
 /**
  * 类型定义：用户传入的配置选项
  */
-export type OptionInfo = {
-    option: Partial<OptionType> // TODO: 没有区分必填项与非必填项
-}
+export interface OptionInfo extends Partial<OptionType> {}
 
 /**
  * 通过深度克隆提供的选项信息生成一个用户选项对象，
@@ -94,8 +92,8 @@ export type OptionInfo = {
  */
 function generateUserOption(optionInfo: OptionInfo) {
     // 深拷贝用户传入的配置，防止修改原配置对象
-    const userOption = cloneDeep(optionInfo.option)
-    userOption.translator = optionInfo?.option?.translator
+    const userOption = cloneDeep(optionInfo)
+    userOption.translator = optionInfo?.translator
 
     // 如果用户配置了translatorOption则初始化translator，如果都没有则不设置translator
     userOption.translator ||= userOption.translatorOption

@@ -5,6 +5,7 @@
 🎉 **Auto Translation Plugin** for frontend languages, supports all JavaScript-based frontend frameworks (e.g., Vue2/3, React). No need to modify source code! With seamless multi-language support 🌐🚀— it integrates Youdao Translator and Google Translator by default and allows custom translators. Compatible with Webpack, Vite, Rollup, and other major build tools.
 
 ### 🎯 Key Features:
+
 - 🛠️ **No Source Code Changes**: Instant multi-language translation;
 - 🌐 **Supports Multiple Translation Services** (including Google, Youdao, or custom translators);
 - 🔍 **Smart Detection** of text requiring translation;
@@ -33,6 +34,7 @@
 ### 1️⃣ Plugin Installation
 
 #### **For Vite Projects:**
+
 ```bash
 npm install vite-auto-i18n-plugin --save-dev
 # or
@@ -40,6 +42,7 @@ yarn add vite-auto-i18n-plugin --dev
 ```
 
 #### **For Webpack Projects:**
+
 ```bash
 npm install webpack-auto-i18n-plugin --save-dev
 # or
@@ -51,6 +54,7 @@ yarn add webpack-auto-i18n-plugin --dev
 ### 2️⃣ Basic Configuration
 
 #### **Example for Vite** (vite.config.js):
+
 ```javascript
 import { defineConfig } from 'vite'
 import vitePluginAutoI18n from 'vite-auto-i18n-plugin'
@@ -85,6 +89,7 @@ export default defineConfig({
 ```
 
 #### **Example for Webpack** (webpack.config.js):
+
 ```javascript
 const webpackPluginsAutoI18n = require('webpack-auto-i18n-plugin')
 const { YoudaoTranslator } = require('webpack-auto-i18n-plugin')
@@ -122,6 +127,7 @@ module.exports = {
 The plugin uses Google Translator by default. If proxy configuration is required, prioritize **Youdao Translator**, which provides better translation results ✨. The plugin already comes integrated with Google and Youdao Translators. For custom translators, extend the `Translator` class as shown below.
 
 #### **Using Google Translator (default)**:
+
 ```javascript
 translator: new GoogleTranslator({
   proxyOption: {
@@ -135,6 +141,7 @@ translator: new GoogleTranslator({
 ```
 
 #### **Using Youdao Translator**:
+
 ```javascript
 translator: new YoudaoTranslator({
   appId: '4cdb9baea8066fef', // Youdao Translator AppId
@@ -147,6 +154,7 @@ translator: new YoudaoTranslator({
 ### 4️⃣ Entry File Configuration 🏗️
 
 Ensure to include the language configuration file at the top of your **project entry file** (e.g., `main.js`):
+
 ```javascript
 import './src/lang.js' // 📍 Must be the first import in the entry file
 ```
@@ -156,6 +164,7 @@ import './src/lang.js' // 📍 Must be the first import in the entry file
 ### 5️⃣ Language Configuration File Example 📂
 
 Create a file named `src/lang.js`:
+
 ```javascript
 // The globalPath config generates the following files:
 import '../../lang/index' 
@@ -175,22 +184,23 @@ window.$t.locale(langMap[lang], 'lang')
 
 ## ⚙️ Configuration Parameters
 
-| Parameter         | Type        | Required | Default                      | Description                                                          |
-|-------------------|-------------|----------|------------------------------|----------------------------------------------------------------------|
-| translateKey      | string      | ✅       | `$t`                         | The function name for calling translations, defaults to `$t`.        |
-| excludedCall      | string[]    | ❌       | `['$i8n', 'require', …]`     | A list of function calls excluded from translation.                  |
-| excludedPattern   | RegExp[]    | ❌       | `[/\.\w+$/]`                 | Regular expressions to exclude certain patterns, e.g., file paths.   |
-| excludedPath      | string[]    | ❌       | `['node_modules']`           | Exclude files under specified directories (e.g., `node_modules`).     |
-| includePath       | RegExp[]    | ❌       | `[/src\//]`                  | Define a whitelist for directories/files to translate (`src` by default). |
-| globalPath        | string      | ❌       | `'./lang'`                   | The path where translation configuration files are generated.        |
-| distPath          | string      | ✅       | `''`                         | The directory where the translation files are built.                 |
-| distKey           | string      | ✅       | `'index'`                    | The name of the main translation file after bundling.                |
-| namespace         | string      | ✅       | `''`                         | The project namespace, helpful for avoiding global conflicts.         |
-| originLang        | string      | ✅       | `'zh-cn'`                    | The source language for translation.                                 |
-| targetLangList    | string[]    | ✅       | `['en']`                     | A list of target languages for translation.                          |
-| buildToDist       | boolean     | ❌       | `false`                      | Whether to bundle translation files into the main build bundle.      |
-| translator        | Translator  | ❌       | `GoogleTranslator`           | The translation instance.                                            |
-| translatorOption  | Object      | ❌       | `{}`                         | Additional configuration for the translator (lower precedence).      |
+
+| Parameter        | Type       | Required | Default                   | Description                                                               |
+| ---------------- | ---------- | -------- | ------------------------- | ------------------------------------------------------------------------- |
+| translateKey     | string     | ✅       | `$t`                      | The function name for calling translations, defaults to`$t`.              |
+| excludedCall     | string[]   | ❌       | `['$i8n', 'require', …]` | A list of function calls excluded from translation.                       |
+| excludedPattern  | RegExp[]   | ❌       | `[/\.\w+$/]`              | Regular expressions to exclude certain patterns, e.g., file paths.        |
+| excludedPath     | string[]   | ❌       | `['node_modules']`        | Exclude files under specified directories (e.g.,`node_modules`).          |
+| includePath      | RegExp[]   | ❌       | `[/src\//]`               | Define a whitelist for directories/files to translate (`src` by default). |
+| globalPath       | string     | ❌       | `'./lang'`                | The path where translation configuration files are generated.             |
+| distPath         | string     | ✅       | `''`                      | The directory where the translation files are built.                      |
+| distKey          | string     | ✅       | `'index'`                 | The name of the main translation file after bundling.                     |
+| namespace        | string     | ✅       |  `'lang'`                 | The project namespace, helpful for avoiding global conflicts.             |
+| originLang       | string     | ✅       | `'zh-cn'`                 | The source language for translation.                                      |
+| targetLangList   | string[]   | ✅       | `['en']`                  | A list of target languages for translation.                               |
+| buildToDist      | boolean    | ❌       | `false`                   | Whether to bundle translation files into the main build bundle.           |
+| translator       | Translator | ❌       | `GoogleTranslator`        | The translation instance.                                                 |
+| translatorOption | Object     | ❌       | `{}`                      | Additional configuration for the translator (lower precedence).           |
 
 ---
 
@@ -203,6 +213,7 @@ In Vite environments, the plugin only generates translation configuration files 
 ## 🔄 How to Update Translations?
 
 After executing the plugin, two files will be generated in the `\lang` directory:
+
 - **index.js**: Contains translation-related functions.
 - **index.json**: Stores the translation text content.
 
@@ -213,15 +224,16 @@ If you need to update translations, directly modify the `index.json` file and sa
 ## ⚠️ Important Notes
 
 1. **Proxy Requirements**
+
    - For domestic users, **Youdao Translator** is highly recommended.
    - Using Google Translator in regions like China requires proxy configuration.
    - The default proxy port is **7890**, but it can be customized via the `proxyOption`.
-
 2. **Translation Rate Limits**
+
    - Google Translator is a free service but may impose restrictions for excessive requests 🔒.
    - Add sufficient time intervals between consecutive translation requests 💡.
-
 3. **Translation Update Mechanism**
+
    - The `globalPath` directory contains `index.json`, which is the core translation file.
    - Modify and save the `index.json` to instantly update translation content.
 

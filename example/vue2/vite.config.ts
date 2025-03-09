@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-08-10 17:12:17
- * @LastEditTime: 2025-02-18 11:19:58
+ * @LastEditTime: 2025-03-09 13:39:01
  * @FilePath: /i18n_translation_vite/example/vue2/vite.config.ts
  */
 import path from 'path'
@@ -10,18 +10,10 @@ import vue from '@vitejs/plugin-vue2'
 import vitePluginsAutoI18n, { YoudaoTranslator } from 'vite-auto-i18n-plugin'
 
 const i18nPlugin = vitePluginsAutoI18n({
-    option: {
-        globalPath: './lang',
-        namespace: 'lang',
-        distPath: './dist/assets',
-        distKey: 'index',
-        targetLangList: ['en', 'ko', 'ja'],
-        originLang: 'zh-cn',
-        translator: new YoudaoTranslator({
-            appId: '4cdb9baea8066fef',
-            appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j'
-        })
-    }
+    translator: new YoudaoTranslator({
+        appId: '4cdb9baea8066fef',
+        appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j'
+    })
 })
 
 export default defineConfig({

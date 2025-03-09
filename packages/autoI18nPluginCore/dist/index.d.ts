@@ -102,9 +102,8 @@ declare let option: OptionType;
 /**
  * 类型定义：用户传入的配置选项
  */
-type OptionInfo = {
-    option: Partial<OptionType>;
-};
+interface OptionInfo extends Partial<OptionType> {
+}
 /**
  * 初始化插件配置选项
  * @param optionInfo 用户提供的配置选项

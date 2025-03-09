@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-01-23 13:44:00
  * @LastEditors: xiaoshan
- * @LastEditTime: 2025-02-11 10:37:05
+ * @LastEditTime: 2025-03-09 13:15:34
  * @FilePath: /i18n_translation_vite/example/webpack-vue3/webpack.config.js
  */
 const path = require('path')
@@ -13,18 +13,16 @@ const webpackPluginsAutoI18n = require('webpack-auto-i18n-plugin')
 const { YoudaoTranslator } = require('webpack-auto-i18n-plugin')
 
 const i18nPlugin = new webpackPluginsAutoI18n.default({
-    option: {
-        globalPath: './lang',
-        namespace: 'lang',
-        distPath: './dist/assets',
-        distKey: 'index',
-        targetLangList: ['en', 'ko', 'ja', 'ru'],
-        originLang: 'zh-cn',
-        translator: new YoudaoTranslator({
-            appId: '4cdb9baea8066fef',
-            appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j'
-        })
-    }
+    globalPath: './lang',
+    namespace: 'lang',
+    distPath: './dist/assets',
+    distKey: 'index',
+    targetLangList: ['en', 'ko', 'ja', 'ru'],
+    originLang: 'zh-cn',
+    translator: new YoudaoTranslator({
+        appId: '4cdb9baea8066fef',
+        appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j'
+    })
 })
 
 module.exports = {

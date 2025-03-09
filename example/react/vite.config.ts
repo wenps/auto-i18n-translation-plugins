@@ -9,6 +9,10 @@ import react from '@vitejs/plugin-react'
 import vitePluginsAutoI18n, { YoudaoTranslator } from 'vite-auto-i18n-plugin'
 
 const i18nPlugin = vitePluginsAutoI18n({
+    globalPath: './lang',
+    namespace: 'lang',
+    distPath: './dist/assets',
+    distKey: 'index',
     targetLangList: ['en', 'ko'],
     originLang: 'zh-cn',
     translator: new YoudaoTranslator({

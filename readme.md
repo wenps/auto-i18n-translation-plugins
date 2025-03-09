@@ -71,18 +71,16 @@ export default defineConfig({
       }
     }),
     vitePluginAutoI18n({
-      option: {
-        globalPath: './lang',
-        namespace: 'lang',
-        distPath: './dist/assets',
-        distKey: 'index',
-        targetLangList: ['en', 'ko', 'ja'], // Target languages
-        originLang: 'zh-cn', // Source language
-        translator: new YoudaoTranslator({
-          appId: '4cdb9baea8066fef',
-          appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j'
-        })
-      }
+      globalPath: './lang',
+      namespace: 'lang',
+      distPath: './dist/assets',
+      distKey: 'index',
+      targetLangList: ['en', 'ko', 'ja'], // Target languages
+      originLang: 'zh-cn', // Source language
+      translator: new YoudaoTranslator({
+        appId: '4cdb9baea8066fef',
+        appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j'
+      })
     })
   ]
 })
@@ -95,18 +93,16 @@ const webpackPluginsAutoI18n = require('webpack-auto-i18n-plugin')
 const { YoudaoTranslator } = require('webpack-auto-i18n-plugin')
 
 const i18nPlugin = new webpackPluginsAutoI18n.default({
-  option: {
-    globalPath: './lang',
-    namespace: 'lang',
-    distPath: './dist/assets', 
-    distKey: 'index',
-    targetLangList: ['en', 'ko', 'ja', 'ru'], // Fully customizable language list
-    originLang: 'zh-cn',
-    translator: new YoudaoTranslator({
-      appId: '4cdb9baea8066fef',
-      appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j'
-    })
-  }
+  globalPath: './lang',
+  namespace: 'lang',
+  distPath: './dist/assets', 
+  distKey: 'index',
+  targetLangList: ['en', 'ko', 'ja', 'ru'], // Fully customizable language list
+  originLang: 'zh-cn',
+  translator: new YoudaoTranslator({
+    appId: '4cdb9baea8066fef',
+    appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j'
+  })
 })
 
 module.exports = {

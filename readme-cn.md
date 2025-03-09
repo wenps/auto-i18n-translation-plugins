@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="./exampleIMG/autoi18in.svg" alt="auto-i18n-translation-plugins" width="300">
+</div>
+
 # 🚀 auto-i18n-translation-plugins
 
 ## 🍉 插件介绍

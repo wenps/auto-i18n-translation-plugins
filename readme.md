@@ -1,3 +1,9 @@
+
+<div align="center">
+  <img src="./exampleIMG/autoi18in.svg" alt="auto-i18n-translation-plugins" width="300">
+</div>
+
+
 # 🚀 auto-i18n-translation-plugins
 
 ## 🍉 Plugin Introduction
@@ -158,7 +164,7 @@ import '../lang/index.js' // 📍 It must be introduced in the first line of the
 | globalPath       | string     | ❌       | `'./lang'`                | The path where translation configuration files are generated.             |
 | distPath         | string     | ✅       | `''`                      | The directory where the translation files are built.                      |
 | distKey          | string     | ✅       | `'index'`                 | The name of the main translation file after bundling.                     |
-| namespace        | string     | ✅       |  `'lang'`                 | The project namespace, helpful for avoiding global conflicts.             |
+| namespace        | string     | ✅       | `'lang'`                  | The project namespace, helpful for avoiding global conflicts.             |
 | originLang       | string     | ✅       | `'zh-cn'`                 | The source language for translation.                                      |
 | targetLangList   | string[]   | ✅       | `['en']`                  | A list of target languages for translation.                               |
 | buildToDist      | boolean    | ❌       | `false`                   | Whether to bundle translation files into the main build bundle.           |

@@ -5,7 +5,6 @@
  * @FilePath: /i18n_translation_vite/script/build.js
  */
 // @ts-check
-import { PluginTypeEnum } from './constant.js'
 import shell from 'shelljs' // 使用 import 引入 shelljs 模块
 import { select } from '@inquirer/prompts' // 使用 import 引入 select 函数
 
@@ -30,10 +29,10 @@ const run = async () => {
         shell.exec(buildCmd, { async: isDev })
     }
 
-    const choices = Object.values(PluginTypeEnum).map(type => {
+    const choices = ['vite', 'webpack'].map(type => {
         return {
             name: type,
-            value: type
+            value: type + 'PluginsAutoI18n' // 这里用了拼接，要留意后续目录是否变更
         }
     })
     let dir
@@ -48,13 +47,13 @@ const run = async () => {
             default: choices[0].value
         })
     }
-    shell.cd('packages/core')
+    shell.cd('packages/autoI18nPluginCore')
     runBuild()
 
-    // shell.cd('..')
+    shell.cd('..')
 
-    // shell.cp('readme*', dir)
-    // shell.cd(dir)
+    shell.cp('readme*', dir)
+    shell.cd(dir)
     runBuild()
 }
 

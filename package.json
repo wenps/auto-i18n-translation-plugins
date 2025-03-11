@@ -8,8 +8,8 @@
         "preview": "node script/preview.js",
         "build": "node script/build.js",
         "upload": "node script/upload.js",
-        "publish:plugin": "cd package/vite && pnpm publish",
-        "publishWp:plugin": "cd package/webpack && pnpm publish",
+        "publish:plugin": "cd vitePluginsAutoI18n && pnpm publish",
+        "publishWp:plugin": "cd webpackPluginsAutoI18n && pnpm publish",
         "format": "npx prettier . --write",
         "prepare": "husky install",
         "preinstall": "npx only-allow pnpm"

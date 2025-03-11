@@ -5,6 +5,7 @@
  * @FilePath: /i18n_translation_vite/script/upload.js
  */
 // script/upload.js
+import { TypeDirNameMap, VersionTypeEnum } from './constant.js'
 import shell from 'shelljs'
 import chalk from 'chalk'
 import { writeFile } from 'fs/promises'
@@ -13,32 +14,6 @@ import fs from 'fs'
 
 // 获取当前工作目录
 // const currentDir = shell.pwd().stdout;
-
-// 定义项目类型枚举
-const TypeEnum = {
-    CORE: 'core',
-    PLUGIN: 'plugin'
-}
-
-// 定义插件类型枚举
-const PluginTypeEnum = {
-    WEBPACK: 'webpack',
-    VITE: 'vite'
-}
-
-// 定义项目类型与目录名的映射
-const TypeDirNameMap = {
-    [TypeEnum.CORE]: 'autoI18nPluginCore',
-    [PluginTypeEnum.WEBPACK]: 'webpackPluginsAutoI18n',
-    [PluginTypeEnum.VITE]: 'vitePluginsAutoI18n'
-}
-
-// 定义版本类型枚举
-const VersionTypeEnum = {
-    MAJOR: 'major',
-    SECONDARY: 'secondary',
-    PATCH: 'patch'
-}
 
 // 定义构建命令
 const buildCmd = 'pnpm run build'

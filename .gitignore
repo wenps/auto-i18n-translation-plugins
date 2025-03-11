@@ -22,4 +22,4 @@ build
 
 example/**/lang
 example/**/dist
-package/**/dist
+packages/**/dist

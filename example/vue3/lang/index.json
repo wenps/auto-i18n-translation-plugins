@@ -1,0 +1,356 @@
+{
+	"qylb2": {
+		"zh-cn": "首页",
+		"en": "Home page",
+		"ko": "첫 페이지",
+		"ja": "トップページです"
+	},
+	"dud62": {
+		"zh-cn": "产品",
+		"en": "product",
+		"ko": "제품",
+		"ja": "製品です"
+	},
+	"ea9n2": {
+		"zh-cn": "关于",
+		"en": "With regard to",
+		"ko": "관",
+		"ja": "についてです"
+	},
+	"gpgxuq4": {
+		"zh-cn": "联系我们",
+		"en": "Contact us",
+		"ko": "연락하기",
+		"ja": "連絡してきます"
+	},
+	"dure2": {
+		"zh-cn": "中文",
+		"en": "Chinese",
+		"ko": "중국어",
+		"ja": "中文"
+	},
+	"mtva2": {
+		"zh-cn": "英文",
+		"en": "English",
+		"ko": "영어",
+		"ja": "英語です"
+	},
+	"qe9q2": {
+		"zh-cn": "韩文",
+		"en": "Korean",
+		"ko": "한글",
+		"ja": "ハングルです"
+	},
+	"hw022": {
+		"zh-cn": "日文",
+		"en": "Japanese",
+		"ko": "일본어",
+		"ja": "日本語です"
+	},
+	"3y7jr4f": {
+		"zh-cn": "电话：400-888-8888",
+		"en": "Phone: 400-888-8888",
+		"ko": "전화:888-8888",
+		"ja": "お電話は400-888-8888です。"
+	},
+	"aq98y84": {
+		"zh-cn": "关注我们",
+		"en": "Follow us",
+		"ko": "우리를 염려하다",
+		"ja": "私たちに注目しています"
+	},
+	"gpo32": {
+		"zh-cn": "微信",
+		"en": "wechat",
+		"ko": "웨이 신",
+		"ja": "ウィーチャットです"
+	},
+	"gqcs2": {
+		"zh-cn": "微博",
+		"en": "microblog",
+		"ko": "웨이 보",
+		"ja": "ウェイボーです"
+	},
+	"fiivwb9": {
+		"zh-cn": "未来科技，现在开始",
+		"en": "Future technology, start now",
+		"ko": "미래의 기술, 이제 시작입니다",
+		"ja": "これから未来のテクノロジーが始まります"
+	},
+	"7agp75e": {
+		"zh-cn": "用科技改变世界，创造美好未来",
+		"en": "Use technology to change the world and create a better future",
+		"ko": "과학기술로 세계를 개변시키고 아름다운 미래를 창조하여야 합니다",
+		"ja": "テクノロジーで世界を変え未来を創造します"
+	},
+	"abq2cu4": {
+		"zh-cn": "人工智能",
+		"en": "Artificial intelligence",
+		"ko": "인공 지능",
+		"ja": "人工知能です"
+	},
+	"p5aqsge": {
+		"zh-cn": "领先的AI技术应用与解决方案",
+		"en": "Leading AI technology applications and solutions",
+		"ko": "선도적인 ai 기술 적용과 솔루션",
+		"ja": "最先端のAI応用とソリューションです"
+	},
+	"c6pgn3": {
+		"zh-cn": "云计算",
+		"en": "Cloud computing",
+		"ko": "클라우드 컴퓨팅",
+		"ja": "クラウドコンピューティングです"
+	},
+	"8r98wk8": {
+		"zh-cn": "高性能云服务平台",
+		"en": "High-performance cloud service platform",
+		"ko": "고성능 클라우드 플랫폼",
+		"ja": "高性能クラウドサービスのプラットフォームです"
+	},
+	"cmiwx3": {
+		"zh-cn": "区块链",
+		"en": "blockchain",
+		"ko": "블록 체인",
+		"ja": "ブロックチェーンです"
+	},
+	"nog56ka": {
+		"zh-cn": "安全可靠的区块链技术",
+		"en": "Secure and reliable blockchain technology",
+		"ko": "안전하고 믿을 수 있는 블록체인기술",
+		"ja": "安全で信頼性の高いブロックチェーン技術です"
+	},
+	"cd00y34": {
+		"zh-cn": "开始探索",
+		"en": "Start exploring",
+		"ko": "탐험을 시작하다",
+		"ja": "探索を始めます"
+	},
+	"djq3qy4": {
+		"zh-cn": "核心技术",
+		"en": "Core technology",
+		"ko": "핵심 기술",
+		"ja": "コアテクノロジーです"
+	},
+	"8lvu966": {
+		"zh-cn": "智能分析平台",
+		"en": "Intelligent analysis platform",
+		"ko": "지능형 분석 플랫폼",
+		"ja": "知能分析プラットフォームです"
+	},
+	"3iz2c1e": {
+		"zh-cn": "企业级数据分析和决策支持系统",
+		"en": "Enterprise-class data analysis and decision support systems",
+		"ko": "기업급 데이터 분석 및 의사결정 지원 시스템",
+		"ja": "企業レベルのデータ分析・意思決定支援システムです"
+	},
+	"ym56fy5": {
+		"zh-cn": "云服务平台",
+		"en": "Cloud service platform",
+		"ko": "클라우드 서비스 플랫폼",
+		"ja": "クラウドサービスのプラットフォームです"
+	},
+	"g76qgoa": {
+		"zh-cn": "高性能云计算解决方案",
+		"en": "High-performance cloud computing solutions",
+		"ko": "고성능 클라우드 솔루션",
+		"ja": "高性能クラウドコンピューティングのソリューションです"
+	},
+	"i3rdu35": {
+		"zh-cn": "区块链服务",
+		"en": "Blockchain service",
+		"ko": "블록 체인 서비스",
+		"ja": "ブロックチェーンサービスです"
+	},
+	"pblwe6c": {
+		"zh-cn": "安全可靠的区块链应用平台",
+		"en": "Secure and reliable blockchain application platform",
+		"ko": "안전하고 신뢰할 수 있는 블록체인용 플랫폼입니다",
+		"ja": "安全で信頼性の高いブロックチェーン応用プラットフォームです"
+	},
+	"3jfu7v8": {
+		"zh-cn": "查看产品详情: ",
+		"en": "View product details:",
+		"ko": "제품 정보 보기:",
+		"ja": "製品の詳細を調べます:"
+	},
+	"aa1ktq4": {
+		"zh-cn": "产品服务",
+		"en": "Product service",
+		"ko": "제품 서비스",
+		"ja": "製品サービスです"
+	},
+	"ah8ozn4": {
+		"zh-cn": "了解更多",
+		"en": "Learn more",
+		"ko": "자세히 보기",
+		"ja": "もっと詳しく知ります"
+	},
+	"glwp2": {
+		"zh-cn": "张三",
+		"en": "Zhang SAN",
+		"ko": "장삼",
+		"ja": "張三さんです"
+	},
+	"qgp0zo5": {
+		"zh-cn": "首席执行官",
+		"en": "Chief executive officer",
+		"ko": "최고 경영자",
+		"ja": "ceoです"
+	},
+	"rpyj3go": {
+		"zh-cn": "拥有15年技术管理经验，曾任多家知名科技公司高管",
+		"en": "He has 15 years of technology management experience and has been a senior executive of several well-known technology companies",
+		"ko": "15년의 기술관리경험을 가지고있으며 여러곳의 유명한 과학기술회사에서 고위관리직을 맡은적이 있다",
+		"ja": "15年の技術管理経験を持ち、数々の有名テクノロジー企業の役員を務めてきました。"
+	},
+	"i1ql2": {
+		"zh-cn": "李四",
+		"en": "Li Si",
+		"ko": "리",
+		"ja": "リー四"
+	},
+	"cuu50l4": {
+		"zh-cn": "技术总监",
+		"en": "Technical director",
+		"ko": "기술 총감독",
+		"ja": "技術総監です"
+	},
+	"lsgj9do": {
+		"zh-cn": "人工智能专家，发表多篇学术论文，拥有多项技术专利",
+		"en": "Ai expert, published a number of academic papers, has a number of technical patents",
+		"ko": "인공지능 전문가, 많은 학술 론문을 발표했고 많은 기술 특허를 보유했다",
+		"ja": "人工知能の専門家で多くの論文を発表し特許も持っています"
+	},
+	"k31l2": {
+		"zh-cn": "王五",
+		"en": "A surname",
+		"ko": "왕 씨",
+		"ja": "王五です"
+	},
+	"aa0m7k4": {
+		"zh-cn": "产品总监",
+		"en": "Product director",
+		"ko": "제품 디렉터",
+		"ja": "プロダクトディレクターです"
+	},
+	"5nf516n": {
+		"zh-cn": "10年产品经验，专注于企业级软件产品设计与开发",
+		"en": "10 years of product experience, focusing on enterprise software product design and development",
+		"ko": "10년 제품 경험, 기업 소프트웨어 제품 설계 및 개발에 집중",
+		"ja": "企業向けソフトウェア製品の設計と開発に10年の経験を積んでいます"
+	},
+	"alt7ee4": {
+		"zh-cn": "关于我们",
+		"en": "About us",
+		"ko": "우리 자신에 대해",
+		"ja": "私たちについてです"
+	},
+	"aljerc9": {
+		"zh-cn": "用科技创新引领未来",
+		"en": "Lead the future with scientific and technological innovation",
+		"ko": "과학기술혁신으로 미래를 선도해야 합니다",
+		"ja": "技術革新で未来をリードします"
+	},
+	"amllxz4": {
+		"zh-cn": "公司简介",
+		"en": "Company profile",
+		"ko": "회사 소개",
+		"ja": "会社紹介です"
+	},
+	"2i6hnp29": {
+		"zh-cn": "FutureTech是一家专注于前沿科技的创新型企业，致力于为客户提供领先的技术解决方案。我们在人工智能、云计算、区块链等领域拥有深厚的技术积累和丰富的实践经验。",
+		"en": "FutureTech is an innovative company focused on cutting-edge technology, committed to providing customers with leading technology solutions. We have deep technical accumulation and rich practical experience in artificial intelligence, cloud computing, blockchain and other fields.",
+		"ko": "futuretech는 고객에게 최첨단 솔루션을 제공하는 최첨단 기술 중심의 혁신적인 기업입니다.우리는 인공지능 (ai), 클라우드 컴퓨팅 (cloud computation), 블록 체인 (block chain) 등 분야에서 풍부한 기술 축적과 실무 경험을 가지고 있습니다.",
+		"ja": "FutureTechは最先端のテクノロジーに特化した革新的な企業で、最先端のソリューションを顧客に提供しています。私たちは人工知能、クラウドコンピューティング、ブロックチェーンなどの分野で深い技術蓄積と豊富な実践経験を持っています。"
+	},
+	"mmzuxy1g": {
+		"zh-cn": "自成立以来，我们始终坚持\"创新驱动发展\"的理念，通过持续的技术创新和优质的服务，帮助客户实现数字化转型。",
+		"en": "Since its establishment, we have always adhered to the concept of \"innovation-driven development\" and helped customers achieve digital transformation through continuous technological innovation and quality service.",
+		"ko": "설립 이래, 우리는 시종\"혁신에 의한 발전\"의 리념을 견지하고 지속적인 기술혁신과 양질의 서비스를 통해 고객의 디지털화 전환을 도와드립니다.",
+		"ja": "創立以来、私達は一貫して「革新駆動型発展」の理念を堅持し、継続的な技術革新と優れたサービスを通じて、お客様のデジタルトランスフォーメーションの実現を支援します。"
+	},
+	"aam40e4": {
+		"zh-cn": "企业客户",
+		"en": "Enterprise customer",
+		"ko": "기업 고객",
+		"ja": "顧客企業です"
+	},
+	"cuqulh4": {
+		"zh-cn": "技术专利",
+		"en": "Technical patent",
+		"ko": "기술 특허",
+		"ja": "技術特許です"
+	},
+	"h5po3": {
+		"zh-cn": "5年+",
+		"en": "5 years +",
+		"ko": "5년 +",
+		"ja": "5年+です"
+	},
+	"hixn574": {
+		"zh-cn": "行业经验",
+		"en": "Industry experience",
+		"ko": "업계 경험",
+		"ja": "業界経験です"
+	},
+	"djodvs4": {
+		"zh-cn": "核心团队",
+		"en": "Core team",
+		"ko": "핵심 팀",
+		"ja": "コアチームです"
+	},
+	"qtsyrp8": {
+		"zh-cn": "随时为您提供帮助",
+		"en": "We are here to help you",
+		"ko": "언제든지 도움을 드리겠습니다",
+		"ja": "いつでもご協力いたします"
+	},
+	"gphnfh4": {
+		"zh-cn": "联系方式",
+		"en": "Contact information",
+		"ko": "연락처",
+		"ja": "連絡先です"
+	},
+	"fb4g2": {
+		"zh-cn": "地址",
+		"en": "address",
+		"ko": "주소",
+		"ja": "アドレスです"
+	},
+	"gl6j4sd": {
+		"zh-cn": "北京市朝阳区科技园区88号",
+		"en": "88 Science and Technology Park, Chaoyang District, Beijing",
+		"ko": "북경시 조양구 과학기술단지 88호",
+		"ja": "北京市朝陽区科学技術園区88号です"
+	},
+	"kpc82": {
+		"zh-cn": "电话",
+		"en": "telephone",
+		"ko": "전화",
+		"ja": "電話です"
+	},
+	"padf2": {
+		"zh-cn": "邮箱",
+		"en": "mailbox",
+		"ko": "메일 박스",
+		"ja": "メールボックスです"
+	},
+	"b67b5j4": {
+		"zh-cn": "发送消息",
+		"en": "Send a message",
+		"ko": "메시지 보내기",
+		"ja": "メッセージを送ります。"
+	},
+	"fqmy2": {
+		"zh-cn": "姓名",
+		"en": "name",
+		"ko": "이름",
+		"ja": "名前です"
+	},
+	"j5rb2": {
+		"zh-cn": "消息",
+		"en": "message",
+		"ko": "소식",
+		"ja": "メッセージです"
+	}
+}

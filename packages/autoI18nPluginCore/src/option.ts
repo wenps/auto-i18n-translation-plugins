@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-26 17:34:47
- * @LastEditTime: 2025-03-09 13:04:35
+ * @LastEditTime: 2025-03-13 18:01:16
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
@@ -19,7 +19,7 @@ const DEFAULT_OPTION = {
     translateKey: '$t',
 
     /** 标记不翻译调用函数列表，避免某些调用被错误翻译 */
-    excludedCall: ['$i8n', 'console.log', '$t', 'require', '$$i8n'],
+    excludedCall: ['$i8n', 'console.log', '$t', 'require', '$$i8n', '$$t'],
 
     /** 标记不用翻译的字符串模式数组，默认是匹配文件扩展名 */
     excludedPattern: [/\.\w+$/],

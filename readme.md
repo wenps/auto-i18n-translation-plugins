@@ -15,6 +15,7 @@
 -   🔍 **Smart Detection** of text requiring translation;
 -   🔧 **Flexible Configuration Options** to suit various project requirements.
 
+tips：Youdao Translation requires users to apply for Youdao translation services by themselves, and the keys in the demo have been used up.
 ---
 
 ## 📚 Plugin Debugging

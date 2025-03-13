@@ -6,6 +6,11 @@ export interface TranslatorOption {
     interval?: number
 }
 
+// 定义翻译类型和提示信息的映射
+const translationTypeMap = new Map<string | undefined, string>([
+    ['有道翻译', '请前往有道翻译官方申请翻译key，默认会有50的额度，并请检查额度是否充足。']
+])
+
 class IntervalQueue<T extends any[], U extends any> {
     private delay: number
     private timeout: number | undefined
@@ -94,7 +99,11 @@ export class Translator {
         } catch (error) {
             const name = this.option.name
             console.error(
-                `翻译api${name ? `【${name}】` : ''}请求异常：${this.getErrorMessage(error)}`
+                `翻译api${name ? `【${name}】` : ''}请求异常：${this.getErrorMessage(error)}` +
+                    '\n' +
+                    translationTypeMap &&
+                    translationTypeMap.has(name) &&
+                    translationTypeMap.get(name)
             )
         }
         return result

@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-30 18:23:03
- * @LastEditTime: 2025-02-18 10:56:44
+ * @LastEditTime: 2025-03-13 16:32:56
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/utils/translate.ts
  */
 
@@ -127,6 +127,9 @@ export async function autoTranslate() {
 
         // ─── 翻译结果校验 ───
         if (translatedValues.length !== Object.keys(transLangObj).length) {
+            console.error(
+                '❌ 使用付费翻译时，请检查翻译API额度是否充足，或是否已申请对应翻译API使用权限（如使用有道翻译）'
+            )
             console.error(`❌ 翻译结果不完整
                 预期数量: ${Object.keys(transLangObj).length}
                 实际数量: ${translatedValues.length}

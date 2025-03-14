@@ -11,8 +11,9 @@
         "react i18n"
     ],
     "exports": {
+        "import": "./dist/index.mjs",
         "require": "./dist/index.cjs",
-        "default": "./dist/index.mjs"
+        "types": "./dist/index.d.ts"
     },
     "types": "./dist/index.d.ts",
     "files": [

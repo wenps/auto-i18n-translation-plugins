@@ -13,8 +13,8 @@ export const PluginTypeEnum = {
 /** 插件项目类型与目录名的映射 */
 export const TypeDirNameMap = {
     [TypeEnum.CORE]: 'core',
-    [PluginTypeEnum.WEBPACK]: 'webpack',
-    [PluginTypeEnum.VITE]: 'vite'
+    [PluginTypeEnum.WEBPACK]: 'webpack-plugin',
+    [PluginTypeEnum.VITE]: 'vite-plugin'
 }
 
 /** 版本类型枚举 */

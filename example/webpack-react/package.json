@@ -11,7 +11,7 @@
         "react-router-dom": "^6.22.0"
     },
     "devDependencies": {
-        "webpack-auto-i18n-plugin": "workspace:*",
+        "webpack-auto-i18n-plugin": "workspace:webpack-plugin",
         "@babel/core": "^7.23.0",
         "@babel/preset-env": "^7.22.15",
         "@babel/preset-react": "^7.22.15",

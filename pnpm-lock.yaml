@@ -79,8 +79,8 @@ importers:
                 specifier: ^4.4.5
                 version: 4.5.3(@types/node@22.3.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6)
             vite-auto-i18n-plugin:
-                specifier: workspace:*
-                version: link:../../packages/vite
+                specifier: workspace:vite-plugin
+                version: link:../../packages/vite-plugin
 
     example/vue2:
         dependencies:
@@ -131,8 +131,8 @@ importers:
                 specifier: ^5.0.2
                 version: 5.4.1(@types/node@22.3.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6)
             vite-auto-i18n-plugin:
-                specifier: workspace:*
-                version: link:../../packages/vite
+                specifier: workspace:vite-plugin
+                version: link:../../packages/vite-plugin
             vite-plugin-html:
                 specifier: ^3.2.0
                 version: 3.2.2(vite@5.4.1(@types/node@22.3.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
@@ -207,8 +207,8 @@ importers:
                 specifier: ^5.1.5
                 version: 5.4.1(@types/node@20.14.15)(less@4.2.0)(sass@1.77.8)(terser@5.31.6)
             vite-auto-i18n-plugin:
-                specifier: workspace:*
-                version: link:../../packages/vite
+                specifier: workspace:vite-plugin
+                version: link:../../packages/vite-plugin
             vite-plugin-legacy:
                 specifier: ^2.1.0
                 version: 2.1.0(vite@5.4.1(@types/node@20.14.15)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
@@ -268,8 +268,8 @@ importers:
                 specifier: ^5.88.0
                 version: 5.96.1(webpack-cli@5.1.4)
             webpack-auto-i18n-plugin:
-                specifier: workspace:*
-                version: link:../../packages/webpack
+                specifier: workspace:webpack-plugin
+                version: link:../../packages/webpack-plugin
             webpack-cli:
                 specifier: ^5.1.4
                 version: 5.1.4(webpack-dev-server@4.15.2)(webpack@5.96.1)
@@ -317,8 +317,8 @@ importers:
                 specifier: ^5.88.0
                 version: 5.96.1(webpack-cli@5.1.4)
             webpack-auto-i18n-plugin:
-                specifier: workspace:*
-                version: link:../../packages/webpack
+                specifier: workspace:webpack-plugin
+                version: link:../../packages/webpack-plugin
             webpack-cli:
                 specifier: ^5.1.4
                 version: 5.1.4(webpack-dev-server@4.15.2)(webpack@5.96.1)
@@ -375,8 +375,8 @@ importers:
                 specifier: ^5.88.0
                 version: 5.96.1(webpack-cli@5.1.4)
             webpack-auto-i18n-plugin:
-                specifier: workspace:*
-                version: link:../../packages/webpack
+                specifier: workspace:webpack-plugin
+                version: link:../../packages/webpack-plugin
             webpack-cli:
                 specifier: ^5.1.4
                 version: 5.1.4(webpack-dev-server@4.15.2)(webpack@5.96.1)
@@ -454,7 +454,7 @@ importers:
                 specifier: ^5.1.6
                 version: 5.5.4
 
-    packages/vite:
+    packages/vite-plugin:
         dependencies:
             '@babel/core':
                 specifier: ^7.23.2
@@ -477,7 +477,7 @@ importers:
                 version: 6.0.4(@babel/core@7.26.0)(@types/babel__core@7.20.5)(rollup@4.20.0)
             '@rollup/plugin-typescript':
                 specifier: ^11.1.5
-                version: 11.1.6(rollup@4.20.0)(tslib@2.6.3)(typescript@5.5.4)
+                version: 11.1.6(rollup@4.20.0)(tslib@2.6.3)(typescript@5.7.3)
             '@types/babel__core':
                 specifier: ^7.20.3
                 version: 7.20.5
@@ -492,7 +492,7 @@ importers:
                 version: 4.20.0
             rollup-plugin-dts:
                 specifier: ^6.1.0
-                version: 6.1.1(rollup@4.20.0)(typescript@5.5.4)
+                version: 6.1.1(rollup@4.20.0)(typescript@5.7.3)
             rollup-plugin-node-externals:
                 specifier: ^7.1.2
                 version: 7.1.2(rollup@4.20.0)
@@ -501,7 +501,7 @@ importers:
                 version: 7.0.2(rollup@4.20.0)
             typescript:
                 specifier: ^5.1.6
-                version: 5.5.4
+                version: 5.7.3
             vite:
                 specifier: ^2.8.6
                 version: 2.9.18(less@4.2.0)(sass@1.77.8)
@@ -509,7 +509,7 @@ importers:
                 specifier: ^2.1.0
                 version: 2.1.0(vite@2.9.18(less@4.2.0)(sass@1.77.8))
 
-    packages/webpack:
+    packages/webpack-plugin:
         dependencies:
             '@babel/core':
                 specifier: ^7.26.0
@@ -544,7 +544,7 @@ importers:
                 version: 7.26.0
             '@rollup/plugin-typescript':
                 specifier: ^11.1.5
-                version: 11.1.6(rollup@4.20.0)(tslib@2.6.3)(typescript@5.5.4)
+                version: 11.1.6(rollup@4.20.0)(tslib@2.6.3)(typescript@5.7.3)
             '@types/babel__core':
                 specifier: ^7.20.3
                 version: 7.20.5
@@ -559,13 +559,13 @@ importers:
                 version: 4.20.0
             rollup-plugin-dts:
                 specifier: ^6.1.0
-                version: 6.1.1(rollup@4.20.0)(typescript@5.5.4)
+                version: 6.1.1(rollup@4.20.0)(typescript@5.7.3)
             rollup-plugin-node-externals:
                 specifier: ^7.1.2
                 version: 7.1.2(rollup@4.20.0)
             typescript:
                 specifier: ^5.1.6
-                version: 5.5.4
+                version: 5.7.3
             vite:
                 specifier: ^2.8.6
                 version: 2.9.18(less@4.2.0)(sass@1.77.8)
@@ -2663,6 +2663,7 @@ packages:
             }
         cpu: [arm]
         os: [linux]
+        libc: [glibc]
 
     '@rollup/rollup-linux-arm-musleabihf@4.20.0':
         resolution:
@@ -2671,6 +2672,7 @@ packages:
             }
         cpu: [arm]
         os: [linux]
+        libc: [musl]
 
     '@rollup/rollup-linux-arm64-gnu@4.20.0':
         resolution:
@@ -2679,6 +2681,7 @@ packages:
             }
         cpu: [arm64]
         os: [linux]
+        libc: [glibc]
 
     '@rollup/rollup-linux-arm64-musl@4.20.0':
         resolution:
@@ -2687,6 +2690,7 @@ packages:
             }
         cpu: [arm64]
         os: [linux]
+        libc: [musl]
 
     '@rollup/rollup-linux-powerpc64le-gnu@4.20.0':
         resolution:
@@ -2695,6 +2699,7 @@ packages:
             }
         cpu: [ppc64]
         os: [linux]
+        libc: [glibc]
 
     '@rollup/rollup-linux-riscv64-gnu@4.20.0':
         resolution:
@@ -2703,6 +2708,7 @@ packages:
             }
         cpu: [riscv64]
         os: [linux]
+        libc: [glibc]
 
     '@rollup/rollup-linux-s390x-gnu@4.20.0':
         resolution:
@@ -2711,6 +2717,7 @@ packages:
             }
         cpu: [s390x]
         os: [linux]
+        libc: [glibc]
 
     '@rollup/rollup-linux-x64-gnu@4.20.0':
         resolution:
@@ -2719,6 +2726,7 @@ packages:
             }
         cpu: [x64]
         os: [linux]
+        libc: [glibc]
 
     '@rollup/rollup-linux-x64-musl@4.20.0':
         resolution:
@@ -2727,6 +2735,7 @@ packages:
             }
         cpu: [x64]
         os: [linux]
+        libc: [musl]
 
     '@rollup/rollup-win32-arm64-msvc@4.20.0':
         resolution:
@@ -15646,6 +15655,15 @@ snapshots:
             rollup: 4.20.0
             tslib: 2.6.3
 
+    '@rollup/plugin-typescript@11.1.6(rollup@4.20.0)(tslib@2.6.3)(typescript@5.7.3)':
+        dependencies:
+            '@rollup/pluginutils': 5.1.0(rollup@4.20.0)
+            resolve: 1.22.8
+            typescript: 5.7.3
+        optionalDependencies:
+            rollup: 4.20.0
+            tslib: 2.6.3
+
     '@rollup/pluginutils@3.1.0(rollup@2.79.1)':
         dependencies:
             '@types/estree': 0.0.39
@@ -16344,7 +16362,7 @@ snapshots:
     '@vue/compiler-sfc@2.7.16':
         dependencies:
             '@babel/parser': 7.26.2
-            postcss: 8.4.41
+            postcss: 8.4.49
             source-map: 0.6.1
         optionalDependencies:
             prettier: 2.8.8
@@ -20882,7 +20900,7 @@ snapshots:
         dependencies:
             nanoid: 3.3.7
             picocolors: 1.1.1
-            source-map-js: 1.2.0
+            source-map-js: 1.2.1
 
     postcss@8.4.49:
         dependencies:
@@ -21264,6 +21282,14 @@ snapshots:
             magic-string: 0.30.11
             rollup: 4.20.0
             typescript: 5.5.4
+        optionalDependencies:
+            '@babel/code-frame': 7.26.2
+
+    rollup-plugin-dts@6.1.1(rollup@4.20.0)(typescript@5.7.3):
+        dependencies:
+            magic-string: 0.30.11
+            rollup: 4.20.0
+            typescript: 5.7.3
         optionalDependencies:
             '@babel/code-frame': 7.26.2
 

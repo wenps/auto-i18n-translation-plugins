@@ -15,7 +15,6 @@
 -   🔍 **智能检测**需要翻译的文本；
 -   🔧 提供 **灵活的配置选项**，满足不同项目需求。
 
-
 tips：有道翻译需要用户自己去申请有道的翻译服务，demo里面的key已经被用完了。
 
 ---
@@ -24,7 +23,7 @@ tips：有道翻译需要用户自己去申请有道的翻译服务，demo里面
 
 ```bash
   pnpm install
-
+  pnpm run build
   pnpm run preview // 别选react，里面太多英文不好扫
 ```
 
@@ -219,7 +218,7 @@ import '../lang/index.js' // 📍 必须在入口文件中第一行引入，这�
 
 ![wx](./wx.png)
 
---- 
+---
 
 ## 📦 示例项目
 
@@ -242,4 +241,3 @@ import '../lang/index.js' // 📍 必须在入口文件中第一行引入，这�
 ## 🎆 作者
 
 原始作者：wenps、xu-code、Caleb-Xu、Winfans
-

@@ -4,6 +4,8 @@
 
 # 🚀 auto-i18n-translation-plugins
 
+[中文文档](./readme-cn.md)
+
 ## 🍉 Plugin Introduction
 
 🎉 **Auto Translation Plugin** for frontend languages, supports all JavaScript-based frontend frameworks (e.g., Vue2/3, React). No need to modify source code! With seamless multi-language support 🌐🚀— it integrates Youdao Translator and Google Translator by default and allows custom translators. Compatible with Webpack, Vite, Rollup, and other major build tools.
@@ -21,7 +23,7 @@
 
 ```bash
   pnpm install
-
+  pnpm run build
   pnpm run preview // no choose react
 ```
 

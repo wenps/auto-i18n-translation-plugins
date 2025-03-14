@@ -15,8 +15,7 @@
 -   🔍 **Smart Detection** of text requiring translation;
 -   🔧 **Flexible Configuration Options** to suit various project requirements.
 
-tips：Youdao Translation requires users to apply for Youdao translation services by themselves, and the keys in the demo have been used up.
----
+## tips：Youdao Translation requires users to apply for Youdao translation services by themselves, and the keys in the demo have been used up.
 
 ## 📚 Plugin Debugging
 
@@ -118,6 +117,7 @@ The plugin uses Google Translator by default. If proxy configuration is required
 #### **Using Google Translator (default)**:
 
 ```javascript
+// Using Google Translator by default，If you use Google Translate in China, you need to configure a proxy.
 translator: new GoogleTranslator({
     proxyOption: {
         host: '127.0.0.1',
@@ -214,7 +214,7 @@ wx group
 
 ![wx](./wx.png)
 
---- 
+---
 
 ## 📦 Example Project
 

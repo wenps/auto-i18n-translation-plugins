@@ -208,6 +208,14 @@ If you need to update translations, directly modify the `index.json` file and sa
 
 ---
 
+## 📦 User Group
+
+wx group
+
+![wx](./wx.png)
+
+--- 
+
 ## 📦 Example Project
 
 ☁️ See the example project here: [example](./example) (click to view).

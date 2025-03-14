@@ -22,7 +22,7 @@ declare class Translator {
 }
 
 interface GoogleTranslatorOption {
-    proxyOption: tunnel.ProxyOptions;
+    proxyOption?: tunnel.ProxyOptions;
 }
 declare class GoogleTranslator extends Translator {
     constructor(option: GoogleTranslatorOption);

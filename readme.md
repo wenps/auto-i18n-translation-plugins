@@ -118,6 +118,7 @@ The plugin uses Google Translator by default. If proxy configuration is required
 #### **Using Google Translator (default)**:
 
 ```javascript
+// Using Google Translator by default，If you use Google Translate in China, you need to configure a proxy.
 translator: new GoogleTranslator({
     proxyOption: {
         host: '127.0.0.1',

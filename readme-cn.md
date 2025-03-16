@@ -157,6 +157,7 @@ import '../lang/index.js' // 📍 必须在入口文件中第一行引入，这�
 
 | 参数             | 类型       | 必选 | 默认值                   | 描述                                                       |
 | ---------------- | ---------- | ---- | ------------------------ | ---------------------------------------------------------- |
+| translateType    | string     | ❌  | `full-auto`              | 翻译状态，默认有两种可选`full-auto` 和  `semi-auto` 。         |
 | translateKey     | string     | ✅   | `$t`                     | 翻译调用函数名称，例如`$t` 表示翻译调用时的函数名          |
 | excludedCall     | string[]   | ❌   | `['$i8n', 'require', …]` | 标记不会被翻译的函数调用列表                               |
 | excludedPattern  | RegExp[]   | ❌   | `[/\.\w+$/]`             | 用于标记排除不翻译的字符串模式，例如文件路径中的文件后缀   |
@@ -171,6 +172,34 @@ import '../lang/index.js' // 📍 必须在入口文件中第一行引入，这�
 | buildToDist      | boolean    | ❌   | `false`                  | 是否在构建结束后将最新的翻译文件打包到主包中，默认不打包   |
 | translator       | Translator | ❌   | `GoogleTranslator`       | 翻译器实例                                                 |
 | translatorOption | object     | ❌   | `{}`                     | 翻译器的配置项，优先级低于`translator`                     |
+
+---
+
+## 👋 translateType 选项的作用
+
+`translateType` 是 v1.0.11 新增的属性，有两个可选值`full-auto` 和  `semi-auto` 。
+
+`full-auto` 第一个是全自动翻译，默认来源语言只支持`中日韩俄`四种语言。
+
+`semi-auto` 第二个半自动翻译，支持所有来源语言。
+
+使用 `semi-auto` 时，用户需要主动去使用`translateKey`对目标字符进行包裹，比如 \$t('hello')，插件会自动完成翻译。
+
+例子：
+
+```js
+const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
+    return (
+        <div className="hello-world">
+            <h1>
+                {$t('Hello,')} {name}!
+            </h1>
+            <p>{$t('Welcome to our application')}</p>
+        </div>
+    )
+}
+
+```
 
 ---
 
@@ -241,3 +270,17 @@ import '../lang/index.js' // 📍 必须在入口文件中第一行引入，这�
 ## 🎆 作者
 
 原始作者：wenps、xu-code、Caleb-Xu、Winfans
+
+## 更新日志
+
+### v1.0.11
+
+*   修复已知缺陷
+*   新增翻译状态选项，支持半自动状态
+
+```js
+// 用户可以用 translateKey 包裹需要翻译的文案
+// 如：$t('hello')，插件会扫描这些文案并实现自动翻译
+
+$t('hello')
+```

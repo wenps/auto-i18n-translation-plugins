@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-26 17:34:47
- * @LastEditTime: 2025-03-16 16:07:39
+ * @LastEditTime: 2025-03-16 16:28:35
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
@@ -74,7 +74,7 @@ const DEFAULT_OPTION = {
      * 全自动：所有翻译任务自动完成
      * 半自动：需要人工标识
      */
-    translateType: TranslateTypeEnum.FULL_AUTO as TranslateTypeEnum
+    translateType: TranslateTypeEnum.FULL_AUTO as TranslateTypeEnum | string
 }
 
 /**

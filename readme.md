@@ -157,6 +157,7 @@ import '../lang/index.js' // 📍 It must be introduced in the first line of the
 | Parameter        | Type       | Required | Default                  | Description                                                               |
 | ---------------- | ---------- | -------- | ------------------------ | ------------------------------------------------------------------------- |
 | translateKey     | string     | ✅       | `$t`                     | The function name for calling translations, defaults to`$t`.              |
+| translateType    | string     | ❌  | `full-auto`              | Translation status, with two default options: `full-auto` and `semi-auto`. |
 | excludedCall     | string[]   | ❌       | `['$i8n', 'require', …]` | A list of function calls excluded from translation.                       |
 | excludedPattern  | RegExp[]   | ❌       | `[/\.\w+$/]`             | Regular expressions to exclude certain patterns, e.g., file paths.        |
 | excludedPath     | string[]   | ❌       | `['node_modules']`       | Exclude files under specified directories (e.g.,`node_modules`).          |
@@ -171,6 +172,33 @@ import '../lang/index.js' // 📍 It must be introduced in the first line of the
 | translator       | Translator | ❌       | `GoogleTranslator`       | The translation instance.                                                 |
 | translatorOption | Object     | ❌       | `{}`                     | Additional configuration for the translator (lower precedence).           |
 
+---
+
+## 👋 The Function of the `translateType` Option
+
+`translateType` is a newly added property in v1.0.11, with two optional values: `full-auto` and `semi-auto`.
+
+`full-auto` represents fully automatic translation. By default, it only supports four source languages: Chinese, Japanese, Korean, and Russian.
+
+`semi-auto` represents semi-automatic translation, which supports all source languages.
+
+When using `semi-auto`, users need to manually wrap the target characters with `translateKey`, such as `$t('hello')`. The plugin will then automatically complete the translation.
+
+Example:
+
+```js
+const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
+    return (
+        <div className="hello-world">
+            <h1>
+                {$t('Hello,')} {name}!
+            </h1>
+            <p>{$t('Welcome to our application')}</p>
+        </div>
+    )
+}
+
+```
 ---
 
 ## ❓ Why `buildToDist`?
@@ -241,3 +269,18 @@ Since version 1.0.5, users only need to import the `index.js` file in the folder
 ## 🎆 authors
 
 Original authors: wenps、xu-code、Caleb-Xu、Winfans
+
+## Changelog
+
+### v1.0.11
+
+* Fixed known bugs.
+* Added a new translation status option to support semi-automatic mode.
+
+```js
+// Users can wrap the text to be translated with translateKey
+// For example: $t('hello'), the plugin will scan these texts and implement automatic translation
+
+$t('hello')
+```
+

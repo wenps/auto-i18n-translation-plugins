@@ -17,8 +17,8 @@ const i18nPlugin = vitePluginsAutoI18n({
     targetLangList: ['en', 'ko', 'ja'],
     originLang: 'zh-cn',
     translator: new YoudaoTranslator({
-        appId: '6f7d97dd8dae',
-        appKey: 'T40Yki12aTYBh4LZIzH'
+        appId: '6f7d97dd8d6dfaae',
+        appKey: 'T40Yki1FEFgtvuySBK682aTYBh4LZIzH'
     })
 })
 

@@ -273,6 +273,11 @@ Original authors: wenps、xu-code、Caleb-Xu、Winfans
 
 ## Changelog
 
+### v1.0.14 (Stable Version)
+
+* Fixed the issue where new language types were not automatically segmented.
+* Added support for Japanese, Korean, and Russian in the automatic translation feature.
+
 
 ### v1.0.13 (Stable Version)
 

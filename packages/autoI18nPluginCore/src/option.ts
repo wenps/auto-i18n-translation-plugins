@@ -1,14 +1,14 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-26 17:34:47
- * @LastEditTime: 2025-03-13 18:01:16
+ * @LastEditTime: 2025-03-16 14:28:00
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
-import { OriginLangKeyEnum } from './enums'
+import { OriginLangKeyEnum, TranslateTypeEnum } from './enums'
 import { YoudaoTranslator, GoogleTranslator, Translator, TranslatorOption } from './translator'
 import { cloneDeep } from './utils/base'
-export { YoudaoTranslator, GoogleTranslator, Translator }
+export { YoudaoTranslator, GoogleTranslator, Translator, TranslateTypeEnum }
 export type { TranslatorOption }
 
 /**
@@ -66,7 +66,14 @@ const DEFAULT_OPTION = {
     }) as Translator,
 
     /** 翻译器配置选项，优先级低于translator */
-    translatorOption: undefined as TranslatorOption | undefined
+    translatorOption: undefined as TranslatorOption | undefined,
+
+    /**
+     * 翻译类型，支持全自动和半自动两种模式
+     * 全自动：所有翻译任务自动完成
+     * 半自动：需要人工标识
+     */
+    translateType: TranslateTypeEnum.FULL_AUTO as TranslateTypeEnum
 }
 
 /**

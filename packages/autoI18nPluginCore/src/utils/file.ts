@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-02-14 10:48:41
  * @LastEditors: xiaoshan
- * @LastEditTime: 2025-03-09 14:56:27
+ * @LastEditTime: 2025-03-16 15:52:02
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/utils/file.ts
  */
 import fs from 'fs'
@@ -32,11 +32,11 @@ export function initTranslateBasicFnFile() {
     const langMapList = [...targetLangList, originLang]
         // 去除语言代码中的连字符
         .map(item => {
-            return item.replace('-', '')
+            return [item.replace('-', ''), item]
         })
         // 构建语言映射项
         .map(item => {
-            return `'${item}': window?.${namespace}?.${item} || window._getJSONKey('${item}', langJSON)`
+            return `'${item[0]}': window?.${namespace}?.${item[0]} || window._getJSONKey('${item[1]}', langJSON)`
         })
         // 用逗号和换行符连接所有映射项
         .join(',\n')

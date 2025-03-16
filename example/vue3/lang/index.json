@@ -131,60 +131,6 @@
 		"ko": "핵심 기술",
 		"ja": "コアテクノロジーです"
 	},
-	"8lvu966": {
-		"zh-cn": "智能分析平台",
-		"en": "Intelligent analysis platform",
-		"ko": "지능형 분석 플랫폼",
-		"ja": "知能分析プラットフォームです"
-	},
-	"3iz2c1e": {
-		"zh-cn": "企业级数据分析和决策支持系统",
-		"en": "Enterprise-class data analysis and decision support systems",
-		"ko": "기업급 데이터 분석 및 의사결정 지원 시스템",
-		"ja": "企業レベルのデータ分析・意思決定支援システムです"
-	},
-	"ym56fy5": {
-		"zh-cn": "云服务平台",
-		"en": "Cloud service platform",
-		"ko": "클라우드 서비스 플랫폼",
-		"ja": "クラウドサービスのプラットフォームです"
-	},
-	"g76qgoa": {
-		"zh-cn": "高性能云计算解决方案",
-		"en": "High-performance cloud computing solutions",
-		"ko": "고성능 클라우드 솔루션",
-		"ja": "高性能クラウドコンピューティングのソリューションです"
-	},
-	"i3rdu35": {
-		"zh-cn": "区块链服务",
-		"en": "Blockchain service",
-		"ko": "블록 체인 서비스",
-		"ja": "ブロックチェーンサービスです"
-	},
-	"pblwe6c": {
-		"zh-cn": "安全可靠的区块链应用平台",
-		"en": "Secure and reliable blockchain application platform",
-		"ko": "안전하고 신뢰할 수 있는 블록체인용 플랫폼입니다",
-		"ja": "安全で信頼性の高いブロックチェーン応用プラットフォームです"
-	},
-	"3jfu7v8": {
-		"zh-cn": "查看产品详情: ",
-		"en": "View product details:",
-		"ko": "제품 정보 보기:",
-		"ja": "製品の詳細を調べます:"
-	},
-	"aa1ktq4": {
-		"zh-cn": "产品服务",
-		"en": "Product service",
-		"ko": "제품 서비스",
-		"ja": "製品サービスです"
-	},
-	"ah8ozn4": {
-		"zh-cn": "了解更多",
-		"en": "Learn more",
-		"ko": "자세히 보기",
-		"ja": "もっと詳しく知ります"
-	},
 	"glwp2": {
 		"zh-cn": "张三",
 		"en": "Zhang SAN",
@@ -352,5 +298,59 @@
 		"en": "message",
 		"ko": "소식",
 		"ja": "メッセージです"
+	},
+	"8lvu966": {
+		"zh-cn": "智能分析平台",
+		"en": "Intelligent analysis platform",
+		"ko": "지능형 분석 플랫폼",
+		"ja": "知能分析プラットフォームです"
+	},
+	"3iz2c1e": {
+		"zh-cn": "企业级数据分析和决策支持系统",
+		"en": "Enterprise-class data analysis and decision support systems",
+		"ko": "기업급 데이터 분석 및 의사결정 지원 시스템",
+		"ja": "企業レベルのデータ分析・意思決定支援システムです"
+	},
+	"ym56fy5": {
+		"zh-cn": "云服务平台",
+		"en": "Cloud service platform",
+		"ko": "클라우드 서비스 플랫폼",
+		"ja": "クラウドサービスのプラットフォームです"
+	},
+	"g76qgoa": {
+		"zh-cn": "高性能云计算解决方案",
+		"en": "High-performance cloud computing solutions",
+		"ko": "고성능 클라우드 솔루션",
+		"ja": "高性能クラウドコンピューティングのソリューションです"
+	},
+	"i3rdu35": {
+		"zh-cn": "区块链服务",
+		"en": "Blockchain service",
+		"ko": "블록 체인 서비스",
+		"ja": "ブロックチェーンサービスです"
+	},
+	"pblwe6c": {
+		"zh-cn": "安全可靠的区块链应用平台",
+		"en": "Secure and reliable blockchain application platform",
+		"ko": "안전하고 신뢰할 수 있는 블록체인용 플랫폼입니다",
+		"ja": "安全で信頼性の高いブロックチェーン応用プラットフォームです"
+	},
+	"3jfu7v8": {
+		"zh-cn": "查看产品详情: ",
+		"en": "View product details:",
+		"ko": "제품 정보 보기:",
+		"ja": "製品の詳細を調べます:"
+	},
+	"aa1ktq4": {
+		"zh-cn": "产品服务",
+		"en": "Product service",
+		"ko": "제품 서비스",
+		"ja": "製品サービスです"
+	},
+	"ah8ozn4": {
+		"zh-cn": "了解更多",
+		"en": "Learn more",
+		"ko": "자세히 보기",
+		"ja": "もっと詳しく知ります"
 	}
 }

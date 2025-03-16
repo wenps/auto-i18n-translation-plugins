@@ -1,26 +1,146 @@
 {
 	"dure2": {
-		"zh-cn": "中文",
 		"en": "Chinese",
+		"zh-cn": "中文",
 		"ko": "중국어",
-		"ja": "中文"
+		"ja": "中国"
 	},
 	"mtva2": {
-		"zh-cn": "英文",
 		"en": "English",
+		"zh-cn": "英文",
 		"ko": "영어",
-		"ja": "英語です"
+		"ja": "英語"
 	},
 	"qe9q2": {
-		"zh-cn": "韩文",
 		"en": "Korean",
+		"zh-cn": "韩文",
 		"ko": "한글",
-		"ja": "ハングルです"
+		"ja": "韓国"
 	},
 	"hw022": {
-		"zh-cn": "日文",
 		"en": "Japanese",
+		"zh-cn": "日文",
 		"ko": "일본어",
-		"ja": "日本語です"
+		"ja": "日本"
+	},
+	"2hn2eln": {
+		"en": "Welcome to My React App",
+		"zh-cn": "欢迎来到我的React App",
+		"ko": "제 React 앱에 오신 것을 환영합니다",
+		"ja": "私のreactアプリへようこそ"
+	},
+	"v5ob3n7": {
+		"en": "Chinese",
+		"zh-cn": "中国人",
+		"ko": "중국",
+		"ja": "中国"
+	},
+	"1097io7": {
+		"en": "English",
+		"zh-cn": "英语",
+		"ko": "영어",
+		"ja": "英語"
+	},
+	"xrmaqk6": {
+		"en": "Korean",
+		"zh-cn": "朝鲜文",
+		"ko": "한국",
+		"ja": "韓国"
+	},
+	"bdo2lr8": {
+		"en": "Japanese",
+		"zh-cn": "日本",
+		"ko": "일본",
+		"ja": "日本"
+	},
+	"1cc1r4": {
+		"en": "Home",
+		"zh-cn": "首页",
+		"ko": "집",
+		"ja": "家"
+	},
+	"11jkh95": {
+		"en": "About",
+		"zh-cn": "关于",
+		"ko": "에 대해",
+		"ja": "について"
+	},
+	"rri8sg7": {
+		"en": "Contact",
+		"zh-cn": "联系",
+		"ko": "연락처",
+		"ja": "連絡"
+	},
+	"eo2htb3e": {
+		"en": "This is a simple introduction to our application. Here you can explore various features and functions provided by our app.",
+		"zh-cn": "这是对我们的应用程序的简单介绍。在这里，您可以探索我们的应用程序提供的各种特性和功能。",
+		"ko": "애플리케이션에 대한 간단한 소개입니다.여기에서 앱에서 제공하는 다양한 기능과 기능을 살펴볼 수 있습니다.",
+		"ja": "これはアプリケーションの簡単な紹介です。ここでは、私たちのアプリが提供するさまざまな機能を調べることができます。"
+	},
+	"i48fc42": {
+		"en": "This is a more complex React component structure. It demonstrates how to organize and combine different components to build a rich user interface.",
+		"zh-cn": "这是一个更复杂的React组件结构。它演示了如何组织和组合不同的组件来构建富用户界面。",
+		"ko": "이것은 좀 더 복잡한 React 컴포넌트 구조입니다.다양한 구성 요소를 구성 및 결합하여 풍부한 사용자 인터페이스를 구축하는 방법을 보여 줍니다.",
+		"ja": "これはより複雑なreactコンポーネント構造です。さまざまなコンポーネントを整理して組み合わせることで、リッチなユーザーインターフェースを構築する方法を示します。"
+	},
+	"bnqgat3b": {
+		"en": "Multiple components: We use multiple components to modularize the application, making it easier to maintain and extend.",
+		"zh-cn": "多组件：我们使用多个组件来模块化应用程序，使其更易于维护和扩展。",
+		"ko": "여러 구성 요소:여러 구성 요소를 사용하여 애플리케이션을 모듈화하여 유지 관리 및 확장이 용이합니다.",
+		"ja": "複数のコンポーネント:複数のコンポーネントを使用してアプリケーションをモジュール化し、メンテナンスと拡張を容易にします。"
+	},
+	"i9tqzi2u": {
+		"en": "Styled layout: We use CSS to style the components, creating a beautiful and user - friendly interface.",
+		"zh-cn": "样式布局：我们使用CSS样式组件，创建一个美丽和用户友好的界面。",
+		"ko": "Styled layout:우리는 CSS를 사용하여 컴포넌트의 스타일을 지정하여 아름답고 사용자 친화적인 인터페이스를 만듭니다.",
+		"ja": "スタイルレイアウト:cssを使用してコンポーネントのスタイルを設定し、美しくユーザーフレンドリーなインターフェースを作成します。"
+	},
+	"x6gjfr2r": {
+		"en": "Navigation menu: The navigation menu provides easy access to different sections of the application.",
+		"zh-cn": "导航菜单：导航菜单可以方便地访问应用程序的不同部分。",
+		"ko": "탐색 메뉴:탐색 메뉴를 사용하면 애플리케이션의 여러 섹션에 쉽게 액세스할 수 있습니다.",
+		"ja": "ナビゲーションメニュー:ナビゲーションメニューでは、アプリケーションのさまざまなセクションに簡単にアクセスできます。"
+	},
+	"2rnb0p2a": {
+		"en": "Language switching: You can switch between different languages to meet your needs.",
+		"zh-cn": "语言切换：您可以在不同的语言之间切换，以满足您的需求。",
+		"ko": "언어 전환:필요에 맞게 다른 언어 간에 전환할 수 있습니다.",
+		"ja": "言語の切り替え:ニーズに合わせて異なる言語を切り替えることができます。"
+	},
+	"dmsos04v": {
+		"en": "Our application also supports more features, such as data storage, user interaction, etc. We are constantly working to improve and expand the functionality of the application.",
+		"zh-cn": "我们的应用程序还支持更多的功能，如数据存储，用户交互等。我们一直在努力改进和扩展应用程序的功能。",
+		"ko": "우리의 애플리케이션은 또한 데이터 저장, 사용자 상호작용 등과 같은 더 많은 기능을 지원합니다.애플리케이션의 기능을 개선하고 확장하기 위해 끊임없이 노력하고 있습니다.",
+		"ja": "当社のアプリケーションは、データストレージ、ユーザーインタラクションなどのより多くの機能もサポートしています。私たちは常にアプリケーションの機能を改善し、拡張するために取り組んでいます。"
+	},
+	"6vs5k6y": {
+		"en": "My React App. All rights reserved.",
+		"zh-cn": "我的React应用程序。版权所有。",
+		"ko": "내 리액트 앱.",
+		"ja": "私のreactアプリall rights reserved。"
+	},
+	"hop62ee": {
+		"en": "Privacy Policy",
+		"zh-cn": "隐私政策",
+		"ko": "개인 정보 보호 정책",
+		"ja": "プライバシーポリシーを"
+	},
+	"fn73hzc": {
+		"en": "Terms of Use",
+		"zh-cn": "使用条款",
+		"ko": "사용 약관 (Terms of Use)",
+		"ja": "利用約款"
+	},
+	"zccsau6": {
+		"en": "Hello,",
+		"zh-cn": "你好,",
+		"ko": "안녕 하세요,",
+		"ja": "こんにちは"
+	},
+	"wjqikrq": {
+		"en": "Welcome to our application",
+		"zh-cn": "欢迎光临我们的应用",
+		"ko": "우리의 응용 프로그램에 오신 것을 환영합니다",
+		"ja": "私たちのアプリケーションへようこそ"
 	}
 }

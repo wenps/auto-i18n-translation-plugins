@@ -1,14 +1,17 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-11-01 16:35:38
- * @LastEditTime: 2025-03-02 01:05:33
+ * @LastEditTime: 2025-03-16 15:48:50
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/filter/visitor/TemplateElement.ts
  */
 import types from '@babel/types'
-import { option } from '../../option'
+import { option, TranslateTypeEnum } from '../../option'
 import { baseUtils, translateUtils } from '../../utils'
 
 export default function (path: any) {
+    if (option.translateType === TranslateTypeEnum.SEMI_AUTO) {
+        return
+    }
     let { node, parent } = path
     if (!node.value) return
 

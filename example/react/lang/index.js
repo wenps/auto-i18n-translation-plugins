@@ -39,12 +39,13 @@
     })();
     // 定义语言映射对象
     const langMap = {
-        'en': window?.lang?.en || window._getJSONKey('en', langJSON),
+        'zhcn': window?.lang?.zhcn || window._getJSONKey('zh-cn', langJSON),
 'ko': window?.lang?.ko || window._getJSONKey('ko', langJSON),
-'zhcn': window?.lang?.zhcn || window._getJSONKey('zhcn', langJSON)
+'ja': window?.lang?.ja || window._getJSONKey('ja', langJSON),
+'en': window?.lang?.en || window._getJSONKey('en', langJSON)
     };
     // 从本地存储中获取当前语言，如果不存在则使用源语言
-    const lang = window.localStorage.getItem('lang') || 'zhcn';
+    const lang = window.localStorage.getItem('lang') || 'en';
     // 根据当前语言设置翻译函数的语言包
     window.$t.locale(langMap[lang], 'lang');
   

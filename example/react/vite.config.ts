@@ -1,24 +1,25 @@
 /*
  * @Date: 2025-01-10 14:57:41
  * @LastEditors: xiaoshan
- * @LastEditTime: 2025-03-09 15:17:00
+ * @LastEditTime: 2025-03-16 15:58:26
  * @FilePath: /i18n_translation_vite/example/react/vite.config.ts
  */
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import vitePluginsAutoI18n, { YoudaoTranslator } from 'vite-auto-i18n-plugin'
+import vitePluginsAutoI18n, { TranslateTypeEnum, YoudaoTranslator } from 'vite-auto-i18n-plugin'
 
 const i18nPlugin = vitePluginsAutoI18n({
     globalPath: './lang',
     namespace: 'lang',
     distPath: './dist/assets',
     distKey: 'index',
-    targetLangList: ['en', 'ko'],
-    originLang: 'zh-cn',
+    targetLangList: ['zh-cn', 'ko', 'ja'],
+    originLang: 'en',
     translator: new YoudaoTranslator({
         appId: '4cdb9baea8066fef',
         appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j'
-    })
+    }),
+    translateType: TranslateTypeEnum.SEMI_AUTO
 })
 
 // https://vitejs.dev/config/

@@ -1,15 +1,19 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-11-01 16:35:38
- * @LastEditTime: 2025-03-03 11:43:25
+ * @LastEditTime: 2025-03-16 15:48:57
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/filter/visitor/JSXText.ts
  */
 import * as types from '@babel/types'
 import { baseUtils } from '../../utils'
-import { option } from '../../option'
+import { option, TranslateTypeEnum } from '../../option'
 
 export default function (path: any) {
     console.log('jsx text')
+
+    if (option.translateType === TranslateTypeEnum.SEMI_AUTO) {
+        return
+    }
 
     let { node } = path
     let value = node.value

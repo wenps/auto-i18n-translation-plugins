@@ -10,7 +10,8 @@ import vue from '@vitejs/plugin-vue2'
 import vitePluginsAutoI18n, { YoudaoTranslator } from 'vite-auto-i18n-plugin'
 
 const i18nPlugin = vitePluginsAutoI18n({
-    targetLangList: ['ja', 'ko', 'en', 'ru'],
+    originLang: 'ja',
+    targetLangList: ['zh-cn', 'ko', 'en', 'ru'],
     translator: new YoudaoTranslator({
         appId: '6f7d97dd8d6dfaae',
         appKey: 'T40Yki1FEFgtvuySBK682aTYBh4LZIzH'

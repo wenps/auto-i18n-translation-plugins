@@ -1,0 +1,40 @@
+{
+    "name": "vue2",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "vite"
+    },
+    "dependencies": {
+        "@vitejs/plugin-vue2": "^2.3.1",
+        "ant-design-vue": "^1.7.8",
+        "core-js": "^2.6.5",
+        "register-service-worker": "^1.6.2",
+        "vue": "^2.6.10",
+        "vue-class-component": "^7.0.2",
+        "vue-property-decorator": "^8.1.0",
+        "vue-router": "^3.0.3",
+        "vuex": "^3.0.1"
+    },
+    "devDependencies": {
+        "@vue/cli-plugin-babel": "^3.0.5",
+        "@vue/cli-plugin-pwa": "^3.0.5",
+        "@vue/cli-plugin-typescript": "^3.0.5",
+        "@vue/cli-service": "^3.0.5",
+        "typescript": "^5.7.3",
+        "vite": "^5.0.2",
+        "vite-auto-i18n-plugin": "workspace:*",
+        "vite-plugin-html": "^3.2.0",
+        "vite-plugin-vue2": "^2.0.3",
+        "vue-template-compiler": "^2.6.10"
+    },
+    "postcss": {
+        "plugins": {
+            "autoprefixer": {}
+        }
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions"
+    ]
+}

@@ -1,418 +1,422 @@
 {
 	"aaw0ug4": {
 		"zh-cn": "企业门户",
-		"en": "Enterprise portal"
+		"ja": "ポータル企業です",
+		"ko": "기업 포털",
+		"en": "Enterprise portal",
+		"ru": "Корпоративный портал"
 	},
 	"dure2": {
 		"zh-cn": "中文",
-		"en": "Chinese"
+		"ja": "中文",
+		"ko": "중국어",
+		"en": "Chinese",
+		"ru": "китайск"
 	},
 	"mtva2": {
 		"zh-cn": "英文",
-		"en": "English"
+		"ja": "英語です",
+		"ko": "영어",
+		"en": "English",
+		"ru": "английск"
 	},
 	"qe9q2": {
 		"zh-cn": "韩文",
-		"en": "Korean"
+		"ja": "ハングルです",
+		"ko": "한글",
+		"en": "Korean",
+		"ru": "корейск"
 	},
 	"hw022": {
 		"zh-cn": "日文",
-		"en": "Japanese"
+		"ja": "日本語です",
+		"ko": "일본어",
+		"en": "Japanese",
+		"ru": "японск"
 	},
 	"aa1ktq4": {
 		"zh-cn": "产品服务",
-		"en": "Product service"
+		"ja": "製品サービスです",
+		"ko": "제품 서비스",
+		"en": "Product service",
+		"ru": "Услуга продукции"
 	},
 	"hqjy734": {
 		"zh-cn": "解决方案",
-		"en": "solution"
+		"ja": "解決策です",
+		"ko": "해결 방안",
+		"en": "solution",
+		"ru": "Решение."
 	},
 	"alt7ee4": {
 		"zh-cn": "关于我们",
-		"en": "About us"
+		"ja": "私たちについてです",
+		"ko": "우리 자신에 대해",
+		"en": "About us",
+		"ru": "О нас."
 	},
 	"gpgxuq4": {
 		"zh-cn": "联系我们",
-		"en": "Contact us"
+		"ja": "連絡してきます",
+		"ko": "연락하기",
+		"en": "Contact us",
+		"ru": "Свяжись с нами."
 	},
 	"t9b5aeb": {
 		"zh-cn": "欢迎来到我们的企业门户",
-		"en": "Welcome to our corporate portal"
+		"ja": "私たちの企業へようこそです",
+		"ko": "저희 기업 포털에 오신 것을 환영합니다",
+		"en": "Welcome to our corporate portal",
+		"ru": "Добро пожаловать в наш корпоративный портал"
 	},
 	"s3ea2fe": {
 		"zh-cn": "为您提供专业的企业级解决方案",
-		"en": "To provide you with professional enterprise solutions"
+		"ja": "企業向けのソリューションを提供します",
+		"ko": "전문적인 기업급 솔루션을 제공합니다",
+		"en": "To provide you with professional enterprise solutions",
+		"ru": "Предложить вам профессиональное деловое решение"
 	},
 	"ah8ozn4": {
 		"zh-cn": "了解更多",
-		"en": "Learn more"
+		"ja": "もっと詳しく知ります",
+		"ko": "자세히 보기",
+		"en": "Learn more",
+		"ru": "Узнать больше."
 	},
 	"watub45": {
 		"zh-cn": "我们的优势",
-		"en": "Our advantage"
+		"ja": "私たちの強みです",
+		"ko": "우리의 우세",
+		"en": "Our advantage",
+		"ru": "Наше преимущество."
 	},
 	"a6fzyz4": {
 		"zh-cn": "专业服务",
-		"en": "Professional service"
+		"ja": "プロフェッショナルサービスです",
+		"ko": "전문 서비스",
+		"en": "Professional service",
+		"ru": "Профессиональное обслуживание."
 	},
 	"mj3iaw1o": {
 		"zh-cn": "提供全方位的企业服务解决方案，满足您的各种业务需求。我们的专业团队拥有丰富的行业经验，能够为您量身定制最适合的解决方案。",
-		"en": "Provide a full range of enterprise service solutions to meet your various business needs. Our professional team has extensive industry experience and can tailor the most suitable solution for you."
+		"ja": "全方位の企業サービスソリューションを提供して、あなたの各種の業務の需要を満たします。弊社の専門チームは豊富な業界経験を持っており、最適なソリューションをカスタマイズすることができます。",
+		"ko": "모든 종류의 비즈니스 요구를 충족시킬 수 있는 기업 서비스 솔루션을 제공합니다.저희의 전문 팀은 풍부한 업계 경험을 가지고 있으므로 귀하의 요구에 맞추어 가장 적합한 솔루션을 만들 수 있습니다.",
+		"en": "Provide a full range of enterprise service solutions to meet your various business needs. Our professional team has extensive industry experience and can tailor the most suitable solution for you.",
+		"ru": "Предлагая комплексные решения корпоративных услуг, которые удовлетворяют все ваши бизнес-потребности. Наша профессиональная команда обладает большим опытом работы в индустрии, которая может подобрать для вас самые подходящие решения."
 	},
 	"curn504": {
 		"zh-cn": "技术创新",
-		"en": "Technological innovation"
+		"ja": "技術革新です",
+		"ko": "기술 혁신",
+		"en": "Technological innovation",
+		"ru": "Технический инновация"
 	},
 	"4p94jv1f": {
 		"zh-cn": "持续创新技术，为企业提供领先的技术支持。我们投入大量资源进行研发，确保为客户提供最前沿的技术解决方案。",
-		"en": "Continue to innovate technology and provide leading technical support for enterprises. We invest significant resources in research and development to ensure that we provide our customers with the most cutting-edge technical solutions."
+		"ja": "技術革新を続け、企業に先進的な技術サポートを提供します。お客様に最先端のソリューションを提供するために、膨大な研究開発費を投入しています。",
+		"ko": "지속적으로 기술을 혁신하여 기업에 선도적인 기술 지원을 제공하다.우리는 고객에게 최신의 기술 솔루션을 제공할 수 있도록 연구 개발에 대량의 자원을 투자한다.",
+		"en": "Continue to innovate technology and provide leading technical support for enterprises. We invest significant resources in research and development to ensure that we provide our customers with the most cutting-edge technical solutions.",
+		"ru": "Постоянно инновационные технологии, предоставляющие ведущую техническую поддержку предприятиям. Мы вкладываем огромные ресурсы в исследования и разработки, чтобы обеспечить передовые технологические решения для наших клиентов."
 	},
 	"ak8rd94": {
 		"zh-cn": "优质团队",
-		"en": "Quality team"
+		"ja": "優れたチームです",
+		"ko": "양질의 팀",
+		"en": "Quality team",
+		"ru": "Команда высшего качества"
 	},
 	"1uxtu71e": {
 		"zh-cn": "拥有经验丰富的专业团队，为您提供最佳服务体验。我们的团队成员均来自业内顶尖企业，具备深厚的专业背景。",
-		"en": "We have an experienced professional team to provide you with the best service experience. Our team members come from the top companies in the industry and have deep professional backgrounds."
+		"ja": "経験豊富な専門チームを擁し、最高のサービス体験をお届けします。私たちのチームのメンバーはすべて業界のトップ企業から来て、深い専門的な背景を持っています。",
+		"ko": "고객님께 최고의 서비스를 제공하는 풍부한 경험이 있는 전문가들로 구성되었습니다.저희 팀원들은 모두 업계 최고의 기업에서 온 사람들로, 깊은 전문 배경을 가지고 있습니다.",
+		"en": "We have an experienced professional team to provide you with the best service experience. Our team members come from the top companies in the industry and have deep professional backgrounds.",
+		"ru": "Иметь опытную профессиональную команду, которая предоставит вам лучший опыт работы. Все члены нашей команды-ведущие бизнесмены с глубоким профессиональным опытом."
 	},
 	"gphnfh4": {
 		"zh-cn": "联系方式",
-		"en": "Contact information"
+		"ja": "連絡先です",
+		"ko": "연락처",
+		"en": "Contact information",
+		"ru": "Контактная информация."
 	},
 	"biq9754": {
 		"zh-cn": "在线咨询",
-		"en": "Online consultation"
+		"ja": "オンライン相談です",
+		"ko": "온라인 자문",
+		"en": "Online consultation",
+		"ru": "Онлайн-консультация."
 	},
 	"fqmy2": {
 		"zh-cn": "姓名",
-		"en": "name"
+		"ja": "名前です",
+		"ko": "이름",
+		"en": "name",
+		"ru": "им"
 	},
 	"kuepb57": {
 		"zh-cn": "请输入您的姓名",
-		"en": "Please enter your name"
+		"ja": "お名前を入力願います。",
+		"ko": "이름을 입력하십시오",
+		"en": "Please enter your name",
+		"ru": "Введите ваше имя, пожалуйста"
 	},
 	"kpc82": {
 		"zh-cn": "电话",
-		"en": "telephone"
+		"ja": "電話です",
+		"ko": "전화",
+		"en": "telephone",
+		"ru": "телефон"
 	},
 	"40obas9": {
 		"zh-cn": "请输入您的联系电话",
-		"en": "Please enter your contact number"
+		"ja": "ご連絡先を入力願います。",
+		"ko": "연락처를 입력하십시오",
+		"en": "Please enter your contact number",
+		"ru": "Введите номер вашего контактного телефона"
 	},
 	"padf2": {
 		"zh-cn": "邮箱",
-		"en": "mailbox"
+		"ja": "メールボックスです",
+		"ko": "메일 박스",
+		"en": "mailbox",
+		"ru": "Почтов ящик"
 	},
 	"ku55ko7": {
 		"zh-cn": "请输入您的邮箱",
-		"en": "Please enter your email address"
+		"ja": "メールの入力をお願いします。",
+		"ko": "편지함을 입력하십시오",
+		"en": "Please enter your email address",
+		"ru": "Пожалуйста, введите ваш почтовый ящик"
 	},
 	"b9a2ku4": {
 		"zh-cn": "咨询内容",
-		"en": "Consultation content"
+		"ja": "お問い合わせ内容です",
+		"ko": "문의 내용",
+		"en": "Consultation content",
+		"ru": "Консалтинг."
 	},
 	"u7a13qa": {
 		"zh-cn": "请输入您想咨询的内容",
-		"en": "Please enter what you want to consult"
+		"ja": "お問合せをお願いします。",
+		"ko": "문의하실 내용을 입력해 주세요",
+		"en": "Please enter what you want to consult",
+		"ru": "Пожалуйста, введите то, что вы хотите обсудить"
 	},
 	"heqc2": {
 		"zh-cn": "提交",
-		"en": "submit"
+		"ja": "提出します",
+		"ko": "제출",
+		"en": "submit",
+		"ru": "представ"
 	},
 	"o5wny06": {
 		"zh-cn": "企业管理咨询",
-		"en": "Enterprise management consulting"
+		"ja": "経営コンサルティングです",
+		"ko": "기업관리 자문",
+		"en": "Enterprise management consulting",
+		"ru": "Консультация по управлению предприятиями"
 	},
 	"l4xt076": {
 		"zh-cn": "流程优化方案",
-		"en": "Process optimization scheme"
+		"ja": "プロセス最適化案です",
+		"ko": "프로세스 최적화 방안",
+		"en": "Process optimization scheme",
+		"ru": "Программа оптимизации процесса"
 	},
 	"i7pjkk6": {
 		"zh-cn": "风险管理服务",
-		"en": "Risk management service"
+		"ja": "リスク管理サービスです",
+		"ko": "리스크 관리 서비스",
+		"en": "Risk management service",
+		"ru": "Услуга управления рисками"
 	},
 	"lci1oe6": {
 		"zh-cn": "人工智能应用",
-		"en": "Artificial intelligence application"
+		"ja": "人工知能応用です",
+		"ko": "인공지능 응용",
+		"en": "Artificial intelligence application",
+		"ru": "Искусственное интеллектуальное применение"
 	},
 	"tu0ld15": {
 		"zh-cn": "云计算服务",
-		"en": "Cloud computing service"
+		"ja": "クラウドコンピューティングサービスです",
+		"ko": "클라우드 컴퓨팅 서비스",
+		"en": "Cloud computing service",
+		"ru": "Услуга вычисления облаков"
 	},
 	"i3s1n45": {
 		"zh-cn": "区块链技术",
-		"en": "Blockchain technology"
+		"ja": "ブロックチェーン技術です",
+		"ko": "블록체인기술",
+		"en": "Blockchain technology",
+		"ru": "Технология блочных цепей"
 	},
 	"ksn3xb6": {
 		"zh-cn": "资深技术专家",
-		"en": "Senior technical expert"
+		"ja": "ベテランの技術者です",
+		"ko": "베테랑 기술 전문가",
+		"en": "Senior technical expert",
+		"ru": "Старший технический эксперт"
 	},
 	"b44eon6": {
 		"zh-cn": "行业领域顾问",
-		"en": "Industry consultant"
+		"ja": "業界コンサルタントです",
+		"ko": "산업분야 고문",
+		"en": "Industry consultant",
+		"ru": "Советник в области промышленности"
 	},
 	"lkvgdt6": {
 		"zh-cn": "专业客服团队",
-		"en": "Professional customer service team"
+		"ja": "プロのカスタマー・チームです",
+		"ko": "고객 서비스 전문 팀",
+		"en": "Professional customer service team",
+		"ru": "Профессиональная служба поддержки"
 	},
 	"amhyx64": {
 		"zh-cn": "公司数据",
-		"en": "Company data"
+		"ja": "社内データです",
+		"ko": "회사데이터",
+		"en": "Company data",
+		"ru": "Данные компании"
 	},
 	"dcgqo94": {
 		"zh-cn": "服务客户",
-		"en": "Serve customers"
+		"ja": "顧客にサービスします。",
+		"ko": "고객에게 서비스를 제공하다",
+		"en": "Serve customers",
+		"ru": "Клиент на службе"
 	},
 	"axkadr4": {
 		"zh-cn": "合作伙伴",
-		"en": "Business partner"
+		"ja": "パートナーです",
+		"ko": "협력 동반자",
+		"en": "Business partner",
+		"ru": "Партнеры."
 	},
 	"a6dmas4": {
 		"zh-cn": "专业团队",
-		"en": "Professional team"
+		"ja": "プロのチームです",
+		"ko": "전문 팀",
+		"en": "Professional team",
+		"ru": "Профессиональная команда."
 	},
 	"1k9c3": {
 		"zh-cn": "15年",
-		"en": "Fifteen years"
+		"ja": "15年です",
+		"ko": "15년",
+		"en": "Fifteen years",
+		"ru": "15 лет"
 	},
 	"hixn574": {
 		"zh-cn": "行业经验",
-		"en": "Industry experience"
+		"ja": "業界経験です",
+		"ko": "업계 경험",
+		"en": "Industry experience",
+		"ru": "Опыт работы в индустрии"
 	},
 	"vube6j1l": {
 		"zh-cn": "我们是一家致力于为企业提供全方位解决方案的科技公司。通过持续创新和专业服务，我们帮助客户实现业务增长和数字化转型。",
-		"en": "We are a technology company dedicated to providing comprehensive solutions for enterprises. Through continuous innovation and professional services, we help our clients achieve business growth and digital transformation."
+		"ja": "私たちは企業にトータルソリューションを提供するテクノロジー企業です。継続的な革新とプロフェッショナルサービスを通じて、お客様のビジネスの成長とデジタルトランスフォーメーションを支援します。",
+		"ko": "우리는 기업에 전면적인 해결 방안을 제공하기 위해 주력하는 과학 기술 회사이다.지속적인 혁신과 전문 서비스를 통해 고객의 비즈니스 성장과 디지털 전환을 지원합니다.",
+		"en": "We are a technology company dedicated to providing comprehensive solutions for enterprises. Through continuous innovation and professional services, we help our clients achieve business growth and digital transformation.",
+		"ru": "Мы научно-техническая компания, занимающаяся предоставлением компаниям всесторонних решений. Поддерживая инновации и профессиональные услуги, мы помогаем клиентам достичь роста бизнеса и цифрового перехода."
 	},
 	"sfbq931f": {
 		"zh-cn": "自成立以来，我们始终坚持\"以客户为中心\"的服务理念，不断提升服务质量和技术水平，为客户创造更大的价值。",
-		"en": "Since its establishment, we always adhere to the \"customer-centric\" service concept, and constantly improve the quality of service and technical level, to create greater value for customers."
+		"ja": "創立以来、私達は一貫して「お客様中心」のサービス理念を堅持して、絶えずサービスの質と技術のレベルを高めて、お客様に更に大きい価値を創造します。",
+		"ko": "창립 이래, 저희는 시종\"고객 중심\"서비스 이념을 견지하고 서비스 질과 기술 수준을 끊임없이 향상시켜 고객을 위해 더욱 큰 가치를 창조합니다.",
+		"en": "Since its establishment, we always adhere to the \"customer-centric\" service concept, and constantly improve the quality of service and technical level, to create greater value for customers.",
+		"ru": "С момента своего основания мы неизменно придерживаемся идеи \"клиент в центре\", непрерывно повышая качество и технический уровень обслуживания, создавая более высокую ценность для клиента."
 	},
 	"h3ps2": {
 		"zh-cn": "愿景",
-		"en": "vision"
+		"ja": "ビジョンです",
+		"ko": "위안 징",
+		"en": "vision",
+		"ru": "виден"
 	},
 	"5vcdv2i": {
 		"zh-cn": "成为全球领先的企业服务解决方案提供商",
-		"en": "To be the world's leading provider of enterprise service solutions"
+		"ja": "世界有数の企業向けサービスソリューションプロバイダーとなりました",
+		"ko": "세계 최고의 기업 서비스 솔루션 제공업체가 됩니다",
+		"en": "To be the world's leading provider of enterprise service solutions",
+		"ru": "Стать ведущим мировым корпоративным провайдером по вопросам корпоративных услуг"
 	},
 	"dzha2": {
 		"zh-cn": "使命",
-		"en": "Mission"
+		"ja": "使命です",
+		"ko": "사명",
+		"en": "Mission",
+		"ru": "мисс"
 	},
 	"ljwcehb": {
 		"zh-cn": "用科技创新推动企业发展",
-		"en": "Promote enterprise development with scientific and technological innovation"
+		"ja": "技術革新で企業を発展させます",
+		"ko": "과학기술혁신으로 기업발전을 추진하여야 합니다",
+		"en": "Promote enterprise development with scientific and technological innovation",
+		"ru": "Развитие бизнеса с помощью технологических инноваций"
 	},
 	"bys713": {
 		"zh-cn": "价值观",
-		"en": "value"
+		"ja": "価値観です",
+		"ko": "가치관",
+		"en": "value",
+		"ru": "Ценности."
 	},
 	"rfyg6xb": {
 		"zh-cn": "诚信、创新、专业、共赢",
-		"en": "Integrity, innovation, professionalism, win-win"
+		"ja": "誠実と信用、革新、専門、ウィンウィンです",
+		"ko": "성실, 혁신, 전문성, 윈-윈",
+		"en": "Integrity, innovation, professionalism, win-win",
+		"ru": "Честность, инновации, профессионализм, обоюдный выигрыш"
 	},
 	"amllxz4": {
 		"zh-cn": "公司简介",
-		"en": "Company profile"
+		"ja": "会社紹介です",
+		"ko": "회사 소개",
+		"en": "Company profile",
+		"ru": "Профиль компании."
 	},
 	"ccytvw5": {
 		"zh-cn": "服务热线：",
-		"en": "Service Hotline:"
+		"ja": "ホットラインです",
+		"ko": "서비스 핫라인:",
+		"en": "Service Hotline:",
+		"ru": "Горячая линия:"
 	},
 	"apjj9g5": {
 		"zh-cn": "商务邮箱：",
-		"en": "Business Email:"
+		"ja": "ビジネスメールです。",
+		"ko": "비즈니스 메일박스:",
+		"en": "Business Email:",
+		"ru": "Почтовый ящик:"
 	},
 	"pu70jm5": {
 		"zh-cn": "公司地址：",
-		"en": "Company Address:"
+		"ja": "会社の住所です。",
+		"ko": "회사 주소:",
+		"en": "Company Address:",
+		"ru": "Адрес компании:"
 	},
 	"gl6j4sd": {
 		"zh-cn": "北京市朝阳区科技园区88号",
-		"en": "88 Science and Technology Park, Chaoyang District, Beijing"
+		"ja": "北京市朝陽区科学技術園区88号です",
+		"ko": "북경시 조양구 과학기술단지 88호",
+		"en": "88 Science and Technology Park, Chaoyang District, Beijing",
+		"ru": "Технический парк пекинского павильона, 88"
 	},
 	"mez5wl5": {
 		"zh-cn": "工作时间：",
-		"en": "Working hours:"
+		"ja": "仕事時間です。",
+		"ko": "작업 시간:",
+		"en": "Working hours:",
+		"ru": "Время работы:"
 	},
 	"jjifr4g": {
 		"zh-cn": "周一至周五 9:00-18:00",
-		"en": "Monday to Friday 9:00-18:00"
-	},
-	"bxkqu3": {
-		"zh-cn": "产品一",
-		"en": "Product 1"
-	},
-	"mp8spt8": {
-		"zh-cn": "产品一的详细描述",
-		"en": "Detailed description of Product one"
-	},
-	"bxkuq3": {
-		"zh-cn": "产品二",
-		"en": "Product 2"
-	},
-	"rg1rhp8": {
-		"zh-cn": "产品二的详细描述",
-		"en": "Detailed description of Product two"
-	},
-	"idpkan5": {
-		"zh-cn": "解决方案一",
-		"en": "Solution 1"
-	},
-	"v7m4eca": {
-		"zh-cn": "解决方案一的详细描述",
-		"en": "A detailed description of solution 1"
-	},
-	"idpk6r5": {
-		"zh-cn": "解决方案二",
-		"en": "Solution 2"
-	},
-	"qgt5mga": {
-		"zh-cn": "解决方案二的详细描述",
-		"en": "Detailed description of Solution 2"
-	},
-	"kkzc56h": {
-		"zh-cn": "致力于为企业提供创新的技术解决方案",
-		"en": "Committed to providing innovative technical solutions for enterprises"
-	},
-	"tsrk4q26": {
-		"zh-cn": "我们是一家专注于企业数字化转型的科技公司，成立于2010年。十余年来，我们始终坚持以客户为中心，通过持续创新和专业服务，帮助众多企业实现业务增长和技术升级。",
-		"en": "We are a technology company focused on the digital transformation of enterprises, founded in 2010. For more than 10 years, we have always been customer-centric, through continuous innovation and professional services, to help many companies achieve business growth and technology upgrades."
-	},
-	"6a599q5": {
-		"zh-cn": "核心价值观",
-		"en": "Core values"
-	},
-	"eiut2": {
-		"zh-cn": "创新",
-		"en": "innovate"
-	},
-	"f72p0af": {
-		"zh-cn": "持续追求技术创新，引领行业发展",
-		"en": "Continue to pursue technological innovation and lead the development of the industry"
-	},
-	"dpif2": {
-		"zh-cn": "专业",
-		"en": "profession"
-	},
-	"lkby5yd": {
-		"zh-cn": "专业的团队，卓越的服务品质",
-		"en": "Professional team, excellent service quality"
-	},
-	"o85j2": {
-		"zh-cn": "诚信",
-		"en": "integrity"
-	},
-	"1lk6cv9": {
-		"zh-cn": "诚信经营，信守承诺",
-		"en": "Integrity management, keep promises"
-	},
-	"emmp2": {
-		"zh-cn": "共赢",
-		"en": "win-win"
-	},
-	"f3j2ghf": {
-		"zh-cn": "与客户、员工、合作伙伴共同成长",
-		"en": "Grow together with customers, employees and partners"
-	},
-	"ayik894": {
-		"zh-cn": "发展历程",
-		"en": "Development course"
-	},
-	"sdx6f5": {
-		"zh-cn": "2010年",
-		"en": "The year 2010"
-	},
-	"h2kkd8f": {
-		"zh-cn": "公司成立，开始提供基础技术服务",
-		"en": "The company was established and began to provide basic technical services"
-	},
-	"sdxaq5": {
-		"zh-cn": "2015年",
-		"en": "The year 2015"
-	},
-	"gsln9wi": {
-		"zh-cn": "业务扩展至全国，服务客户突破500家",
-		"en": "Business has expanded to the whole country, serving more than 500 customers"
-	},
-	"sdxdb5": {
-		"zh-cn": "2018年",
-		"en": "The year 2018"
-	},
-	"fn1nt2h": {
-		"zh-cn": "获得A轮融资，技术研发实力大幅提升",
-		"en": "Obtained A round of financing, technology research and development strength greatly improved"
-	},
-	"sdxx45": {
-		"zh-cn": "2020年",
-		"en": "The year 2020"
-	},
-	"v0jgy7i": {
-		"zh-cn": "推出云服务平台，开启数字化服务新篇章",
-		"en": "Launched a cloud service platform to open a new chapter in digital services"
-	},
-	"sdxzp5": {
-		"zh-cn": "2023年",
-		"en": "2023"
-	},
-	"8qbtuxk": {
-		"zh-cn": "服务客户突破1000家，成为行业领军企业",
-		"en": "Serving more than 1,000 customers and becoming an industry leader"
-	},
-	"g2s1xe4": {
-		"zh-cn": "管理团队",
-		"en": "Management team"
-	},
-	"gqni2": {
-		"zh-cn": "张明",
-		"en": "Zhang Ming"
-	},
-	"qgp0zo5": {
-		"zh-cn": "首席执行官",
-		"en": "Chief executive officer"
-	},
-	"kdjwpo": {
-		"zh-cn": "拥有20年IT行业经验，曾任多家知名科技公司高管",
-		"en": "He has 20 years of experience in the IT industry and has been a senior executive of several well-known technology companies"
-	},
-	"i11c2": {
-		"zh-cn": "李华",
-		"en": "Li Hua"
-	},
-	"cuu50l4": {
-		"zh-cn": "技术总监",
-		"en": "Technical director"
-	},
-	"azrwunn": {
-		"zh-cn": "专注于企业级解决方案架构设计，技术创新领军人物",
-		"en": "Focus on enterprise solution architecture design, technology innovation leader"
-	},
-	"kdc82": {
-		"zh-cn": "王芳",
-		"en": "Wang Fang"
-	},
-	"iotqff4": {
-		"zh-cn": "运营总监",
-		"en": "Director of operations"
-	},
-	"8a2kgzi": {
-		"zh-cn": "深耕企业服务领域15年，运营管理专家",
-		"en": "15 years in the field of enterprise service, operation management expert"
-	},
-	"fdp8tw4": {
-		"zh-cn": "留言表单",
-		"en": "Message form"
-	},
-	"kptz2": {
-		"zh-cn": "留言",
-		"en": "Leave a message"
-	},
-	"itip1ff": {
-		"zh-cn": "电话：123-456-7890",
-		"en": "Phone: 123-456-7890"
-	},
-	"4l9tgjh": {
-		"zh-cn": "地址：某某市某某区某某街道123号",
-		"en": "Address: No. 123, Xyz Street, Xyz District, Xyz City"
+		"ja": "月~金9:00-18:00です。",
+		"ko": "월요일~금요일 9:00-18:00",
+		"en": "Monday to Friday 9:00-18:00",
+		"ru": "С понедельника по пятницу с 9:00 до 18:00"
 	}
 }

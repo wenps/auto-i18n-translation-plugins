@@ -39,10 +39,7 @@
     })();
     // 定义语言映射对象
     const langMap = {
-        'ja': window?.lang?.ja || window._getJSONKey('ja', langJSON),
-'ko': window?.lang?.ko || window._getJSONKey('ko', langJSON),
-'en': window?.lang?.en || window._getJSONKey('en', langJSON),
-'ru': window?.lang?.ru || window._getJSONKey('ru', langJSON),
+        'en': window?.lang?.en || window._getJSONKey('en', langJSON),
 'zhcn': window?.lang?.zhcn || window._getJSONKey('zh-cn', langJSON)
     };
     // 从本地存储中获取当前语言，如果不存在则使用源语言

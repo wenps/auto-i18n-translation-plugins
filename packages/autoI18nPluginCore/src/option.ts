@@ -1,14 +1,20 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-26 17:34:47
- * @LastEditTime: 2025-03-16 17:50:56
+ * @LastEditTime: 2025-03-17 00:37:47
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
 import { OriginLangKeyEnum, TranslateTypeEnum } from './enums'
-import { YoudaoTranslator, GoogleTranslator, Translator, TranslatorOption } from './translator'
+import {
+    YoudaoTranslator,
+    GoogleTranslator,
+    BaiduTranslator,
+    Translator,
+    TranslatorOption
+} from './translator'
 import { cloneDeep } from './utils/base'
-export { YoudaoTranslator, GoogleTranslator, Translator, TranslateTypeEnum }
+export { YoudaoTranslator, GoogleTranslator, BaiduTranslator, Translator, TranslateTypeEnum }
 export type { TranslatorOption }
 
 const EXCLUDED_CALL = ['$i8n', 'console.log', '$t', 'require', '$$i8n', '$$t']

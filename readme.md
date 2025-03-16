@@ -272,6 +272,15 @@ Original authors: wenps、xu-code、Caleb-Xu、Winfans
 
 ## Changelog
 
+
+### v1.0.13 (Stable Version)
+
+* Fixed known issues.
+
+### v1.0.12 (Unstable Version)
+
+* Optimized types.
+
 ### v1.0.11
 
 * Fixed known bugs.

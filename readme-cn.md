@@ -273,6 +273,14 @@ const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
 
 ## 更新日志
 
+### v1.0.13 (稳定版本)
+
+*   已知问题修复
+
+### v1.0.12 (非稳定版本)
+
+*   优化类型
+
 ### v1.0.11
 
 *   修复已知缺陷

@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-26 17:34:47
- * @LastEditTime: 2025-03-16 16:28:35
+ * @LastEditTime: 2025-03-16 17:50:56
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
@@ -123,11 +123,9 @@ export function initOption(optionInfo: OptionInfo) {
     option.langKey = [option.originLang, ...option.targetLangList]
     // 初始化排除调用函数列表，包含默认排除和调用函数主动排除
     option.excludedCall = [
-        ...new Set([
-            ...option.excludedCall,
-            ...EXCLUDED_CALL,
-            ...[option.translateKey, '$' + option.translateKey]
-        ])
+        ...option.excludedCall,
+        ...EXCLUDED_CALL,
+        ...[option.translateKey, '$' + option.translateKey]
     ]
 }
 

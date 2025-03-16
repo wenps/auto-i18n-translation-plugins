@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-08-10 17:12:17
- * @LastEditTime: 2025-03-16 18:37:57
+ * @LastEditTime: 2025-03-16 19:17:17
  * @FilePath: /i18n_translation_vite/example/vue2/vite.config.ts
  */
 import path from 'path'
@@ -12,8 +12,8 @@ import vitePluginsAutoI18n, { YoudaoTranslator } from 'vite-auto-i18n-plugin'
 const i18nPlugin = vitePluginsAutoI18n({
     targetLangList: ['ja', 'ko', 'en', 'ru'],
     translator: new YoudaoTranslator({
-        appId: '6f7d97dd8d6dfaae',
-        appKey: 'T40Yki1FEFgtvuySBK682aTYBh4LZIzH'
+        appId: '6f7dd6dfaae',
+        appKey: 'T40Yki1SBK682aTYBh4LZIzH'
     })
 })
 

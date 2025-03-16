@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-30 18:23:03
- * @LastEditTime: 2025-03-16 18:05:38
+ * @LastEditTime: 2025-03-16 19:12:54
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/utils/translate.ts
  */
 
@@ -104,7 +104,7 @@ export async function autoTranslate() {
 
         // ─── 分块翻译流程开始 ───
         const translatedValues = await translateChunks(transLangObj, option.langKey[langIndex])
-        // ─── 分块翻译流程结束 ───
+        // ─── 分块翻译流程结束 ───=
 
         // ─── 翻译结果校验 ───
         if (translatedValues.length !== Object.keys(transLangObj).length) {
@@ -243,7 +243,27 @@ async function translateChunks(transLangObj: any, translateKey: string) {
     const chunkResults = await Promise.all(translatePromises)
     return chunkResults
         .map(item => {
-            return item.split(SPLIT_SEPARATOR_REGEX).map(v => v.trim())
+            // 提取分割逻辑到单独的函数中，提高代码复用性
+            const splitTranslation = (text: string, separatorRegex: RegExp) => {
+                return text.split(separatorRegex).map(v => v.trim())
+            }
+
+            // 分割符可能会被翻译，所以这里做了兼容处理
+            if (SPLIT_SEPARATOR_REGEX.test(item)) {
+                return splitTranslation(item, SPLIT_SEPARATOR_REGEX)
+            } else {
+                const lines = item.split('\n')
+                const separator = lines.find(line => line.length === 3)
+                let value: string[] = []
+                if (separator) {
+                    value = splitTranslation(item, new RegExp(`\\n${separator}\\n`))
+                }
+                const realList = value.filter(Boolean)
+                if (realList.length > 1) {
+                    return realList
+                }
+                return splitTranslation(item, SPLIT_SEPARATOR_REGEX)
+            }
         })
         .flat()
 }

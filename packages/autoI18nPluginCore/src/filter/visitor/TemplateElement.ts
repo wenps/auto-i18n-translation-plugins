@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-11-01 16:35:38
- * @LastEditTime: 2025-03-16 15:48:50
+ * @LastEditTime: 2025-03-16 18:23:23
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/filter/visitor/TemplateElement.ts
  */
 import types from '@babel/types'
@@ -16,9 +16,11 @@ export default function (path: any) {
     if (!node.value) return
 
     let value = node.value.raw || node.value.cooked // 获取模板字符串的值
-    if (option.originLang.includes('zh-cn') || option.originLang === 'zh-cn') {
+    // 定义一个包含亚洲语言代码的数组
+    const asianLangs = ['zh-cn', 'ja', 'ko']
+    if (asianLangs.some(lang => option.originLang.includes(lang) || option.originLang === lang)) {
         try {
-            value = baseUtils.unicodeToChinese(value)
+            value = baseUtils.unicodeToString(value)
         } catch (error) {
             console.log('转换异常')
         }

@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-11 10:01:43
- * @LastEditTime: 2025-02-14 17:58:22
+ * @LastEditTime: 2025-03-16 18:21:40
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/utils/base.ts
  */
 import { Node } from '@babel/types'
@@ -145,11 +145,11 @@ export function generateId(key: string) {
 }
 
 /**
- * @description: unicode转中文
+ * @description: unicode转普通字符串
  * @param {string} str
  * @return {*}
  */
-export const unicodeToChinese = (str: string) => {
+export const unicodeToString = (str: string) => {
     return str.replace(/\\u[\dA-Fa-f]{4}/g, (match: any) => {
         return String.fromCharCode(parseInt(match.replace(/\\u/g, ''), 16))
     })

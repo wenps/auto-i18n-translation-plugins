@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-26 17:34:47
- * @LastEditTime: 2025-03-16 14:28:00
+ * @LastEditTime: 2025-03-16 16:07:39
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
@@ -11,6 +11,7 @@ import { cloneDeep } from './utils/base'
 export { YoudaoTranslator, GoogleTranslator, Translator, TranslateTypeEnum }
 export type { TranslatorOption }
 
+const EXCLUDED_CALL = ['$i8n', 'console.log', '$t', 'require', '$$i8n', '$$t']
 /**
  * 默认插件配置选项
  */
@@ -19,7 +20,7 @@ const DEFAULT_OPTION = {
     translateKey: '$t',
 
     /** 标记不翻译调用函数列表，避免某些调用被错误翻译 */
-    excludedCall: ['$i8n', 'console.log', '$t', 'require', '$$i8n', '$$t'],
+    excludedCall: [] as string[],
 
     /** 标记不用翻译的字符串模式数组，默认是匹配文件扩展名 */
     excludedPattern: [/\.\w+$/],
@@ -120,6 +121,14 @@ export function initOption(optionInfo: OptionInfo) {
 
     // 初始化语言key数组，包含来源语言和目标语言
     option.langKey = [option.originLang, ...option.targetLangList]
+    // 初始化排除调用函数列表，包含默认排除和调用函数主动排除
+    option.excludedCall = [
+        ...new Set([
+            ...option.excludedCall,
+            ...EXCLUDED_CALL,
+            ...[option.translateKey, '$' + option.translateKey]
+        ])
+    ]
 }
 
 /**

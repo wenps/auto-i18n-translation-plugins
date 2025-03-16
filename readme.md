@@ -156,6 +156,7 @@ import '../lang/index.js' // 📍 It must be introduced in the first line of the
 
 | Parameter        | Type       | Required | Default                  | Description                                                               |
 | ---------------- | ---------- | -------- | ------------------------ | ------------------------------------------------------------------------- |
+| translateType    | string     | ❌  | `full-auto`              | Translation status, with two default options: `full-auto` and `semi-auto`. |
 | translateKey     | string     | ✅       | `$t`                     | The function name for calling translations, defaults to`$t`.              |
 | translateType    | string     | ❌  | `full-auto`              | Translation status, with two default options: `full-auto` and `semi-auto`. |
 | excludedCall     | string[]   | ❌       | `['$i8n', 'require', …]` | A list of function calls excluded from translation.                       |

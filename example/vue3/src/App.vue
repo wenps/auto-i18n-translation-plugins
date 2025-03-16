@@ -1,16 +1,13 @@
 <!--
  * @Date: 2025-01-23 13:44:37
  * @LastEditors: xiaoshan
- * @LastEditTime: 2025-03-16 17:53:50
+ * @LastEditTime: 2025-03-16 18:07:07
  * @FilePath: /i18n_translation_vite/example/vue3/src/App.vue
 -->
 <template>
     <div class="app">
         <nav class="navbar" v-bind="xx" aa="311">
-            <div class="logo">
-                FutureTech -
-                科技引领未来，创新驱动发展。在当今这个科技飞速发展的时代，FutureTech始终站在前沿，致力于为用户提供最先进、最优质的产品和服务。我们不断探索科技的边界，突破传统的束缚，用创新的思维和技术为用户带来前所未有的体验。无论是在人工智能、大数据、云计算还是其他领域，我们都有着深厚的技术积累和丰富的实践经验。我们相信，科技的力量是无穷的，它可以改变世界，让生活变得更加美好。因此，我们将继续努力，不断创新，为用户创造更多的价值。
-            </div>
+            <div class="logo">FutureTech</div>
             <div class="nav-links" style="display: flex">
                 <div class="operation">
                     <a-button @click="changeLang('zhcn')" style="margin-right: 10px">中文</a-button>
@@ -23,6 +20,12 @@
                 </router-link>
             </div>
         </nav>
+        <div>
+            <div class="logo">
+                FutureTech -
+                科技引领未来，创新驱动发展。在当今这个科技飞速发展的时代，FutureTech始终站在前沿，致力于为用户提供最先进、最优质的产品和服务。我们不断探索科技的边界，突破传统的束缚，用创新的思维和技术为用户带来前所未有的体验。无论是在人工智能、大数据、云计算还是其他领域，我们都有着深厚的技术积累和丰富的实践经验。我们相信，科技的力量是无穷的，它可以改变世界，让生活变得更加美好。因此，我们将继续努力，不断创新，为用户创造更多的价值。
+            </div>
+        </div>
 
         <router-view></router-view>
 

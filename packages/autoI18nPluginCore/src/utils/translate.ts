@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-30 18:23:03
- * @LastEditTime: 2025-03-13 16:32:56
+ * @LastEditTime: 2025-03-16 18:05:38
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/utils/translate.ts
  */
 
@@ -103,27 +103,8 @@ export async function autoTranslate() {
         console.info('开始自动翻译...')
 
         // ─── 分块翻译流程开始 ───
-        // 获取分块后的文本列表
-        const translationChunks = chunkUtils.createTextSplitter(Object.values(transLangObj))
-        // 并行执行分块翻译
-        const translatePromises = []
-        for (let i = 0; i < translationChunks.length; i++) {
-            translatePromises.push(
-                option.translator.translate(
-                    translationChunks[i],
-                    option.originLang,
-                    option.langKey[langIndex]
-                )
-            )
-        }
-
-        // 等待所有分块完成并合并结果
-        const chunkResults = await Promise.all(translatePromises)
-        const translatedValues = chunkResults
-            .map(item => {
-                return item.split(SPLIT_SEPARATOR_REGEX).map(v => v.trim())
-            })
-            .flat()
+        const translatedValues = await translateChunks(transLangObj, option.langKey[langIndex])
+        // ─── 分块翻译流程结束 ───
 
         // ─── 翻译结果校验 ───
         if (translatedValues.length !== Object.keys(transLangObj).length) {
@@ -212,12 +193,14 @@ export async function completionTranslateAndWriteConfigFile(
 
     if (!Object.values(transLangObj).length) return
 
-    // 创建翻译文本
-    let text = Object.values(transLangObj).join(SEPARATOR)
+    // ─── 分块翻译流程开始 ───
 
     console.info('进入新增语言补全翻译...')
-    const res = await option.translator.translate(text, option.originLang, translateKey)
-    const resultValues = res.split(SPLIT_SEPARATOR_REGEX).map(v => v.trim()) // 拆分文案
+
+    // 调用抽离的函数
+    const resultValues = await translateChunks(transLangObj, translateKey)
+    // ─── 分块翻译流程结束 ───
+
     if (resultValues.length !== Object.values(langObj).length) {
         console.error('翻译异常，翻译结果缺失❌')
         return
@@ -242,4 +225,25 @@ export async function completionTranslateAndWriteConfigFile(
         console.error('❌JSON配置文件写入失败' + error)
     }
     console.info('新增语言翻译补全成功⭐️⭐️⭐️')
+}
+
+// 分块翻译流程函数
+async function translateChunks(transLangObj: any, translateKey: string) {
+    // 获取分块后的文本列表
+    const translationChunks = chunkUtils.createTextSplitter(Object.values(transLangObj))
+    // 并行执行分块翻译
+    const translatePromises = []
+    for (let i = 0; i < translationChunks.length; i++) {
+        translatePromises.push(
+            option.translator.translate(translationChunks[i], option.originLang, translateKey)
+        )
+    }
+
+    // 等待所有分块完成并合并结果
+    const chunkResults = await Promise.all(translatePromises)
+    return chunkResults
+        .map(item => {
+            return item.split(SPLIT_SEPARATOR_REGEX).map(v => v.trim())
+        })
+        .flat()
 }

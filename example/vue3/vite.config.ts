@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-08-10 17:12:17
- * @LastEditTime: 2025-03-16 17:54:29
+ * @LastEditTime: 2025-03-16 18:10:50
  * @FilePath: /i18n_translation_vite/example/vue3/vite.config.ts
  */
 import path from 'path'
@@ -14,11 +14,11 @@ const i18nPlugin = vitePluginsAutoI18n({
     namespace: 'lang',
     distPath: './dist/assets',
     distKey: 'index',
-    targetLangList: ['en', 'ko', 'ja'],
+    targetLangList: ['en', 'ko', 'ja', 'ru'],
     originLang: 'zh-cn',
     translator: new YoudaoTranslator({
-        appId: '6f7d97dd8d6dfaae',
-        appKey: 'T40Yki1FEFgtvuySBK682aTYBh4LZIzH'
+        appId: '6f7d97dd8dae',
+        appKey: 'T40Yki12aTYBh4LZIzH'
     })
 })
 

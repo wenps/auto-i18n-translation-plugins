@@ -62,9 +62,9 @@ yarn add webpack-auto-i18n-plugin --dev
 #### **Example for Vite** (vite.config.js):
 
 ```javascript
-import { defineConfig } from 'vite'
 import vitePluginAutoI18n from 'vite-auto-i18n-plugin'
 import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
     plugins: [
@@ -154,24 +154,24 @@ import '../lang/index.js' // 📍 It must be introduced in the first line of the
 
 ## ⚙️ Configuration Parameters
 
-| Parameter        | Type       | Required | Default                  | Description                                                               |
-| ---------------- | ---------- | -------- | ------------------------ | ------------------------------------------------------------------------- |
-| translateType    | string     | ❌  | `full-auto`              | Translation status, with two default options: `full-auto` and `semi-auto`. |
-| translateKey     | string     | ✅       | `$t`                     | The function name for calling translations, defaults to`$t`.              |
-| translateType    | string     | ❌  | `full-auto`              | Translation status, with two default options: `full-auto` and `semi-auto`. |
-| excludedCall     | string[]   | ❌       | `['$i8n', 'require', …]` | A list of function calls excluded from translation.                       |
-| excludedPattern  | RegExp[]   | ❌       | `[/\.\w+$/]`             | Regular expressions to exclude certain patterns, e.g., file paths.        |
-| excludedPath     | string[]   | ❌       | `['node_modules']`       | Exclude files under specified directories (e.g.,`node_modules`).          |
-| includePath      | RegExp[]   | ❌       | `[/src\//]`              | Define a whitelist for directories/files to translate (`src` by default). |
-| globalPath       | string     | ❌       | `'./lang'`               | The path where translation configuration files are generated.             |
-| distPath         | string     | ✅       | `''`                     | The directory where the translation files are built.                      |
-| distKey          | string     | ✅       | `'index'`                | The name of the main translation file after bundling.                     |
-| namespace        | string     | ✅       | `'lang'`                 | The project namespace, helpful for avoiding global conflicts.             |
-| originLang       | string     | ✅       | `'zh-cn'`                | The source language for translation.                                      |
-| targetLangList   | string[]   | ✅       | `['en']`                 | A list of target languages for translation.                               |
-| buildToDist      | boolean    | ❌       | `false`                  | Whether to bundle translation files into the main build bundle.           |
-| translator       | Translator | ❌       | `GoogleTranslator`       | The translation instance.                                                 |
-| translatorOption | Object     | ❌       | `{}`                     | Additional configuration for the translator (lower precedence).           |
+| Parameter        | Type       | Required | Default                  | Description                                                                |
+| ---------------- | ---------- | -------- | ------------------------ | -------------------------------------------------------------------------- |
+| translateType    | string     | ❌       | `full-auto`              | Translation status, with two default options: `full-auto` and `semi-auto`. |
+| translateKey     | string     | ✅       | `$t`                     | The function name for calling translations, defaults to`$t`.               |
+| translateType    | string     | ❌       | `full-auto`              | Translation status, with two default options: `full-auto` and `semi-auto`. |
+| excludedCall     | string[]   | ❌       | `['$i8n', 'require', …]` | A list of function calls excluded from translation.                        |
+| excludedPattern  | RegExp[]   | ❌       | `[/\.\w+$/]`             | Regular expressions to exclude certain patterns, e.g., file paths.         |
+| excludedPath     | string[]   | ❌       | `['node_modules']`       | Exclude files under specified directories (e.g.,`node_modules`).           |
+| includePath      | RegExp[]   | ❌       | `[/src\//]`              | Define a whitelist for directories/files to translate (`src` by default).  |
+| globalPath       | string     | ❌       | `'./lang'`               | The path where translation configuration files are generated.              |
+| distPath         | string     | ✅       | `''`                     | The directory where the translation files are built.                       |
+| distKey          | string     | ✅       | `'index'`                | The name of the main translation file after bundling.                      |
+| namespace        | string     | ✅       | `'lang'`                 | The project namespace, helpful for avoiding global conflicts.              |
+| originLang       | string     | ✅       | `'zh-cn'`                | The source language for translation.                                       |
+| targetLangList   | string[]   | ✅       | `['en']`                 | A list of target languages for translation.                                |
+| buildToDist      | boolean    | ❌       | `false`                  | Whether to bundle translation files into the main build bundle.            |
+| translator       | Translator | ❌       | `GoogleTranslator`       | The translation instance.                                                  |
+| translatorOption | Object     | ❌       | `{}`                     | Additional configuration for the translator (lower precedence).            |
 
 ---
 
@@ -200,6 +200,7 @@ const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
 }
 
 ```
+
 ---
 
 ## ❓ Why `buildToDist`?
@@ -275,22 +276,21 @@ Original authors: wenps、xu-code、Caleb-Xu、Winfans
 
 ### v1.0.14 (Stable Version)
 
-* Fixed the issue where new language types were not automatically segmented.
-* Added support for Japanese, Korean, and Russian in the automatic translation feature.
-
+-   Fixed the issue where new language types were not automatically segmented.
+-   Added support for Japanese, Korean, and Russian in the automatic translation feature.
 
 ### v1.0.13 (Stable Version)
 
-* Fixed known issues.
+-   Fixed known issues.
 
 ### v1.0.12 (Unstable Version)
 
-* Optimized types.
+-   Optimized types.
 
 ### v1.0.11
 
-* Fixed known bugs.
-* Added a new translation status option to support semi-automatic mode.
+-   Fixed known bugs.
+-   Added a new translation status option to support semi-automatic mode.
 
 ```js
 // Users can wrap the text to be translated with translateKey
@@ -298,4 +298,3 @@ Original authors: wenps、xu-code、Caleb-Xu、Winfans
 
 $t('hello')
 ```
-

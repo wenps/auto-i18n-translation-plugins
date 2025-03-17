@@ -7,5 +7,6 @@
     "trailingComma": "none",
     "endOfLine": "lf",
     "arrowParens": "avoid",
-    "htmlWhitespaceSensitivity": "ignore"
+    "htmlWhitespaceSensitivity": "ignore",
+    "plugins": ["prettier-plugin-sort-imports"]
 }

@@ -8,7 +8,8 @@ export interface TranslatorOption {
 
 // 定义翻译类型和提示信息的映射
 const translationTypeMap = new Map<string | undefined, string>([
-    ['有道翻译', '请前往有道翻译官方申请翻译key，默认会有50的额度，并请检查额度是否充足。']
+    ['有道翻译', '请前往有道翻译官方申请翻译key，默认会有50的额度，并请检查额度是否充足。'],
+    ['百度翻译', '请前往百度翻译官方申请翻译key，每个月都有免费额度，并请检查额度是否充足。']
 ])
 
 class IntervalQueue<T extends any[], U extends any> {

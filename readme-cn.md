@@ -64,7 +64,7 @@ yarn add webpack-auto-i18n-plugin --dev
 #### **Vite 配置示例** (vite.config.js)：
 
 ```javascript
-import vitePluginAutoI18n from 'vite-auto-i18n-plugin'
+import vitePluginsAutoI18n, { YoudaoTranslator } from 'vite-auto-i18n-plugin'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 

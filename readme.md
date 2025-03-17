@@ -274,6 +274,14 @@ Original authors: wenps、xu-code、Caleb-Xu、Winfans
 
 ## Changelog
 
+### v1.0.16 (Stable Version)
+
+- Fixed known issues (Vue 3 comment nodes).
+
+### v1.0.15 (Stable Version)
+
+- Added Baidu Translator.
+
 ### v1.0.14 (Stable Version)
 
 -   Fixed the issue where new language types were not automatically segmented.

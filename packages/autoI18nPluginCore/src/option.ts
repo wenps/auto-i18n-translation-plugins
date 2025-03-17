@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-26 17:34:47
- * @LastEditTime: 2025-03-17 00:37:47
+ * @LastEditTime: 2025-03-17 18:36:25
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
@@ -17,7 +17,7 @@ import { cloneDeep } from './utils/base'
 export { YoudaoTranslator, GoogleTranslator, BaiduTranslator, Translator, TranslateTypeEnum }
 export type { TranslatorOption }
 
-const EXCLUDED_CALL = ['$i8n', 'console.log', '$t', 'require', '$$i8n', '$$t']
+const EXCLUDED_CALL = ['$i8n', 'console.log', '$t', 'require', '$$i8n', '$$t', '_createCommentVNode']
 /**
  * 默认插件配置选项
  */

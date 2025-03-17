@@ -1,0 +1,322 @@
+{
+	"8l7r2": {
+		"ja": "ロゴ",
+		"en": "logo",
+		"ko": "로고"
+	},
+	"kro2216": {
+		"ja": "企業ポータル",
+		"en": "Corporate portal",
+		"ko": "기업포털"
+	},
+	"bvrxq3": {
+		"ja": "中国語",
+		"en": "Chinese",
+		"ko": "중국어"
+	},
+	"n1712": {
+		"ja": "英語",
+		"en": "English",
+		"ko": "영어"
+	},
+	"mo4es3": {
+		"ja": "韓国語",
+		"en": "Korean language",
+		"ko": "한국어"
+	},
+	"fflhz3": {
+		"ja": "日本語",
+		"en": "Japanese",
+		"ko": "일본어"
+	},
+	"yec9wv6": {
+		"ja": "製品サービス",
+		"en": "Product service",
+		"ko": "제품 서비스"
+	},
+	"xkvqjj7": {
+		"ja": "ソリューション",
+		"en": "The solution",
+		"ko": "솔루션입니다"
+	},
+	"ubmc926": {
+		"ja": "当社について",
+		"en": "About our company",
+		"ko": "우리 회사"
+	},
+	"ddv92t6": {
+		"ja": "お問い合わせ",
+		"en": "Contact us",
+		"ko": "문의"
+	},
+	"71egupe": {
+		"ja": "弊社の企業ポータルへようこそ",
+		"en": "Welcome to our corporate portal",
+		"ko": "저희 회사 포털에 오신 걸 환영합니다"
+	},
+	"qw67mvp": {
+		"ja": "専門的な企業レベルのソリューションを提供いたします",
+		"en": "We provide professional, enterprise-level solutions.",
+		"ko": "전문 기업 수준의 솔루션을 제공합니다."
+	},
+	"awp9sb5": {
+		"ja": "詳細を見る",
+		"en": "See details",
+		"ko": "자세한 내용을보다"
+	},
+	"x29eqz5": {
+		"ja": "当社の強み",
+		"en": "Our strengths",
+		"ko": "우리의 강점"
+	},
+	"cola1d8": {
+		"ja": "専門的なサービス",
+		"en": "Professional service",
+		"ko": "전문 서비스"
+	},
+	"kp3bf32k": {
+		"ja": "全方位的な企業サービスソリューションを提供し、あなたの様々なビジネスニーズに対応いたします。当社の専門チームは豊富な業界経験を持ち、あなたに最適なソリューションをカスタマイズできます。",
+		"en": "We provide comprehensive enterprise service solutions to meet your various business needs. Our professional team has extensive industry experience and can customize the best solution for you.",
+		"ko": "전방위적인 기업 서비스 솔루션을 제공해 귀하의 다양한 비즈니스 요구에 대응하겠습니다.당사의 전문 팀은 풍부한 산업 경험을 가지고 당신에게 최적의 솔루션을 커스터마이즈할 수 있습니다."
+	},
+	"czy6ii4": {
+		"ja": "技術革新",
+		"en": "Technical innovation",
+		"ko": "기술 혁신"
+	},
+	"672qp02a": {
+		"ja": "継続的に技術を革新し、企業に最先端の技術サポートを提供します。当社は多くの資源を研究開発に投入し、お客様に最も先進的な技術ソリューションを提供することを保証します。",
+		"en": "We continuously innovate technology and provide companies with cutting-edge technical support. We invest a lot of resources in research and development to ensure that we provide our customers with the most advanced technology solutions.",
+		"ko": "지속적으로 기술을 혁신하고 기업에 최첨단 기술 지원을 제공합니다.당사는 많은 자원을 연구 개발에 투입하여 고객에게 가장 선진적인 기술 솔루션을 제공하도록 보장합니다."
+	},
+	"ilr3d46": {
+		"ja": "優れたチーム",
+		"en": "Good team",
+		"ko": "훌륭한 팀"
+	},
+	"5whx5d22": {
+		"ja": "経験豊富な専門チームを擁し、あなたに最高のサービス体験を提供します。当社のチームメンバーはすべて業界のトップ企業出身で、深い専門知識を持っています。",
+		"en": "We have an experienced professional team to give you the best service experience. All of our team members come from top companies in the industry and have deep expertise.",
+		"ko": "경험 많은 전문 팀을 보유하고 있으며 당신에게 최고의 서비스 경험을 제공합니다.당사의 팀원은 모두 업계 최고 기업 출신으로 깊은 전문 지식을 가지고 있습니다."
+	},
+	"lpsve3": {
+		"ja": "連絡先",
+		"en": "Contact information",
+		"ko": "연락처"
+	},
+	"6z88r9d": {
+		"ja": "オンラインでのお問い合わせ",
+		"en": "Contact us online",
+		"ko": "온라인 문의"
+	},
+	"iuam2": {
+		"ja": "氏名",
+		"en": "name",
+		"ko": "이름"
+	},
+	"w6ugg2f": {
+		"ja": "あなたの氏名を入力してください",
+		"en": "Please enter your name",
+		"ko": "당신의 이름을 입력하세요."
+	},
+	"jme1ib4": {
+		"ja": "電話番号",
+		"en": "Telephone number",
+		"ko": "전화번호"
+	},
+	"acnn5rk": {
+		"ja": "あなたの連絡先電話番号を入力してください",
+		"en": "Please enter your contact phone number",
+		"ko": "당신의 연락처, 전화번호를 입력하세요."
+	},
+	"2ase107": {
+		"ja": "メールアドレス",
+		"en": "Email address",
+		"ko": "이메일 주소"
+	},
+	"2bgc4qk": {
+		"ja": "あなたのメールアドレスを入力してください",
+		"en": "Please enter your email address",
+		"ko": "여러분의 이메일 주소를 입력하세요."
+	},
+	"6m9rnt8": {
+		"ja": "お問い合わせ内容",
+		"en": "Contents of inquiry",
+		"ko": "문의 내용"
+	},
+	"4nbv2po": {
+		"ja": "あなたがお問い合わせしたい内容を入力してください",
+		"en": "Please enter what you want to inquire about",
+		"ko": "당신이 문의하고 싶은 내용을 입력하세요"
+	},
+	"oxkw2": {
+		"ja": "送信",
+		"en": "sending",
+		"ko": "전송"
+	},
+	"tds64fc": {
+		"ja": "企業管理コンサルティング",
+		"en": "Business management consulting",
+		"ko": "기업관리 컨설팅"
+	},
+	"qlno609": {
+		"ja": "プロセス最適化方案",
+		"en": "Process optimization program",
+		"ko": "프로세스 최적화 방안"
+	},
+	"tlkdma9": {
+		"ja": "リスク管理サービス",
+		"en": "Risk management services",
+		"ko": "위험 관리 서비스"
+	},
+	"plqpvt7": {
+		"ja": "人工知能の応用",
+		"en": "Application of artificial intelligence",
+		"ko": "인공지능의 응용"
+	},
+	"75b7nvh": {
+		"ja": "クラウドコンピューティングサービス",
+		"en": "Cloud computing services",
+		"ko": "클라우드 컴퓨팅 서비스"
+	},
+	"kb9vt9a": {
+		"ja": "ブロックチェーン技術",
+		"en": "Blockchain technology",
+		"ko": "블록체인 기술"
+	},
+	"lq0v237": {
+		"ja": "資深技術専門家",
+		"en": "Technical expert",
+		"ko": "자심기술 전문가"
+	},
+	"z6yl1zc": {
+		"ja": "業界分野のコンサルタント",
+		"en": "Industry consultant",
+		"ko": "산업분야 컨설턴트"
+	},
+	"sspa9lf": {
+		"ja": "専門のカスタマーサービスチーム",
+		"en": "Professional customer service team",
+		"ko": "전문 고객 서비스 팀"
+	},
+	"i6cj286": {
+		"ja": "会社のデータ",
+		"en": "Company data",
+		"ko": "회사의 데이터"
+	},
+	"wvv5j87": {
+		"ja": "1000社以上",
+		"en": "More than 1,000 companies",
+		"ko": "1000개 이상"
+	},
+	"ebl8tx9": {
+		"ja": "サービスしたお客様",
+		"en": "Service customers",
+		"ko": "서비스한 고객"
+	},
+	"1c4weg5": {
+		"ja": "50社以上",
+		"en": "More than 50 companies",
+		"ko": "50개 이상"
+	},
+	"fu6epd5": {
+		"ja": "パートナー",
+		"en": "Partner.",
+		"ko": "파트너"
+	},
+	"os6x7k6": {
+		"ja": "200名以上",
+		"en": "More than 200.",
+		"ko": "200명 이상"
+	},
+	"nnl0mf5": {
+		"ja": "専門チーム",
+		"en": "Specialized team",
+		"ko": "전문 팀"
+	},
+	"1k9c3": {
+		"ja": "15年",
+		"en": "15 years",
+		"ko": "15년"
+	},
+	"dshssm4": {
+		"ja": "業界経験",
+		"en": "Industry experience",
+		"ko": "산업 경험"
+	},
+	"8ihzzl2q": {
+		"ja": "当社は、企業に全方位的なソリューションを提供することに専念するテクノロジー企業です。継続的な革新と専門的なサービスを通じて、お客様のビジネス拡大とデジタルトランスフォーメーションを支援しています。",
+		"en": "We are a technology company dedicated to providing omni-directional solutions to enterprises. Through continuous innovation and expert services, we help our customers expand their business and digital transformation.",
+		"ko": "당사는 기업에 전방위적인 솔루션을 제공하는 것에 전념하는 기술 기업입니다.지속적인 혁신과 전문적인 서비스를 통해 고객의 비즈니스 확대와 디지털 트랜스포메이션을 지원하고 있습니다."
+	},
+	"no0icm21": {
+		"ja": "設立以来、当社は常に「お客様を中心とした」サービス理念を堅持し、サービス品質と技術レベルを不断に向上させ、お客様により大きな価値を創造しています。",
+		"en": "Since its establishment, the company has always adhered to the \"customer-centric\" service philosophy, constantly improving service quality and technical level, and creating greater value for customers.",
+		"ko": "설립 이래 당사는 항상'고객을 중심으로 한'서비스 이념을 견지하고 서비스 품질과 기술 수준을 끊임없이 향상시켜 고객에게 더 큰 가치를 창조하고 있습니다."
+	},
+	"6d2eb54": {
+		"ja": "ビジョン",
+		"en": "Vision.",
+		"ko": "비전"
+	},
+	"7e30ibu": {
+		"ja": "世界をリードする企業サービスソリューションプロバイダーになる",
+		"en": "Become the world's leading corporate service solutions provider",
+		"ko": "세계 최고의 기업, 서비스, 솔루션 제공자가 될 것이다."
+	},
+	"fni0kh5": {
+		"ja": "ミッション",
+		"en": "Mission.",
+		"ko": "미션"
+	},
+	"n3soaqf": {
+		"ja": "技術革新で企業の発展を推進する",
+		"en": "Promote the development of enterprises through technological innovation",
+		"ko": "기술 혁신으로 기업의 발전을 추진하다."
+	},
+	"c29o03": {
+		"ja": "価値観",
+		"en": "Values.",
+		"ko": "가치관"
+	},
+	"19iqo7h": {
+		"ja": "誠実さ、革新、専門性、ウィンウィン",
+		"en": "Integrity, innovation, professionalism, win-win",
+		"ko": "이 모든 것이 진실성, 혁신, 전문성, 윈윈,"
+	},
+	"ahg4o34": {
+		"ja": "会社概要",
+		"en": "Company profile",
+		"ko": "회사 개요"
+	},
+	"8umot1b": {
+		"ja": "サービスホットライン：",
+		"en": "The service hotline:",
+		"ko": "서비스 핫라인:"
+	},
+	"5fmvbv8": {
+		"ja": "ビジネスメール：",
+		"en": "Business email:",
+		"ko": "비즈니스 메일:"
+	},
+	"i1m0yp6": {
+		"ja": "会社の住所：",
+		"en": "Company address:",
+		"ko": "회사 주소:"
+	},
+	"g0u56fd": {
+		"ja": "北京市朝阳区科技園区88号",
+		"en": "Beijing chaoyang district science park district no. 88",
+		"ko": "북경시 차오창 구 과기원구 88호"
+	},
+	"6ajfou5": {
+		"ja": "営業時間：",
+		"en": "Hours:",
+		"ko": "영업시간:"
+	},
+	"nyr35oj": {
+		"ja": "月曜日から金曜日 9:00-18:00",
+		"en": "Monday to Friday 9:00-18:00",
+		"ko": "월요일부터 금요일 9시~18:00"
+	}
+}

@@ -1,0 +1,2 @@
+import*as e from"auto-i18n-plugin-core";import*as r from"@babel/core";module.exports=function(t){var n=e.baseUtils,o=e.option,a=e.filter;if(o.includePath.length&&!n.checkAgainstRegexArray(this.resourcePath,o.includePath))return t;if(o.excludedPath.length&&n.checkAgainstRegexArray(this.resourcePath,o.excludedPath))return t;try{var i=r.transformSync(t,{configFile:!1,plugins:[a.default]});return(null==i?void 0:i.code)||""}catch(e){console.error(e)}return t};
+//# sourceMappingURL=index.mjs.map

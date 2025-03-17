@@ -29,6 +29,4 @@ build
 *.sln
 *.sw?
 
-example/**/lang
 example/**/dist
-packages/**/dist

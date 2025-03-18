@@ -21,14 +21,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/wenps/i18n_translation_vite.git"
+        "url": "git@github.com:wenps/auto-i18n-translation-plugins.git"
     },
     "author": "wenps,xu-code,Winfans,caleb-xu",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/wenps/i18n_translation_vite/issues"
+        "url": "https://github.com/wenps/auto-i18n-translation-plugins/issues"
     },
-    "homepage": "https://github.com/wenps/i18n_translation_vite#readme",
+    "homepage": "https://github.com/wenps/auto-i18n-translation-plugins#readme",
     "dependencies": {
         "@babel/core": "^7.26.0",
         "@rollup/plugin-babel": "^6.0.4",

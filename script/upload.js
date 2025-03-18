@@ -5,9 +5,9 @@
  * @FilePath: /i18n_translation_vite/script/upload.js
  */
 // script/upload.js
+import { writeFile } from 'fs/promises'
 import shell from 'shelljs'
 import chalk from 'chalk'
-import { writeFile } from 'fs/promises'
 import path from 'path'
 import fs from 'fs'
 
@@ -66,6 +66,7 @@ const run = async () => {
     for (let key in TypeDirNameMap) {
         await generateVersion(versionType, TypeDirNameMap[key])
     }
+    await generateVersion(versionType) // 顺便改一下根目录的版本号
     console.log(chalk.green`\n修改完成!\n`)
 
     // 提交代码
@@ -93,6 +94,18 @@ const commitCode = async () => {
     } catch (error) {
         console.warn(chalk.yellow`\n推送超时，跳过推送步骤：`, error.message)
     }
+}
+
+/**
+ * 获取package.json文件路径
+ * @param {string} pkgName 包名，如果不传表示根目录
+ * @returns {string} package.json 文件的路径
+ */
+const getPackageJsonPath = (pkgName = '') => {
+    const currentDir = process.cwd() // 或通过 shell.pwd().stdout 修剪换行符后获取路径
+    return pkgName
+        ? path.join(currentDir, 'packages', pkgName, 'package.json')
+        : path.join(currentDir, 'package.json')
 }
 
 /**
@@ -127,7 +140,7 @@ const generateVersion = async (versionType, pkgName) => {
     console.log(chalk.blue(`\n${pkgName} 当前版本号：${initVersion} 修改为 ${version}`))
 
     // 写入更新后的 package.json 文件
-    await writeFile(`packages/${pkgName}/package.json`, JSON.stringify(pkg, null, 4))
+    await writeFile(getPackageJsonPath(pkgName), JSON.stringify(pkg, null, 4))
 
     return version
 }
@@ -143,10 +156,9 @@ const uploadPackage = () => {
     }
 }
 
-// 动态读取 package.json 文件的函数
+/** 动态读取 package.json 文件的函数 */
 const readPackageJson = async pkgName => {
-    const currentDir = process.cwd() // 或通过 shell.pwd().stdout 修剪换行符后获取路径
-    const packageJsonPath = path.join(currentDir, 'packages', pkgName, 'package.json')
+    const packageJsonPath = getPackageJsonPath(pkgName)
 
     try {
         // 使用 promises 中的 readFile 异步读取 JSON 文件

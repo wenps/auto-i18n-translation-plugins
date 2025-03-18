@@ -1,6 +1,6 @@
 {
-    "name": "i18n_auto_translation",
-    "version": "0.0.1",
+    "name": "auto-i18n-translation-plugins",
+    "version": "1.0.16",
     "type": "module",
     "author": "wenps,xu-code,Winfans,caleb-xu",
     "scripts": {

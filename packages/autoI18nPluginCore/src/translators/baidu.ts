@@ -4,10 +4,10 @@
  * @LastEditTime: 2025-03-17 01:11:37
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/translator/baidu.ts
  */
+import { SEPARATOR } from 'src/utils/translate'
 import axios, { AxiosProxyConfig } from 'axios'
 import { Translator } from './translator'
 import CryptoJS from 'crypto-js'
-import { SEPARATOR } from 'src/utils/translate'
 
 export interface BaiduTranslatorOption {
     appId: string
@@ -61,6 +61,12 @@ export class BaiduTranslator extends Translator {
 
                 // 请求成功，返回响应数据
                 return translatedTexts || ''
+            },
+            onError: (error, cb) => {
+                cb(error)
+                console.error(
+                    '请前往百度翻译官方申请翻译key，每个月都有免费额度，并请检查额度是否充足。'
+                )
             },
             interval: option.interval ?? 1000
         })

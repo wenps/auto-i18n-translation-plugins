@@ -31,6 +31,12 @@ export class GoogleTranslator extends Translator {
                         : {})
                 })
                 return data['text'] || ''
+            },
+            onError: (error, cb) => {
+                cb(error)
+                if (error instanceof Object && 'code' in error && error.code === 'ETIMEDOUT') {
+                    console.error('❗ 请求超时，请确保你的网络可以访问google ❗')
+                }
             }
         })
     }

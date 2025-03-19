@@ -5,19 +5,27 @@
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
-import { OriginLangKeyEnum, TranslateTypeEnum } from './enums'
 import {
     YoudaoTranslator,
     GoogleTranslator,
     BaiduTranslator,
     Translator,
     TranslatorOption
-} from './translator'
+} from './translators'
+import { OriginLangKeyEnum, TranslateTypeEnum } from './enums'
 import { cloneDeep } from './utils/base'
 export { YoudaoTranslator, GoogleTranslator, BaiduTranslator, Translator, TranslateTypeEnum }
 export type { TranslatorOption }
 
-const EXCLUDED_CALL = ['$i8n', 'console.log', '$t', 'require', '$$i8n', '$$t', '_createCommentVNode']
+const EXCLUDED_CALL = [
+    '$i8n',
+    'console.log',
+    '$t',
+    'require',
+    '$$i8n',
+    '$$t',
+    '_createCommentVNode'
+]
 /**
  * 默认插件配置选项
  */

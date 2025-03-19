@@ -2,32 +2,25 @@ import { Node } from '@babel/types';
 import tunnel from 'tunnel';
 import { AxiosProxyConfig } from 'axios';
 
-declare enum OriginLangKeyEnum {
-    ZH = "zh-cn",
-    EN = "en",
-    JA = "ja",
-    KO = "ko",
-    RU = "ru"
-}
-
-/**
- * 翻译类型枚举
- */
-declare enum TranslateTypeEnum {
-    FULL_AUTO = "full-auto",
-    SEMI_AUTO = "semi-auto"
-}
-
 interface TranslatorOption {
     /** 实际的请求方法 */
     fetchMethod: (text: string, fromKey: string, toKey: string) => Promise<string>;
     name?: string;
     /** 执行间隔（默认不开启） */
     interval?: number;
+    /**
+     * 错误处理函数，主要是打印提示
+     * @param err 抛出的异常
+     * @param defaultErrorHandler 默认的错误处理函数
+     * @returns
+     */
+    onError?: (err: unknown, defaultErrorHandler: (error: unknown) => void) => void;
 }
 declare class Translator {
-    protected option: TranslatorOption;
+    protected option: Required<TranslatorOption>;
     constructor(option: TranslatorOption);
+    private defaultErrorHandler;
+    private getResultOption;
     protected getErrorMessage(error: unknown): string;
     translate(text: string, fromKey: string, toKey: string): Promise<string>;
 }
@@ -82,6 +75,22 @@ declare const index$1_YoudaoTranslator: typeof YoudaoTranslator;
 type index$1_YoudaoTranslatorOption = YoudaoTranslatorOption;
 declare namespace index$1 {
   export { index$1_BaiduTranslator as BaiduTranslator, type index$1_BaiduTranslatorOption as BaiduTranslatorOption, index$1_GoogleTranslator as GoogleTranslator, type index$1_GoogleTranslatorOption as GoogleTranslatorOption, index$1_Translator as Translator, type index$1_TranslatorOption as TranslatorOption, index$1_YoudaoTranslator as YoudaoTranslator, type index$1_YoudaoTranslatorOption as YoudaoTranslatorOption };
+}
+
+declare enum OriginLangKeyEnum {
+    ZH = "zh-cn",
+    EN = "en",
+    JA = "ja",
+    KO = "ko",
+    RU = "ru"
+}
+
+/**
+ * 翻译类型枚举
+ */
+declare enum TranslateTypeEnum {
+    FULL_AUTO = "full-auto",
+    SEMI_AUTO = "semi-auto"
 }
 
 /**

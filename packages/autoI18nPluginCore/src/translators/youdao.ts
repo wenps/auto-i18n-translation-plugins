@@ -61,6 +61,12 @@ export class YoudaoTranslator extends Translator {
                 // 请求成功，返回响应数据
                 return response.data.translation?.[0] || ''
             },
+            onError: (error, cb) => {
+                cb(error)
+                console.error(
+                    '请前往有道翻译官方申请翻译key，默认会有50的额度，并请检查额度是否充足。'
+                )
+            },
             interval: option.interval ?? 1000
         })
     }

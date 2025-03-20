@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-02-14 10:48:41
  * @LastEditors: xiaoshan
- * @LastEditTime: 2025-03-16 15:52:02
+ * @LastEditTime: 2025-03-20 10:02:01
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/utils/file.ts
  */
 import fs from 'fs'
@@ -36,7 +36,7 @@ export function initTranslateBasicFnFile() {
         })
         // 构建语言映射项
         .map(item => {
-            return `'${item[0]}': window?.${namespace}?.${item[0]} || window._getJSONKey('${item[1]}', langJSON)`
+            return `'${item[0]}': globalThis?.${namespace}?.${item[0]} || globalThis._getJSONKey('${item[1]}', langJSON)`
         })
         // 用逗号和换行符连接所有映射项
         .join(',\n')
@@ -61,12 +61,12 @@ export function initTranslateBasicFnFile() {
       // 将指定命名空间下的语言包设置为传入的locale
       ${translateKey}[nameSpace] = locale || {};
     };
-    // 将翻译函数挂载到window对象上，如果已经存在则使用已有的
-    window.${translateKey} = window.${translateKey} || ${translateKey};
-    // 将简单翻译函数挂载到window对象上
-    window.$${translateKey} = $${translateKey};
+    // 将翻译函数挂载到globalThis对象上，如果已经存在则使用已有的
+    globalThis.${translateKey} = globalThis.${translateKey} || ${translateKey};
+    // 将简单翻译函数挂载到globalThis对象上
+    globalThis.$${translateKey} = $${translateKey};
     // 定义从JSON文件中获取指定键的语言对象的方法
-    window._getJSONKey = function (key, insertJSONObj = undefined) {
+    globalThis._getJSONKey = function (key, insertJSONObj = undefined) {
         // 获取JSON对象
         const JSONObj = insertJSONObj;
         // 初始化语言对象
@@ -85,9 +85,9 @@ export function initTranslateBasicFnFile() {
         ${langMapList}
     };
     // 从本地存储中获取当前语言，如果不存在则使用源语言
-    const lang = window.localStorage.getItem('${namespace}') || '${originLang.replace('-', '')}';
+    const lang = globalThis.localStorage.getItem('${namespace}') || '${originLang.replace('-', '')}';
     // 根据当前语言设置翻译函数的语言包
-    window.${translateKey}.locale(langMap[lang], '${namespace}');
+    globalThis.${translateKey}.locale(langMap[lang], '${namespace}');
   `
     // 构建翻译基础函数文件的路径
     const indexPath = path.join(option.globalPath, 'index.js')
@@ -204,13 +204,13 @@ export function buildSetLangConfigToIndexFile() {
                         Object.keys(langObjMap).forEach(item => {
                             buildLangConfigString =
                                 buildLangConfigString +
-                                `window['${option.namespace}']['${item}']=${JSON.stringify(langObjMap[item])};`
+                                `globalThis['${option.namespace}']['${item}']=${JSON.stringify(langObjMap[item])};`
                         })
                         try {
                             // 翻译配置写入主文件
                             fs.writeFileSync(
                                 filePath,
-                                `window['${option.namespace}']={};${buildLangConfigString}` + data
+                                `globalThis['${option.namespace}']={};${buildLangConfigString}` + data
                             )
                             console.info('恭喜：翻译配置写入构建主文件成功🌟🌟🌟')
                         } catch (err) {

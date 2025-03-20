@@ -18,12 +18,12 @@
       // 将指定命名空间下的语言包设置为传入的locale
       $t[nameSpace] = locale || {};
     };
-    // 将翻译函数挂载到window对象上，如果已经存在则使用已有的
-    window.$t = window.$t || $t;
-    // 将简单翻译函数挂载到window对象上
-    window.$$t = $$t;
+    // 将翻译函数挂载到globalThis对象上，如果已经存在则使用已有的
+    globalThis.$t = globalThis.$t || $t;
+    // 将简单翻译函数挂载到globalThis对象上
+    globalThis.$$t = $$t;
     // 定义从JSON文件中获取指定键的语言对象的方法
-    window._getJSONKey = function (key, insertJSONObj = undefined) {
+    globalThis._getJSONKey = function (key, insertJSONObj = undefined) {
         // 获取JSON对象
         const JSONObj = insertJSONObj;
         // 初始化语言对象
@@ -39,14 +39,14 @@
     })();
     // 定义语言映射对象
     const langMap = {
-        'en': window?.lang?.en || window._getJSONKey('en', langJSON),
-'ko': window?.lang?.ko || window._getJSONKey('ko', langJSON),
-'ja': window?.lang?.ja || window._getJSONKey('ja', langJSON),
-'ru': window?.lang?.ru || window._getJSONKey('ru', langJSON),
-'zhcn': window?.lang?.zhcn || window._getJSONKey('zh-cn', langJSON)
+        'en': globalThis?.lang?.en || globalThis._getJSONKey('en', langJSON),
+'ko': globalThis?.lang?.ko || globalThis._getJSONKey('ko', langJSON),
+'ja': globalThis?.lang?.ja || globalThis._getJSONKey('ja', langJSON),
+'ru': globalThis?.lang?.ru || globalThis._getJSONKey('ru', langJSON),
+'zhcn': globalThis?.lang?.zhcn || globalThis._getJSONKey('zh-cn', langJSON)
     };
     // 从本地存储中获取当前语言，如果不存在则使用源语言
-    const lang = window.localStorage.getItem('lang') || 'zhcn';
+    const lang = globalThis.localStorage.getItem('lang') || 'zhcn';
     // 根据当前语言设置翻译函数的语言包
-    window.$t.locale(langMap[lang], 'lang');
+    globalThis.$t.locale(langMap[lang], 'lang');
   

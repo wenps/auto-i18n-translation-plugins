@@ -244,7 +244,7 @@ If you need to update translations, directly modify the `index.json` file and sa
 
 wx group
 
-![wx](./wx.png)
+![wx](./wx.jpg)
 
 ---
 

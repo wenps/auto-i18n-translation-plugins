@@ -245,7 +245,7 @@ const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
 
 微信群
 
-![wx](./wx.png)
+![wx](./wx.jpg)
 
 ---
 

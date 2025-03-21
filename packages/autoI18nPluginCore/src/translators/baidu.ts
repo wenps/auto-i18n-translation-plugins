@@ -19,20 +19,20 @@ export interface BaiduTranslatorOption {
 
 export class BaiduTranslator extends Translator {
     /** 百度的语言类型映射不标准，需要手动控制 */
-    private readonly Baidu_TRANSLATE_KEY_CONVERT_MAP: Record<string, string> = {
+    protected readonly BAIDU_TRANSLATE_KEY_CONVERT_MAP: Record<string, string> = {
         'zh-cn': 'zh',
         ja: 'jp',
         ko: 'kor'
     }
 
-    private getTranslateKey(key: string) {
-        return this.Baidu_TRANSLATE_KEY_CONVERT_MAP[key] || key
+    protected getTranslateKey(key: string) {
+        return this.BAIDU_TRANSLATE_KEY_CONVERT_MAP[key] || key
     }
 
     constructor(option: BaiduTranslatorOption) {
         super({
             name: '百度翻译',
-            fetchMethod: async (text, fromKey, toKey) => {
+            fetchMethod: async (text, fromKey, toKey, separator) => {
                 let salt = new Date().getTime()
 
                 const data = {
@@ -57,7 +57,7 @@ export class BaiduTranslator extends Translator {
                 const translatedTexts = response.data?.trans_result
                     .map((item: any) => item.dst)
                     .filter((_item: string, index: number) => index % 2 === 0)
-                    .join(SEPARATOR)
+                    .join(separator)
 
                 // 请求成功，返回响应数据
                 return translatedTexts || ''

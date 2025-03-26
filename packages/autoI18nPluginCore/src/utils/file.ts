@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-02-14 10:48:41
  * @LastEditors: xiaoshan
- * @LastEditTime: 2025-03-26 11:18:40
+ * @LastEditTime: 2025-03-26 11:37:42
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/utils/file.ts
  */
 import { jsonFormatter } from './json'
@@ -36,7 +36,7 @@ export function initTranslateBasicFnFile() {
         })
         // 构建语言映射项
         .map(item => {
-            return `'${item[0]}': (globalThis && globalThis.${namespace} && globalThis.${namespace}.${item[0]}) ? globalThis?.${namespace}?.${item[0]} : globalThis._getJSONKey('${item[1]}', langJSON)`
+            return `'${item[0]}': (globalThis && globalThis.${namespace} && globalThis.${namespace}.${item[0]}) ? globalThis.${namespace}.${item[0]} : globalThis._getJSONKey('${item[1]}', langJSON)`
         })
         // 用逗号和换行符连接所有映射项
         .join(',\n')

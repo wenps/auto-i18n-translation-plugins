@@ -1,14 +1,14 @@
 /*
  * @Date: 2025-02-14 10:48:41
  * @LastEditors: xiaoshan
- * @LastEditTime: 2025-03-20 10:02:01
+ * @LastEditTime: 2025-03-26 11:18:40
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/utils/file.ts
  */
-import fs from 'fs'
-import path from 'path'
-import { option } from '../option'
 import { jsonFormatter } from './json'
 import { generateId } from './base'
+import { option } from '../option'
+import path from 'path'
+import fs from 'fs'
 
 /**
  * @description: 新建国际化配置文件夹
@@ -36,7 +36,7 @@ export function initTranslateBasicFnFile() {
         })
         // 构建语言映射项
         .map(item => {
-            return `'${item[0]}': globalThis?.${namespace}?.${item[0]} || globalThis._getJSONKey('${item[1]}', langJSON)`
+            return `'${item[0]}': (globalThis && globalThis.${namespace} && globalThis.${namespace}.${item[0]}) ? globalThis?.${namespace}?.${item[0]} : globalThis._getJSONKey('${item[1]}', langJSON)`
         })
         // 用逗号和换行符连接所有映射项
         .join(',\n')
@@ -84,8 +84,15 @@ export function initTranslateBasicFnFile() {
     const langMap = {
         ${langMapList}
     };
+    // 存储语言是否存在
+    // 判断 globalThis.localStorage.getItem 是否为函数
+    const isFunction = (fn) => {
+        return typeof fn === 'function';
+    };
+    const withStorageLang = isFunction && globalThis && globalThis.localStorage && 
+    isFunction(globalThis.localStorage.getItem) && globalThis.localStorage.getItem('${namespace}');
     // 从本地存储中获取当前语言，如果不存在则使用源语言
-    const lang = globalThis.localStorage.getItem('${namespace}') || '${originLang.replace('-', '')}';
+    const lang = withStorageLang ? globalThis.localStorage.getItem('${namespace}') : '${originLang.replace('-', '')}';
     // 根据当前语言设置翻译函数的语言包
     globalThis.${translateKey}.locale(langMap[lang], '${namespace}');
   `
@@ -210,7 +217,8 @@ export function buildSetLangConfigToIndexFile() {
                             // 翻译配置写入主文件
                             fs.writeFileSync(
                                 filePath,
-                                `globalThis['${option.namespace}']={};${buildLangConfigString}` + data
+                                `globalThis['${option.namespace}']={};${buildLangConfigString}` +
+                                    data
                             )
                             console.info('恭喜：翻译配置写入构建主文件成功🌟🌟🌟')
                         } catch (err) {

@@ -274,6 +274,14 @@ Original authors: wenps、xu-code、Caleb-Xu、Winfans
 
 ## Changelog
 
+### v1.0.18 (Stable Version)
+
+- Fixed the issue of optional chaining causing runtime exceptions in lower versions of Node.
+
+### v1.0.17 (Stable Version)
+
+- Support basic SSR (experimental)
+
 ### v1.0.16 (Stable Version)
 
 - Fixed known issues (Vue 3 comment nodes).

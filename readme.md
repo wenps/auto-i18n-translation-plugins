@@ -244,7 +244,7 @@ If you need to update translations, directly modify the `index.json` file and sa
 
 wx group
 
-![wx](./wx.png)
+![wx](./wx.jpg)
 
 ---
 
@@ -274,13 +274,21 @@ Original authors: wenps、xu-code、Caleb-Xu、Winfans
 
 ## Changelog
 
+### v1.0.18 (Stable Version)
+
+-   Fixed the issue of optional chaining causing runtime exceptions in lower versions of Node.
+
+### v1.0.17 (Stable Version)
+
+-   Support basic SSR (experimental)
+
 ### v1.0.16 (Stable Version)
 
-- Fixed known issues (Vue 3 comment nodes).
+-   Fixed known issues (Vue 3 comment nodes).
 
 ### v1.0.15 (Stable Version)
 
-- Added Baidu Translator.
+-   Added Baidu Translator.
 
 ### v1.0.14 (Stable Version)
 

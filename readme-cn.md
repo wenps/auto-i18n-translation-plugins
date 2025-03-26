@@ -245,7 +245,7 @@ const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
 
 微信群
 
-![wx](./wx.png)
+![wx](./wx.jpg)
 
 ---
 
@@ -272,6 +272,14 @@ const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
 原始作者：wenps、xu-code、Caleb-Xu、Winfans
 
 ## 更新日志
+
+### v1.0.18 (稳定版本)
+
+-   修复了低版本 Node 中可选链操作导致运行时异常的问题。
+
+### v1.0.17 (稳定版本)
+
+-   支持基本的服务器端渲染（实验性）
 
 ### v1.0.16 (稳定版本)
 

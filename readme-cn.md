@@ -172,6 +172,7 @@ import '../lang/index.js' // 📍 必须在入口文件中第一行引入，这�
 | buildToDist      | boolean    | ❌   | `false`                  | 是否在构建结束后将最新的翻译文件打包到主包中，默认不打包   |
 | translator       | Translator | ❌   | `GoogleTranslator`       | 翻译器实例                                                 |
 | translatorOption | object     | ❌   | `{}`                     | 翻译器的配置项，优先级低于`translator`                     |
+| rewriteConfig    | boolean    | ❌   | `true`                   | 插件每次运行时是否重写配置文件                             |
 
 ---
 
@@ -275,11 +276,11 @@ const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
 
 ### v1.0.18 (稳定版本)
 
-- 修复了低版本 Node 中可选链操作导致运行时异常的问题。
+-   修复了低版本 Node 中可选链操作导致运行时异常的问题。
 
 ### v1.0.17 (稳定版本)
 
-- 支持基本的服务器端渲染（实验性）
+-   支持基本的服务器端渲染（实验性）
 
 ### v1.0.16 (稳定版本)
 

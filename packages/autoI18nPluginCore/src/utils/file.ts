@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-02-14 10:48:41
  * @LastEditors: xiaoshan
- * @LastEditTime: 2025-03-26 11:37:42
+ * @LastEditTime: 2025-03-27 15:24:39
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/utils/file.ts
  */
 import { jsonFormatter } from './json'
@@ -99,11 +99,15 @@ export function initTranslateBasicFnFile() {
     // 构建翻译基础函数文件的路径
     const indexPath = path.join(option.globalPath, 'index.js')
 
+    // 文件已存在 同时 不重写配置，那么这里就结束
+    if (fs.existsSync(indexPath) && !option.rewriteConfig) return
+
     // 新增哈希比对逻辑
+
     // 标记是否需要更新文件
     let needUpdate = true
-    // 检查文件是否已存在
     if (fs.existsSync(indexPath)) {
+        // 检查文件是否已存在
         // 生成新内容的哈希值
         const currentHash = generateId(translateBasicFnText)
         // 读取现有文件内容

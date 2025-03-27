@@ -1,11 +1,10 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-26 17:34:47
- * @LastEditTime: 2025-03-17 18:36:25
+ * @LastEditTime: 2025-03-27 15:17:13
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
-import { OriginLangKeyEnum, TranslateTypeEnum } from './enums'
 import {
     YoudaoTranslator,
     GoogleTranslator,
@@ -13,11 +12,20 @@ import {
     Translator,
     TranslatorOption
 } from './translator'
+import { OriginLangKeyEnum, TranslateTypeEnum } from './enums'
 import { cloneDeep } from './utils/base'
 export { YoudaoTranslator, GoogleTranslator, BaiduTranslator, Translator, TranslateTypeEnum }
 export type { TranslatorOption }
 
-const EXCLUDED_CALL = ['$i8n', 'console.log', '$t', 'require', '$$i8n', '$$t', '_createCommentVNode']
+const EXCLUDED_CALL = [
+    '$i8n',
+    'console.log',
+    '$t',
+    'require',
+    '$$i8n',
+    '$$t',
+    '_createCommentVNode'
+]
 /**
  * 默认插件配置选项
  */
@@ -80,7 +88,9 @@ const DEFAULT_OPTION = {
      * 全自动：所有翻译任务自动完成
      * 半自动：需要人工标识
      */
-    translateType: TranslateTypeEnum.FULL_AUTO as TranslateTypeEnum | string
+    translateType: TranslateTypeEnum.FULL_AUTO as TranslateTypeEnum | string,
+
+    rewriteConfig: true
 }
 
 /**

@@ -172,6 +172,7 @@ import '../lang/index.js' // 📍 It must be introduced in the first line of the
 | buildToDist      | boolean    | ❌       | `false`                  | Whether to bundle translation files into the main build bundle.            |
 | translator       | Translator | ❌       | `GoogleTranslator`       | The translation instance.                                                  |
 | translatorOption | Object     | ❌       | `{}`                     | Additional configuration for the translator (lower precedence).            |
+| rewriteConfig    | boolean    | ❌       | `true`                   | Whether to rewrite the configuration file every time the plugin runs       |
 
 ---
 
@@ -276,19 +277,19 @@ Original authors: wenps、xu-code、Caleb-Xu、Winfans
 
 ### v1.0.18 (Stable Version)
 
-- Fixed the issue of optional chaining causing runtime exceptions in lower versions of Node.
+-   Fixed the issue of optional chaining causing runtime exceptions in lower versions of Node.
 
 ### v1.0.17 (Stable Version)
 
-- Support basic SSR (experimental)
+-   Support basic SSR (experimental)
 
 ### v1.0.16 (Stable Version)
 
-- Fixed known issues (Vue 3 comment nodes).
+-   Fixed known issues (Vue 3 comment nodes).
 
 ### v1.0.15 (Stable Version)
 
-- Added Baidu Translator.
+-   Added Baidu Translator.
 
 ### v1.0.14 (Stable Version)
 

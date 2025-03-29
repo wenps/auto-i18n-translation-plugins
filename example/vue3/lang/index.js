@@ -39,14 +39,21 @@
     })();
     // 定义语言映射对象
     const langMap = {
-        'en': globalThis?.lang?.en || globalThis._getJSONKey('en', langJSON),
-'ko': globalThis?.lang?.ko || globalThis._getJSONKey('ko', langJSON),
-'ja': globalThis?.lang?.ja || globalThis._getJSONKey('ja', langJSON),
-'ru': globalThis?.lang?.ru || globalThis._getJSONKey('ru', langJSON),
-'zhcn': globalThis?.lang?.zhcn || globalThis._getJSONKey('zh-cn', langJSON)
+        'en': (globalThis && globalThis.lang && globalThis.lang.en) ? globalThis.lang.en : globalThis._getJSONKey('en', langJSON),
+'ko': (globalThis && globalThis.lang && globalThis.lang.ko) ? globalThis.lang.ko : globalThis._getJSONKey('ko', langJSON),
+'ja': (globalThis && globalThis.lang && globalThis.lang.ja) ? globalThis.lang.ja : globalThis._getJSONKey('ja', langJSON),
+'ru': (globalThis && globalThis.lang && globalThis.lang.ru) ? globalThis.lang.ru : globalThis._getJSONKey('ru', langJSON),
+'zhcn': (globalThis && globalThis.lang && globalThis.lang.zhcn) ? globalThis.lang.zhcn : globalThis._getJSONKey('zh-cn', langJSON)
     };
+    // 存储语言是否存在
+    // 判断 globalThis.localStorage.getItem 是否为函数
+    const isFunction = (fn) => {
+        return typeof fn === 'function';
+    };
+    const withStorageLang = isFunction && globalThis && globalThis.localStorage && 
+    isFunction(globalThis.localStorage.getItem) && globalThis.localStorage.getItem('lang');
     // 从本地存储中获取当前语言，如果不存在则使用源语言
-    const lang = globalThis.localStorage.getItem('lang') || 'zhcn';
+    const lang = withStorageLang ? globalThis.localStorage.getItem('lang') : 'zhcn';
     // 根据当前语言设置翻译函数的语言包
     globalThis.$t.locale(langMap[lang], 'lang');
   

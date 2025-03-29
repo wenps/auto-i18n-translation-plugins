@@ -1,15 +1,16 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-08-10 17:12:17
- * @LastEditTime: 2025-03-16 18:10:50
+ * @LastEditTime: 2025-03-28 19:30:24
  * @FilePath: /i18n_translation_vite/example/vue3/vite.config.ts
  */
-import path from 'path'
-import { defineConfig } from 'vite'
-import createVuePlugin from '@vitejs/plugin-vue'
 import vitePluginsAutoI18n, { YoudaoTranslator } from 'vite-auto-i18n-plugin'
+import createVuePlugin from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
+import path from 'path'
 
 const i18nPlugin = vitePluginsAutoI18n({
+    deepScan: true,
     globalPath: './lang',
     namespace: 'lang',
     distPath: './dist/assets',
@@ -23,13 +24,13 @@ const i18nPlugin = vitePluginsAutoI18n({
 })
 
 const vuePlugin = createVuePlugin({
-    include: [/\.vue$/],
-    template: {
-        compilerOptions: {
-            hoistStatic: false,
-            cacheHandlers: false
-        }
-    }
+    // include: [/\.vue$/],
+    // template: {
+    //     compilerOptions: {
+    //         hoistStatic: false,
+    //         cacheHandlers: false
+    //     }
+    // }
 })
 // 默认谷歌
 // const i18nPlugin = vitePluginsAutoI18n({

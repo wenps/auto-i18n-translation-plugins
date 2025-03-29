@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-26 17:34:47
- * @LastEditTime: 2025-03-27 15:17:13
+ * @LastEditTime: 2025-03-28 19:16:23
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
@@ -90,7 +90,15 @@ const DEFAULT_OPTION = {
      */
     translateType: TranslateTypeEnum.FULL_AUTO as TranslateTypeEnum | string,
 
-    rewriteConfig: true
+    /**
+     * 是否重写配置文件，默认为true
+     */
+    rewriteConfig: true,
+
+    /**
+     * 实验性属性，表示是否进行深层扫描字符串，默认为 false
+     */
+    deepScan: false
 }
 
 /**

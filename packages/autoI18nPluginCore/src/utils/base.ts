@@ -1,15 +1,20 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-11 10:01:43
- * @LastEditTime: 2025-03-16 18:21:40
+ * @LastEditTime: 2025-03-28 19:07:17
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/utils/base.ts
  */
-import { Node } from '@babel/types'
-import types from '@babel/types'
-import { option } from '../option'
 import { FunctionFactoryOption } from './option'
-import { REGEX_MAP } from 'src/constants'
 import { OriginLangKeyEnum } from 'src/enums'
+import { REGEX_MAP } from 'src/constants'
+import { Node } from '@babel/types'
+import { option } from '../option'
+import types from '@babel/types'
+
+export function getOriginRegex() {
+    const originLang = FunctionFactoryOption.originLang as OriginLangKeyEnum
+    return REGEX_MAP[originLang]
+}
 
 /**
  * @description: 是否包含来源语言字符
@@ -17,8 +22,7 @@ import { OriginLangKeyEnum } from 'src/enums'
  * @return {*}
  */
 export function hasOriginSymbols(code: string) {
-    const originLang = FunctionFactoryOption.originLang as OriginLangKeyEnum
-    return REGEX_MAP[originLang].test(code)
+    return getOriginRegex().test(code)
 }
 
 /**

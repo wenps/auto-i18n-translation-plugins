@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-26 17:34:47
- * @LastEditTime: 2025-03-31 02:14:32
+ * @LastEditTime: 2025-03-31 19:58:37
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
@@ -10,11 +10,19 @@ import {
     GoogleTranslator,
     BaiduTranslator,
     Translator,
-    TranslatorOption
+    TranslatorOption,
+    ScanTranslator
 } from './translator'
 import { OriginLangKeyEnum, TranslateTypeEnum } from './enums'
 import { cloneDeep } from './utils/base'
-export { YoudaoTranslator, GoogleTranslator, BaiduTranslator, Translator, TranslateTypeEnum }
+export {
+    YoudaoTranslator,
+    GoogleTranslator,
+    BaiduTranslator,
+    Translator,
+    TranslateTypeEnum,
+    ScanTranslator
+}
 export type { TranslatorOption }
 
 const EXCLUDED_CALL = [

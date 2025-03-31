@@ -13,6 +13,9 @@
     let $$t = function (val) {
       return val;
     };
+    globalThis.$deepScan = function (val) {
+      return val;
+    };
     // 定义设置语言包的方法
     $t.locale = function (locale, nameSpace) {
       // 将指定命名空间下的语言包设置为传入的locale

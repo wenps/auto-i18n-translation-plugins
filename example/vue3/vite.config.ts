@@ -1,11 +1,10 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-08-10 17:12:17
- * @LastEditTime: 2025-03-31 10:32:10
+ * @LastEditTime: 2025-03-31 20:00:05
  * @FilePath: /i18n_translation_vite/example/vue3/vite.config.ts
  */
-import vitePluginsAutoI18n, { BaiduTranslator } from 'vite-auto-i18n-plugin'
-import { BaiduTranslator } from 'vite-auto-i18n-plugin'
+import vitePluginsAutoI18n, { ScanTranslator } from 'vite-auto-i18n-plugin'
 import createVuePlugin from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
 import path from 'path'
@@ -18,10 +17,7 @@ const i18nPlugin = vitePluginsAutoI18n({
     distKey: 'index',
     targetLangList: ['en'],
     originLang: 'zh-cn',
-    translator: new BaiduTranslator({
-        appId: '20250316005480',
-        appKey: 'WSodgdx3DoIhDUam4y'
-    })
+    translator: new ScanTranslator({})
 })
 
 const vuePlugin = createVuePlugin({

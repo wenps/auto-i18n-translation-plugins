@@ -40,9 +40,6 @@
     // 定义语言映射对象
     const langMap = {
         'en': (globalThis && globalThis.lang && globalThis.lang.en) ? globalThis.lang.en : globalThis._getJSONKey('en', langJSON),
-'ko': (globalThis && globalThis.lang && globalThis.lang.ko) ? globalThis.lang.ko : globalThis._getJSONKey('ko', langJSON),
-'ja': (globalThis && globalThis.lang && globalThis.lang.ja) ? globalThis.lang.ja : globalThis._getJSONKey('ja', langJSON),
-'ru': (globalThis && globalThis.lang && globalThis.lang.ru) ? globalThis.lang.ru : globalThis._getJSONKey('ru', langJSON),
 'zhcn': (globalThis && globalThis.lang && globalThis.lang.zhcn) ? globalThis.lang.zhcn : globalThis._getJSONKey('zh-cn', langJSON)
     };
     // 存储语言是否存在

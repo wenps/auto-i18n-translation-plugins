@@ -33,6 +33,9 @@ importers:
       prettier:
         specifier: ^3.2.5
         version: 3.3.3
+      prettier-plugin-sort-imports:
+        specifier: ^1.8.6
+        version: 1.8.6(typescript@5.7.3)
       pretty-quick:
         specifier: ^4.0.0
         version: 4.0.0(prettier@3.3.3)
@@ -84,6 +87,67 @@ importers:
         version: link:../../packages/vitePluginsAutoI18n
 
   example/vue2:
+    dependencies:
+      '@vitejs/plugin-vue2':
+        specifier: ^2.3.1
+        version: 2.3.1(vite@5.4.1(@types/node@22.3.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))(vue@2.7.16)
+      ant-design-vue:
+        specifier: ^1.7.8
+        version: 1.7.8(vue-template-compiler@2.7.16)(vue@2.7.16)
+      core-js:
+        specifier: ^2.6.5
+        version: 2.6.12
+      register-service-worker:
+        specifier: ^1.6.2
+        version: 1.7.2
+      vue:
+        specifier: ^2.6.10
+        version: 2.7.16
+      vue-class-component:
+        specifier: ^7.0.2
+        version: 7.2.6(vue@2.7.16)
+      vue-property-decorator:
+        specifier: ^8.1.0
+        version: 8.5.1(vue@2.7.16)
+      vue-router:
+        specifier: ^3.0.3
+        version: 3.6.5(vue@2.7.16)
+      vuex:
+        specifier: ^3.0.1
+        version: 3.6.2(vue@2.7.16)
+    devDependencies:
+      '@vue/cli-plugin-babel':
+        specifier: ^3.0.5
+        version: 3.12.1(vue@2.7.16)
+      '@vue/cli-plugin-pwa':
+        specifier: ^3.0.5
+        version: 3.12.1
+      '@vue/cli-plugin-typescript':
+        specifier: ^3.0.5
+        version: 3.12.1(eslint@8.57.0)(typescript@5.7.3)(vue-template-compiler@2.7.16)
+      '@vue/cli-service':
+        specifier: ^3.0.5
+        version: 3.12.1(@vue/compiler-sfc@3.5.13)(babel-core@6.26.3)(ejs@3.1.10)(lodash@4.17.21)(prettier@3.3.3)(vue-template-compiler@2.7.16)
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
+      vite:
+        specifier: ^5.0.2
+        version: 5.4.1(@types/node@22.3.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6)
+      vite-auto-i18n-plugin:
+        specifier: workspace:*
+        version: link:../../packages/vitePluginsAutoI18n
+      vite-plugin-html:
+        specifier: ^3.2.0
+        version: 3.2.2(vite@5.4.1(@types/node@22.3.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))
+      vite-plugin-vue2:
+        specifier: ^2.0.3
+        version: 2.0.3(babel-core@6.26.3)(ejs@3.1.10)(lodash@4.17.21)(vite@5.4.1(@types/node@22.3.0)(less@4.2.0)(sass@1.77.8)(terser@5.31.6))(vue-template-compiler@2.7.16)(vue@2.7.16)
+      vue-template-compiler:
+        specifier: ^2.6.10
+        version: 2.7.16
+
+  example/vue2-ja:
     dependencies:
       '@vitejs/plugin-vue2':
         specifier: ^2.3.1
@@ -390,6 +454,9 @@ importers:
       '@babel/core':
         specifier: ^7.23.2
         version: 7.26.0
+      '@babel/generator':
+        specifier: ^7.26.2
+        version: 7.26.2
       '@babel/preset-env':
         specifier: ^7.23.2
         version: 7.25.3(@babel/core@7.26.0)
@@ -427,6 +494,9 @@ importers:
       '@types/babel__core':
         specifier: ^7.20.3
         version: 7.20.5
+      '@types/babel__generator':
+        specifier: ^7.6.8
+        version: 7.6.8
       '@types/crypto-js':
         specifier: ^4.2.2
         version: 4.2.2
@@ -6467,6 +6537,11 @@ packages:
   prepend-http@1.0.4:
     resolution: {integrity: sha512-PhmXi5XmoyKw1Un4E+opM2KcsJInDvKyuOumcjjw3waw86ZNjHwVUOOWLc4bCzLdcKNaWBH9e99sbWzDQsVaYg==}
     engines: {node: '>=0.10.0'}
+
+  prettier-plugin-sort-imports@1.8.6:
+    resolution: {integrity: sha512-jOEzFCyvdDL8geCmr4DP/VBKULZ6OaDQHBEmHTuFHf4EzWyedmwnHg2KawNy5rnrQ6gnCqwrfgymMQZctzCE1Q==}
+    peerDependencies:
+      typescript: '>4.0.0'
 
   prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
@@ -15616,6 +15691,11 @@ snapshots:
   prelude-ls@1.2.1: {}
 
   prepend-http@1.0.4: {}
+
+  prettier-plugin-sort-imports@1.8.6(typescript@5.7.3):
+    dependencies:
+      prettier: 3.3.3
+      typescript: 5.7.3
 
   prettier@2.8.8: {}
 

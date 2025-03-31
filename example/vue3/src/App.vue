@@ -1,7 +1,7 @@
 <!--
  * @Date: 2025-01-23 13:44:37
  * @LastEditors: xiaoshan
- * @LastEditTime: 2025-03-16 18:07:07
+ * @LastEditTime: 2025-03-31 10:27:05
  * @FilePath: /i18n_translation_vite/example/vue3/src/App.vue
 -->
 <template>

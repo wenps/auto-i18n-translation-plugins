@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-11-01 16:35:38
- * @LastEditTime: 2025-03-27 15:06:53
+ * @LastEditTime: 2025-03-31 02:29:02
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/filter/visitor/TemplateElement.ts
  */
 import { option, TranslateTypeEnum } from '../../option'

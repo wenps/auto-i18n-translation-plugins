@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-26 17:34:47
- * @LastEditTime: 2025-03-28 19:16:23
+ * @LastEditTime: 2025-03-31 02:14:32
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
@@ -18,6 +18,10 @@ export { YoudaoTranslator, GoogleTranslator, BaiduTranslator, Translator, Transl
 export type { TranslatorOption }
 
 const EXCLUDED_CALL = [
+    '$deepScan',
+    'console.info',
+    'console.warn',
+    'console.error',
     '$i8n',
     'console.log',
     '$t',

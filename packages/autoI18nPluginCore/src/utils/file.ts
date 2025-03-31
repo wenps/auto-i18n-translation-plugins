@@ -1,7 +1,7 @@
 /*
  * @Date: 2025-02-14 10:48:41
  * @LastEditors: xiaoshan
- * @LastEditTime: 2025-03-27 15:24:39
+ * @LastEditTime: 2025-03-31 02:15:23
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/utils/file.ts
  */
 import { jsonFormatter } from './json'
@@ -54,6 +54,9 @@ export function initTranslateBasicFnFile() {
     };
     // 定义简单翻译函数，直接返回传入的值
     let $${translateKey} = function (val) {
+      return val;
+    };
+    globalThis.$deepScan = function (val) {
       return val;
     };
     // 定义设置语言包的方法

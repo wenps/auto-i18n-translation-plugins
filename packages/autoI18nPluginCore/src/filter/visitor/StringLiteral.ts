@@ -1,7 +1,7 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-10-12 18:18:51
- * @LastEditTime: 2025-03-28 19:31:09
+ * @LastEditTime: 2025-03-31 02:28:53
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/filter/visitor/StringLiteral.ts
  */
 import { baseUtils, splitUtils } from '../../utils/index'
@@ -45,13 +45,10 @@ export default function (path: any) {
             return
         let replaceNode
         if (option.deepScan && splitUtils.checkNeedSplit(value)) {
-            console.log(splitUtils.splitByRegex(value, baseUtils.getOriginRegex()))
-
             replaceNode = splitUtils.convertToTemplateLiteral(
                 splitUtils.splitByRegex(value, baseUtils.getOriginRegex())
             )
-        }
-        if (types.isJSXAttribute(parent)) {
+        } else if (types.isJSXAttribute(parent)) {
             let expression = baseUtils.createI18nTranslator(value, true)
             replaceNode = types.jSXExpressionContainer(expression)
         } else {

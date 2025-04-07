@@ -309,48 +309,52 @@ Original authors: wenps、xu-code、Caleb-Xu、Winfans
 
 ## Changelog
 
-### v1.0.22 (Stable Version)
+### v1.0.23 (Recommended Version)
+
+- Fixed a major bug in packaging and writing.
+
+### v1.0.22
 
 - Added a scanning translator.
 
-### v1.0.21 (Stable Version)
+### v1.0.21
 
 - Added deep scanning.
 
-### v1.0.20 (Stable Version)
+### v1.0.20
 
 - Fixed the issue of filtering function exceptions and added an option to overwrite the generated configuration file.
 
-### v1.0.19 (Stable Version)
+### v1.0.19
 
 - Made the configuration file compatible with older versions.
 
-### v1.0.18 (Stable Version)
+### v1.0.18
 
 -   Fixed the issue of optional chaining causing runtime exceptions in lower versions of Node.
 
-### v1.0.17 (Stable Version)
+### v1.0.17
 
 -   Support basic SSR (experimental)
 
-### v1.0.16 (Stable Version)
+### v1.0.16
 
 -   Fixed known issues (Vue 3 comment nodes).
 
-### v1.0.15 (Stable Version)
+### v1.0.15
 
 -   Added Baidu Translator.
 
-### v1.0.14 (Stable Version)
+### v1.0.14
 
 -   Fixed the issue where new language types were not automatically segmented.
 -   Added support for Japanese, Korean, and Russian in the automatic translation feature.
 
-### v1.0.13 (Stable Version)
+### v1.0.13
 
 -   Fixed known issues.
 
-### v1.0.12 (Unstable Version)
+### v1.0.12
 
 -   Optimized types.
 

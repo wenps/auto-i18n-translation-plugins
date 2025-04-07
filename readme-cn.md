@@ -141,6 +141,21 @@ translator: new YoudaoTranslator({
 })
 ```
 
+#### **百度翻译器**
+
+```javascript
+translator: new BaiduTranslator({
+    appId: 'xxx', // 百度翻译 AppId
+    appKey: 'xxx' // 百度翻译 AppKey
+})
+```
+
+#### **扫描翻译器** (如果只需要扫描目标语言，不翻译的话，该翻译器会生成json文件)
+
+```javascript
+translator: new ScanTranslator({})
+```
+
 ---
 
 ### 4️⃣ 项目入口配置 🏗️
@@ -173,6 +188,30 @@ import '../lang/index.js' // 📍 必须在入口文件中第一行引入，这�
 | translator       | Translator | ❌   | `GoogleTranslator`       | 翻译器实例                                                 |
 | translatorOption | object     | ❌   | `{}`                     | 翻译器的配置项，优先级低于`translator`                     |
 | rewriteConfig    | boolean    | ❌   | `true`                   | 插件每次运行时是否重写配置文件                             |
+| deepScan         | boolean    | ❌   | `false`                  | 实验性属性，表示是否进行深层扫描字符串                     |
+
+---
+
+## 🔍 deepScan 选项的作用？
+
+`deepScan` 是一个实验性的属性，用于控制插件是否进行深层扫描字符串。
+默认情况下，插件会扫描字符串或者模版字符串，只需要里面存在一个目标语言就会被扫进去，比如：
+
+```js
+;`<div>
+    <p>你好</p>
+</div>`
+```
+
+因为里面有一个中文，所以整个字符串会被扫进去，可能会导致翻译不准确，因为我们只想翻译`你好`这个字符串，所以我们可以设置`deepScan`为`true`，插件会对字符串进行切割，重新拼接成模版字符串，值对符合的字符串进行翻译，比如：
+
+```js
+;`<div>
+    <p>${$t('你好')}</p>
+</div>`
+```
+
+这样就只会翻译`你好`这个字符串，而不会翻译整个字符串。
 
 ---
 
@@ -273,6 +312,22 @@ const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
 原始作者：wenps、xu-code、Caleb-Xu、Winfans
 
 ## 更新日志
+
+### v1.0.22 (稳定版本)
+
+-   新增扫描翻译器
+
+### v1.0.21 (稳定版本)
+
+-   新增深度扫描
+
+### v1.0.20 (稳定版本)
+
+-   修复过滤函数异常问题，以及补充是否覆盖生成配置文件项
+
+### v1.0.19 (稳定版本)
+
+-   配置文件兼容旧版本
 
 ### v1.0.18 (稳定版本)
 

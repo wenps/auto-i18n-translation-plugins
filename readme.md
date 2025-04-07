@@ -140,6 +140,21 @@ translator: new YoudaoTranslator({
 })
 ```
 
+#### **Using Baidu Translator**
+
+```javascript
+translator: new BaiduTranslator({
+    appId: 'xxx', // 百度翻译 AppId
+    appKey: 'xxx' // 百度翻译 AppKey
+})
+```
+
+#### **Using Scan Translator** (If you only need to scan the target language without translation, this translator will generate a JSON file)
+
+```javascript
+translator: new ScanTranslator({})
+```
+
 ---
 
 ### 4️⃣ Entry File Configuration 🏗️
@@ -154,25 +169,49 @@ import '../lang/index.js' // 📍 It must be introduced in the first line of the
 
 ## ⚙️ Configuration Parameters
 
-| Parameter        | Type       | Required | Default                  | Description                                                                |
-| ---------------- | ---------- | -------- | ------------------------ | -------------------------------------------------------------------------- |
-| translateType    | string     | ❌       | `full-auto`              | Translation status, with two default options: `full-auto` and `semi-auto`. |
-| translateKey     | string     | ✅       | `$t`                     | The function name for calling translations, defaults to`$t`.               |
-| translateType    | string     | ❌       | `full-auto`              | Translation status, with two default options: `full-auto` and `semi-auto`. |
-| excludedCall     | string[]   | ❌       | `['$i8n', 'require', …]` | A list of function calls excluded from translation.                        |
-| excludedPattern  | RegExp[]   | ❌       | `[/\.\w+$/]`             | Regular expressions to exclude certain patterns, e.g., file paths.         |
-| excludedPath     | string[]   | ❌       | `['node_modules']`       | Exclude files under specified directories (e.g.,`node_modules`).           |
-| includePath      | RegExp[]   | ❌       | `[/src\//]`              | Define a whitelist for directories/files to translate (`src` by default).  |
-| globalPath       | string     | ❌       | `'./lang'`               | The path where translation configuration files are generated.              |
-| distPath         | string     | ✅       | `''`                     | The directory where the translation files are built.                       |
-| distKey          | string     | ✅       | `'index'`                | The name of the main translation file after bundling.                      |
-| namespace        | string     | ✅       | `'lang'`                 | The project namespace, helpful for avoiding global conflicts.              |
-| originLang       | string     | ✅       | `'zh-cn'`                | The source language for translation.                                       |
-| targetLangList   | string[]   | ✅       | `['en']`                 | A list of target languages for translation.                                |
-| buildToDist      | boolean    | ❌       | `false`                  | Whether to bundle translation files into the main build bundle.            |
-| translator       | Translator | ❌       | `GoogleTranslator`       | The translation instance.                                                  |
-| translatorOption | Object     | ❌       | `{}`                     | Additional configuration for the translator (lower precedence).            |
-| rewriteConfig    | boolean    | ❌       | `true`                   | Whether to rewrite the configuration file every time the plugin runs       |
+| Parameter        | Type       | Required | Default                  | Description                                                                        |
+| ---------------- | ---------- | -------- | ------------------------ | ---------------------------------------------------------------------------------- |
+| translateType    | string     | ❌       | `full-auto`              | Translation status, with two default options: `full-auto` and `semi-auto`.         |
+| translateKey     | string     | ✅       | `$t`                     | The function name for calling translations, defaults to`$t`.                       |
+| translateType    | string     | ❌       | `full-auto`              | Translation status, with two default options: `full-auto` and `semi-auto`.         |
+| excludedCall     | string[]   | ❌       | `['$i8n', 'require', …]` | A list of function calls excluded from translation.                                |
+| excludedPattern  | RegExp[]   | ❌       | `[/\.\w+$/]`             | Regular expressions to exclude certain patterns, e.g., file paths.                 |
+| excludedPath     | string[]   | ❌       | `['node_modules']`       | Exclude files under specified directories (e.g.,`node_modules`).                   |
+| includePath      | RegExp[]   | ❌       | `[/src\//]`              | Define a whitelist for directories/files to translate (`src` by default).          |
+| globalPath       | string     | ❌       | `'./lang'`               | The path where translation configuration files are generated.                      |
+| distPath         | string     | ✅       | `''`                     | The directory where the translation files are built.                               |
+| distKey          | string     | ✅       | `'index'`                | The name of the main translation file after bundling.                              |
+| namespace        | string     | ✅       | `'lang'`                 | The project namespace, helpful for avoiding global conflicts.                      |
+| originLang       | string     | ✅       | `'zh-cn'`                | The source language for translation.                                               |
+| targetLangList   | string[]   | ✅       | `['en']`                 | A list of target languages for translation.                                        |
+| buildToDist      | boolean    | ❌       | `false`                  | Whether to bundle translation files into the main build bundle.                    |
+| translator       | Translator | ❌       | `GoogleTranslator`       | The translation instance.                                                          |
+| translatorOption | Object     | ❌       | `{}`                     | Additional configuration for the translator (lower precedence).                    |
+| rewriteConfig    | boolean    | ❌       | `true`                   | Whether to rewrite the configuration file every time the plugin runs               |
+| deepScan         | boolean    | ❌       | `false`                  | An experimental property that indicates whether to perform a deep scan of strings. |
+
+---
+
+## 🔍 What's the function of the `deepScan` option?
+
+`deepScan` is an experimental property used to control whether the plugin performs a deep scan of strings.
+By default, the plugin scans strings or template strings. If there is even one target language within them, the entire string will be included. For example:
+
+```js
+;`<div>
+    <p>你好</p>
+</div>`
+```
+
+Since there is a Chinese character in it, the entire string will be scanned, which may lead to inaccurate translation. Since we only want to translate the string '你好', we can set `deepScan` to `true`. The plugin will split the string, reassemble it into a template string, and only translate the matching strings. For example:
+
+```js
+;`<div>
+    <p>${$t('你好')}</p>
+</div>`
+```
+
+In this way, only the string '你好' will be translated, rather than the entire string.
 
 ---
 
@@ -274,6 +313,22 @@ Since version 1.0.5, users only need to import the `index.js` file in the folder
 Original authors: wenps、xu-code、Caleb-Xu、Winfans
 
 ## Changelog
+
+### v1.0.22 (Stable Version)
+
+-   Added a scanning translator.
+
+### v1.0.21 (Stable Version)
+
+-   Added deep scanning.
+
+### v1.0.20 (Stable Version)
+
+-   Fixed the issue of filtering function exceptions and added an option to overwrite the generated configuration file.
+
+### v1.0.19 (Stable Version)
+
+-   Made the configuration file compatible with older versions.
 
 ### v1.0.18 (Stable Version)
 

@@ -15,18 +15,15 @@ import {
     initOption,
     checkOption
 } from 'auto-i18n-plugin-core'
-import * as babel from '@babel/core'
 import { ResolvedConfig, Plugin } from 'vite'
+import * as babel from '@babel/core'
 export * from 'auto-i18n-plugin-core'
-import fs from 'fs'
 
 const allowedExtensions = ['.vue', '.ts', '.js', '.tsx', '.jsx']
 
 export default function vitePluginsAutoI18n(optionInfo: OptionInfo): any {
     const name = 'vite-auto-i18n-plugin'
     let config: ResolvedConfig
-    let disabled = true
-    let tempDir = ''
 
     initOption(optionInfo)
 
@@ -40,10 +37,6 @@ export default function vitePluginsAutoI18n(optionInfo: OptionInfo): any {
         configResolved(resolvedConfig) {
             // 存储最终解析的配置
             config = resolvedConfig
-            if (process.argv.includes('i18n')) {
-                disabled = false
-                config.build.outDir = tempDir = `dist/vite-i18n-output_${+new Date()}`
-            }
         },
         async transform(code: string, path: string) {
             // todo 没有目标语言直接返回
@@ -77,16 +70,12 @@ export default function vitePluginsAutoI18n(optionInfo: OptionInfo): any {
             }
         },
         async buildEnd() {
-            if (disabled) return
             console.info('构建阶段批量翻译')
             await translateUtils.autoTranslate()
         },
         async closeBundle() {
-            if (disabled) return
             // 翻译配置写入主文件
             await fileUtils.buildSetLangConfigToIndexFile()
-            await new Promise(resolve => setTimeout(resolve, 1000)) // 等待文件夹解除锁定
-            fs.readdirSync(tempDir, { recursive: true })
             console.info('翻译完成✔')
         }
     }

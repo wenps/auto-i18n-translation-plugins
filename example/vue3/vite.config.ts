@@ -1,35 +1,33 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-08-10 17:12:17
- * @LastEditTime: 2025-03-16 18:10:50
+ * @LastEditTime: 2025-03-31 20:00:05
  * @FilePath: /i18n_translation_vite/example/vue3/vite.config.ts
  */
-import path from 'path'
-import { defineConfig } from 'vite'
+import vitePluginsAutoI18n, { ScanTranslator } from 'vite-auto-i18n-plugin'
 import createVuePlugin from '@vitejs/plugin-vue'
-import vitePluginsAutoI18n, { YoudaoTranslator } from 'vite-auto-i18n-plugin'
+import { defineConfig } from 'vite'
+import path from 'path'
 
 const i18nPlugin = vitePluginsAutoI18n({
+    deepScan: true,
     globalPath: './lang',
     namespace: 'lang',
     distPath: './dist/assets',
     distKey: 'index',
-    targetLangList: ['en', 'ko', 'ja', 'ru'],
+    targetLangList: ['en'],
     originLang: 'zh-cn',
-    translator: new YoudaoTranslator({
-        appId: '6f7d97dd8dae',
-        appKey: 'T40Yki12aTYBh4LZIzH'
-    })
+    translator: new ScanTranslator({})
 })
 
 const vuePlugin = createVuePlugin({
-    include: [/\.vue$/],
-    template: {
-        compilerOptions: {
-            hoistStatic: false,
-            cacheHandlers: false
-        }
-    }
+    // include: [/\.vue$/],
+    // template: {
+    //     compilerOptions: {
+    //         hoistStatic: false,
+    //         cacheHandlers: false
+    //     }
+    // }
 })
 // 默认谷歌
 // const i18nPlugin = vitePluginsAutoI18n({

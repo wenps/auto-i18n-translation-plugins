@@ -172,6 +172,7 @@ import '../lang/index.js' // 📍 必须在入口文件中第一行引入，这�
 | buildToDist      | boolean    | ❌   | `false`                  | 是否在构建结束后将最新的翻译文件打包到主包中，默认不打包   |
 | translator       | Translator | ❌   | `GoogleTranslator`       | 翻译器实例                                                 |
 | translatorOption | object     | ❌   | `{}`                     | 翻译器的配置项，优先级低于`translator`                     |
+| rewriteConfig    | boolean    | ❌   | `true`                   | 插件每次运行时是否重写配置文件                             |
 
 ---
 

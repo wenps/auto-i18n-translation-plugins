@@ -5,9 +5,9 @@
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/utils/translate.ts
  */
 
-import { chunkUtils } from '.'
-import * as fileUtils from './file'
 import { option } from 'src/option'
+import * as fileUtils from './file'
+import { chunkUtils } from '.'
 
 export const SEPARATOR = '\n┇┇┇\n'
 export const SPLIT_SEPARATOR_REGEX = /\n┇ *┇ *┇\n/

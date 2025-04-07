@@ -172,6 +172,7 @@ import '../lang/index.js' // 📍 It must be introduced in the first line of the
 | buildToDist      | boolean    | ❌       | `false`                  | Whether to bundle translation files into the main build bundle.            |
 | translator       | Translator | ❌       | `GoogleTranslator`       | The translation instance.                                                  |
 | translatorOption | Object     | ❌       | `{}`                     | Additional configuration for the translator (lower precedence).            |
+| rewriteConfig    | boolean    | ❌       | `true`                   | Whether to rewrite the configuration file every time the plugin runs       |
 
 ---
 

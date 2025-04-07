@@ -1,12 +1,12 @@
 /*
  * @Author: xiaoshanwen
  * @Date: 2023-11-01 16:35:38
- * @LastEditTime: 2025-03-16 18:23:23
+ * @LastEditTime: 2025-03-31 02:29:02
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/filter/visitor/TemplateElement.ts
  */
-import types from '@babel/types'
 import { option, TranslateTypeEnum } from '../../option'
 import { baseUtils, translateUtils } from '../../utils'
+import types from '@babel/types'
 
 export default function (path: any) {
     if (option.translateType === TranslateTypeEnum.SEMI_AUTO) {
@@ -38,7 +38,9 @@ export default function (path: any) {
         if (
             types.isCallExpression(parent) &&
             extractFnName &&
-            option.excludedCall.includes(extractFnName)
+            (option.excludedCall.includes(extractFnName) ||
+                (extractFnName?.split('.')?.pop() &&
+                    option.excludedCall.includes(extractFnName?.split('.')?.pop() || '')))
         )
             return
 

@@ -42,7 +42,6 @@ export class Translator {
 
     private getResultOption(option: TranslatorOption) {
         const resultOption: Required<TranslatorOption> = {
-            name: '',
             interval: 0,
             onError: this.defaultErrorHandler,
             ...option

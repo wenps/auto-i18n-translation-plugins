@@ -4,7 +4,6 @@
  * @LastEditTime: 2025-03-17 01:11:37
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/translator/baidu.ts
  */
-import { SEPARATOR } from 'src/utils/translate'
 import axios, { AxiosProxyConfig } from 'axios'
 import { Translator } from './translator'
 import CryptoJS from 'crypto-js'

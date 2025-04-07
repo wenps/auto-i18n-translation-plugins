@@ -1,4 +1,3 @@
-import { SEPARATOR } from 'src/utils/translate'
 import { IntervalQueue } from './IntervalQueue'
 
 export interface TranslatorOption {
@@ -69,10 +68,10 @@ export class Translator {
         }
     }
 
-    async translate(text: string, fromKey: string, toKey: string) {
+    async translate(text: string, fromKey: string, toKey: string, separator: string) {
         let result = ''
         try {
-            result = await this.option.fetchMethod(text, fromKey, toKey, SEPARATOR)
+            result = await this.option.fetchMethod(text, fromKey, toKey, separator)
         } catch (error) {
             this.option.onError(error, this.defaultErrorHandler)
         }

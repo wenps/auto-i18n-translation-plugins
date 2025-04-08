@@ -55,7 +55,10 @@ export class Translator {
                     return queue.execute(...args)
                 }
             }
-            resultOption.fetchMethod = getIntervalFn(this.option.fetchMethod, this.option.interval)
+            resultOption.fetchMethod = getIntervalFn(
+                resultOption.fetchMethod,
+                resultOption.interval
+            )
         }
         return resultOption
     }

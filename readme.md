@@ -8,38 +8,42 @@
 
 ## 🍉 Plugin Introduction
 
-🎉 **Auto Translation Plugin** for frontend languages, supports all JavaScript-based frontend frameworks (e.g., Vue2/3, React). No need to modify source code! With seamless multi-language support 🌐🚀— it integrates Youdao Translator and Google Translator by default and allows custom translators. Compatible with Webpack, Vite, Rollup, and other major build tools.
+A 🎉 **frontend auto-translation plugin** that supports all JavaScript-based frontend frameworks (like Vue2/3 and React). No source code modification needed! Easily achieve multi-language support with one click 🌐🚀. Comes with Youdao and Google translation services by default, while supporting custom translators. Compatible with major build tools like Webpack, Vite, and Rollup.
 
 ### 🎯 Key Features:
 
--   🛠️ **No Source Code Changes**: Instant multi-language translation;
--   🌐 **Supports Multiple Translation Services** (including Google, Youdao, or custom translators);
--   🔍 **Smart Detection** of text requiring translation;
--   🔧 **Flexible Configuration Options** to suit various project requirements.
+-   🛠️ **No source code changes** - Quick multi-language translation with one click
+-   🌐 **Supports multiple translation services** (Google, Youdao, and custom translators)
+-   🔍 **Smart detection** of text needing translation
+-   🔧 **Flexible configuration options** for different project needs
 
-## tips：Youdao Translation requires users to apply for Youdao translation services by themselves, and the keys in the demo have been used up.
+Note: Youdao translation requires users to apply for their translation service - the demo keys have been exhausted.
+
+---
 
 ## 📚 Plugin Debugging
 
 ```bash
-  pnpm install
-  pnpm run build
-  pnpm run preview // no choose react
+pnpm install
+pnpm run build
+pnpm run preview // Don't select React, contains too much English text
 ```
+
+---
 
 ## 📖 Supported Features
 
--   **Frameworks**: Supports all frontend frameworks compiled into JS (e.g., Vue2/3, React).
--   **Build Tools**: Fully compatible with Webpack, Vite, and Rollup 🚀.
--   **Translation Services**: Supports **Youdao Translator** and **Google Translator** by default, with custom translator support.
+-   **Frameworks**: All JavaScript-based frontend frameworks (Vue2/3, React, etc.)
+-   **Build Tools**: Fully compatible with Webpack, Vite, and Rollup 🚀
+-   **Translation Services**: Default support for **Youdao** and **Google** translation, plus custom translators
 
 ---
 
 ## 🌟 Quick Start
 
-### 1️⃣ Plugin Installation
+### 1️⃣ Install Plugin
 
-#### **For Vite Projects:**
+#### **Vite Projects:**
 
 ```bash
 npm install vite-auto-i18n-plugin --save-dev
@@ -47,7 +51,7 @@ npm install vite-auto-i18n-plugin --save-dev
 yarn add vite-auto-i18n-plugin --dev
 ```
 
-#### **For Webpack Projects:**
+#### **Webpack Projects:**
 
 ```bash
 npm install webpack-auto-i18n-plugin --save-dev
@@ -59,7 +63,7 @@ yarn add webpack-auto-i18n-plugin --dev
 
 ### 2️⃣ Basic Configuration
 
-#### **Example for Vite** (vite.config.js):
+#### **Vite Configuration Example** (vite.config.js):
 
 ```javascript
 import vitePluginsAutoI18n, { YoudaoTranslator } from 'vite-auto-i18n-plugin'
@@ -86,7 +90,7 @@ export default defineConfig({
 })
 ```
 
-#### **Example for Webpack** (webpack.config.js):
+#### **Webpack Configuration Example** (webpack.config.js):
 
 ```javascript
 const webpackPluginsAutoI18n = require('webpack-auto-i18n-plugin')
@@ -112,14 +116,18 @@ module.exports = {
 
 ---
 
-### 3️⃣ Translator Configuration Example
+### 3️⃣ Translator Configuration Examples
 
-The plugin uses Google Translator by default. If proxy configuration is required, prioritize **Youdao Translator**, which provides better translation results ✨. The plugin already comes integrated with Google and Youdao Translators. For custom translators, extend the `Translator` class as shown below.
+The plugin uses Google Translate by default (requires proxy). When Google isn't accessible, we recommend using **Youdao Translate** ✨ for better results. The plugin comes with Google, Youdao and Baidu translation built-in. For custom translators, see examples below.
 
-#### **Using Google Translator (default)**:
+Examples below use Vite - Webpack configuration is similar.
+
+#### **Using Google Translate (default)**
 
 ```javascript
-// Using Google Translator by default，If you use Google Translate in China, you need to configure a proxy.
+import { GoogleTranslator } from 'vite-auto-i18n-plugin'
+
+...
 translator: new GoogleTranslator({
     proxyOption: {
         host: '127.0.0.1',
@@ -129,73 +137,137 @@ translator: new GoogleTranslator({
         }
     }
 })
+...
 ```
 
-#### **Using Youdao Translator**:
+#### **Using Youdao Translate**
+
+Requires API application: [API Docs](https://ai.youdao.com/DOCSIRMA/html/trans/api/wbfy/index.html)
 
 ```javascript
+import { YoudaoTranslator } from 'vite-auto-i18n-plugin'
+
+...
 translator: new YoudaoTranslator({
-    appId: '4cdb9baea8066fef', // Youdao Translator AppId
-    appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j' // Youdao Translator AppKey
+    appId: 'your-app-id',
+    appKey: 'your-app-key'
 })
+...
 ```
 
-#### **Using Baidu Translator**
+#### **Baidu Translator**
+
+Requires API application: [API Docs](https://api.fanyi.baidu.com/product/113)
 
 ```javascript
+import { BaiduTranslator } from 'vite-auto-i18n-plugin'
+
+...
 translator: new BaiduTranslator({
-    appId: 'xxx', // 百度翻译 AppId
-    appKey: 'xxx' // 百度翻译 AppKey
+    appId: 'your-app-id', // Baidu AppId
+    appKey: 'your-app-key' // Baidu AppKey
 })
+...
 ```
 
-#### **Using Scan Translator** (If you only need to scan the target language without translation, this translator will generate a JSON file)
+#### **Empty Translator**
+
+If you only need to scan target language without translation, this translator will generate JSON files.
 
 ```javascript
-translator: new ScanTranslator({})
+import { EmptyTranslator } from 'vite-auto-i18n-plugin'
+
+...
+translator: new EmptyTranslator()
+...
+```
+
+#### **Custom Translator**
+
+If you have your own translation API, you can create a custom translator:
+
+Simplest way is using the base `Translator` class:
+
+```javascript
+import { Translator } from 'vite-auto-i18n-plugin'
+import axios from 'axios'
+
+...
+translator: new Translator({
+    name: 'My Translator',
+    // Translation method
+    fetchMethod: (str, fromKey, toKey, _separator) => {
+        // Actual API calls may be more complex than this example
+        const myApi = 'https://www.my-i18n.cn/api/translate?from=${fromKey}&to=${toKey}&t={+new Date}'
+        return axios.post(myApi, { str })
+            .then(res => res.data)
+    },
+    // API call interval (some APIs may block frequent requests)
+    interval: 1000
+})
+...
+```
+
+For advanced functionality, you can extend the class (though no current use cases):
+
+```javascript
+import { Translator } from 'vite-auto-i18n-plugin'
+
+class CustomTranslator extends Translator {
+    constructor () {
+        super({
+            name: 'My Translator',
+            ...
+        })
+    }
+}
+
+...
+translator: new CustomTranslator()
+...
 ```
 
 ---
 
-### 4️⃣ Entry File Configuration 🏗️
+### 4️⃣ Project Entry Configuration 🏗️
 
-Ensure to include the language configuration file at the top of your **project entry file** (e.g., `main.js`):
+Add this at the top of your **project entry file** (e.g., `main.js`):
 
 ```javascript
-import '../lang/index.js' // 📍 It must be introduced in the first line of the entry file. This file will be automatically generated when running the plug-in. By default, it is in the lang folder at the same level as the packaging configuration directory, and the index.js in it is the configuration file.
+import '../lang/index.js' // 📍 Must be imported first in entry file. This file is auto-generated when running the plugin, default location is lang folder at same level as build config directory
 ```
 
 ---
 
 ## ⚙️ Configuration Parameters
 
-| Parameter        | Type       | Required | Default                  | Description                                                                        |
-| ---------------- | ---------- | -------- | ------------------------ | ---------------------------------------------------------------------------------- |
-| translateType    | string     | ❌       | `full-auto`              | Translation status, with two default options: `full-auto` and `semi-auto`.         |
-| translateKey     | string     | ✅       | `$t`                     | The function name for calling translations, defaults to`$t`.                       |
-| translateType    | string     | ❌       | `full-auto`              | Translation status, with two default options: `full-auto` and `semi-auto`.         |
-| excludedCall     | string[]   | ❌       | `['$i8n', 'require', …]` | A list of function calls excluded from translation.                                |
-| excludedPattern  | RegExp[]   | ❌       | `[/\.\w+$/]`             | Regular expressions to exclude certain patterns, e.g., file paths.                 |
-| excludedPath     | string[]   | ❌       | `['node_modules']`       | Exclude files under specified directories (e.g.,`node_modules`).                   |
-| includePath      | RegExp[]   | ❌       | `[/src\//]`              | Define a whitelist for directories/files to translate (`src` by default).          |
-| globalPath       | string     | ❌       | `'./lang'`               | The path where translation configuration files are generated.                      |
-| distPath         | string     | ✅       | `''`                     | The directory where the translation files are built.                               |
-| distKey          | string     | ✅       | `'index'`                | The name of the main translation file after bundling.                              |
-| namespace        | string     | ✅       | `'lang'`                 | The project namespace, helpful for avoiding global conflicts.                      |
-| originLang       | string     | ✅       | `'zh-cn'`                | The source language for translation.                                               |
-| targetLangList   | string[]   | ✅       | `['en']`                 | A list of target languages for translation.                                        |
-| buildToDist      | boolean    | ❌       | `false`                  | Whether to bundle translation files into the main build bundle.                    |
-| translator       | Translator | ❌       | `GoogleTranslator`       | The translation instance.                                                          |
-| translatorOption | Object     | ❌       | `{}`                     | Additional configuration for the translator (lower precedence).                    |
-| rewriteConfig    | boolean    | ❌       | `true`                   | Whether to rewrite the configuration file every time the plugin runs               |
-| deepScan         | boolean    | ❌       | `false`                  | An experimental property that indicates whether to perform a deep scan of strings. |
+| Parameter        | Type       | Required | Default                  | Description                                              |
+| ---------------- | ---------- | -------- | ------------------------ | -------------------------------------------------------- |
+| translateType    | string     | ❌       | `full-auto`              | Translation mode: `full-auto` or `semi-auto`             |
+| translateKey     | string     | ✅       | `$t`                     | Translation function name (e.g., `$t`)                   |
+| excludedCall     | string[]   | ❌       | `['$i8n', 'require', …]` | Function calls to exclude from translation               |
+| excludedPattern  | RegExp[]   | ❌       | `[/\.\w+$/]`             | Patterns to exclude (e.g., file extensions)              |
+| excludedPath     | string[]   | ❌       | `['node_modules']`       | Directories to exclude (e.g., `node_modules`)            |
+| includePath      | RegExp[]   | ❌       | `[/src\//]`              | Whitelist of directories to include (default: `src`)     |
+| globalPath       | string     | ❌       | `'./lang'`               | Path for translation config files                        |
+| distPath         | string     | ✅       | `''`                     | Output path for built files                              |
+| distKey          | string     | ✅       | `'index'`                | Main translation file name                               |
+| namespace        | string     | ✅       | `lang`                   | Project namespace for distinguishing translation configs |
+| originLang       | string     | ✅       | `'zh-cn'`                | Source language                                          |
+| targetLangList   | string[]   | ✅       | `['en']`                 | Target languages                                         |
+| buildToDist      | boolean    | ❌       | `false`                  | Whether to bundle translation files into main build      |
+| translator       | Translator | ❌       | `GoogleTranslator`       | Translator instance                                      |
+| translatorOption | object     | ❌       | `{}`                     | Translator options (lower priority than `translator`)    |
+| rewriteConfig    | boolean    | ❌       | `true`                   | Whether to rewrite config file on each plugin run        |
+| deepScan         | boolean    | ❌       | `false`                  | Experimental: Whether to perform deep string scanning    |
 
 ---
 
-## 🔍 What's the function of the `deepScan` option?
+## 🔍 What does `deepScan` do?
 
-`deepScan` is an experimental property used to control whether the plugin performs a deep scan of strings.
-By default, the plugin scans strings or template strings. If there is even one target language within them, the entire string will be included. For example:
+`deepScan` is an experimental property controlling whether the plugin performs deep string scanning.
+
+By default, the plugin scans strings/template strings - if any target language text is found, the entire string is included:
 
 ```js
 ;`<div>
@@ -203,7 +275,7 @@ By default, the plugin scans strings or template strings. If there is even one t
 </div>`
 ```
 
-Since there is a Chinese character in it, the entire string will be scanned, which may lead to inaccurate translation. Since we only want to translate the string '你好', we can set `deepScan` to `true`. The plugin will split the string, reassemble it into a template string, and only translate the matching strings. For example:
+Since there's Chinese text, the whole string would be included, potentially causing inaccurate translation. With `deepScan` enabled, the plugin splits and reconstructs template strings, only translating matching text:
 
 ```js
 ;`<div>
@@ -211,19 +283,19 @@ Since there is a Chinese character in it, the entire string will be scanned, whi
 </div>`
 ```
 
-In this way, only the string '你好' will be translated, rather than the entire string.
+Now only '你好' gets translated, not the entire string.
 
 ---
 
-## 👋 The Function of the `translateType` Option
+## 👋 `translateType` Functionality
 
-`translateType` is a newly added property in v1.0.11, with two optional values: `full-auto` and `semi-auto`.
+Added in v1.0.11, with two options:
 
-`full-auto` represents fully automatic translation. By default, it only supports four source languages: Chinese, Japanese, Korean, and Russian.
+`full-auto`: Fully automatic translation (default supports Chinese, Japanese, Korean, Russian)
 
-`semi-auto` represents semi-automatic translation, which supports all source languages.
+`semi-auto`: Semi-automatic translation (supports all source languages)
 
-When using `semi-auto`, users need to manually wrap the target characters with `translateKey`, such as `$t('hello')`. The plugin will then automatically complete the translation.
+In `semi-auto` mode, users must wrap target text with `translateKey` (e.g., `$t('hello')`), which the plugin will then translate.
 
 Example:
 
@@ -238,51 +310,49 @@ const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
         </div>
     )
 }
-
 ```
 
 ---
 
 ## ❓ Why `buildToDist`?
 
-In Vite environments, the plugin only generates translation configuration files when executed. These files are not bundled immediately into the main package. ⚠️ To address this, `buildToDist` bundles the translation files into the main build upon generation. Note: This might result in duplicate translation configuration files.
+In Vite, the plugin only generates translation config files. Without `buildToDist`, these files won't be bundled. ⚠️ Enabling this bundles them but may create duplicate config files.
 
 ---
 
 ## 🔄 How to Update Translations?
 
-After executing the plugin, two files will be generated in the `\lang` directory:
+After running the plugin, two files are generated in `\lang`:
 
--   **index.js**: Contains translation-related functions.
--   **index.json**: Stores the translation text content.
+-   **index.js**: Translation function logic
+-   **index.json**: Translation content
 
-If you need to update translations, directly modify the `index.json` file and save the changes.
+To update translations, simply modify `index.json`.
 
 ---
 
-## ⚠️ Important Notes
+## ⚠️ Usage Notes
 
 1. **Proxy Requirements**
 
-    - For domestic users, **Youdao Translator** is highly recommended.
-    - Using Google Translator in regions like China requires proxy configuration.
-    - The default proxy port is **7890**, but it can be customized via the `proxyOption`.
+    - In China, **Youdao Translate** is strongly recommended
+    - Google Translate requires proxy configuration
+    - Default proxy port: **7890** (customizable via `proxyOption`)
 
-2. **Translation Rate Limits**
+2. **Translation Frequency**
 
-    - Google Translator is a free service but may impose restrictions for excessive requests 🔒.
-    - Add sufficient time intervals between consecutive translation requests 💡.
+    - Google Translate is free but may limit frequent requests 🔒
+    - Set reasonable intervals between requests 💡
 
-3. **Translation Update Mechanism**
-
-    - The `globalPath` directory contains `index.json`, which is the core translation file.
-    - Modify and save the `index.json` to instantly update translation content.
+3. **Translation Updates**
+    - `index.json` in `globalPath` is the core translation file
+    - Changes take effect immediately after saving
 
 ---
 
 ## 📦 User Group
 
-wx group
+WeChat Group
 
 ![wx](./wx.jpg)
 
@@ -290,83 +360,80 @@ wx group
 
 ## 📦 Example Project
 
-☁️ See the example project here: [example](./example) (click to view).
-
----
+Example project: [example](./example) (click to view)
 
 ## 📜 License
 
-This plugin is available under the **MIT License** 🪪. Free to use, and contributions are welcome!
+MIT License 🪪 - Free to use and contribute!
 
-We hope this plugin makes internationalization development easier and more efficient for you! 🌍✨
+May this plugin make your i18n development easier and more efficient! 🌍✨
 
 ---
 
 ## ✨ Update
 
-Since version 1.0.5, users only need to import the `index.js` file in the folder generated by the plugin into the entry file, and there is no need to manually build the language switching function file. 👏
+Since v1.0.5, simply import the generated `index.js` in your entry file - no need to manually create language switching functions. 👏
 
 ---
 
-## 🎆 authors
+## 🎆 Authors
 
-Original authors: wenps、xu-code、Caleb-Xu、Winfans
+Original authors: wenps, xu-code, Caleb-Xu, Winfans
 
 ## Changelog
 
-### v1.0.22 (Stable Version)
+### v1.0.22 (Stable)
 
--   Added a scanning translator.
+-   Added scan translator
 
-### v1.0.21 (Stable Version)
+### v1.0.21 (Stable)
 
--   Added deep scanning.
+-   Added deep scanning
 
-### v1.0.20 (Stable Version)
+### v1.0.20 (Stable)
 
--   Fixed the issue of filtering function exceptions and added an option to overwrite the generated configuration file.
+-   Fixed filter function issues and added config overwrite option
 
-### v1.0.19 (Stable Version)
+### v1.0.19 (Stable)
 
--   Made the configuration file compatible with older versions.
+-   Backward compatibility for config files
 
-### v1.0.18 (Stable Version)
+### v1.0.18 (Stable)
 
--   Fixed the issue of optional chaining causing runtime exceptions in lower versions of Node.
+-   Fixed optional chaining issues in older Node versions
 
-### v1.0.17 (Stable Version)
+### v1.0.17 (Stable)
 
--   Support basic SSR (experimental)
+-   Basic SSR support (experimental)
 
-### v1.0.16 (Stable Version)
+### v1.0.16 (Stable)
 
--   Fixed known issues (Vue 3 comment nodes).
+-   Fixed Vue3 comment node issues
 
-### v1.0.15 (Stable Version)
+### v1.0.15 (Stable)
 
--   Added Baidu Translator.
+-   Added Baidu Translate
 
-### v1.0.14 (Stable Version)
+### v1.0.14 (Stable)
 
--   Fixed the issue where new language types were not automatically segmented.
--   Added support for Japanese, Korean, and Russian in the automatic translation feature.
+-   Fixed new language type segmentation
+-   Added Japanese, Korean, Russian support
 
-### v1.0.13 (Stable Version)
+### v1.0.13 (Stable)
 
--   Fixed known issues.
+-   Bug fixes
 
-### v1.0.12 (Unstable Version)
+### v1.0.12 (Unstable)
 
--   Optimized types.
+-   Type optimizations
 
 ### v1.0.11
 
--   Fixed known bugs.
--   Added a new translation status option to support semi-automatic mode.
+-   Bug fixes
+-   Added `translateType` option for semi-auto mode
 
 ```js
-// Users can wrap the text to be translated with translateKey
-// For example: $t('hello'), the plugin will scan these texts and implement automatic translation
-
+// Users can wrap text with translateKey
+// e.g., $t('hello') - plugin will scan and translate these
 $t('hello')
 ```

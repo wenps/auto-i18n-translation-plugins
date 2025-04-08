@@ -5,8 +5,9 @@
  * @FilePath: /i18n_translation_vite/script/build.js
  */
 // @ts-check
-import shell from 'shelljs' // 使用 import 引入 shelljs 模块
+import { PluginTypeEnum, TypeDirNameMap } from './enums'
 import { select } from '@inquirer/prompts' // 使用 import 引入 select 函数
+import shell from 'shelljs' // 使用 import 引入 shelljs 模块
 
 const parseArgsToMap = () => {
     const args = new Map()
@@ -29,10 +30,10 @@ const run = async () => {
         shell.exec(buildCmd, { async: isDev })
     }
 
-    const choices = ['vite', 'webpack'].map(type => {
+    const choices = Object.values(PluginTypeEnum).map(pluginType => {
         return {
-            name: type,
-            value: type + 'PluginsAutoI18n' // 这里用了拼接，要留意后续目录是否变更
+            name: pluginType,
+            value: TypeDirNameMap[pluginType]
         }
     })
     let dir
@@ -52,7 +53,7 @@ const run = async () => {
 
     shell.cd('..')
 
-    shell.cp('readme*', dir)
+    // shell.cp('readme*', dir) // 目前readme文件路径有点问题，需要修改
     shell.cd(dir)
     runBuild()
 }

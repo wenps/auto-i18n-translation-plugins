@@ -1,21 +1,8 @@
+// @ts-check
+import { TypeEnum, PluginTypeEnum, TypeDirNameMap } from './enums'
 import { checkbox, select } from '@inquirer/prompts'
 import shell from 'shelljs'
 import chalk from 'chalk'
-import { writeFile } from 'fs/promises'
-
-const TypeEnum = {
-    CORE: 'core',
-    PLUGIN: 'plugin'
-}
-const PluginTypeEnum = {
-    WEBPACK: 'webpack',
-    VITE: 'vite'
-}
-const TypeDirNameMap = {
-    [TypeEnum.CORE]: 'autoI18nPluginCore',
-    [PluginTypeEnum.WEBPACK]: 'webpackPluginsAutoI18n',
-    [PluginTypeEnum.VITE]: 'vitePluginsAutoI18n'
-}
 
 const VersionTypeEnum = {
     MAJOR: 'major',
@@ -31,13 +18,11 @@ const buildCmd = 'pnpm build'
  */
 const run = async () => {
     const type = await select({
-        name: 'type',
         choices: [
             { name: 'core', value: TypeEnum.CORE },
             { name: 'plugin', value: TypeEnum.PLUGIN }
         ],
-        message: '请选择要打包的类型：',
-        default: []
+        message: '请选择要打包的类型：'
     })
 
     if (type === TypeEnum.CORE) {
@@ -64,13 +49,11 @@ const run = async () => {
         commitCode()
     } else {
         const pluginType = await checkbox({
-            name: 'pluginType',
             choices: [
                 { name: 'webpack', value: PluginTypeEnum.WEBPACK },
                 { name: 'vite', value: PluginTypeEnum.VITE }
             ],
-            message: '请选择要打包的插件类型：',
-            default: []
+            message: '请选择要打包的插件类型：'
         })
 
         console.log(chalk.green`\n开始打包 plugin\n`)
@@ -112,14 +95,12 @@ const run = async () => {
 
 const selectVersionType = () => {
     return select({
-        name: 'versionType',
         choices: [
             { name: '主版本号', value: VersionTypeEnum.MAJOR },
             { name: '次版本号', value: VersionTypeEnum.SECONDARY },
             { name: '补丁版本号', value: VersionTypeEnum.PATCH }
         ],
-        message: '请选择版本类型：',
-        default: []
+        message: '请选择版本类型：'
     }).catch(() => {})
 }
 

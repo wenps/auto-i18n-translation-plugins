@@ -4,14 +4,14 @@
  * @LastEditTime: 2025-03-16 19:17:08
  * @FilePath: /i18n_translation_vite/example/vue2-ja/vite.config.ts
  */
-import path from 'path'
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue2'
 import vitePluginsAutoI18n, { YoudaoTranslator } from 'vite-auto-i18n-plugin'
+import vue from '@vitejs/plugin-vue2'
+import { defineConfig } from 'vite'
+import path from 'path'
 
 const i18nPlugin = vitePluginsAutoI18n({
     originLang: 'ja',
-    targetLangList: ['en', 'ko'],
+    targetLangList: ['en', 'ko', 'zhcn'],
     translator: new YoudaoTranslator({
         appId: '6f8d6dfaae',
         appKey: 'T40YkiuySBK682aTYBh4LZIzH'

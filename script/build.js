@@ -5,7 +5,7 @@
  * @FilePath: /i18n_translation_vite/script/build.js
  */
 // @ts-check
-import { PluginTypeEnum, TypeDirNameMap } from './enums'
+import { PluginTypeEnum, TypeDirNameMap } from './enums.js'
 import { select } from '@inquirer/prompts' // 使用 import 引入 select 函数
 import shell from 'shelljs' // 使用 import 引入 shelljs 模块
 

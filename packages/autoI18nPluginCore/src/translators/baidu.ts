@@ -11,11 +11,28 @@ import CryptoJS from 'crypto-js'
 export interface BaiduTranslatorOption {
     appId: string
     appKey: string
+    /** 网络代理配置 */
     proxy?: AxiosProxyConfig
     /** 翻译api执行间隔，默认为1000 */
     interval?: number
 }
 
+/**
+ * 百度翻译器
+ * 
+ * api文档：https://api.fanyi.baidu.com/product/113
+ * 
+ * 使用方式：
+ * ```ts
+ * vitePluginsAutoI18n({
+    ...
+    translator: new BaiduTranslator({
+        appId: '你申请的appId',
+        appKey: '你申请的appKey'
+    })
+})
+ * ```
+ */
 export class BaiduTranslator extends Translator {
     /** 百度的语言类型映射不标准，需要手动控制 */
     protected readonly BAIDU_TRANSLATE_KEY_CONVERT_MAP: Record<string, string> = {

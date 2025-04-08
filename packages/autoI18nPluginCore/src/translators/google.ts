@@ -12,6 +12,28 @@ export interface GoogleTranslatorOption {
     proxyOption?: tunnel.ProxyOptions
 }
 
+/**
+ * 谷歌翻译器
+ * 
+ * 基于@vitalets/google-translate-api，需要翻墙，不稳定，但是免费
+ * 
+ * 使用方式：
+ * ```ts
+ * vitePluginsAutoI18n({
+    ...
+    translator: translator: new GoogleTranslator({
+        proxyOption: {
+            // 如果你本地的代理在127.0.0.0:8899
+            host: '127.0.0.1',
+            port: 8899,
+            headers: {
+                'User-Agent': 'Node'
+            }
+        }
+    })
+})
+ * ```
+ */
 export class GoogleTranslator extends Translator {
     constructor(option: GoogleTranslatorOption) {
         super({

@@ -5,11 +5,28 @@ import CryptoJS from 'crypto-js'
 export interface YoudaoTranslatorOption {
     appId: string
     appKey: string
+    /** 网络代理配置 */
     proxy?: AxiosProxyConfig
     /** 翻译api执行间隔，默认为1000 */
     interval?: number
 }
 
+/**
+ * 有道翻译器
+ * 
+ * api文档：https://ai.youdao.com/DOCSIRMA/html/trans/api/wbfy/index.html
+ * 
+ * 使用方式：
+ * ```ts
+ * vitePluginsAutoI18n({
+    ...
+    translator: new YoudaoTranslator({
+        appId: '你申请的appId',
+        appKey: '你申请的appKey'
+    })
+})
+ * ```
+ */
 export class YoudaoTranslator extends Translator {
     /** 有道的语言类型映射不标准，需要手动控制 */
     private readonly YOUDAO_TRANSLATE_KEY_CONVERT_MAP: Record<string, string> = {

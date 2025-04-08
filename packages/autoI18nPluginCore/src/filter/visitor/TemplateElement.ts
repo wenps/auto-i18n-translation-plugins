@@ -4,8 +4,9 @@
  * @LastEditTime: 2025-03-31 02:29:02
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/filter/visitor/TemplateElement.ts
  */
-import { option, TranslateTypeEnum } from '../../option'
-import { baseUtils, translateUtils } from '../../utils'
+import { baseUtils, translateUtils } from 'src/utils'
+import { TranslateTypeEnum } from 'src/enums'
+import { option } from 'src/option'
 import types from '@babel/types'
 
 export default function (path: any) {

@@ -4,9 +4,10 @@
  * @LastEditTime: 2025-03-31 02:28:53
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/filter/visitor/StringLiteral.ts
  */
-import { baseUtils, splitUtils } from '../../utils/index'
-import { option, TranslateTypeEnum } from '../../option'
+import { baseUtils, splitUtils } from 'src/utils'
+import { TranslateTypeEnum } from 'src/enums'
 import * as types from '@babel/types'
+import { option } from 'src/option'
 
 export default function (path: any) {
     if (option.translateType === TranslateTypeEnum.SEMI_AUTO) {

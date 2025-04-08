@@ -5,6 +5,6 @@
  * @FilePath: /i18n_translation_vite/autoI18nPluginCore/src/index.ts
  */
 export * from './option.ts'
+export * from './translators'
 export { fileUtils, translateUtils, baseUtils, FunctionFactoryOption } from './utils'
 export * as filter from './filter'
-export * as translator from './translators'

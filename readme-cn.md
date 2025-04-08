@@ -116,11 +116,16 @@ module.exports = {
 
 ### 3️⃣ 翻译器配置示例
 
-插件默认使用谷歌翻译。需要配置代理的情况下，可以优先选择 **有道翻译** ✨，翻译效果优秀。插件已经内置谷歌翻译和有道翻译功能。如果需要自定义翻译器，可参考继承 Translator 类的示例。
+插件默认使用谷歌翻译（需要配置代理）。在网络不支持访问谷歌的情况下，我们建议优先选择 **有道翻译** ✨，翻译效果优秀。目前插件已经内置谷歌、有道和百度翻译功能。如果需要自定义翻译器，可参考下方的示例。
+
+下方的示例以`vite`为例，`webpack`与其类似。
 
 #### **使用谷歌翻译（默认）**
 
 ```javascript
+import { GoogleTranslator } from 'vite-auto-i18n-plugin'
+
+...
 translator: new GoogleTranslator({
     proxyOption: {
         host: '127.0.0.1',
@@ -130,30 +135,94 @@ translator: new GoogleTranslator({
         }
     }
 })
+...
 ```
 
 #### **使用有道翻译**
 
+需要申请api，[api文档](https://ai.youdao.com/DOCSIRMA/html/trans/api/wbfy/index.html)。
+
 ```javascript
+import { YoudaoTranslator } from 'vite-auto-i18n-plugin'
+
+...
 translator: new YoudaoTranslator({
-    appId: '4cdb9baea8066fef', // 有道翻译 AppId
-    appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j' // 有道翻译 AppKey
+    appId: '你申请的appId',
+    appKey: '你申请的appKey'
 })
+...
 ```
 
 #### **百度翻译器**
 
+需要申请api，[api文档](https://api.fanyi.baidu.com/product/113)。
+
 ```javascript
+import { BaiduTranslator } from 'vite-auto-i18n-plugin'
+
+...
 translator: new BaiduTranslator({
-    appId: 'xxx', // 百度翻译 AppId
-    appKey: 'xxx' // 百度翻译 AppKey
+    appId: '你申请的appId', // 百度翻译 AppId
+    appKey: '你申请的appKey' // 百度翻译 AppKey
 })
+...
 ```
 
-#### **扫描翻译器** (如果只需要扫描目标语言，不翻译的话，该翻译器会生成json文件)
+#### **空翻译器**
+
+如果只需要扫描目标语言，不翻译的话，该翻译器会生成json文件.
 
 ```javascript
-translator: new ScanTranslator({})
+import { EmptyTranslator } from 'vite-auto-i18n-plugin'
+
+...
+translator: new EmptyTranslator()
+...
+```
+
+#### **自定义翻译器**
+
+如果你有一个自用的翻译接口，可以通过以下方式自定义翻译器——
+
+最简单的就是直接用`Translator`基类定义翻译器实例。
+
+```javascript
+import { Translator } from 'vite-auto-i18n-plugin'
+import axios from 'axios'
+
+...
+translator: new Translator({
+    name: '我的翻译器',
+    // 翻译的方法
+    fetchMethod: (str, fromKey, toKey, _separator) => {
+        // 实际的接口调用可能比示例更复杂，具体可参考源码中YoudaoTranslator的实现，路径：packages\autoI18nPluginCore\src\translators\youdao.ts
+        const myApi = 'https://www.my-i18n.cn/api/translate?from=${fromKey}&to=${toKey}&t={+new Date}'
+        return axios.post(myApi, { str })
+            .then(res => res.data)
+    },
+    // 接口触发间隔，有些接口频繁触发会被拉黑，请根据实际情况设置一个合理的接口触发间隔
+    interval: 1000
+})
+...
+```
+
+如果要实现更高阶的功能，可以使用继承，不过目前还没有对应的场景。
+
+```javascript
+import { Translator } from 'vite-auto-i18n-plugin'
+
+class CustomTranslator extends Translator {
+    constructor () {
+        super({
+            name: '我的翻译器',
+            ...
+        })
+    }
+}
+
+...
+translator: new CustomTranslator()
+...
 ```
 
 ---

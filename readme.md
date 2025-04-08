@@ -382,48 +382,52 @@ Original authors: wenps, xu-code, Caleb-Xu, Winfans
 
 ## Changelog
 
-### v1.0.22 (Stable)
+### v1.0.23 (Recommended Version)
+
+-   Fixed a major bug in packaging and writing.
+
+### v1.0.22
 
 -   Added scan translator
 
-### v1.0.21 (Stable)
+### v1.0.21
 
 -   Added deep scanning
 
-### v1.0.20 (Stable)
+### v1.0.20
 
 -   Fixed filter function issues and added config overwrite option
 
-### v1.0.19 (Stable)
+### v1.0.19
 
 -   Backward compatibility for config files
 
-### v1.0.18 (Stable)
+### v1.0.18
 
 -   Fixed optional chaining issues in older Node versions
 
-### v1.0.17 (Stable)
+### v1.0.17
 
 -   Basic SSR support (experimental)
 
-### v1.0.16 (Stable)
+### v1.0.16
 
 -   Fixed Vue3 comment node issues
 
-### v1.0.15 (Stable)
+### v1.0.15
 
 -   Added Baidu Translate
 
-### v1.0.14 (Stable)
+### v1.0.14
 
 -   Fixed new language type segmentation
 -   Added Japanese, Korean, Russian support
 
-### v1.0.13 (Stable)
+### v1.0.13
 
 -   Bug fixes
 
-### v1.0.12 (Unstable)
+### v1.0.12
 
 -   Type optimizations
 

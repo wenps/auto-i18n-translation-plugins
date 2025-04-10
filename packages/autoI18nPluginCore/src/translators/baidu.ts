@@ -7,32 +7,48 @@
 import axios, { AxiosProxyConfig } from 'axios'
 import { Translator } from './translator'
 import CryptoJS from 'crypto-js'
-import { SEPARATOR } from 'src/utils/translate'
 
 export interface BaiduTranslatorOption {
     appId: string
     appKey: string
+    /** 网络代理配置 */
     proxy?: AxiosProxyConfig
     /** 翻译api执行间隔，默认为1000 */
     interval?: number
 }
 
+/**
+ * 百度翻译器
+ * 
+ * api文档：https://api.fanyi.baidu.com/product/113
+ * 
+ * 使用方式：
+ * ```ts
+ * vitePluginsAutoI18n({
+    ...
+    translator: new BaiduTranslator({
+        appId: '你申请的appId',
+        appKey: '你申请的appKey'
+    })
+})
+ * ```
+ */
 export class BaiduTranslator extends Translator {
     /** 百度的语言类型映射不标准，需要手动控制 */
-    private readonly Baidu_TRANSLATE_KEY_CONVERT_MAP: Record<string, string> = {
+    protected readonly BAIDU_TRANSLATE_KEY_CONVERT_MAP: Record<string, string> = {
         'zh-cn': 'zh',
         ja: 'jp',
         ko: 'kor'
     }
 
-    private getTranslateKey(key: string) {
-        return this.Baidu_TRANSLATE_KEY_CONVERT_MAP[key] || key
+    protected getTranslateKey(key: string) {
+        return this.BAIDU_TRANSLATE_KEY_CONVERT_MAP[key] || key
     }
 
     constructor(option: BaiduTranslatorOption) {
         super({
             name: '百度翻译',
-            fetchMethod: async (text, fromKey, toKey) => {
+            fetchMethod: async (text, fromKey, toKey, separator) => {
                 let salt = new Date().getTime()
 
                 const data = {
@@ -57,10 +73,16 @@ export class BaiduTranslator extends Translator {
                 const translatedTexts = response.data?.trans_result
                     .map((item: any) => item.dst)
                     .filter((_item: string, index: number) => index % 2 === 0)
-                    .join(SEPARATOR)
+                    .join(separator)
 
                 // 请求成功，返回响应数据
                 return translatedTexts || ''
+            },
+            onError: (error, cb) => {
+                cb(error)
+                console.error(
+                    '请前往百度翻译官方申请翻译key，每个月都有免费额度，并请检查额度是否充足。'
+                )
             },
             interval: option.interval ?? 1000
         })

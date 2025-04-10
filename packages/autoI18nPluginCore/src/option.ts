@@ -5,25 +5,9 @@
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/option.ts
  */
 
-import {
-    YoudaoTranslator,
-    GoogleTranslator,
-    BaiduTranslator,
-    Translator,
-    TranslatorOption,
-    ScanTranslator
-} from './translator'
+import { GoogleTranslator, Translator, TranslatorOption } from './translators'
 import { OriginLangKeyEnum, TranslateTypeEnum } from './enums'
 import { cloneDeep } from './utils/base'
-export {
-    YoudaoTranslator,
-    GoogleTranslator,
-    BaiduTranslator,
-    Translator,
-    TranslateTypeEnum,
-    ScanTranslator
-}
-export type { TranslatorOption }
 
 const EXCLUDED_CALL = [
     '$deepScan',

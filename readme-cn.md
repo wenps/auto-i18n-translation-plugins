@@ -116,11 +116,16 @@ module.exports = {
 
 ### 3️⃣ 翻译器配置示例
 
-插件默认使用谷歌翻译。需要配置代理的情况下，可以优先选择 **有道翻译** ✨，翻译效果优秀。插件已经内置谷歌翻译和有道翻译功能。如果需要自定义翻译器，可参考继承 Translator 类的示例。
+插件默认使用谷歌翻译（需要配置代理）。在网络不支持访问谷歌的情况下，我们建议优先选择 **有道翻译** ✨，翻译效果优秀。目前插件已经内置谷歌、有道和百度翻译功能。如果需要自定义翻译器，可参考下方的示例。
+
+下方的示例以`vite`为例，`webpack`与其类似。
 
 #### **使用谷歌翻译（默认）**
 
 ```javascript
+import { GoogleTranslator } from 'vite-auto-i18n-plugin'
+
+...
 translator: new GoogleTranslator({
     proxyOption: {
         host: '127.0.0.1',
@@ -130,30 +135,94 @@ translator: new GoogleTranslator({
         }
     }
 })
+...
 ```
 
 #### **使用有道翻译**
 
+需要申请api，[api文档](https://ai.youdao.com/DOCSIRMA/html/trans/api/wbfy/index.html)。
+
 ```javascript
+import { YoudaoTranslator } from 'vite-auto-i18n-plugin'
+
+...
 translator: new YoudaoTranslator({
-    appId: '4cdb9baea8066fef', // 有道翻译 AppId
-    appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j' // 有道翻译 AppKey
+    appId: '你申请的appId',
+    appKey: '你申请的appKey'
 })
+...
 ```
 
 #### **百度翻译器**
 
+需要申请api，[api文档](https://api.fanyi.baidu.com/product/113)。
+
 ```javascript
+import { BaiduTranslator } from 'vite-auto-i18n-plugin'
+
+...
 translator: new BaiduTranslator({
-    appId: 'xxx', // 百度翻译 AppId
-    appKey: 'xxx' // 百度翻译 AppKey
+    appId: '你申请的appId', // 百度翻译 AppId
+    appKey: '你申请的appKey' // 百度翻译 AppKey
 })
+...
 ```
 
-#### **扫描翻译器** (如果只需要扫描目标语言，不翻译的话，该翻译器会生成json文件)
+#### **空翻译器**
+
+如果只需要扫描目标语言，不翻译的话，该翻译器会生成json文件.
 
 ```javascript
-translator: new ScanTranslator({})
+import { EmptyTranslator } from 'vite-auto-i18n-plugin'
+
+...
+translator: new EmptyTranslator()
+...
+```
+
+#### **自定义翻译器**
+
+如果你有一个自用的翻译接口，可以通过以下方式自定义翻译器——
+
+最简单的就是直接用`Translator`基类定义翻译器实例。
+
+```javascript
+import { Translator } from 'vite-auto-i18n-plugin'
+import axios from 'axios'
+
+...
+translator: new Translator({
+    name: '我的翻译器',
+    // 翻译的方法
+    fetchMethod: (str, fromKey, toKey, _separator) => {
+        // 实际的接口调用可能比示例更复杂，具体可参考源码中YoudaoTranslator的实现，路径：packages\autoI18nPluginCore\src\translators\youdao.ts
+        const myApi = 'https://www.my-i18n.cn/api/translate?from=${fromKey}&to=${toKey}&t={+new Date}'
+        return axios.post(myApi, { str })
+            .then(res => res.data)
+    },
+    // 接口触发间隔，有些接口频繁触发会被拉黑，请根据实际情况设置一个合理的接口触发间隔
+    interval: 1000
+})
+...
+```
+
+如果要实现更高阶的功能，可以使用继承，不过目前还没有对应的场景。
+
+```javascript
+import { Translator } from 'vite-auto-i18n-plugin'
+
+class CustomTranslator extends Translator {
+    constructor () {
+        super({
+            name: '我的翻译器',
+            ...
+        })
+    }
+}
+
+...
+translator: new CustomTranslator()
+...
 ```
 
 ---
@@ -188,23 +257,29 @@ import '../lang/index.js' // 📍 必须在入口文件中第一行引入，这�
 | translator       | Translator | ❌   | `GoogleTranslator`       | 翻译器实例                                                 |
 | translatorOption | object     | ❌   | `{}`                     | 翻译器的配置项，优先级低于`translator`                     |
 | rewriteConfig    | boolean    | ❌   | `true`                   | 插件每次运行时是否重写配置文件                             |
-| deepScan      | boolean     | ❌   | `false`                     | 实验性属性，表示是否进行深层扫描字符串                       |
+| deepScan         | boolean    | ❌   | `false`                  | 实验性属性，表示是否进行深层扫描字符串                     |
 
 ---
+
 ## 🔍 deepScan 选项的作用？
+
 `deepScan` 是一个实验性的属性，用于控制插件是否进行深层扫描字符串。
 默认情况下，插件会扫描字符串或者模版字符串，只需要里面存在一个目标语言就会被扫进去，比如：
+
 ```js
-`<div>
+;`<div>
     <p>你好</p>
 </div>`
 ```
+
 因为里面有一个中文，所以整个字符串会被扫进去，可能会导致翻译不准确，因为我们只想翻译`你好`这个字符串，所以我们可以设置`deepScan`为`true`，插件会对字符串进行切割，重新拼接成模版字符串，值对符合的字符串进行翻译，比如：
+
 ```js
-`<div>
+;`<div>
     <p>${$t('你好')}</p>
 </div>`
 ```
+
 这样就只会翻译`你好`这个字符串，而不会翻译整个字符串。
 
 ---
@@ -311,48 +386,48 @@ const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
 
 -   修复打包写入重大bug
 
-### v1.0.22 
+### v1.0.22
 
 -   新增扫描翻译器
 
-### v1.0.21 
+### v1.0.21
 
 -   新增深度扫描
 
-### v1.0.20 
+### v1.0.20
 
 -   修复过滤函数异常问题，以及补充是否覆盖生成配置文件项
 
-### v1.0.19 
+### v1.0.19
 
 -   配置文件兼容旧版本
 
-### v1.0.18 
+### v1.0.18
 
 -   修复了低版本 Node 中可选链操作导致运行时异常的问题。
 
-### v1.0.17 
+### v1.0.17
 
 -   支持基本的服务器端渲染（实验性）
 
-### v1.0.16 
+### v1.0.16
 
 -   修复已知问题（vue3注释节点）
 
-### v1.0.15 
+### v1.0.15
 
 -   新增百度翻译
 
-### v1.0.14 
+### v1.0.14
 
 -   修复新增语言类型，不主动切割问题
 -   自动翻译能力新增日语，韩语，俄语
 
-### v1.0.13 
+### v1.0.13
 
 -   已知问题修复
 
-### v1.0.12 
+### v1.0.12
 
 -   优化类型
 

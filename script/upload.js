@@ -5,6 +5,8 @@
  * @FilePath: /i18n_translation_vite/script/upload.js
  */
 // script/upload.js
+// @ts-check
+import { TypeDirNameMap } from './enums.js'
 import { writeFile } from 'fs/promises'
 import shell from 'shelljs'
 import chalk from 'chalk'
@@ -13,25 +15,6 @@ import fs from 'fs'
 
 // 获取当前工作目录
 // const currentDir = shell.pwd().stdout;
-
-// 定义项目类型枚举
-const TypeEnum = {
-    CORE: 'core',
-    PLUGIN: 'plugin'
-}
-
-// 定义插件类型枚举
-const PluginTypeEnum = {
-    WEBPACK: 'webpack',
-    VITE: 'vite'
-}
-
-// 定义项目类型与目录名的映射
-const TypeDirNameMap = {
-    [TypeEnum.CORE]: 'autoI18nPluginCore',
-    [PluginTypeEnum.WEBPACK]: 'webpackPluginsAutoI18n',
-    [PluginTypeEnum.VITE]: 'vitePluginsAutoI18n'
-}
 
 // 定义版本类型枚举
 const VersionTypeEnum = {
@@ -113,7 +96,7 @@ const getPackageJsonPath = (pkgName = '') => {
  * @param {string} versionType - 版本类型（MAJOR, SECONDARY, PATCH）
  * @param {string} pkgName - 包名
  */
-const generateVersion = async (versionType, pkgName) => {
+const generateVersion = async (versionType, pkgName = '') => {
     // 读取 package.json 文件
     let pkg = await readPackageJson(pkgName)
 
@@ -157,7 +140,7 @@ const uploadPackage = () => {
 }
 
 /** 动态读取 package.json 文件的函数 */
-const readPackageJson = async pkgName => {
+const readPackageJson = async (pkgName = '') => {
     const packageJsonPath = getPackageJsonPath(pkgName)
 
     try {

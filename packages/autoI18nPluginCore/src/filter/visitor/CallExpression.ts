@@ -4,9 +4,10 @@
  * @LastEditTime: 2025-03-16 15:17:30
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/filter/visitor/CallExpression.ts
  */
+import { baseUtils, translateUtils } from 'src/utils'
+import { TranslateTypeEnum } from 'src/enums'
 import * as types from '@babel/types'
-import { baseUtils, translateUtils } from '../../utils'
-import { option, TranslateTypeEnum } from '../../option'
+import { option } from 'src/option'
 
 // 收集翻译对象
 export default function (path: any) {

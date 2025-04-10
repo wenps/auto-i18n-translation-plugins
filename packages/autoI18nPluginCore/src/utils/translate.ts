@@ -235,7 +235,12 @@ async function translateChunks(transLangObj: any, translateKey: string) {
     const translatePromises = []
     for (let i = 0; i < translationChunks.length; i++) {
         translatePromises.push(
-            option.translator.translate(translationChunks[i], option.originLang, translateKey)
+            option.translator.translate(
+                translationChunks[i],
+                option.originLang,
+                translateKey,
+                SEPARATOR
+            )
         )
     }
 

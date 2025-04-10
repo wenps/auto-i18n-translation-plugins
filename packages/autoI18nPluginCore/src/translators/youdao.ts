@@ -5,11 +5,28 @@ import CryptoJS from 'crypto-js'
 export interface YoudaoTranslatorOption {
     appId: string
     appKey: string
+    /** 网络代理配置 */
     proxy?: AxiosProxyConfig
     /** 翻译api执行间隔，默认为1000 */
     interval?: number
 }
 
+/**
+ * 有道翻译器
+ * 
+ * api文档：https://ai.youdao.com/DOCSIRMA/html/trans/api/wbfy/index.html
+ * 
+ * 使用方式：
+ * ```ts
+ * vitePluginsAutoI18n({
+    ...
+    translator: new YoudaoTranslator({
+        appId: '你申请的appId',
+        appKey: '你申请的appKey'
+    })
+})
+ * ```
+ */
 export class YoudaoTranslator extends Translator {
     /** 有道的语言类型映射不标准，需要手动控制 */
     private readonly YOUDAO_TRANSLATE_KEY_CONVERT_MAP: Record<string, string> = {
@@ -60,6 +77,12 @@ export class YoudaoTranslator extends Translator {
                 })
                 // 请求成功，返回响应数据
                 return response.data.translation?.[0] || ''
+            },
+            onError: (error, cb) => {
+                cb(error)
+                console.error(
+                    '请前往有道翻译官方申请翻译key，默认会有50的额度，并请检查额度是否充足。'
+                )
             },
             interval: option.interval ?? 1000
         })

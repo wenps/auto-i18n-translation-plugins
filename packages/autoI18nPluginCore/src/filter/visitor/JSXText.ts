@@ -4,9 +4,10 @@
  * @LastEditTime: 2025-03-16 18:24:44
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/filter/visitor/JSXText.ts
  */
+import { TranslateTypeEnum } from 'src/enums'
 import * as types from '@babel/types'
-import { baseUtils } from '../../utils'
-import { option, TranslateTypeEnum } from '../../option'
+import { baseUtils } from 'src/utils'
+import { option } from 'src/option'
 
 export default function (path: any) {
     console.log('jsx text')

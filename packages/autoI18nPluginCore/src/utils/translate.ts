@@ -9,8 +9,8 @@ import { option } from 'src/option'
 import * as fileUtils from './file'
 import { chunkUtils } from '.'
 
-export const SEPARATOR = '\n┇┇┇\n'
-export const SPLIT_SEPARATOR_REGEX = /\n┇ *┇ *┇\n/
+export const SEPARATOR = '\n┇\n'
+export const SPLIT_SEPARATOR_REGEX = new RegExp(SEPARATOR)
 
 type langObj = { [key: string]: string }
 
@@ -229,18 +229,17 @@ export async function completionTranslateAndWriteConfigFile(
 
 // 分块翻译流程函数
 async function translateChunks(transLangObj: any, translateKey: string) {
+    const { translator } = option
     // 获取分块后的文本列表
-    const translationChunks = chunkUtils.createTextSplitter(Object.values(transLangObj))
+    const translationChunks = chunkUtils.createTextSplitter(
+        Object.values(transLangObj),
+        translator.option.maxChunkSize
+    )
     // 并行执行分块翻译
     const translatePromises = []
     for (let i = 0; i < translationChunks.length; i++) {
         translatePromises.push(
-            option.translator.translate(
-                translationChunks[i],
-                option.originLang,
-                translateKey,
-                SEPARATOR
-            )
+            translator.translate(translationChunks[i], option.originLang, translateKey, SEPARATOR)
         )
     }
 

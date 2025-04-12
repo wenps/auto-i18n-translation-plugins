@@ -45,15 +45,16 @@ const run = async () => {
 
     console.log(chalk.green`\n开始修改版本号\n`)
 
+    // TODO: 这里可以优化
     // 遍历每个项目并修改版本号
     for (let key in TypeDirNameMap) {
         await generateVersion(versionType, TypeDirNameMap[key])
     }
-    await generateVersion(versionType) // 顺便改一下根目录的版本号
+    const newVersion = await generateVersion(versionType) // 顺便改一下根目录的版本号
     console.log(chalk.green`\n修改完成!\n`)
 
     // 提交代码
-    await commitCode()
+    await commitCode(newVersion)
 
     // 上传包
     uploadPackage()
@@ -63,16 +64,17 @@ const run = async () => {
  * 提交代码到 Git 仓库
  */
 // git push
-const commitCode = async () => {
+const commitCode = async newVersion => {
     console.log(chalk.green`\n开始提交代码!\n`)
     shell.exec(` git config --global user.email "2534491497@qq.com" \
         && git config --global user.name "wenps" \
         && git add . \
         && git commit -m 'feat: update version' -n \
+        && git tag -a ${newVersion} \
         `)
     // 尝试推送，如果超过 30 秒则跳过
     try {
-        await execWithTimeout(`git push`, 30000)
+        await execWithTimeout(`git push && git push origin ${newVersion}`, 30000)
         console.log(chalk.green`\n提交完成!\n`)
     } catch (error) {
         console.warn(chalk.yellow`\n推送超时，跳过推送步骤：`, error.message)
@@ -100,6 +102,7 @@ const generateVersion = async (versionType, pkgName = '') => {
     // 读取 package.json 文件
     let pkg = await readPackageJson(pkgName)
 
+    /** @type {string} */
     const initVersion = pkg.version
     let version = initVersion
 

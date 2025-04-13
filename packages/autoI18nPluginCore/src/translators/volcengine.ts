@@ -15,6 +15,8 @@ export interface VolcengineTranslatorOption {
 /**
  * 火山引擎翻译器，内置豆包、deepseek等模型
  * 
+ * 火山引擎大模型介绍：https://www.volcengine.com/docs/82379/1099455
+ * 
  * api文档：https://www.volcengine.com/docs/82379/1298454
  * 
  * 使用方式：

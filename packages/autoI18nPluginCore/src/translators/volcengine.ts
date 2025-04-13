@@ -56,11 +56,14 @@ export class VolcengineTranslator extends Translator {
                         proxy: option.proxy
                     }
                 )
-
-                // 请求成功，返回响应数据
-                // TODO
-                // return (JSON.parse(response.data) as string[]).join(separator)
-                return ''
+                try {
+                    return (JSON.parse(response.data.choices[0].message.content) as string[]).join(
+                        separator
+                    )
+                } catch (error) {
+                    console.error('🚀 ~ VolcengineTranslator ~ fetchMethod: ~ error:', error)
+                    return text
+                }
             },
             onError: (error, cb) => {
                 cb(error)
@@ -68,6 +71,7 @@ export class VolcengineTranslator extends Translator {
                     '请确保在火山引擎控制台开通了对应模型，且有足够的token余额。控制台地址：https://console.volcengine.com/ark/'
                 )
             },
+            maxChunkSize: 10000,
             interval: option.interval ?? 1000
         })
     }

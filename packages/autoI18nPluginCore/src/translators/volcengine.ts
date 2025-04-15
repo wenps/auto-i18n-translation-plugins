@@ -6,6 +6,8 @@ export interface VolcengineTranslatorOption {
     apiKey: string
     /** 使用的ai模型，可选值请参阅火山引擎控制台的模型列表，如`doubao-1-5-pro-32k-250115`，并请确保使用前已在控制台开通了对应模型 */
     model: string
+    /** 对本项目的简短描述，在有描述的情况下大模型的翻译结果可能会更加准确 */
+    desc?: string
     /** 网络代理配置 */
     proxy?: AxiosProxyConfig
     /** 翻译api执行间隔，默认为1000 */
@@ -42,7 +44,7 @@ export class VolcengineTranslator extends Translator {
                     messages: [
                         {
                             role: 'system',
-                            content: `你是一个专业的翻译助手。请将以下数组的每个成员从原语言${fromKey}翻译成目标语言${toKey}。请直接返回翻译后的数组，不要包含任何解释。`
+                            content: `首先，你是一个专业的翻译助手。有一个web项目，${option.desc ? `它的开发者是这么描述它的：${option.desc}。` : ''}现在我将这个项目中所使用的web抽成一个文本数组。你需要请将数组的每个成员从原语言${fromKey}翻译成目标语言${toKey}，并直接返回翻译后的文本数组，不要包含任何解释。`
                         },
                         { role: 'user', content: JSON.stringify(textArr) }
                     ]

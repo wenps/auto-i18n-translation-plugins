@@ -60,7 +60,7 @@ export default function vitePluginsAutoI18n(optionInfo: OptionInfo): any {
                         plugins: [filter.default]
                     })
                     if (config?.command === 'serve') {
-                        await translateUtils.autoTranslate()
+                        translateUtils.autoTranslate()
                     }
 
                     return result?.code

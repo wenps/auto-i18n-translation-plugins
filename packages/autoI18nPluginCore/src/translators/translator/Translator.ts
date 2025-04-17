@@ -1,6 +1,8 @@
 import { IntervalQueue } from './IntervalQueue'
 
 export interface TranslatorOption {
+    /** Translator版本，用于做后续的功能迭代 */
+    version?: number
     /**
      * 实际的请求方法
      * @param text 被翻译的文本
@@ -16,6 +18,8 @@ export interface TranslatorOption {
         separator: string
     ) => Promise<string>
     name: string
+    /** 单次最大翻译文本长度 */
+    maxChunkSize?: number
     /** 执行间隔（默认不开启） */
     interval?: number
     /**
@@ -28,7 +32,7 @@ export interface TranslatorOption {
 }
 
 export class Translator {
-    protected option: Required<TranslatorOption>
+    public option: Required<TranslatorOption>
 
     constructor(option: TranslatorOption) {
         this.option = this.getResultOption(option)
@@ -41,6 +45,8 @@ export class Translator {
 
     private getResultOption(option: TranslatorOption) {
         const resultOption: Required<TranslatorOption> = {
+            version: 1,
+            maxChunkSize: 4500, // 目前默认是4500
             interval: 0,
             onError: this.defaultErrorHandler,
             ...option

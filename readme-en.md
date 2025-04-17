@@ -168,6 +168,25 @@ translator: new BaiduTranslator({
 ...
 ```
 
+#### **Volcengine AI Translator**
+
+Supports calling `doubao` or `deepseek` for translation. AI model translation provides more accurate results than traditional API translation, but takes longer to process.
+Volcengine AI model introduction: https://www.volcengine.com/docs/82379/1099455.
+Requires enabling the AI service and applying for API, [API documentation](https://www.volcengine.com/docs/82379/1298454).
+
+```javascript
+import { VolcengineTranslator } from 'vite-auto-i18n-plugin'
+
+...
+translator: new VolcengineTranslator({
+    apiKey: 'your-api-key',
+    model: 'model-to-call, e.g. `doubao-1-5-pro-32k-250115`, please ensure the model has been enabled in console before using'
+})
+...
+```
+
+````
+
 #### **Empty Translator**
 
 If you only need to scan target language without translation, this translator will generate JSON files.
@@ -178,7 +197,7 @@ import { EmptyTranslator } from 'vite-auto-i18n-plugin'
 ...
 translator: new EmptyTranslator()
 ...
-```
+````
 
 #### **Custom Translator**
 
@@ -380,62 +399,4 @@ Original authors: wenps, xu-code, Caleb-Xu, Winfans
 
 ## Changelog
 
-### v1.0.23 (Recommended Version)
-
--   Fixed a major bug in packaging and writing.
-
-### v1.0.22
-
--   Added scan translator
-
-### v1.0.21
-
--   Added deep scanning
-
-### v1.0.20
-
--   Fixed filter function issues and added config overwrite option
-
-### v1.0.19
-
--   Backward compatibility for config files
-
-### v1.0.18
-
--   Fixed optional chaining issues in older Node versions
-
-### v1.0.17
-
--   Basic SSR support (experimental)
-
-### v1.0.16
-
--   Fixed Vue3 comment node issues
-
-### v1.0.15
-
--   Added Baidu Translate
-
-### v1.0.14
-
--   Fixed new language type segmentation
--   Added Japanese, Korean, Russian support
-
-### v1.0.13
-
--   Bug fixes
-
-### v1.0.12
-
--   Type optimizations
-
-### v1.0.11
-
--   Bug fixes
--   Added `translateType` option for semi-auto mode
-
-```js
-// Users can wrap text with translateKey
-// e.g., $t('hello') - plugin will scan and translate these
-$t('hello')
-```
+Please refer to [releases](https://github.com/wenps/auto-i18n-translation-plugins/releases)

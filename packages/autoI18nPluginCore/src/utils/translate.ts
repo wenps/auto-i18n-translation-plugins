@@ -9,8 +9,8 @@ import { option } from 'src/option'
 import * as fileUtils from './file'
 import { chunkUtils } from '.'
 
-export const SEPARATOR = '\n┇\n'
-export const SPLIT_SEPARATOR_REGEX = new RegExp(SEPARATOR)
+export const SEPARATOR = '\n┇┇┇\n'
+export const SPLIT_SEPARATOR_REGEX = /\n┇ *┇ *┇\n/
 
 type langObj = { [key: string]: string }
 

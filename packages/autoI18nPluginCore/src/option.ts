@@ -92,7 +92,13 @@ const DEFAULT_OPTION = {
     rewriteConfig: true,
 
     /**
+     * 通用翻译key，默认使用namespace，如果commonTranslateKey不为空，则使用commonTranslateKey
+     */
+    commonTranslateKey: '',
+
+    /**
      * 实验性属性，表示是否进行深层扫描字符串，默认为 false
+     * 当设置为 true 时，会对代码中的字符串进行更深入的扫描
      */
     deepScan: false
 }

@@ -25,5 +25,5 @@ export class EmptyTranslator extends Translator {
     // TODO: 后续可以作为基类，提供更多的配置选项
 }
 
-/** 别名导出，兼容旧版本 */
+/** @deprecated 别名导出，兼容旧版本 */
 export const ScanTranslator = EmptyTranslator

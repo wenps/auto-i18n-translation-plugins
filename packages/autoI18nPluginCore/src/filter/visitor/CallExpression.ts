@@ -25,7 +25,10 @@ export default function (path: any) {
             if (arg.length === 1) {
                 const value = arg[0]?.value || ''
                 // 生成真实调用函数
-                const replaceNode = baseUtils.createI18nTranslator(value, true)
+                const replaceNode = baseUtils.createI18nTranslator({
+                    value,
+                    isExpression: true
+                })
                 path.replaceWith(replaceNode)
                 translateSetLang(replaceNode)
             }

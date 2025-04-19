@@ -33,7 +33,10 @@ export default function (path: any) {
         !baseUtils.checkAgainstRegexArray(value, [...option.excludedPattern])
     ) {
         // 生成翻译节点
-        let expression = baseUtils.createI18nTranslator(value, true)
+        let expression = baseUtils.createI18nTranslator({
+            value,
+            isExpression: true
+        })
         // 生成的翻译节点包装在  types.JSXExpressionContainer  中
         let newNode = types.jSXExpressionContainer(expression)
         // 使用  path.replaceWith  方法将原来的节点替换为新的翻译节点

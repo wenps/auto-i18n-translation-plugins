@@ -111,7 +111,12 @@ export function extractStrings(fileContent: string, regex: any) {
  * @param {string} key
  * @return {*}
  */
-export function createI18nTranslator(value: string, isExpression?: boolean, key?: string): any {
+export function createI18nTranslator(createOption: {
+    value: string
+    isExpression?: boolean
+    key?: string
+}): any {
+    const { value, isExpression = false, key } = createOption
     const nameSpace = option.namespace
     const trimmedValue = value.trim()
     const valStr = trimmedValue.replace(/'/g, '"').replace(/(\n)/g, '\\n')

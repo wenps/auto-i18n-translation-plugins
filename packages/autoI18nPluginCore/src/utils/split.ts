@@ -120,13 +120,13 @@ export function convertToTemplateLiteral(strArray: string[]): types.CallExpressi
         if (index === 0) {
             if (getOriginRegex().test(str)) {
                 quasis.push(types.templateElement({ raw: '', cooked: '' }, false))
-                expressions.push(baseUtils.createI18nTranslator(str, true))
+                expressions.push(baseUtils.createI18nTranslator({ value: str, isExpression: true }))
             } else {
                 quasis.push(types.templateElement({ raw: str, cooked: str }, false))
             }
         } else {
             if (getOriginRegex().test(str)) {
-                expressions.push(baseUtils.createI18nTranslator(str, true))
+                expressions.push(baseUtils.createI18nTranslator({ value: str, isExpression: true }))
             } else {
                 quasis.push(types.templateElement({ raw: str, cooked: str }, false))
             }

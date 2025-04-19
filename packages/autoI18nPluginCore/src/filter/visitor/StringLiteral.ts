@@ -50,10 +50,16 @@ export default function (path: any) {
                 splitUtils.splitByRegex(value, baseUtils.getOriginRegex())
             )
         } else if (types.isJSXAttribute(parent)) {
-            let expression = baseUtils.createI18nTranslator(value, true)
+            let expression = baseUtils.createI18nTranslator({
+                value,
+                isExpression: true
+            })
             replaceNode = types.jSXExpressionContainer(expression)
         } else {
-            replaceNode = baseUtils.createI18nTranslator(value, true)
+            replaceNode = baseUtils.createI18nTranslator({
+                value,
+                isExpression: true
+            })
         }
         path.replaceWith(replaceNode)
     }

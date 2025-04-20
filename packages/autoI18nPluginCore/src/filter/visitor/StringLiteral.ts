@@ -6,10 +6,11 @@
  */
 import { baseUtils, splitUtils } from 'src/utils'
 import { TranslateTypeEnum } from 'src/enums'
+import { PluginObj } from '@babel/core'
 import * as types from '@babel/types'
 import { option } from 'src/option'
 
-export default function (path: any) {
+const fn: PluginObj['visitor']['StringLiteral'] = path => {
     if (option.translateType === TranslateTypeEnum.SEMI_AUTO) {
         return
     }
@@ -36,7 +37,7 @@ export default function (path: any) {
         // 防止导入语句，只处理那些当前节点不是键值对的键的字符串字面量，调用语句判断当前调用语句是否包含需要过滤的调用语句
         if (
             types.isImportDeclaration(parent) ||
-            parent.key === node ||
+            ('key' in parent && parent.key === node) ||
             (types.isCallExpression(parent) &&
                 extractFnName &&
                 (option.excludedCall.includes(extractFnName) ||
@@ -58,3 +59,5 @@ export default function (path: any) {
         path.replaceWith(replaceNode)
     }
 }
+
+export default fn

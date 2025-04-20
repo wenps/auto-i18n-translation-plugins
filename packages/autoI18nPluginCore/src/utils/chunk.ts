@@ -9,7 +9,7 @@ import { SEPARATOR } from './translate'
 /**
  * 智能文本分块处理器
  * @param values 待分块的原始文本数组
- * @param maxChunkSize 最大分块长度（默认4500字符）
+ * @param maxChunkSize 最大分块长度
  * @returns 包含分块文本和重组方法的对象
  *
  * 功能特性：
@@ -18,7 +18,7 @@ import { SEPARATOR } from './translate'
  * 3. 保证块长度不超过限制
  * 4. 保留原始顺序和分隔符语义
  */
-export function createTextSplitter(values: string[], maxChunkSize = 4500) {
+export function createTextSplitter(values: string[], maxChunkSize: number) {
     // 分隔符定义（用于合并/拆分时保持语义）
     const SEP_LENGTH = SEPARATOR.length
 

@@ -118,7 +118,7 @@ module.exports = {
 
 ### 3️⃣ 翻译器配置示例
 
-插件默认使用谷歌翻译（需要配置代理）。在网络不支持访问谷歌的情况下，我们建议优先选择 **有道翻译** ✨，翻译效果优秀。目前插件已经内置谷歌、有道和百度翻译功能。如果需要自定义翻译器，可参考下方的示例。
+插件默认使用谷歌翻译（默认配置代理端口7890）。在网络不支持访问谷歌的情况下，我们建议优先选择 **有道翻译** ✨，翻译效果优秀。目前插件已经内置谷歌、有道和百度翻译功能。如果需要自定义翻译器，可参考下方的示例。
 
 下方的示例以`vite`为例，`webpack`与其类似。
 
@@ -131,7 +131,7 @@ import { GoogleTranslator } from 'vite-auto-i18n-plugin'
 translator: new GoogleTranslator({
     proxyOption: {
         host: '127.0.0.1',
-        port: 8899,
+        port: 7890,
         headers: {
             'User-Agent': 'Node'
         }
@@ -166,6 +166,23 @@ import { BaiduTranslator } from 'vite-auto-i18n-plugin'
 translator: new BaiduTranslator({
     appId: '你申请的appId', // 百度翻译 AppId
     appKey: '你申请的appKey' // 百度翻译 AppKey
+})
+...
+```
+
+#### **火山引擎ai翻译器**
+
+支持调用`doubao`或`deepseek`进行翻译，ai大模型的翻译效果会比传统的api翻译更准确，但缺点在于耗时更长。
+火山引擎大模型介绍：https://www.volcengine.com/docs/82379/1099455。
+需要开通大模型服务并申请api，[api文档](https://www.volcengine.com/docs/82379/1298454)。
+
+```javascript
+import { VolcengineTranslator } from 'vite-auto-i18n-plugin'
+
+...
+translator: new VolcengineTranslator({
+    apiKey: '你申请的apiKey',
+    model: '你要调用的模型，如：`doubao-1-5-pro-32k-250115`，请确保使用前已在控制台开通了对应模型'
 })
 ...
 ```
@@ -384,67 +401,4 @@ const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
 
 ## 更新日志
 
-### v1.0.24 (推荐版本)
-
--   修复半自动模式异常问题
-
-### v1.0.23 (推荐版本)
-
--   修复打包写入重大bug
-
-### v1.0.22
-
--   新增扫描翻译器
-
-### v1.0.21
-
--   新增深度扫描
-
-### v1.0.20
-
--   修复过滤函数异常问题，以及补充是否覆盖生成配置文件项
-
-### v1.0.19
-
--   配置文件兼容旧版本
-
-### v1.0.18
-
--   修复了低版本 Node 中可选链操作导致运行时异常的问题。
-
-### v1.0.17
-
--   支持基本的服务器端渲染（实验性）
-
-### v1.0.16
-
--   修复已知问题（vue3注释节点）
-
-### v1.0.15
-
--   新增百度翻译
-
-### v1.0.14
-
--   修复新增语言类型，不主动切割问题
--   自动翻译能力新增日语，韩语，俄语
-
-### v1.0.13
-
--   已知问题修复
-
-### v1.0.12
-
--   优化类型
-
-### v1.0.11
-
--   修复已知缺陷
--   新增翻译状态选项，支持半自动状态
-
-```js
-// 用户可以用 translateKey 包裹需要翻译的文案
-// 如：$t('hello')，插件会扫描这些文案并实现自动翻译
-
-$t('hello')
-```
+请参阅 [releases](https://github.com/wenps/auto-i18n-translation-plugins/releases)

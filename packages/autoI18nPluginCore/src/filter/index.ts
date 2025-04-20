@@ -5,18 +5,19 @@
  * @FilePath: /i18n_translation_vite/src/plugins/filter/index.ts
  */
 
-import StringLiteral from './visitor/StringLiteral'
-import CallExpression from './visitor/CallExpression'
 import TemplateElement from './visitor/TemplateElement'
+import CallExpression from './visitor/CallExpression'
+import StringLiteral from './visitor/StringLiteral'
+import { PluginItem } from '@babel/core'
 import JSXText from './visitor/JSXText'
 
-export default function () {
-    return {
-        visitor: {
-            StringLiteral,
-            JSXText,
-            TemplateElement,
-            CallExpression
-        }
+const filter: PluginItem = {
+    visitor: {
+        StringLiteral,
+        JSXText,
+        TemplateElement,
+        CallExpression
     }
 }
+
+export default filter

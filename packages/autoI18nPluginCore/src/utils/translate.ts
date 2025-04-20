@@ -109,7 +109,7 @@ export async function autoTranslate() {
         // ─── 翻译结果校验 ───
         if (translatedValues.length !== Object.keys(transLangObj).length) {
             console.error(
-                '❌ 使用付费翻译时，请检查翻译API额度是否充足，或是否已申请对应翻译API使用权限（如使用有道翻译）'
+                '❌ 使用付费翻译时，请检查翻译API额度是否充足，或是否已申请对应翻译API使用权限'
             )
             console.error(`❌ 翻译结果不完整
                 预期数量: ${Object.keys(transLangObj).length}
@@ -173,18 +173,18 @@ export function languageConfigCompletion(obj: any) {
 
 /**
  * @description: 补全新增语言翻译写入函数
- * @param {any} langObj
- * @param {any} curLangObj
- * @param {string} translateKey
- * @return {*}
+ * @param langObj
+ * @param curLangObj
+ * @param translateKey
+ * @return
  */
 export async function completionTranslateAndWriteConfigFile(
-    langObj: any,
-    curLangObj: any,
+    langObj: Record<string, string>,
+    curLangObj: Record<string, string>,
     translateKey: string
 ) {
     // 生产需要更新的语言对象
-    let transLangObj: any = {}
+    const transLangObj: Record<string, string> = {}
     Object.keys(langObj).forEach(key => {
         if (!curLangObj[key]) {
             transLangObj[key] = langObj[key]
@@ -228,19 +228,18 @@ export async function completionTranslateAndWriteConfigFile(
 }
 
 // 分块翻译流程函数
-async function translateChunks(transLangObj: any, translateKey: string) {
+async function translateChunks(transLangObj: Record<string, string>, translateKey: string) {
+    const { translator } = option
     // 获取分块后的文本列表
-    const translationChunks = chunkUtils.createTextSplitter(Object.values(transLangObj))
+    const translationChunks = chunkUtils.createTextSplitter(
+        Object.values(transLangObj),
+        translator.option.maxChunkSize
+    )
     // 并行执行分块翻译
     const translatePromises = []
     for (let i = 0; i < translationChunks.length; i++) {
         translatePromises.push(
-            option.translator.translate(
-                translationChunks[i],
-                option.originLang,
-                translateKey,
-                SEPARATOR
-            )
+            translator.translate(translationChunks[i], option.originLang, translateKey, SEPARATOR)
         )
     }
 

@@ -13,7 +13,14 @@ import { option } from 'src/option'
 // 收集翻译对象
 const fn: PluginObj['visitor']['CallExpression'] = path => {
     let { node } = path
-    if ('name' in node.callee && node.callee.name === option.translateKey) {
+    // 提取公共部分，减少重复访问 node.callee 属性
+    const callee = node.callee
+    if (
+        ('name' in callee && callee.name === option.translateKey) ||
+        ('property' in callee &&
+            'name' in callee.property &&
+            callee.property.name === option.translateKey) // 拓展 半自动模式下的 如 a.b.c() 调用
+    ) {
         if (option.translateType === TranslateTypeEnum.SEMI_AUTO) {
             // 获取当前翻译函数的参数
             let arg = node.arguments || []
@@ -26,7 +33,8 @@ const fn: PluginObj['visitor']['CallExpression'] = path => {
                 translateSetLang(replaceNode)
             }
         } else if (option.translateType === TranslateTypeEnum.FULL_AUTO) {
-            translateSetLang(node)
+            // 全自动模式下还是只收集 单独 $t 调用
+            if ('name' in callee && callee.name === option.translateKey) translateSetLang(node)
         }
     }
 }

@@ -27,7 +27,7 @@ export function initLangFile() {
  */
 export function initTranslateBasicFnFile() {
     // 从配置选项中获取必要的配置信息
-    const { translateKey, namespace, originLang, targetLangList } = option
+    const { translateKey, namespace, originLang, targetLangList, commonTranslateKey } = option
     // 生成语言映射列表
     const langMapList = [...targetLangList, originLang]
         // 去除语言代码中的连字符
@@ -94,8 +94,13 @@ export function initTranslateBasicFnFile() {
     };
     const withStorageLang = isFunction && globalThis && globalThis.localStorage && 
     isFunction(globalThis.localStorage.getItem) && globalThis.localStorage.getItem('${namespace}');
+    const withStorageCommonLang = isFunction && globalThis && globalThis.localStorage && 
+    isFunction(globalThis.localStorage.getItem) && globalThis.localStorage.getItem('${commonTranslateKey}');
+    // 从本地存储中获取通用语言，如果不存在则使用空字符串
+    const commonLang = withStorageCommonLang ? globalThis.localStorage.getItem('${commonTranslateKey}') : '';
     // 从本地存储中获取当前语言，如果不存在则使用源语言
-    const lang = withStorageLang ? globalThis.localStorage.getItem('${namespace}') : '${originLang.replace('-', '')}';
+    const baseLang = withStorageLang ? globalThis.localStorage.getItem('${namespace}') : '${originLang.replace('-', '')}';
+    const lang = commonLang ? commonLang : baseLang;
     // 根据当前语言设置翻译函数的语言包
     globalThis.${translateKey}.locale(langMap[lang], '${namespace}');
   `

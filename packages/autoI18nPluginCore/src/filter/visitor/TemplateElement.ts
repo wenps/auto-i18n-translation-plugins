@@ -6,17 +6,18 @@
  */
 import { baseUtils, translateUtils } from 'src/utils'
 import { TranslateTypeEnum } from 'src/enums'
+import { PluginObj } from '@babel/core'
 import { option } from 'src/option'
 import types from '@babel/types'
 
-export default function (path: any) {
+const fn: PluginObj['visitor']['TemplateElement'] = path => {
     if (option.translateType === TranslateTypeEnum.SEMI_AUTO) {
         return
     }
     let { node, parent } = path
     if (!node.value) return
 
-    let value = node.value.raw || node.value.cooked // 获取模板字符串的值
+    let value = node.value.raw || node.value.cooked || '' // 获取模板字符串的值
     // 定义一个包含亚洲语言代码的数组
     const asianLangs = ['zh-cn', 'ja', 'ko']
     if (asianLangs.some(lang => option.originLang.includes(lang) || option.originLang === lang)) {
@@ -58,3 +59,5 @@ export default function (path: any) {
         }
     }
 }
+
+export default fn

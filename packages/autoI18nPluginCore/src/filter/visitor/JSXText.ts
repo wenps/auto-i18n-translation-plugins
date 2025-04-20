@@ -5,11 +5,12 @@
  * @FilePath: /i18n_translation_vite/packages/autoI18nPluginCore/src/filter/visitor/JSXText.ts
  */
 import { TranslateTypeEnum } from 'src/enums'
+import { PluginObj } from '@babel/core'
 import * as types from '@babel/types'
 import { baseUtils } from 'src/utils'
 import { option } from 'src/option'
 
-export default function (path: any) {
+const fn: PluginObj['visitor']['JSXText'] = path => {
     console.log('jsx text')
 
     if (option.translateType === TranslateTypeEnum.SEMI_AUTO) {
@@ -40,3 +41,5 @@ export default function (path: any) {
         path.replaceWith(newNode)
     }
 }
+
+export default fn

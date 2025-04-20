@@ -54,20 +54,20 @@ export default function vitePluginsAutoI18n(optionInfo: OptionInfo): any {
 
                 FunctionFactoryOption.originLang = option.originLang
 
-                if (config?.command === 'serve') {
-                    translateUtils.autoTranslate().catch(e => {
-                        console.error(e)
-                    })
-                }
-
-                try {
-                    return babel.transformSync(code, {
+                return babel
+                    .transformAsync(code, {
                         configFile: false,
                         plugins: [filter.default]
-                    })?.code
-                } catch (e) {
-                    console.error(e)
-                }
+                    })
+                    .then(result => {
+                        if (config?.command === 'serve') {
+                            translateUtils.autoTranslate() // 执行前需要确保transformAsync已经完成
+                        }
+                        return result?.code
+                    })
+                    .catch(e => {
+                        console.error(e)
+                    })
             }
         },
         async buildEnd() {

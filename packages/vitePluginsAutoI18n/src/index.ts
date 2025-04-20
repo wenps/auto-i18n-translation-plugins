@@ -60,10 +60,14 @@ export default function vitePluginsAutoI18n(optionInfo: OptionInfo): any {
                     })
                 }
 
-                return babel.transformSync(code, {
-                    configFile: false,
-                    plugins: [filter.default]
-                })?.code
+                try {
+                    return babel.transformSync(code, {
+                        configFile: false,
+                        plugins: [filter.default]
+                    })?.code
+                } catch (e) {
+                    console.error(e)
+                }
             }
         },
         async buildEnd() {

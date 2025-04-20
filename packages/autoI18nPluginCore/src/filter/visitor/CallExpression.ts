@@ -12,7 +12,12 @@ import { option } from 'src/option'
 // 收集翻译对象
 export default function (path: any) {
     let { node } = path
-    if (node.callee.name === option.translateKey) {
+    // 提取公共部分，减少重复访问 node.callee 属性
+    const callee = node.callee
+    if (
+        callee.name === option.translateKey ||
+        (callee.property && callee.property.name === option.translateKey) // 拓展 半自动模式下的 如 a.b.c() 调用
+    ) {
         if (option.translateType === TranslateTypeEnum.SEMI_AUTO) {
             // 获取当前翻译函数的参数
             let arg = node.arguments || []
@@ -25,7 +30,8 @@ export default function (path: any) {
                 translateSetLang(replaceNode)
             }
         } else if (option.translateType === TranslateTypeEnum.FULL_AUTO) {
-            translateSetLang(node)
+            // 全自动模式下还是只收集 单独 $t 调用
+            if (callee.name === option.translateKey) translateSetLang(node)
         }
     }
 }

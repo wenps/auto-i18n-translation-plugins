@@ -380,6 +380,11 @@ Original authors: wenps, xu-code, Caleb-Xu, Winfans
 
 ## Changelog
 
+
+### v1.0.24 (Recommended Version)
+
+- Fixed the exception issue in semi-automatic mode
+
 ### v1.0.23 (Recommended Version)
 
 -   Fixed a major bug in packaging and writing.

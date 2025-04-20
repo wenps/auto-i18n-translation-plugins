@@ -70,11 +70,10 @@ const commitCode = async newVersion => {
         && git config --global user.name "wenps" \
         && git add . \
         && git commit -m 'feat: update version' -n \
-        && git tag -a ${newVersion} \
         `)
     // 尝试推送，如果超过 30 秒则跳过
     try {
-        await execWithTimeout(`git push && git push origin ${newVersion}`, 30000)
+        await execWithTimeout(`git push`, 30000)
         console.log(chalk.green`\n提交完成!\n`)
     } catch (error) {
         console.warn(chalk.yellow`\n推送超时，跳过推送步骤：`, error.message)

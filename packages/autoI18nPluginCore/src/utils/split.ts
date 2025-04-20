@@ -112,7 +112,7 @@ export function checkNeedSplit(str: string) {
  * @param {string[]} strArray - 字符串数组
  * @return {types.CallExpression} - babel的深度扫描的表达式
  */
-export function convertToTemplateLiteral(strArray: string[]): types.CallExpression {
+export function convertToTemplateLiteral(strArray: string[], option?: any): types.CallExpression {
     const quasis: types.TemplateElement[] = []
     const expressions: types.Expression[] = []
 
@@ -120,13 +120,25 @@ export function convertToTemplateLiteral(strArray: string[]): types.CallExpressi
         if (index === 0) {
             if (getOriginRegex().test(str)) {
                 quasis.push(types.templateElement({ raw: '', cooked: '' }, false))
-                expressions.push(baseUtils.createI18nTranslator({ value: str, isExpression: true }))
+                expressions.push(
+                    baseUtils.createI18nTranslator({
+                        value: str,
+                        isExpression: true,
+                        insertOption: option
+                    })
+                )
             } else {
                 quasis.push(types.templateElement({ raw: str, cooked: str }, false))
             }
         } else {
             if (getOriginRegex().test(str)) {
-                expressions.push(baseUtils.createI18nTranslator({ value: str, isExpression: true }))
+                expressions.push(
+                    baseUtils.createI18nTranslator({
+                        value: str,
+                        isExpression: true,
+                        insertOption: option
+                    })
+                )
             } else {
                 quasis.push(types.templateElement({ raw: str, cooked: str }, false))
             }

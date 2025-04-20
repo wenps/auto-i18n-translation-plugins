@@ -7,6 +7,7 @@
 import { FunctionFactoryOption } from './option'
 import { OriginLangKeyEnum } from 'src/enums'
 import { REGEX_MAP } from 'src/constants'
+// import generate from '@babel/generator'
 import { Node } from '@babel/types'
 import { option } from '../option'
 import types from '@babel/types'
@@ -115,6 +116,7 @@ export function createI18nTranslator(createOption: {
     value: string
     isExpression?: boolean
     key?: string
+    insertOption?: any
 }): any {
     const { value, isExpression = false, key } = createOption
     const nameSpace = option.namespace

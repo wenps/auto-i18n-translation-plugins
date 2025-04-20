@@ -61,7 +61,7 @@ export default function vitePluginsAutoI18n(optionInfo: OptionInfo): any {
                 return babel
                     .transformAsync(code, {
                         configFile: false,
-                        plugins: [filter.default]
+                        plugins: [filter.default()]
                     })
                     .then(result => {
                         if (config?.command === 'serve') {

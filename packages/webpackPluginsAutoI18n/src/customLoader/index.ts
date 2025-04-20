@@ -5,8 +5,8 @@
  * @FilePath: /i18n_translation_vite/packages/webpackPluginsAutoI18n/src/customLoader/index.ts
  */
 
-import { LoaderContext } from 'webpack' // 从 Webpack 导入 LoaderContext 类型，用于上下文类型定义
 import * as core from 'auto-i18n-plugin-core' // 导入核心处理逻辑（国际化相关功能）
+import { LoaderContext } from 'webpack' // 从 Webpack 导入 LoaderContext 类型，用于上下文类型定义
 import * as babel from '@babel/core' // 导入 Babel，用于在 Loader 中处理并转换代码
 
 /**
@@ -59,7 +59,7 @@ module.exports = function (source): string {
          */
         let result = babel.transformSync(source, {
             configFile: false, // 不加载本地 Babel 配置文件
-            plugins: [filter.default] // 使用核心模块提供的 `filter` 插件
+            plugins: [filter.default()] // 使用核心模块提供的 `filter` 插件
         })
 
         // 如果转换成功，返回转换后的代码；否则返回空字符串。

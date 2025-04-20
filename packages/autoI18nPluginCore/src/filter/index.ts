@@ -5,19 +5,28 @@
  * @FilePath: /i18n_translation_vite/src/plugins/filter/index.ts
  */
 
-import TemplateElement from './visitor/TemplateElement'
-import CallExpression from './visitor/CallExpression'
-import StringLiteral from './visitor/StringLiteral'
-import { PluginItem } from '@babel/core'
-import JSXText from './visitor/JSXText'
+import TemplateElementFn from './visitor/TemplateElement'
+import CallExpressionFn from './visitor/CallExpression'
+import StringLiteralFn from './visitor/StringLiteral'
+import JSXTextFn from './visitor/JSXText'
 
-const filter: PluginItem = {
-    visitor: {
-        StringLiteral,
-        JSXText,
-        TemplateElement,
-        CallExpression
+export default function (insertOption?: any) {
+    // 分别调用各个访问器函数并传入插入选项
+    const stringLiteralVisitor = StringLiteralFn(insertOption)
+    const jsxTextVisitor = JSXTextFn(insertOption)
+    const templateElementVisitor = TemplateElementFn(insertOption)
+    const callExpressionVisitor = CallExpressionFn(insertOption)
+
+    // 返回一个函数，该函数返回包含访问器的对象
+    return function () {
+        return {
+            // 定义 Babel 访问器对象
+            visitor: {
+                StringLiteral: stringLiteralVisitor,
+                JSXText: jsxTextVisitor,
+                TemplateElement: templateElementVisitor,
+                CallExpression: callExpressionVisitor
+            }
+        }
     }
 }
-
-export default filter

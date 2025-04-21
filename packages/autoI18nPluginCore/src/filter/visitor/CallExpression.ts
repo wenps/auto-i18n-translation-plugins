@@ -26,9 +26,12 @@ const fn: PluginObj['visitor']['CallExpression'] = path => {
             let arg = node.arguments || []
             // 如果参数数量不为 1，则直接返回
             if (arg.length === 1) {
-                const value = ('value' in arg[0] && arg[0].value) || ''
+                const value = (('value' in arg[0] && arg[0].value) || '') as string
                 // 生成真实调用函数
-                const replaceNode = baseUtils.createI18nTranslator(String(value), true)
+                const replaceNode = baseUtils.createI18nTranslator({
+                    value,
+                    isExpression: true
+                })
                 path.replaceWith(replaceNode)
                 translateSetLang(replaceNode)
             }

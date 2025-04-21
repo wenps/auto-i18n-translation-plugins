@@ -47,7 +47,9 @@ const fn: PluginObj['visitor']['TemplateElement'] = path => {
             return
 
         // 生成字符类型翻译节点
-        let newNode = baseUtils.createI18nTranslator(value)
+        let newNode = baseUtils.createI18nTranslator({
+            value
+        })
 
         // 替换为字符类型翻译节点
         node.value.raw = node.value.cooked = `\${${newNode}}`

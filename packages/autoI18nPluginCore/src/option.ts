@@ -100,7 +100,12 @@ const DEFAULT_OPTION = {
      * 实验性属性，表示是否进行深层扫描字符串，默认为 false
      * 当设置为 true 时，会对代码中的字符串进行更深入的扫描
      */
-    deepScan: false
+    deepScan: false,
+
+    /**
+     * 自定义文件拓展名数组
+     */
+    insertFileExtensions: [] as string[]
 }
 
 /**

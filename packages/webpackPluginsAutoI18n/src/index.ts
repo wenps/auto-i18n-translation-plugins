@@ -1,6 +1,5 @@
 // plugin.ts
 // 从 webpack 导入核心接口
-import webpack from 'webpack'
 // 导入 auto-i18n-plugin-core 提供的工具和类型
 import {
     fileUtils,
@@ -11,6 +10,7 @@ import {
     checkOption,
     FunctionFactoryOption
 } from 'auto-i18n-plugin-core'
+import webpack from 'webpack'
 // 导入 path 模块，用于处理文件和目录路径
 import path from 'path'
 
@@ -85,7 +85,10 @@ export default class webpackPluginsAutoI18n {
                 // 向 module.rules 中添加自定义 Loader
                 compiler.options.module?.rules.push({
                     // 生成高级正则表达式，用于匹配目标文件
-                    test: generateAdvancedRegex(allowedExtensions),
+                    test: generateAdvancedRegex([
+                        ...allowedExtensions,
+                        ...(option.insertFileExtensions || [])
+                    ]),
                     // 设置 Loader 执行顺序为后置
                     enforce: 'post',
                     use: [

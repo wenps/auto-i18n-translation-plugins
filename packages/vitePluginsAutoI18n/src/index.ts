@@ -40,7 +40,11 @@ export default function vitePluginsAutoI18n(optionInfo: OptionInfo): any {
         },
         async transform(code: string, path: string) {
             // todo 没有目标语言直接返回
-            if (allowedExtensions.some(ext => path.endsWith(ext))) {
+            if (
+                [...allowedExtensions, ...(option.insertFileExtensions || [])].some(ext =>
+                    path.endsWith(ext)
+                )
+            ) {
                 if (
                     option.includePath.length &&
                     !baseUtils.checkAgainstRegexArray(path, option.includePath)

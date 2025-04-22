@@ -258,6 +258,7 @@ import '../lang/index.js' // 📍 Must be imported first in entry file. This fil
 | translatorOption | object     | ❌       | `{}`                     | Translator options (lower priority than `translator`)    |
 | rewriteConfig    | boolean    | ❌       | `true`                   | Whether to rewrite config file on each plugin run        |
 | deepScan         | boolean    | ❌       | `false`                  | Experimental: Whether to perform deep string scanning    |
+| commonTranslateKey | string | ❌   | `''`                     | General translation key                             |
 | insertFileExtensions | string[] | ❌   | `[]`                     | List of file extensions to insert translation code into |
 
 ---
@@ -381,9 +382,14 @@ Original authors: wenps, xu-code, Caleb-Xu, Winfans
 
 ## Changelog
 
+
+### v1.0.26 (Recommended Version)
+
+- Added custom extension arrays
+
 ### v1.0.25 (Recommended Version)
 
-- Newly added custom extension name array
+- Added a universal translation key
 
 
 ### v1.0.24 (Recommended Version)

@@ -260,6 +260,8 @@ import '../lang/index.js' // 📍 必须在入口文件中第一行引入，这�
 | translatorOption | object     | ❌   | `{}`                     | 翻译器的配置项，优先级低于`translator`                     |
 | rewriteConfig    | boolean    | ❌   | `true`                   | 插件每次运行时是否重写配置文件                             |
 | deepScan         | boolean    | ❌   | `false`                  | 实验性属性，表示是否进行深层扫描字符串                     |
+| insertFileExtensions | string[] | ❌   | `[]`                     | 要插入翻译代码的文件扩展名列表                             |
+
 
 ---
 
@@ -383,6 +385,10 @@ const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
 原始作者：wenps、xu-code、Caleb-Xu、Winfans
 
 ## 更新日志
+
+### v1.0.25 (推荐版本)
+
+-   新增自定义拓展名数组
 
 ### v1.0.24 (推荐版本)
 

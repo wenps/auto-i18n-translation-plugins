@@ -277,6 +277,8 @@ import '../lang/index.js' // 📍 Must be imported first in entry file. This fil
 | translatorOption | object     | ❌       | `{}`                     | Translator options (lower priority than `translator`)    |
 | rewriteConfig    | boolean    | ❌       | `true`                   | Whether to rewrite config file on each plugin run        |
 | deepScan         | boolean    | ❌       | `false`                  | Experimental: Whether to perform deep string scanning    |
+| commonTranslateKey | string | ❌   | `''`                     | General translation key                             |
+| insertFileExtensions | string[] | ❌   | `[]`                     | List of file extensions to insert translation code into |
 
 ---
 
@@ -399,4 +401,76 @@ Original authors: wenps, xu-code, Caleb-Xu, Winfans
 
 ## Changelog
 
-Please refer to [releases](https://github.com/wenps/auto-i18n-translation-plugins/releases)
+
+### v1.0.26 (Recommended Version)
+
+- Added custom extension arrays
+
+### v1.0.25 (Recommended Version)
+
+- Added a universal translation key
+
+
+### v1.0.24 (Recommended Version)
+
+- Fixed the exception issue in semi-automatic mode
+
+### v1.0.23 (Recommended Version)
+
+-   Fixed a major bug in packaging and writing.
+
+### v1.0.22
+
+-   Added scan translator
+
+### v1.0.21
+
+-   Added deep scanning
+
+### v1.0.20
+
+-   Fixed filter function issues and added config overwrite option
+
+### v1.0.19
+
+-   Backward compatibility for config files
+
+### v1.0.18
+
+-   Fixed optional chaining issues in older Node versions
+
+### v1.0.17
+
+-   Basic SSR support (experimental)
+
+### v1.0.16
+
+-   Fixed Vue3 comment node issues
+
+### v1.0.15
+
+-   Added Baidu Translate
+
+### v1.0.14
+
+-   Fixed new language type segmentation
+-   Added Japanese, Korean, Russian support
+
+### v1.0.13
+
+-   Bug fixes
+
+### v1.0.12
+
+-   Type optimizations
+
+### v1.0.11
+
+-   Bug fixes
+-   Added `translateType` option for semi-auto mode
+
+```js
+// Users can wrap text with translateKey
+// e.g., $t('hello') - plugin will scan and translate these
+$t('hello')
+```

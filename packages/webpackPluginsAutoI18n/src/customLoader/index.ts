@@ -24,7 +24,7 @@ type option = {
  * @param source {string} - 源代码字符串，需要经过当前 Loader 处理的模块内容
  * @returns {string} - 返回经过处理后的代码
  */
-module.exports = function (source): string {
+module.exports = async function (source): Promise<string> {
     // 从核心模块中解构出工具函数、选项以及过滤逻辑
     const { baseUtils, option, filter } = core
 
@@ -50,14 +50,14 @@ module.exports = function (source): string {
         return source // 在黑名单目录中的文件，不处理，直接返回原始代码。
     }
 
-    const sourceObj = option.translateExtends
-        ? (option.translateExtends?.handleInitFile(source, global.resourcePath) as {
-              source: string
-              [key: string]: any
-          })
-        : {
-              source: source
-          }
+    let sourceObj
+    if (option.translateExtends) {
+        sourceObj = await option.translateExtends?.handleInitFile(source, global.resourcePath)
+    } else {
+        sourceObj = {
+            source: source
+        }
+    }
 
     try {
         /**

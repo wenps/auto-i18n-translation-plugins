@@ -4,17 +4,16 @@
  * @LastEditTime: 2025-03-17 01:12:44
  * @FilePath: /i18n_translation_vite/example/vue2/vite.config.ts
  */
-import path from 'path'
-import { defineConfig } from 'vite'
+import vitePluginsAutoI18n, { EmptyTranslator, Vue2Extends } from 'vite-auto-i18n-plugin'
 import vue from '@vitejs/plugin-vue2'
-import vitePluginsAutoI18n, { BaiduTranslator } from 'vite-auto-i18n-plugin'
+import { defineConfig } from 'vite'
+import path from 'path'
 
 const i18nPlugin = vitePluginsAutoI18n({
+    rewriteConfig: false,
     targetLangList: ['en'],
-    translator: new BaiduTranslator({
-        appId: '202503480',
-        appKey: ''
-    })
+    translator: new EmptyTranslator({}),
+    translateExtends: new Vue2Extends()
 })
 
 export default defineConfig({

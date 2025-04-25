@@ -118,11 +118,31 @@ export function createI18nTranslator(createOption: {
     key?: string
     insertOption?: any
 }): any {
-    const { value, isExpression = false, key } = createOption
+    const { value, isExpression = false, key, insertOption } = createOption
+
+    // 从全局配置对象 option 中获取命名空间
     const nameSpace = option.namespace
+    // 去除 value 字符串首尾的空白字符
     const trimmedValue = value.trim()
+    // 将去除空白后的字符串中的单引号替换为双引号，并将换行符替换为转义字符 \n
     const valStr = trimmedValue.replace(/'/g, '"').replace(/(\n)/g, '\\n')
+    // 若 key 存在则使用 key，否则调用 generateId 函数根据 valStr 生成唯一的键
     const generatedKey = key || generateId(valStr)
+    // 提取公共配置对象，避免重复代码
+    const config = {
+        option: option,
+        hash: generatedKey,
+        value: trimmedValue,
+        uncodeValue: valStr,
+        namespace: nameSpace
+    }
+    if (option.translateExtends) {
+        const { handleCodeCall, handleCodeString } = option.translateExtends
+        return isExpression
+            ? handleCodeCall(config, insertOption)
+            : handleCodeString(config, insertOption)
+    }
+
     if (isExpression) {
         const valueExp = types.stringLiteral(trimmedValue)
         valueExp.extra = {
@@ -134,9 +154,9 @@ export function createI18nTranslator(createOption: {
             valueExp,
             types.stringLiteral(nameSpace)
         ])
-    } else {
-        return `${option.translateKey}('${generatedKey}','${valStr}','${nameSpace}')`
     }
+
+    return `${option.translateKey}('${generatedKey}','${valStr}','${nameSpace}')`
 }
 
 /**

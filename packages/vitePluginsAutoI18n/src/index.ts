@@ -58,8 +58,17 @@ export default function vitePluginsAutoI18n(optionInfo: OptionInfo): any {
 
                 FunctionFactoryOption.originLang = option.originLang
 
+                let sourceObj
+                if (option.translateExtends) {
+                    sourceObj = await option.translateExtends?.handleInitFile(code, path)
+                } else {
+                    sourceObj = {
+                        source: code
+                    }
+                }
+
                 return babel
-                    .transformAsync(code, {
+                    .transformAsync(sourceObj.source, {
                         configFile: false,
                         plugins: [filter.default()]
                     })

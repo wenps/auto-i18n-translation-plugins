@@ -7,6 +7,7 @@
 
 import { GoogleTranslator, Translator, TranslatorOption } from './translators'
 import { OriginLangKeyEnum, TranslateTypeEnum } from './enums'
+import { BaseExtendsType } from './extends'
 import { cloneDeep } from './utils/base'
 
 const EXCLUDED_CALL = [
@@ -105,7 +106,13 @@ const DEFAULT_OPTION = {
     /**
      * 自定义文件拓展名数组
      */
-    insertFileExtensions: [] as string[]
+    insertFileExtensions: [] as string[],
+
+    /**
+     * 自定义拓展类，插件默认翻译函数挂载在window上，如果希望自定义翻译函数挂载在其他对象上，可以使用该属性
+     * 注意：该属性需要继承BaseExtends类，并且需要实现handleInitFile和handleCodeCall和handleCodeString方法
+     */
+    translateExtends: null as BaseExtendsType | null
 }
 
 /**

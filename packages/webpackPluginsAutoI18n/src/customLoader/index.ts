@@ -50,6 +50,15 @@ module.exports = function (source): string {
         return source // 在黑名单目录中的文件，不处理，直接返回原始代码。
     }
 
+    const sourceObj = option.translateExtends
+        ? (option.translateExtends?.handleInitFile(source, global.resourcePath) as {
+              source: string
+              [key: string]: any
+          })
+        : {
+              source: source
+          }
+
     try {
         /**
          * 使用 Babel 对代码进行分析和转换：
@@ -57,7 +66,7 @@ module.exports = function (source): string {
          * - `filter.default` 是一个 Babel 插件，用于只提取内容中符合目标语言的部分。
          * - `configFile: false` 表示不加载外部的 Babel 配置文件。
          */
-        let result = babel.transformSync(source, {
+        let result = babel.transformSync(sourceObj.source, {
             configFile: false, // 不加载本地 Babel 配置文件
             plugins: [filter.default()] // 使用核心模块提供的 `filter` 插件
         })

@@ -1,6 +1,7 @@
 
     // 导入国际化JSON文件
     import langJSON from './index.json'
+    import Vue from 'vue';
     (function () {
     // 定义翻译函数
     let $t = function (key, val, nameSpace) {
@@ -52,8 +53,15 @@
     };
     const withStorageLang = isFunction && globalThis && globalThis.localStorage && 
     isFunction(globalThis.localStorage.getItem) && globalThis.localStorage.getItem('lang');
+    const withStorageCommonLang = isFunction && globalThis && globalThis.localStorage && 
+    isFunction(globalThis.localStorage.getItem) && globalThis.localStorage.getItem('');
+    // 从本地存储中获取通用语言，如果不存在则使用空字符串
+    const commonLang = withStorageCommonLang ? globalThis.localStorage.getItem('') : '';
     // 从本地存储中获取当前语言，如果不存在则使用源语言
-    const lang = withStorageLang ? globalThis.localStorage.getItem('lang') : 'zhcn';
+    const baseLang = withStorageLang ? globalThis.localStorage.getItem('lang') : 'zhcn';
+    const lang = commonLang ? commonLang : baseLang;
     // 根据当前语言设置翻译函数的语言包
     globalThis.$t.locale(langMap[lang], 'lang');
+    Vue.prototype.$t = globalThis.$t;
+
   

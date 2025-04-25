@@ -6,5 +6,6 @@
  */
 export * from './option.ts'
 export * from './translators'
+export * from './extends'
 export { fileUtils, translateUtils, baseUtils, FunctionFactoryOption } from './utils'
 export * as filter from './filter'

@@ -36,7 +36,11 @@ export default function (insertOption: any) {
                 }
             } else if (option.translateType === TranslateTypeEnum.FULL_AUTO) {
                 // 全自动模式下还是只收集 单独 $t 调用
-                if (callee.name === option.translateKey) translateSetLang(node)
+                if (
+                    callee.name === option.translateKey ||
+                    (callee.property && callee.property.name === option.translateKey)
+                )
+                    translateSetLang(node)
             }
         }
     }

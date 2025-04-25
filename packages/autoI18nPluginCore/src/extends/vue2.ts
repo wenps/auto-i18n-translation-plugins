@@ -11,6 +11,8 @@ export class Vue2Extends {
 
             // 检查是否已经引入了 Vue
             let importVue = false
+            let hasVue = false
+
             const result = await babel.transformAsync(code, {
                 configFile: false,
                 plugins: [
@@ -21,22 +23,17 @@ export class Vue2Extends {
                                 if (node.source.value === 'vue') {
                                     importVue = true
                                     const specifiers = node.specifiers
-                                    let hasVue = false
                                     specifiers.forEach((specifier: any) => {
-                                        if (
-                                            types.isImportDefaultSpecifier(specifier) &&
-                                            specifier.local.name === 'Vue'
-                                        ) {
+                                        if (types.isImportDefaultSpecifier(specifier)) {
                                             hasVue = true
                                         }
                                     })
-                                    console.log(hasVue)
-
-                                    // if (!hasVue) {
-                                    //     specifiers.unshift(
-                                    //         types.importDefaultSpecifier(types.identifier('Vue'))
-                                    //     )
-                                    // }
+                                    if (!hasVue) {
+                                        hasVue = true
+                                        specifiers.unshift(
+                                            types.importDefaultSpecifier(types.identifier('Vue'))
+                                        )
+                                    }
                                 }
                             }
                         }

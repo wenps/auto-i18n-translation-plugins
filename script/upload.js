@@ -21,7 +21,7 @@ const VersionTypeEnum = {
     MAJOR: 'major',
     SECONDARY: 'secondary',
     PATCH: 'patch',
-    BATE: 'bate'
+    BETA: 'beta'
 }
 
 // 定义构建命令
@@ -107,7 +107,7 @@ const generateVersion = async (versionType, pkgName = '') => {
     let version = initVersion
 
     // 根据版本类型修改版本号
-    if (versionType === VersionTypeEnum.BATE) {
+    if (versionType === VersionTypeEnum.BETA) {
         // 判断当前版本是否包含 -beta
         if (!version.includes('-beta')) {
             version = `${version}-beta1`

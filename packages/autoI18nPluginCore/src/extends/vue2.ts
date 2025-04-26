@@ -12,6 +12,7 @@ export class Vue2Extends {
             // 检查是否已经引入了 Vue
             let importVue = false
             let hasVue = false
+            let importDefaultChar = 'Vue'
 
             const result = await babel.transformAsync(code, {
                 configFile: false,
@@ -26,6 +27,7 @@ export class Vue2Extends {
                                     specifiers.forEach((specifier: any) => {
                                         if (types.isImportDefaultSpecifier(specifier)) {
                                             hasVue = true
+                                            importDefaultChar = specifier.local.name
                                         }
                                     })
                                     if (!hasVue) {
@@ -47,6 +49,7 @@ export class Vue2Extends {
 
             return {
                 path,
+                importDefaultChar,
                 source: code
             }
         }
@@ -68,7 +71,10 @@ export class Vue2Extends {
             }
             return types.callExpression(
                 types.memberExpression(
-                    types.memberExpression(types.identifier('Vue'), types.identifier('prototype')),
+                    types.memberExpression(
+                        types.identifier(_initFileResult.importDefaultChar),
+                        types.identifier('prototype')
+                    ),
                     types.identifier(option.translateKey as string)
                 ),
                 [types.stringLiteral(hash), valueExp, types.stringLiteral(namespace)]
@@ -85,7 +91,7 @@ export class Vue2Extends {
             _initFileResult: ReturnType<this['handleInitFile']>
         ): string => {
             const { option, hash, uncodeValue, namespace } = config
-            return `Vue.prototype.${option.translateKey}('${hash}','${uncodeValue}','${namespace}')`
+            return `${_initFileResult.importDefaultChar}.prototype.${option.translateKey}('${hash}','${uncodeValue}','${namespace}')`
         }
     }
 }

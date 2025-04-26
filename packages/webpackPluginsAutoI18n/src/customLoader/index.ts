@@ -68,7 +68,7 @@ module.exports = async function (source): Promise<string> {
          */
         let result = babel.transformSync(sourceObj.source, {
             configFile: false, // 不加载本地 Babel 配置文件
-            plugins: [filter.default()] // 使用核心模块提供的 `filter` 插件
+            plugins: [filter.default(sourceObj)] // 使用核心模块提供的 `filter` 插件
         })
 
         // 如果转换成功，返回转换后的代码；否则返回空字符串。

@@ -1,5 +1,6 @@
 
     // 导入国际化JSON文件
+    import Vue from 'vue'
     import langJSON from './index.json'
     (function () {
     // 定义翻译函数
@@ -49,4 +50,5 @@
     const lang = window.localStorage.getItem('lang') || 'zhcn';
     // 根据当前语言设置翻译函数的语言包
     window.$t.locale(langMap[lang], 'lang');
+    Vue.prototype.$t = window.$t;
   

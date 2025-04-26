@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import xxVue from 'vue'
 export default {
     data() {
         return {
@@ -42,6 +43,10 @@ export default {
                 description: 'element-tag-marker'
             }
         }
+    },
+    created() {
+        let c = '扫描二维码'
+        console.log(c)
     },
     methods: {
         changeLang(value) {

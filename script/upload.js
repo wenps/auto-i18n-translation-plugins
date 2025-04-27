@@ -58,7 +58,7 @@ const run = async () => {
     await commitCode(newVersion)
 
     // 上传包
-    uploadPackage()
+    uploadPackage(versionType)
 }
 
 /**
@@ -155,11 +155,12 @@ const generateVersion = async (versionType, pkgName = '') => {
 /**
  * 上传包到包管理器
  */
-const uploadPackage = () => {
+const uploadPackage = versionType => {
     console.log(chalk.green`\n开始上传包\n`)
 
     for (let key in TypeDirNameMap) {
-        shell.exec(`cd ${`packages/${TypeDirNameMap[key]}`} && ${publishCmd}`)
+        const tag = versionType === VersionTypeEnum.BETA ? '--tag beta' : ''
+        shell.exec(`cd ${`packages/${TypeDirNameMap[key]}`} && ${publishCmd} ${tag}`)
     }
 }
 

@@ -4,14 +4,14 @@
  * @LastEditTime: 2025-02-13 22:21:45
  * @FilePath: /i18n_translation_vite/packages/vitePluginsAutoI18n/rollup.config.ts
  */
-import { defineConfig } from 'rollup'
-import typescript from '@rollup/plugin-typescript'
-import path from 'node:path'
-import { fileURLToPath } from 'url'
-import dts from 'rollup-plugin-dts'
-import babel from '@rollup/plugin-babel'
-import { terser } from 'rollup-plugin-terser'
 import externals from 'rollup-plugin-node-externals'
+import typescript from '@rollup/plugin-typescript'
+import { terser } from 'rollup-plugin-terser'
+import babel from '@rollup/plugin-babel'
+import { defineConfig } from 'rollup'
+import dts from 'rollup-plugin-dts'
+import { fileURLToPath } from 'url'
+import path from 'node:path'
 
 function resolve(...filePaths: string[]) {
     const __dirname = path.dirname(fileURLToPath(import.meta.url))

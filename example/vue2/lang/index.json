@@ -238,5 +238,181 @@
 	"jjifr4g": {
 		"zh-cn": "周一至周五 9:00-18:00",
 		"en": "Monday to Friday 9:00-18:00"
+	},
+	"bxkqu3": {
+		"zh-cn": "产品一",
+		"en": "Product 1"
+	},
+	"mp8spt8": {
+		"zh-cn": "产品一的详细描述",
+		"en": "Detailed description of Product 1"
+	},
+	"bxkuq3": {
+		"zh-cn": "产品二",
+		"en": "Product 2"
+	},
+	"rg1rhp8": {
+		"zh-cn": "产品二的详细描述",
+		"en": "Detailed description of Product 2"
+	},
+	"idpkan5": {
+		"zh-cn": "解决方案一",
+		"en": "Solution 1"
+	},
+	"v7m4eca": {
+		"zh-cn": "解决方案一的详细描述",
+		"en": "Detailed description of Solution 1"
+	},
+	"idpk6r5": {
+		"zh-cn": "解决方案二",
+		"en": "Solution 2"
+	},
+	"qgt5mga": {
+		"zh-cn": "解决方案二的详细描述",
+		"en": "Detailed description of Solution 2"
+	},
+	"kkzc56h": {
+		"zh-cn": "致力于为企业提供创新的技术解决方案",
+		"en": "Committed to providing innovative technical solutions for enterprises"
+	},
+	"tsrk4q26": {
+		"zh-cn": "我们是一家专注于企业数字化转型的科技公司，成立于2010年。十余年来，我们始终坚持以客户为中心，通过持续创新和专业服务，帮助众多企业实现业务增长和技术升级。",
+		"en": "We are a technology company focused on enterprise digital transformation, founded in 2010. Over the past decade, we have always adhered to the customer-centric approach, helping numerous enterprises achieve business growth and technological upgrading through continuous innovation and professional services."
+	},
+	"6a599q5": {
+		"zh-cn": "核心价值观",
+		"en": "Core values"
+	},
+	"eiut2": {
+		"zh-cn": "创新",
+		"en": "Innovation"
+	},
+	"f72p0af": {
+		"zh-cn": "持续追求技术创新，引领行业发展",
+		"en": "Continuously pursue technological innovation to lead the industry development"
+	},
+	"dpif2": {
+		"zh-cn": "专业",
+		"en": "Professionalism"
+	},
+	"lkby5yd": {
+		"zh-cn": "专业的团队，卓越的服务品质",
+		"en": "A professional team with excellent service quality"
+	},
+	"o85j2": {
+		"zh-cn": "诚信",
+		"en": "Integrity"
+	},
+	"1lk6cv9": {
+		"zh-cn": "诚信经营，信守承诺",
+		"en": "Operate with integrity and keep promises"
+	},
+	"emmp2": {
+		"zh-cn": "共赢",
+		"en": "Mutual benefit"
+	},
+	"f3j2ghf": {
+		"zh-cn": "与客户、员工、合作伙伴共同成长",
+		"en": "Grow together with customers, employees, and partners"
+	},
+	"ayik894": {
+		"zh-cn": "发展历程",
+		"en": "Development history"
+	},
+	"sdx6f5": {
+		"zh-cn": "2010年",
+		"en": "2010"
+	},
+	"h2kkd8f": {
+		"zh-cn": "公司成立，开始提供基础技术服务",
+		"en": "The company was founded and began to provide basic technical services"
+	},
+	"sdxaq5": {
+		"zh-cn": "2015年",
+		"en": "2015"
+	},
+	"gsln9wi": {
+		"zh-cn": "业务扩展至全国，服务客户突破500家",
+		"en": "The business expanded nationwide, and the number of serviced customers exceeded 500"
+	},
+	"sdxdb5": {
+		"zh-cn": "2018年",
+		"en": "2018"
+	},
+	"fn1nt2h": {
+		"zh-cn": "获得A轮融资，技术研发实力大幅提升",
+		"en": "Received Series A financing, and the technological R & D strength was significantly enhanced"
+	},
+	"sdxx45": {
+		"zh-cn": "2020年",
+		"en": "2020"
+	},
+	"v0jgy7i": {
+		"zh-cn": "推出云服务平台，开启数字化服务新篇章",
+		"en": "Launched a cloud service platform, opening a new chapter in digital services"
+	},
+	"sdxzp5": {
+		"zh-cn": "2023年",
+		"en": "2023"
+	},
+	"8qbtuxk": {
+		"zh-cn": "服务客户突破1000家，成为行业领军企业",
+		"en": "The number of serviced customers exceeded 1000, becoming a leading enterprise in the industry"
+	},
+	"g2s1xe4": {
+		"zh-cn": "管理团队",
+		"en": "Management team"
+	},
+	"gqni2": {
+		"zh-cn": "张明",
+		"en": "Zhang Ming"
+	},
+	"qgp0zo5": {
+		"zh-cn": "首席执行官",
+		"en": "Chief Executive Officer (CEO)"
+	},
+	"kdjwpo": {
+		"zh-cn": "拥有20年IT行业经验，曾任多家知名科技公司高管",
+		"en": "Has 20 years of experience in the IT industry and has served as a senior executive in many well - known technology companies"
+	},
+	"i11c2": {
+		"zh-cn": "李华",
+		"en": "Li Hua"
+	},
+	"cuu50l4": {
+		"zh-cn": "技术总监",
+		"en": "Technical Director"
+	},
+	"azrwunn": {
+		"zh-cn": "专注于企业级解决方案架构设计，技术创新领军人物",
+		"en": "Focuses on the architectural design of enterprise - level solutions and is a leading figure in technological innovation"
+	},
+	"kdc82": {
+		"zh-cn": "王芳",
+		"en": "Wang Fang"
+	},
+	"iotqff4": {
+		"zh-cn": "运营总监",
+		"en": "Operations Director"
+	},
+	"8a2kgzi": {
+		"zh-cn": "深耕企业服务领域15年，运营管理专家",
+		"en": "Has been deeply involved in the enterprise service field for 15 years and is an expert in operations management"
+	},
+	"fdp8tw4": {
+		"zh-cn": "留言表单",
+		"en": "Message form"
+	},
+	"kptz2": {
+		"zh-cn": "留言",
+		"en": "Leave a message"
+	},
+	"itip1ff": {
+		"zh-cn": "电话：123-456-7890",
+		"en": "Phone: 123-456-7890"
+	},
+	"4l9tgjh": {
+		"zh-cn": "地址：某某市某某区某某街道123号",
+		"en": "Address: No. 123, XX Street, XX District, XX City"
 	}
 }

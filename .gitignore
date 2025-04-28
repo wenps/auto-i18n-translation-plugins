@@ -30,4 +30,3 @@ build
 *.sw?
 
 example/**/dist
-packages/**/dist

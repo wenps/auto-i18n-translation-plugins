@@ -94,7 +94,7 @@ export default defineConfig({
                 }
             }
         }),
-        vitePluginAutoI18n({
+        vitePluginsAutoI18n({
             translator: new YoudaoTranslator({
                 appId: '4cdb9baea8066fef',
                 appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j'

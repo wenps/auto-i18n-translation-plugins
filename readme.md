@@ -47,7 +47,7 @@ tips：有道翻译需要用户自己去申请有道的翻译服务，demo里面
 window.localStorage.setItem('lang', value)
 window.location.reload()
 
-// 定义语言映射对象 value 是 key 值
+// value 是 语言映射对象 的  key 值
 // 映射对象默认存在于 lang/index.js 文件下
 const langMap = {
   'en': (),

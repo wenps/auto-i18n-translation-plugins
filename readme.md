@@ -41,6 +41,20 @@ tips：有道翻译需要用户自己去申请有道的翻译服务，demo里面
 
 ## 🌟 快速开始
 
+### 切换语言
+
+```js
+window.localStorage.setItem('lang', value)
+window.location.reload()
+
+// value 是 语言映射对象 的  key 值
+// 映射对象默认存在于 lang/index.js 文件下
+const langMap = {
+  'en': (),
+  'zhcn': ()
+}
+```
+
 ### 1️⃣ 安装插件
 
 #### **Vite 项目:**

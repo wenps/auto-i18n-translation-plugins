@@ -57,6 +57,8 @@ const run = async () => {
     // 提交代码
     await commitCode(newVersion)
 
+    console.log(versionType)
+
     // 上传包
     uploadPackage(versionType)
 }

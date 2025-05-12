@@ -1,5 +1,6 @@
 
     // 导入国际化JSON文件
+    import Vue from 'vue'
     import langJSON from './index.json'
     (function () {
     // 定义翻译函数

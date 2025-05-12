@@ -132,7 +132,7 @@ module.exports = {
 
 ### 3️⃣ 翻译器配置示例
 
-插件默认使用谷歌翻译（需要配置代理）。在网络不支持访问谷歌的情况下，我们建议优先选择 **有道翻译** ✨，翻译效果优秀。目前插件已经内置谷歌、有道和百度翻译功能。如果需要自定义翻译器，可参考下方的示例。
+插件默认使用谷歌翻译（默认配置代理端口7890）。在网络不支持访问谷歌的情况下，我们建议优先选择 **有道翻译** ✨，翻译效果优秀。目前插件已经内置谷歌、有道和百度翻译功能。如果需要自定义翻译器，可参考下方的示例。
 
 下方的示例以`vite`为例，`webpack`与其类似。
 
@@ -145,7 +145,7 @@ import { GoogleTranslator } from 'vite-auto-i18n-plugin'
 translator: new GoogleTranslator({
     proxyOption: {
         host: '127.0.0.1',
-        port: 8899,
+        port: 7890,
         headers: {
             'User-Agent': 'Node'
         }
@@ -180,6 +180,23 @@ import { BaiduTranslator } from 'vite-auto-i18n-plugin'
 translator: new BaiduTranslator({
     appId: '你申请的appId', // 百度翻译 AppId
     appKey: '你申请的appKey' // 百度翻译 AppKey
+})
+...
+```
+
+#### **火山引擎ai翻译器**
+
+支持调用`doubao`或`deepseek`进行翻译，ai大模型的翻译效果会比传统的api翻译更准确，但缺点在于耗时更长。
+火山引擎大模型介绍：https://www.volcengine.com/docs/82379/1099455。
+需要开通大模型服务并申请api，[api文档](https://www.volcengine.com/docs/82379/1298454)。
+
+```javascript
+import { VolcengineTranslator } from 'vite-auto-i18n-plugin'
+
+...
+translator: new VolcengineTranslator({
+    apiKey: '你申请的apiKey',
+    model: '你要调用的模型，如：`doubao-1-5-pro-32k-250115`，请确保使用前已在控制台开通了对应模型'
 })
 ...
 ```

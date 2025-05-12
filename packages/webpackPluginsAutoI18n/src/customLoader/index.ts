@@ -5,8 +5,8 @@
  * @FilePath: /i18n_translation_vite/packages/webpackPluginsAutoI18n/src/customLoader/index.ts
  */
 
-import { LoaderContext } from 'webpack' // 从 Webpack 导入 LoaderContext 类型，用于上下文类型定义
 import * as core from 'auto-i18n-plugin-core' // 导入核心处理逻辑（国际化相关功能）
+import { LoaderContext } from 'webpack' // 从 Webpack 导入 LoaderContext 类型，用于上下文类型定义
 import * as babel from '@babel/core' // 导入 Babel，用于在 Loader 中处理并转换代码
 
 /**
@@ -24,7 +24,7 @@ type option = {
  * @param source {string} - 源代码字符串，需要经过当前 Loader 处理的模块内容
  * @returns {string} - 返回经过处理后的代码
  */
-module.exports = function (source): string {
+module.exports = async function (source): Promise<string> {
     // 从核心模块中解构出工具函数、选项以及过滤逻辑
     const { baseUtils, option, filter } = core
 
@@ -50,6 +50,15 @@ module.exports = function (source): string {
         return source // 在黑名单目录中的文件，不处理，直接返回原始代码。
     }
 
+    let sourceObj
+    if (option.translateExtends) {
+        sourceObj = await option.translateExtends?.handleInitFile(source, global.resourcePath)
+    } else {
+        sourceObj = {
+            source: source
+        }
+    }
+
     try {
         /**
          * 使用 Babel 对代码进行分析和转换：
@@ -57,9 +66,9 @@ module.exports = function (source): string {
          * - `filter.default` 是一个 Babel 插件，用于只提取内容中符合目标语言的部分。
          * - `configFile: false` 表示不加载外部的 Babel 配置文件。
          */
-        let result = babel.transformSync(source, {
+        let result = babel.transformSync(sourceObj.source, {
             configFile: false, // 不加载本地 Babel 配置文件
-            plugins: [filter.default] // 使用核心模块提供的 `filter` 插件
+            plugins: [filter.default(sourceObj)] // 使用核心模块提供的 `filter` 插件
         })
 
         // 如果转换成功，返回转换后的代码；否则返回空字符串。

@@ -116,9 +116,7 @@ module.exports = {
 
 ### 3️⃣ Translator Configuration Examples
 
-The plugin uses Google Translate by default (requires proxy). When Google isn't accessible, we recommend using **Youdao Translate** ✨ for better results. The plugin comes with Google, Youdao and Baidu translation built-in. For custom translators, see examples below.
-
-Examples below use Vite - Webpack configuration is similar.
+The plugin uses Google Translate by default (with a default proxy port of 7890). When your network does not support accessing Google, we recommend choosing **Youdao Translate** ✨, which offers excellent translation quality. Currently, the plugin has built - in translation functions for Google, Youdao, and Baidu. If you need a custom translator, you can refer to the examples below.
 
 #### **Using Google Translate (default)**
 
@@ -129,7 +127,7 @@ import { GoogleTranslator } from 'vite-auto-i18n-plugin'
 translator: new GoogleTranslator({
     proxyOption: {
         host: '127.0.0.1',
-        port: 8899,
+        port: 7890,
         headers: {
             'User-Agent': 'Node'
         }
@@ -168,6 +166,25 @@ translator: new BaiduTranslator({
 ...
 ```
 
+#### **Volcengine AI Translator**
+
+Supports calling `doubao` or `deepseek` for translation. AI model translation provides more accurate results than traditional API translation, but takes longer to process.
+Volcengine AI model introduction: https://www.volcengine.com/docs/82379/1099455.
+Requires enabling the AI service and applying for API, [API documentation](https://www.volcengine.com/docs/82379/1298454).
+
+```javascript
+import { VolcengineTranslator } from 'vite-auto-i18n-plugin'
+
+...
+translator: new VolcengineTranslator({
+    apiKey: 'your-api-key',
+    model: 'model-to-call, e.g. `doubao-1-5-pro-32k-250115`, please ensure the model has been enabled in console before using'
+})
+...
+```
+
+````
+
 #### **Empty Translator**
 
 If you only need to scan target language without translation, this translator will generate JSON files.
@@ -178,7 +195,7 @@ import { EmptyTranslator } from 'vite-auto-i18n-plugin'
 ...
 translator: new EmptyTranslator()
 ...
-```
+````
 
 #### **Custom Translator**
 

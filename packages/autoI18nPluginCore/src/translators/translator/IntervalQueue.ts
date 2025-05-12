@@ -36,7 +36,8 @@ export class IntervalQueue<T extends any[], U extends any> {
             const { args, resolve, reject } = item
             this.isRunning = true
             try {
-                resolve(await this.fn(...args))
+                const result = await this.fn(...args)
+                resolve(result)
             } catch (e) {
                 reject(e)
             }

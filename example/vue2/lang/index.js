@@ -1,6 +1,7 @@
 
     // 导入国际化JSON文件
     import langJSON from './index.json'
+    import Vue from 'vue';
     (function () {
     // 定义翻译函数
     let $t = function (key, val, nameSpace) {
@@ -61,4 +62,6 @@
     const lang = commonLang ? commonLang : baseLang;
     // 根据当前语言设置翻译函数的语言包
     globalThis.$t.locale(langMap[lang], 'lang');
+    Vue.prototype.$t = globalThis.$t;
+
   

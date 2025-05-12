@@ -20,7 +20,8 @@ import fs from 'fs'
 const VersionTypeEnum = {
     MAJOR: 'major',
     SECONDARY: 'secondary',
-    PATCH: 'patch'
+    PATCH: 'patch',
+    BETA: 'beta'
 }
 
 // 定义构建命令
@@ -57,7 +58,7 @@ const run = async () => {
     await commitCode(newVersion)
 
     // 上传包
-    uploadPackage()
+    uploadPackage(versionType)
 }
 
 /**
@@ -106,18 +107,39 @@ const generateVersion = async (versionType, pkgName = '') => {
     let version = initVersion
 
     // 根据版本类型修改版本号
-    if (versionType === VersionTypeEnum.MAJOR) {
-        version = version.replace(/(\d+)(\.\d+\.\d+)/, (_, prefix) => `${Number(prefix + 1)}.0.0`)
-    } else if (versionType === VersionTypeEnum.SECONDARY) {
-        version = version.replace(
-            /(\d+\.)(\d+)(\.\d+)/,
-            (_, prefix, number) => `${prefix}${Number(number) + 1}.0`
-        )
+    if (versionType === VersionTypeEnum.BETA) {
+        // 判断当前版本是否包含 -beta
+        if (!version.includes('-beta')) {
+            version = `${version}-beta1`
+        } else {
+            // 提取 -beta 后面的数字
+            const match = version.match(/-beta(\d+)/)
+            if (match) {
+                const betaNumber = parseInt(match[1], 10)
+                // 累加 beta 版本号
+                version = version.replace(/-beta(\d+)/, `-beta${betaNumber + 1}`)
+            }
+        }
     } else {
-        version = version.replace(
-            /(\d+\.\d+\.)(\d+)/,
-            (_, prefix, number) => `${prefix}${Number(number) + 1}`
-        )
+        if (version.includes('-beta')) {
+            version = version.replace(/-beta(\d+)/, '')
+        }
+        if (versionType === VersionTypeEnum.MAJOR) {
+            version = version.replace(
+                /(\d+)(\.\d+\.\d+)/,
+                (_, prefix) => `${Number(prefix + 1)}.0.0`
+            )
+        } else if (versionType === VersionTypeEnum.SECONDARY) {
+            version = version.replace(
+                /(\d+\.)(\d+)(\.\d+)/,
+                (_, prefix, number) => `${prefix}${Number(number) + 1}.0`
+            )
+        } else {
+            version = version.replace(
+                /(\d+\.\d+\.)(\d+)/,
+                (_, prefix, number) => `${prefix}${Number(number) + 1}`
+            )
+        }
     }
 
     // 更新 package.json 中的版本号
@@ -133,11 +155,12 @@ const generateVersion = async (versionType, pkgName = '') => {
 /**
  * 上传包到包管理器
  */
-const uploadPackage = () => {
+const uploadPackage = versionType => {
     console.log(chalk.green`\n开始上传包\n`)
 
     for (let key in TypeDirNameMap) {
-        shell.exec(`cd ${`packages/${TypeDirNameMap[key]}`} && ${publishCmd}`)
+        const tag = versionType === VersionTypeEnum.BETA ? '--tag beta' : ''
+        shell.exec(`cd ${`packages/${TypeDirNameMap[key]}`} && ${publishCmd} ${tag}`)
     }
 }
 

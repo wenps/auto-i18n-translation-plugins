@@ -9,37 +9,42 @@ import * as types from '@babel/types'
 import { baseUtils } from 'src/utils'
 import { option } from 'src/option'
 
-export default function (path: any) {
-    console.log('jsx text')
+export default function (insertOption: any) {
+    return function (path: any) {
+        console.log('jsx text')
 
-    if (option.translateType === TranslateTypeEnum.SEMI_AUTO) {
-        return
-    }
-
-    let { node } = path
-    let value = node.value
-    // 定义一个包含亚洲语言代码的数组
-    const asianLangs = ['zh-cn', 'ja', 'ko']
-    if (asianLangs.some(lang => option.originLang.includes(lang) || option.originLang === lang)) {
-        try {
-            value = baseUtils.unicodeToString(value)
-        } catch (error) {
-            console.log('转换异常')
+        if (option.translateType === TranslateTypeEnum.SEMI_AUTO) {
+            return
         }
-    }
-    if (
-        baseUtils.hasOriginSymbols(value) &&
-        option.excludedPattern.length &&
-        !baseUtils.checkAgainstRegexArray(value, [...option.excludedPattern])
-    ) {
-        // 生成翻译节点
-        let expression = baseUtils.createI18nTranslator({
-            value,
-            isExpression: true
-        })
-        // 生成的翻译节点包装在  types.JSXExpressionContainer  中
-        let newNode = types.jSXExpressionContainer(expression)
-        // 使用  path.replaceWith  方法将原来的节点替换为新的翻译节点
-        path.replaceWith(newNode)
+
+        let { node } = path
+        let value = node.value
+        // 定义一个包含亚洲语言代码的数组
+        const asianLangs = ['zh-cn', 'ja', 'ko']
+        if (
+            asianLangs.some(lang => option.originLang.includes(lang) || option.originLang === lang)
+        ) {
+            try {
+                value = baseUtils.unicodeToString(value)
+            } catch (error) {
+                console.log('转换异常')
+            }
+        }
+        if (
+            baseUtils.hasOriginSymbols(value) &&
+            option.excludedPattern.length &&
+            !baseUtils.checkAgainstRegexArray(value, [...option.excludedPattern])
+        ) {
+            // 生成翻译节点
+            let expression = baseUtils.createI18nTranslator({
+                insertOption,
+                value,
+                isExpression: true
+            })
+            // 生成的翻译节点包装在  types.JSXExpressionContainer  中
+            let newNode = types.jSXExpressionContainer(expression)
+            // 使用  path.replaceWith  方法将原来的节点替换为新的翻译节点
+            path.replaceWith(newNode)
+        }
     }
 }

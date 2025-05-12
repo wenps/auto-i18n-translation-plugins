@@ -4,7 +4,7 @@
 
 # 🚀 auto-i18n-translation-plugins
 
-[English Documentation](./readme-cn.md)
+[English Documentation](./readme-en.md)
 
 ## 🍉 插件介绍
 

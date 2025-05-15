@@ -27,6 +27,8 @@ const EXCLUDED_CALL = [
  * 默认插件配置选项
  */
 const DEFAULT_OPTION = {
+    /** 是否启用插件，默认启用 */
+    enabled: true as boolean | (() => boolean),
     /** 翻译调用函数，默认为 $t */
     translateKey: '$t',
 
@@ -66,7 +68,7 @@ const DEFAULT_OPTION = {
     /** 是否在构建结束之后将最新的翻译重新打包到主包中，默认不打包 */
     buildToDist: false,
 
-    /** 默认使用 Google 翻译器 */
+    /** 翻译器，决定自动翻译使用的api与调用方式，默认使用 Google 翻译器并使用7890(clash)端口代理 */
     translator: new GoogleTranslator({
         proxyOption: {
             port: 7890,
@@ -83,7 +85,8 @@ const DEFAULT_OPTION = {
     /**
      * 翻译类型，支持全自动和半自动两种模式
      * 全自动：所有翻译任务自动完成
-     * 半自动：需要人工标识
+     * 半自动：需要人工标识，类似于 $t('key') 的方式
+     * 默认值为全自动
      */
     translateType: TranslateTypeEnum.FULL_AUTO as TranslateTypeEnum | string,
 
@@ -165,6 +168,8 @@ export function initOption(optionInfo: OptionInfo) {
         ...EXCLUDED_CALL,
         ...[option.translateKey, '$' + option.translateKey]
     ]
+
+    return option
 }
 
 /**

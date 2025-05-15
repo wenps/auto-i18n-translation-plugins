@@ -71,15 +71,16 @@ export class VolcengineTranslator extends Translator {
                         throw new Error('大模型返回文本解析失败')
                     }
                     if (!Array.isArray(arr)) {
-                        throw new Error('大模型返回的文本不是数组')
+                        throw new Error('大模型返回文本解析后不是数组')
                     } else if (arr.length !== textArr.length) {
-                        throw new Error('大模型返回的文本数组长度不一致')
+                        throw new Error('大模型返回文本数组长度不一致')
                     }
                     resultTextArr = arr.map(String)
                 } catch (error) {
                     const message = error instanceof Error ? error.message : '未知错误'
-                    console.warn(`${message}，返回的文本内容：`, content)
-                    console.warn(`${message}，原文本内容：`, content)
+                    console.warn(message)
+                    console.warn('返回的文本内容：', content)
+                    console.warn('原文本内容：', textArr)
                 }
 
                 return resultTextArr.join(separator)

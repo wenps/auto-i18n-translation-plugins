@@ -60,14 +60,29 @@ export class VolcengineTranslator extends Translator {
                         proxy: option.proxy
                     }
                 )
+
+                let resultTextArr = textArr.fill('')
+                const content = response.data.choices[0].message.content
                 try {
-                    return (JSON.parse(response.data.choices[0].message.content) as string[]).join(
-                        separator
-                    )
+                    let arr: unknown
+                    try {
+                        arr = JSON.parse(content)
+                    } catch (error) {
+                        throw new Error('大模型返回文本解析失败')
+                    }
+                    if (!Array.isArray(arr)) {
+                        throw new Error('大模型返回的文本不是数组')
+                    } else if (arr.length !== textArr.length) {
+                        throw new Error('大模型返回的文本数组长度不一致')
+                    }
+                    resultTextArr = arr.map(String)
                 } catch (error) {
-                    console.error('🚀 ~ VolcengineTranslator ~ fetchMethod: ~ error:', error)
-                    return text
+                    const message = error instanceof Error ? error.message : '未知错误'
+                    console.warn(`${message}，返回的文本内容：`, content)
+                    console.warn(`${message}，原文本内容：`, content)
                 }
+
+                return resultTextArr.join(separator)
             },
             onError: (error, cb) => {
                 cb(error)

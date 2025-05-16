@@ -258,6 +258,7 @@ import '../lang/index.js' // 📍 Must be imported first in entry file. This fil
 
 | Parameter        | Type       | Required | Default                  | Description                                              |
 | ---------------- | ---------- | -------- | ------------------------ | -------------------------------------------------------- |
+| enabled    | boolean     | ❌   | `true`              | Whether to trigger translation. |
 | translateType    | string     | ❌       | `full-auto`              | Translation mode: `full-auto` or `semi-auto`             |
 | translateKey     | string     | ✅       | `$t`                     | Translation function name (e.g., `$t`)                   |
 | excludedCall     | string[]   | ❌       | `['$i8n', 'require', …]` | Function calls to exclude from translation               |

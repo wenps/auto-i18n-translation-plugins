@@ -420,6 +420,15 @@ const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
 
 ## 更新日志
 
+### v1.1.1
+
+-   新增翻译禁用功能
+
+### v1.1.0
+
+-   新增ai翻译器
+-   新增翻译插件vue2拓展插件机制
+
 ### v1.0.26 (推荐版本)
 
 -   新增自定义拓展名数组

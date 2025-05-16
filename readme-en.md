@@ -400,6 +400,14 @@ Original authors: wenps, xu-code, Caleb-Xu, Winfans
 
 ## Changelog
 
+### v1.1.1
+
+-   New translation disable function
+
+### v1.1.0
+
+-   New AI translator
+-   New Vue2 extension plugin mechanism for translation plugins
 
 ### v1.0.26 (Recommended Version)
 

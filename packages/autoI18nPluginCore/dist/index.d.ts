@@ -251,6 +251,8 @@ type BaseExtendsType = {
  * 默认插件配置选项
  */
 declare const DEFAULT_OPTION: {
+    /** 是否启用插件，默认启用 */
+    enabled: boolean | (() => boolean);
     /** 翻译调用函数，默认为 $t */
     translateKey: string;
     /** 标记不翻译调用函数列表，避免某些调用被错误翻译 */
@@ -277,14 +279,15 @@ declare const DEFAULT_OPTION: {
     namespace: string;
     /** 是否在构建结束之后将最新的翻译重新打包到主包中，默认不打包 */
     buildToDist: boolean;
-    /** 默认使用 Google 翻译器 */
+    /** 翻译器，决定自动翻译使用的api与调用方式，默认使用 Google 翻译器并使用7890(clash)端口代理 */
     translator: Translator;
     /** 翻译器配置选项，优先级低于translator */
     translatorOption: TranslatorOption | undefined;
     /**
      * 翻译类型，支持全自动和半自动两种模式
      * 全自动：所有翻译任务自动完成
-     * 半自动：需要人工标识
+     * 半自动：需要人工标识，类似于 $t('key') 的方式
+     * 默认值为全自动
      */
     translateType: TranslateTypeEnum | string;
     /**
@@ -327,7 +330,69 @@ interface OptionInfo extends Partial<OptionType> {
  * 初始化插件配置选项
  * @param optionInfo 用户提供的配置选项
  */
-declare function initOption(optionInfo: OptionInfo): void;
+declare function initOption(optionInfo: OptionInfo): {
+    /** 是否启用插件，默认启用 */
+    enabled: boolean | (() => boolean);
+    /** 翻译调用函数，默认为 $t */
+    translateKey: string;
+    /** 标记不翻译调用函数列表，避免某些调用被错误翻译 */
+    excludedCall: string[];
+    /** 标记不用翻译的字符串模式数组，默认是匹配文件扩展名 */
+    excludedPattern: RegExp[];
+    /** 排查不需要翻译的目录下的文件路径（黑名单）, 默认不处理node_modules */
+    excludedPath: string[];
+    /** 指定需要翻译文件的目录路径正则（白名单） */
+    includePath: RegExp[];
+    /** 配置文件生成位置，默认为 './lang' */
+    globalPath: string;
+    /** 打包后生成文件的位置，例如 './dist/assets' */
+    distPath: string;
+    /** 打包后生成文件的主文件名称，默认是 'index' */
+    distKey: string;
+    /** 来源语言，默认是中文 */
+    originLang: OriginLangKeyEnum | string;
+    /** 翻译目标语言列表，默认包含英文 */
+    targetLangList: string[];
+    /** 语言key，用于请求谷歌api和生成配置文件下对应语言的内容文件 */
+    langKey: string[];
+    /** 命名空间，防止全局命名冲突 */
+    namespace: string;
+    /** 是否在构建结束之后将最新的翻译重新打包到主包中，默认不打包 */
+    buildToDist: boolean;
+    /** 翻译器，决定自动翻译使用的api与调用方式，默认使用 Google 翻译器并使用7890(clash)端口代理 */
+    translator: Translator;
+    /** 翻译器配置选项，优先级低于translator */
+    translatorOption: TranslatorOption | undefined;
+    /**
+     * 翻译类型，支持全自动和半自动两种模式
+     * 全自动：所有翻译任务自动完成
+     * 半自动：需要人工标识，类似于 $t('key') 的方式
+     * 默认值为全自动
+     */
+    translateType: TranslateTypeEnum | string;
+    /**
+     * 是否重写配置文件，默认为true
+     */
+    rewriteConfig: boolean;
+    /**
+     * 通用翻译key，默认使用namespace，如果commonTranslateKey不为空，则使用commonTranslateKey
+     */
+    commonTranslateKey: string;
+    /**
+     * 实验性属性，表示是否进行深层扫描字符串，默认为 false
+     * 当设置为 true 时，会对代码中的字符串进行更深入的扫描
+     */
+    deepScan: boolean;
+    /**
+     * 自定义文件拓展名数组
+     */
+    insertFileExtensions: string[];
+    /**
+     * 自定义拓展类，插件默认翻译函数挂载在window上，如果希望自定义翻译函数挂载在其他对象上，可以使用该属性
+     * 注意：该属性需要继承BaseExtends类，并且需要实现handleInitFile和handleCodeCall和handleCodeString方法
+     */
+    translateExtends: BaseExtendsType | null;
+};
 /**
  * 校验插件配置选项是否完整有效
  * @returns {boolean} 校验结果，完整返回 true，否则返回 false

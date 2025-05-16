@@ -61,7 +61,7 @@ export class VolcengineTranslator extends Translator {
                     }
                 )
 
-                let resultTextArr = textArr.fill('')
+                let resultTextArr = Array.from(textArr).fill('')
                 const content = response.data.choices[0].message.content
                 try {
                     let arr: unknown
@@ -78,9 +78,9 @@ export class VolcengineTranslator extends Translator {
                     resultTextArr = arr.map(String)
                 } catch (error) {
                     const message = error instanceof Error ? error.message : '未知错误'
-                    console.warn(message)
-                    console.warn('返回的文本内容：', content)
-                    console.warn('原文本内容：', textArr)
+                    console.warn('⚠', message)
+                    console.warn('⚠ 返回的文本内容：', content)
+                    console.warn('⚠ 原文本内容：', JSON.stringify(textArr))
                 }
 
                 return resultTextArr.join(separator)

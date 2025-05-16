@@ -64,10 +64,7 @@ export function initLangObj(obj: langObj) {
 export async function autoTranslate() {
     const enabled = typeof option.enabled === 'function' ? option.enabled() : option.enabled
 
-    if (!enabled) {
-        console.info('❗ 自动翻译功能未启用')
-        return
-    }
+    if (!enabled) return
 
     // 初始化现有翻译文件缓存
     const originLangObjMap: Record<string, any> = {}

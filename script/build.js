@@ -5,7 +5,7 @@
  * @FilePath: /i18n_translation_vite/script/build.js
  */
 // @ts-check
-import { PluginTypeEnum, TypeDirNameMap } from './enums.js'
+import { PluginTypeEnum, TypeDirNameMap, TypeEnum } from './enums.js'
 import { select } from '@inquirer/prompts' // 使用 import 引入 select 函数
 import shell from 'shelljs' // 使用 import 引入 shelljs 模块
 
@@ -36,6 +36,7 @@ const run = async () => {
             value: TypeDirNameMap[pluginType]
         }
     })
+    choices.unshift({ name: 'all', value: 'all' })
     let dir
     // 自带指令 p 标识指定插件类型
     if (argMap.has('p')) {
@@ -46,16 +47,30 @@ const run = async () => {
             message: 'please select plugin type ——',
             choices,
             default: choices[0].value
-        })
+        }).catch(() => {})
+        if (!dir) return
     }
-    shell.cd('packages/autoI18nPluginCore')
-    runBuild()
+    let dirs = [dir]
+    if (dir === 'all') {
+        dirs = Object.values(PluginTypeEnum).map(pluginType => TypeDirNameMap[pluginType])
+    }
+    dirs.unshift(TypeDirNameMap[TypeEnum.CORE]) // 需要先打包core
 
-    shell.cd('..')
+    const startTimeStamp = Date.now()
+    if (!isDev) {
+        console.info(`开始打包...`)
+    }
 
-    // shell.cp('readme*', dir) // 目前readme文件路径有点问题，需要修改
-    shell.cd(dir)
-    runBuild()
+    dirs.forEach(dir => {
+        shell.cd(`packages/${dir}`)
+        shell.cp('../../readme*', '.')
+        runBuild()
+        shell.cd('../../')
+    })
+
+    if (!isDev) {
+        console.info(`打包完成，耗时：${(Date.now() - startTimeStamp) / 1000}秒`)
+    }
 }
 
 run()

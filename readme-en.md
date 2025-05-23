@@ -256,28 +256,28 @@ import '../lang/index.js' // 📍 Must be imported first in entry file. This fil
 
 ## ⚙️ Configuration Parameters
 
-| Parameter        | Type       | Required | Default                  | Description                                              |
-| ---------------- | ---------- | -------- | ------------------------ | -------------------------------------------------------- |
-| enabled    | boolean     | ❌   | `true`              | Whether to trigger translation. |
-| translateType    | string     | ❌       | `full-auto`              | Translation mode: `full-auto` or `semi-auto`             |
-| translateKey     | string     | ✅       | `$t`                     | Translation function name (e.g., `$t`)                   |
-| excludedCall     | string[]   | ❌       | `['$i8n', 'require', …]` | Function calls to exclude from translation               |
-| excludedPattern  | RegExp[]   | ❌       | `[/\.\w+$/]`             | Patterns to exclude (e.g., file extensions)              |
-| excludedPath     | string[]   | ❌       | `['node_modules']`       | Directories to exclude (e.g., `node_modules`)            |
-| includePath      | RegExp[]   | ❌       | `[/src\//]`              | Whitelist of directories to include (default: `src`)     |
-| globalPath       | string     | ❌       | `'./lang'`               | Path for translation config files                        |
-| distPath         | string     | ✅       | `''`                     | Output path for built files                              |
-| distKey          | string     | ✅       | `'index'`                | Main translation file name                               |
-| namespace        | string     | ✅       | `lang`                   | Project namespace for distinguishing translation configs |
-| originLang       | string     | ✅       | `'zh-cn'`                | Source language                                          |
-| targetLangList   | string[]   | ✅       | `['en']`                 | Target languages                                         |
-| buildToDist      | boolean    | ❌       | `false`                  | Whether to bundle translation files into main build      |
-| translator       | Translator | ❌       | `GoogleTranslator`       | Translator instance                                      |
-| translatorOption | object     | ❌       | `{}`                     | Translator options (lower priority than `translator`)    |
-| rewriteConfig    | boolean    | ❌       | `true`                   | Whether to rewrite config file on each plugin run        |
-| deepScan         | boolean    | ❌       | `false`                  | Experimental: Whether to perform deep string scanning    |
-| commonTranslateKey | string | ❌   | `''`                     | General translation key                             |
-| insertFileExtensions | string[] | ❌   | `[]`                     | List of file extensions to insert translation code into |
+| Parameter            | Type       | Required | Default                  | Description                                              |
+| -------------------- | ---------- | -------- | ------------------------ | -------------------------------------------------------- |
+| enabled              | boolean    | ❌       | `true`                   | Whether to trigger translation.                          |
+| translateType        | string     | ❌       | `full-auto`              | Translation mode: `full-auto` or `semi-auto`             |
+| translateKey         | string     | ✅       | `$t`                     | Translation function name (e.g., `$t`)                   |
+| excludedCall         | string[]   | ❌       | `['$i8n', 'require', …]` | Function calls to exclude from translation               |
+| excludedPattern      | RegExp[]   | ❌       | `[/\.\w+$/]`             | Patterns to exclude (e.g., file extensions)              |
+| excludedPath         | string[]   | ❌       | `['node_modules']`       | Directories to exclude (e.g., `node_modules`)            |
+| includePath          | RegExp[]   | ❌       | `[/src\//]`              | Whitelist of directories to include (default: `src`)     |
+| globalPath           | string     | ❌       | `'./lang'`               | Path for translation config files                        |
+| distPath             | string     | ✅       | `''`                     | Output path for built files                              |
+| distKey              | string     | ✅       | `'index'`                | Main translation file name                               |
+| namespace            | string     | ✅       | `lang`                   | Project namespace for distinguishing translation configs |
+| originLang           | string     | ✅       | `'zh-cn'`                | Source language                                          |
+| targetLangList       | string[]   | ✅       | `['en']`                 | Target languages                                         |
+| buildToDist          | boolean    | ❌       | `false`                  | Whether to bundle translation files into main build      |
+| translator           | Translator | ❌       | `GoogleTranslator`       | Translator instance                                      |
+| translatorOption     | object     | ❌       | `{}`                     | Translator options (lower priority than `translator`)    |
+| rewriteConfig        | boolean    | ❌       | `true`                   | Whether to rewrite config file on each plugin run        |
+| deepScan             | boolean    | ❌       | `false`                  | Experimental: Whether to perform deep string scanning    |
+| commonTranslateKey   | string     | ❌       | `''`                     | General translation key                                  |
+| insertFileExtensions | string[]   | ❌       | `[]`                     | List of file extensions to insert translation code into  |
 
 ---
 
@@ -411,16 +411,15 @@ Original authors: wenps, xu-code, Caleb-Xu, Winfans
 
 ### v1.0.26 (Recommended Version)
 
-- Added custom extension arrays
+-   Added custom extension arrays
 
 ### v1.0.25 (Recommended Version)
 
-- Added a universal translation key
-
+-   Added a universal translation key
 
 ### v1.0.24 (Recommended Version)
 
-- Fixed the exception issue in semi-automatic mode
+-   Fixed the exception issue in semi-automatic mode
 
 ### v1.0.23 (Recommended Version)
 

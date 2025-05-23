@@ -30,3 +30,5 @@ build
 *.sw?
 
 example/**/dist
+packages/**/dist
+packages/**/readme*

@@ -20,12 +20,6 @@
                         <a-button @click="changeLang('en')" style="margin-right: 10px">
                             英文
                         </a-button>
-                        <a-button @click="changeLang('ko')" style="margin-right: 10px">
-                            韩文
-                        </a-button>
-                        <a-button @click="changeLang('ja')" style="margin-right: 10px">
-                            日文
-                        </a-button>
                     </div>
                     <a-button @click="navigate('products')" class="nav-item">产品服务</a-button>
                     <a-button @click="navigate('solutions')" class="nav-item">解决方案</a-button>

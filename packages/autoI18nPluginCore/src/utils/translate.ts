@@ -62,6 +62,10 @@ export function initLangObj(obj: langObj) {
  * - 文件读写失败时明确报错
  */
 export async function autoTranslate() {
+    const enabled = typeof option.enabled === 'function' ? option.enabled() : option.enabled
+
+    if (!enabled) return
+
     // 初始化现有翻译文件缓存
     const originLangObjMap: Record<string, any> = {}
 

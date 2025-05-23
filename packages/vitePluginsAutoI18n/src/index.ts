@@ -21,17 +21,19 @@ export * from 'auto-i18n-plugin-core'
 
 const allowedExtensions = ['.vue', '.ts', '.js', '.tsx', '.jsx']
 
-export default function vitePluginsAutoI18n(optionInfo: OptionInfo): any {
+export default function vitePluginsAutoI18n(optionInfo: OptionInfo) {
     const name = 'vite-auto-i18n-plugin'
     let config: ResolvedConfig
 
     initOption(optionInfo)
 
     if (!checkOption()) return { name }
+
     fileUtils.initLangFile()
     const originLangObj = fileUtils.getLangObjByJSONFileWithLangKey(option.originLang)
     translateUtils.languageConfigCompletion(originLangObj)
     translateUtils.initLangObj(originLangObj)
+
     const plugin: Plugin = {
         name,
         configResolved(resolvedConfig) {

@@ -12,8 +12,6 @@
                 <div class="operation">
                     <a-button @click="changeLang('zhcn')" style="margin-right: 10px">中文</a-button>
                     <a-button @click="changeLang('en')" style="margin-right: 10px">英文</a-button>
-                    <a-button @click="changeLang('ko')" style="margin-right: 10px">韩文</a-button>
-                    <a-button @click="changeLang('ja')" style="margin-right: 10px">日文</a-button>
                 </div>
                 <router-link v-for="link in navLinks" :key="link.path" :to="link.path">
                     {{ link.text }}

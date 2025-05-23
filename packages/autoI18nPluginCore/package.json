@@ -41,6 +41,7 @@
         "@vitalets/google-translate-api": "^9.2.0",
         "axios": "^1.6.8",
         "crypto-js": "^4.2.0",
+        "progress": "^2.0.3",
         "tunnel": "0.0.6"
     },
     "devDependencies": {

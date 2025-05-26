@@ -1,5 +1,6 @@
 // 代码灵感来自https://github.com/dadidi9900/auto-plugins-json-translate/blob/main/src/services/translationService.ts
 import axios, { AxiosProxyConfig } from 'axios'
+import { generateId } from 'src/utils/base'
 import { Translator } from './translator'
 
 export interface VolcengineTranslatorOption {
@@ -39,7 +40,7 @@ export class VolcengineTranslator extends Translator {
             fetchMethod: async (text, fromKey, toKey, separator) => {
                 let salt = new Date().getTime()
                 const textArr = text.split(separator)
-                const textMap = Object.fromEntries(textArr.map(item => [item, '']))
+                const sourceMap = Object.fromEntries(textArr.map(text => [generateId(text), text]))
                 const data = {
                     model: option.model,
                     messages: [
@@ -54,15 +55,15 @@ export class VolcengineTranslator extends Translator {
 
                                 参考例子：
                                 示例1：
-                                输入：zh-cn -> en { "你好": "", "世界": "" }
-                                输出：{ "你好": "Hello", "世界": "World" }
+                                输入：zh-cn -> en { "awfgx": "你好", "qwfga": "世界" }
+                                输出：{ "awfgx": "Hello", "qwfga": "World" }
 
                                 示例2：
-                                输入：de -> fr { "Hallo": "", "Welt": "" }
-                                输出：{ "Hallo": "Bonjour", "Welt": "Monde" }
+                                输入：de -> fr { "gweaq": "Hallo", "wtrts": "Welt" }
+                                输出：{ "gweaq": "Bonjour", "wtrts": "Monde" }
 
                                 请回答问题：
-                                输入：源语言A -> 目标语言B { "XXX": "" }
+                                输入：源语言A -> 目标语言B { "wghhj": "XXX" }
                                 输出：
 
                                 要求：
@@ -73,7 +74,7 @@ export class VolcengineTranslator extends Translator {
                         },
                         {
                             role: 'user',
-                            content: `${fromKey} -> ${toKey} ${JSON.stringify(textMap)}`
+                            content: `${fromKey} -> ${toKey} ${JSON.stringify(sourceMap)}`
                         }
                     ]
                 }
@@ -101,16 +102,18 @@ export class VolcengineTranslator extends Translator {
                     if (typeof resultMap !== 'object' || !resultMap) {
                         throw new Error('大模型返回文本解析后类型不正确')
                     }
-                    const isMiss = Object.keys(resultMap).some(key => !textArr.includes(key))
+                    const isMiss = Object.keys(resultMap).some(key => !(key in sourceMap))
                     if (isMiss) {
                         throw new Error('大模型返回文本内容不完整')
                     }
-                    resultTextArr = Object.values(resultMap)
+                    resultTextArr = textArr.map(
+                        text => (resultMap as Record<string, string>)[generateId(text)]
+                    ) // 用textArr遍历，保证顺序
                 } catch (error) {
                     const message = error instanceof Error ? error.message : '未知错误'
                     console.warn('⚠', message)
                     console.warn('⚠ 返回的文本内容：', content)
-                    console.warn('⚠ 原文本内容：', JSON.stringify(textMap))
+                    console.warn('⚠ 原文本内容：', JSON.stringify(sourceMap))
                 }
 
                 return resultTextArr.join(separator)

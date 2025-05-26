@@ -55,6 +55,60 @@ const langMap = {
 }
 ```
 
+### 即时切换语言
+
+如果不想通过页面刷新来切换语言，可以直接通过 `$changeLang` 来修改语言，再重新渲染对应组件
+例如Vue2中，可以通过以下操作进行语言切换
+
+```js
+window.$changeLang('en')
+```
+
+### 替换语言包
+
+如果想修改内置生成的语言包，可以直接修改全局对象里面的langMap
+例如
+
+```
+window.langMap = {
+    'en': {
+        'zccsau6': 'hello'
+    },
+    'zh-cn': {
+        'zccsau6': '你好'
+    }
+}
+```
+
+```Html
+<template>
+    <div id="app" v-if="isShow">
+        <button @click="changeLang('en')">切换到英文</button>
+        <button @click="changeLang('zh-cn')">切换到中文</button>
+        <router-view></router-view>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            isShow: true
+        }
+    },
+    methods: {
+        changeLang(lang) {
+            window.$changeLang(lang)
+            this.isShow = false
+            this.$nextTick(() => {
+                this.isShow = true
+            })
+        }
+    }
+}
+</script>
+
+```
+
 ### 1️⃣ 安装插件
 
 #### **Vite 项目:**

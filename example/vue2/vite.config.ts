@@ -4,16 +4,14 @@
  * @LastEditTime: 2025-03-17 01:12:44
  * @FilePath: /i18n_translation_vite/example/vue2/vite.config.ts
  */
-import vitePluginsAutoI18n, { EmptyTranslator, Vue2Extends } from 'vite-auto-i18n-plugin'
+import vitePluginsAutoI18n, { EmptyTranslator } from 'vite-auto-i18n-plugin'
 import vue from '@vitejs/plugin-vue2'
 import { defineConfig } from 'vite'
 import path from 'path'
 
 const i18nPlugin = vitePluginsAutoI18n({
-    rewriteConfig: false,
     targetLangList: ['en'],
-    translator: new EmptyTranslator({}),
-    translateExtends: new Vue2Extends()
+    translator: new EmptyTranslator({})
 })
 
 export default defineConfig({

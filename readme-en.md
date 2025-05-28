@@ -37,11 +37,11 @@ pnpm run preview // Don't select React, contains too much English text
 
 ---
 
-## 🌟 Quick Start
+## 🌟 Quick Start 🚀
 
-### 1️⃣ Install Plugin
+### 1️⃣ Install Plugin 📦
 
-#### **Vite Projects:**
+#### **🌐 Vite Project:**
 
 ```bash
 npm install vite-auto-i18n-plugin --save-dev
@@ -49,7 +49,7 @@ npm install vite-auto-i18n-plugin --save-dev
 yarn add vite-auto-i18n-plugin --dev
 ```
 
-#### **Webpack Projects:**
+#### **🛠️ Webpack Project:**
 
 ```bash
 npm install webpack-auto-i18n-plugin --save-dev
@@ -59,7 +59,78 @@ yarn add webpack-auto-i18n-plugin --dev
 
 ---
 
-### 2️⃣ Basic Configuration
+### 2️⃣ Language Switching 🌐
+
+#### ⚙️ Basic Switching
+
+```js
+window.localStorage.setItem('lang', value)
+window.location.reload()
+
+// value is the key of the language mapping object
+// The mapping object is located in the lang/index.js file by default. You can check this part of the code inside.
+const langMap = {
+  'en': (),
+  'zhcn': ()
+}
+```
+
+#### 📲 Instant Language Switching
+
+If you don't want to switch languages by refreshing the page, you can directly modify the language via `$changeLang` and then re - render the corresponding components.
+```js
+window.$changeLang('en')
+```
+
+For example, in Vue2, you can switch languages without refreshing the page in the following way:
+
+```Html
+<template>
+    <div id="app" v-if="isShow">
+        <button @click="changeLang('en')">Switch to English</button>
+        <button @click="changeLang('zh-cn')">Switch to Chinese</button>
+        <router-view></router-view>
+    </div>
+</template>
+<script>
+export default {
+    data() {
+        return {
+            isShow: true
+        }
+    },
+    methods: {
+        changeLang(lang) {
+            window.$changeLang(lang)
+            this.isShow = false
+            this.$nextTick(() => {
+                this.isShow = true
+            })
+        }
+    }
+}
+</script>
+```
+#### 🔄 Replace Language Packs
+
+If you want to modify the built - in generated language packs, you can directly modify the `langMap` in the global object. For example:
+
+```js
+window.langMap = {
+    'en': {
+        'zccsau6': 'hello'
+    },
+    'zh-cn': {
+        'zccsau6': '你好'
+    }
+}
+```
+
+Then you can refresh the page by using the above **Instant Language Switching** method.
+
+---
+
+### 3️⃣ Basic Configuration 🔧
 
 #### **Vite Configuration Example** (vite.config.js):
 
@@ -78,7 +149,7 @@ export default defineConfig({
                 }
             }
         }),
-        vitePluginAutoI18n({
+        vitePluginsAutoI18n({
             translator: new YoudaoTranslator({
                 appId: '4cdb9baea8066fef',
                 appKey: 'ONI6AerZnGRyDqr3w7UM730mPuF8mB3j'
@@ -87,7 +158,6 @@ export default defineConfig({
     ]
 })
 ```
-
 #### **Webpack Configuration Example** (webpack.config.js):
 
 ```javascript
@@ -113,12 +183,13 @@ module.exports = {
 ```
 
 ---
+### 4️⃣ Translator Configuration Examples 🛠️
 
-### 3️⃣ Translator Configuration Examples
+The plugin uses Google Translate by default (with a default proxy port of 7890). When the network does not support accessing Google, we recommend using **Youdao Translate** ✨, which has excellent translation quality. Currently, the plugin has built - in support for Google, Youdao, and Baidu translation services. If you need to customize a translator, you can refer to the examples below.
 
-The plugin uses Google Translate by default (with a default proxy port of 7890). When your network does not support accessing Google, we recommend choosing **Youdao Translate** ✨, which offers excellent translation quality. Currently, the plugin has built - in translation functions for Google, Youdao, and Baidu. If you need a custom translator, you can refer to the examples below.
+The following examples use `vite` as an example, and `webpack` is similar.
 
-#### **Using Google Translate (default)**
+#### **Using Google Translate (Default)**
 
 ```javascript
 import { GoogleTranslator } from 'vite-auto-i18n-plugin'
@@ -135,59 +206,54 @@ translator: new GoogleTranslator({
 })
 ...
 ```
+#### **Using Youdao Translation**
 
-#### **Using Youdao Translate**
-
-Requires API application: [API Docs](https://ai.youdao.com/DOCSIRMA/html/trans/api/wbfy/index.html)
-
+You need to apply for an API. [API documentation](https://ai.youdao.com/DOCSIRMA/html/trans/api/wbfy/index.html).
 ```javascript
 import { YoudaoTranslator } from 'vite-auto-i18n-plugin'
 
 ...
 translator: new YoudaoTranslator({
-    appId: 'your-app-id',
-    appKey: 'your-app-key'
+    appId: 'The appId you applied for',
+    appKey: 'The appKey you applied for'
 })
 ...
 ```
 
 #### **Baidu Translator**
 
-Requires API application: [API Docs](https://api.fanyi.baidu.com/product/113)
+You need to apply for an API. [API documentation](https://api.fanyi.baidu.com/product/113).
 
 ```javascript
 import { BaiduTranslator } from 'vite-auto-i18n-plugin'
 
 ...
 translator: new BaiduTranslator({
-    appId: 'your-app-id', // Baidu AppId
-    appKey: 'your-app-key' // Baidu AppKey
+    appId: 'The appId you applied for', // Baidu Translate AppId
+    appKey: 'The appKey you applied for' // Baidu Translate AppKey
 })
 ...
 ```
 
 #### **Volcengine AI Translator**
 
-Supports calling `doubao` or `deepseek` for translation. AI model translation provides more accurate results than traditional API translation, but takes longer to process.
-Volcengine AI model introduction: https://www.volcengine.com/docs/82379/1099455.
-Requires enabling the AI service and applying for API, [API documentation](https://www.volcengine.com/docs/82379/1298454).
-
+It supports translation using `doubao` or `deepseek`. The translation effect of large AI models is more accurate than traditional API translation, but it takes longer.
+Introduction to Volcengine large models: https://www.volcengine.com/docs/82379/1099455.
+You need to activate the large model service and apply for an API. [API documentation](https://www.volcengine.com/docs/82379/1298454).
 ```javascript
 import { VolcengineTranslator } from 'vite-auto-i18n-plugin'
 
 ...
 translator: new VolcengineTranslator({
-    apiKey: 'your-api-key',
-    model: 'model-to-call, e.g. `doubao-1-5-pro-32k-250115`, please ensure the model has been enabled in console before using'
+    apiKey: 'The apiKey you applied for',
+    model: 'The model you want to call, for example: `doubao-1-5-pro-32k-250115`. Please ensure that the corresponding model has been activated in the console before use.'
 })
 ...
 ```
 
-````
-
 #### **Empty Translator**
 
-If you only need to scan target language without translation, this translator will generate JSON files.
+If you only need to scan the target language without performing translation, this translator will generate a JSON file.
 
 ```javascript
 import { EmptyTranslator } from 'vite-auto-i18n-plugin'
@@ -195,13 +261,12 @@ import { EmptyTranslator } from 'vite-auto-i18n-plugin'
 ...
 translator: new EmptyTranslator()
 ...
-````
-
+```
 #### **Custom Translator**
 
-If you have your own translation API, you can create a custom translator:
+If you have a personal translation API, you can customize a translator in the following ways:
 
-Simplest way is using the base `Translator` class:
+The simplest way is to define a translator instance using the `Translator` base class.
 
 ```javascript
 import { Translator } from 'vite-auto-i18n-plugin'
@@ -212,19 +277,17 @@ translator: new Translator({
     name: 'My Translator',
     // Translation method
     fetchMethod: (str, fromKey, toKey, _separator) => {
-        // Actual API calls may be more complex than this example
+        // The actual API call may be more complex than the example. For details, please refer to the implementation of YoudaoTranslator in the source code. Path: packages\autoI18nPluginCore\src\translators\youdao.ts
         const myApi = 'https://www.my-i18n.cn/api/translate?from=${fromKey}&to=${toKey}&t={+new Date}'
         return axios.post(myApi, { str })
             .then(res => res.data)
     },
-    // API call interval (some APIs may block frequent requests)
+    // Interface trigger interval. Some interfaces may be blocked if triggered frequently. Please set a reasonable interface trigger interval according to the actual situation.
     interval: 1000
 })
 ...
 ```
-
-For advanced functionality, you can extend the class (though no current use cases):
-
+If you need more advanced features, you can use inheritance. However, there is currently no relevant scenario.
 ```javascript
 import { Translator } from 'vite-auto-i18n-plugin'
 
@@ -244,12 +307,12 @@ translator: new CustomTranslator()
 
 ---
 
-### 4️⃣ Project Entry Configuration 🏗️
+### 5️⃣ Project Entry Configuration 🏗️
 
-Add this at the top of your **project entry file** (e.g., `main.js`):
+Please import the language configuration file at the top of the **project entry file** (e.g., `main.js`):
 
 ```javascript
-import '../lang/index.js' // 📍 Must be imported first in entry file. This file is auto-generated when running the plugin, default location is lang folder at same level as build config directory
+import '../lang/index.js' // 📍 Must be imported on the first line of the entry file. The file will be automatically generated when the plugin is run. By default, it is located in the 'lang' folder at the same level as the packaging configuration directory. The 'index.js' inside is the configuration file.
 ```
 
 ---
@@ -399,6 +462,15 @@ Since v1.0.5, simply import the generated `index.js` in your entry file - no nee
 Original authors: wenps, xu-code, Caleb-Xu, Winfans
 
 ## Changelog
+
+
+### v1.1.3 (Recommended Version)
+
+-   Added the ability to update languages without refreshing and best practices
+
+### v1.1.2
+
+-   Fixed AI translation exceptions
 
 ### v1.1.1
 

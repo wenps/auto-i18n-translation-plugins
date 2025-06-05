@@ -65,4 +65,5 @@
     const lang = commonLang ? commonLang : baseLang;
     // 根据当前语言设置翻译函数的语言包
     globalThis.$t.locale(langMap[lang], 'lang');
+    Vue.prototype.$t = globalThis.$t;
   

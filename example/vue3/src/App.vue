@@ -137,6 +137,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+let cc = '12312'
+let c = `测试什么123${cc}`
+console.log(c)
 
 const xx = ref({
     name: 1312

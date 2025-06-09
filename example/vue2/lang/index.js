@@ -1,7 +1,6 @@
 
     // 导入国际化JSON文件
     import langJSON from './index.json'
-    import Vue from 'vue';
     (function () {
     // 定义翻译函数
     let $t = function (key, val, nameSpace) {
@@ -46,11 +45,13 @@
         'en': (globalThis && globalThis.lang && globalThis.lang.en) ? globalThis.lang.en : globalThis._getJSONKey('en', langJSON),
 'zhcn': (globalThis && globalThis.lang && globalThis.lang.zhcn) ? globalThis.lang.zhcn : globalThis._getJSONKey('zh-cn', langJSON)
     };
+    globalThis.langMap = langMap;
     // 存储语言是否存在
     // 判断 globalThis.localStorage.getItem 是否为函数
     const isFunction = (fn) => {
         return typeof fn === 'function';
     };
+    
     const withStorageLang = isFunction && globalThis && globalThis.localStorage && 
     isFunction(globalThis.localStorage.getItem) && globalThis.localStorage.getItem('lang');
     const withStorageCommonLang = isFunction && globalThis && globalThis.localStorage && 
@@ -61,7 +62,8 @@
     const baseLang = withStorageLang ? globalThis.localStorage.getItem('lang') : 'zhcn';
     const lang = commonLang ? commonLang : baseLang;
     // 根据当前语言设置翻译函数的语言包
-    globalThis.$t.locale(langMap[lang], 'lang');
-    Vue.prototype.$t = globalThis.$t;
-
+    globalThis.$t.locale(globalThis.langMap[lang], 'lang');
+    globalThis.$changeLang = (lang) => {
+        globalThis.$t.locale(globalThis.langMap[lang], 'lang');
+    };
   

@@ -5,7 +5,7 @@
  * @FilePath: /i18n_translation_vite/example/vue2/src/App.vue
 -->
 <template>
-    <div id="app">
+    <div id="app" v-if="isShow">
         <div v-bind="xx" class="main">
             <header class="header">
                 <div class="logo">
@@ -42,13 +42,19 @@ export default {
             xx: {
                 name: 'element-tag-marker',
                 description: 'element-tag-marker'
-            }
+            },
+            isShow: true
         }
     },
     methods: {
         changeLang(value) {
-            localStorage.setItem('lang', value)
-            location.reload()
+            // localStorage.setItem('lang', value)
+            // location.reload()
+            window.$changeLang(value)
+            this.isShow = false
+            this.$nextTick(() => {
+                this.isShow = true
+            })
         },
         navigate(route) {
             this.$router.push({ name: route })

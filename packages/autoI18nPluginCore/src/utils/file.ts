@@ -87,11 +87,13 @@ export function initTranslateBasicFnFile() {
     const langMap = {
         ${langMapList}
     };
+    globalThis.langMap = langMap;
     // 存储语言是否存在
     // 判断 globalThis.localStorage.getItem 是否为函数
     const isFunction = (fn) => {
         return typeof fn === 'function';
     };
+    
     const withStorageLang = isFunction && globalThis && globalThis.localStorage && 
     isFunction(globalThis.localStorage.getItem) && globalThis.localStorage.getItem('${namespace}');
     const withStorageCommonLang = isFunction && globalThis && globalThis.localStorage && 
@@ -102,7 +104,10 @@ export function initTranslateBasicFnFile() {
     const baseLang = withStorageLang ? globalThis.localStorage.getItem('${namespace}') : '${originLang.replace('-', '')}';
     const lang = commonLang ? commonLang : baseLang;
     // 根据当前语言设置翻译函数的语言包
-    globalThis.${translateKey}.locale(langMap[lang], '${namespace}');
+    globalThis.${translateKey}.locale(globalThis.langMap[lang], '${namespace}');
+    globalThis.$changeLang = (lang) => {
+        globalThis.${translateKey}.locale(globalThis.langMap[lang], '${namespace}');
+    };
   `
     // 构建翻译基础函数文件的路径
     const indexPath = path.join(option.globalPath, 'index.js')

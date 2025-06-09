@@ -10,6 +10,8 @@ import tunnel from 'tunnel'
 
 export interface GoogleTranslatorOption {
     proxyOption?: tunnel.ProxyOptions
+    /** 翻译api执行间隔，默认为1000 */
+    interval?: number
 }
 
 /**
@@ -59,7 +61,8 @@ export class GoogleTranslator extends Translator {
                 if (error instanceof Object && 'code' in error && error.code === 'ETIMEDOUT') {
                     console.error('❗ 请求超时，请确保你的网络可以访问google ❗')
                 }
-            }
+            },
+            interval: option.interval ?? 1000
         })
     }
 }

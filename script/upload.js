@@ -4,6 +4,7 @@
  * @LastEditTime: 2025-02-11 11:23:25
  * @FilePath: /i18n_translation_vite/script/upload.js
  */
+// 设置发包分支 npm config set publish-branch beta 默认是main
 // script/upload.js
 // @ts-check
 import { TypeDirNameMap } from './enums.js'

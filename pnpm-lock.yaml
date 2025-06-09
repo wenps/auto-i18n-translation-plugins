@@ -505,6 +505,9 @@ importers:
             '@types/node':
                 specifier: ^20.3.3
                 version: 20.14.15
+            '@types/progress':
+                specifier: ^2.0.7
+                version: 2.0.7
             '@types/tunnel':
                 specifier: ^0.0.7
                 version: 0.0.7
@@ -2953,6 +2956,12 @@ packages:
         resolution:
             {
                 integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==
+            }
+
+    '@types/progress@2.0.7':
+        resolution:
+            {
+                integrity: sha512-iadjw02vte8qWx7U0YM++EybBha2CQLPGu9iJ97whVgJUT5Zq9MjAPYUnbfRI2Kpehimf1QjFJYxD0t8nqzu5w==
             }
 
     '@types/prop-types@15.7.12':
@@ -15129,6 +15138,10 @@ snapshots:
             undici-types: 6.18.2
 
     '@types/normalize-package-data@2.4.4': {}
+
+    '@types/progress@2.0.7':
+        dependencies:
+            '@types/node': 20.14.15
 
     '@types/prop-types@15.7.12': {}
 

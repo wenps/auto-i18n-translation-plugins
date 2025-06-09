@@ -7,6 +7,7 @@
 
 import { option } from 'src/option'
 import * as fileUtils from './file'
+import Progress from 'progress'
 import { chunkUtils } from '.'
 
 export const SEPARATOR = '\n┇┇┇\n'
@@ -94,6 +95,8 @@ export async function autoTranslate() {
     // 初始化翻译结果存储结构
     const newLangObjMap: Record<string, (string | number)[]> = {}
 
+    console.info('开始自动翻译...')
+
     // 遍历所有目标语言进行处理
     for (let langIndex = 0; langIndex < option.langKey.length; langIndex++) {
         const currentLang = option.langKey[langIndex]
@@ -103,8 +106,6 @@ export async function autoTranslate() {
             newLangObjMap[option.originLang] = Object.values(transLangObj)
             continue
         }
-
-        console.info('开始自动翻译...')
 
         // ─── 分块翻译流程开始 ───
         const translatedValues = await translateChunks(transLangObj, option.langKey[langIndex])
@@ -239,11 +240,35 @@ async function translateChunks(transLangObj: Record<string, string>, translateKe
         Object.values(transLangObj),
         translator.option.maxChunkSize
     )
+    const progressBar = new Progress(`正在翻译${translateKey} :sign [:bar] :percent`, {
+        curr: 0,
+        total: translationChunks.length,
+        width: 30,
+        complete: '█',
+        incomplete: '░',
+        renderThrottle: 100
+    })
+    // 执行动画
+    const signs = ['|', '/', '-', '\\']
+    let signIndex = 0
+    const timer = setInterval(() => {
+        if (progressBar.curr >= progressBar.total) {
+            clearInterval(timer)
+            return
+        }
+        signIndex++
+        progressBar.tick(0, { sign: signs[signIndex % signs.length] })
+    }, 200)
+
     // 并行执行分块翻译
     const translatePromises = []
     for (let i = 0; i < translationChunks.length; i++) {
         translatePromises.push(
-            translator.translate(translationChunks[i], option.originLang, translateKey, SEPARATOR)
+            translator
+                .translate(translationChunks[i], option.originLang, translateKey, SEPARATOR)
+                .finally(() => {
+                    progressBar.tick()
+                })
         )
     }
 

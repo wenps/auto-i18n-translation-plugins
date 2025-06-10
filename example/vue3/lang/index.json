@@ -402,5 +402,17 @@
 	"rg0yrk7": {
 		"zh-cn": "测试什么123",
 		"en": "Test what 123"
+	},
+	"p8v9kzg": {
+		"zh-cn": "我的${1}小山的名字是${0}",
+		"en": "The name of my ${1} small mountain is ${0}"
+	},
+	"hzj42": {
+		"zh-cn": "朋友",
+		"en": "friend"
+	},
+	"g5z62": {
+		"zh-cn": "小山",
+		"en": "Xiaoshan"
 	}
 }

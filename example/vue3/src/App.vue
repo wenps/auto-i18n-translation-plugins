@@ -141,6 +141,9 @@ let cc = '12312'
 let c = `测试什么123${cc}`
 console.log(c)
 
+let cc1 = window.$iS('我的${1}小山的名字是${0}', ['小山', '朋友'])
+console.log(cc1)
+
 const xx = ref({
     name: 1312
 })

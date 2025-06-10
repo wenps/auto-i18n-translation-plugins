@@ -463,6 +463,12 @@ Original authors: wenps, xu-code, Caleb-Xu, Winfans
 
 ## Changelog
 
+### v1.1.4 (Recommended Version)
+
+-   Fixed template string processing exception in exclude functions
+-   Added interval configuration for Google Translate
+-   Added support for custom interface parameters in translators
+
 
 ### v1.1.3 (Recommended Version)
 

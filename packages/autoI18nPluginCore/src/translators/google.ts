@@ -12,6 +12,9 @@ export interface GoogleTranslatorOption {
     proxyOption?: tunnel.ProxyOptions
     /** 翻译api执行间隔，默认为1000 */
     interval?: number
+    insertOption?: {
+        [key: string]: any
+    }
 }
 
 /**
@@ -52,7 +55,8 @@ export class GoogleTranslator extends Translator {
                                   })
                               }
                           }
-                        : {})
+                        : {}),
+                    ...(option.insertOption || {})
                 })
                 return data['text'] || ''
             },

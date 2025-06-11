@@ -15,6 +15,9 @@ export interface BaiduTranslatorOption {
     proxy?: AxiosProxyConfig
     /** 翻译api执行间隔，默认为1000 */
     interval?: number
+    insertOption?: {
+        [key: string]: any
+    }
 }
 
 /**
@@ -57,7 +60,8 @@ export class BaiduTranslator extends Translator {
                     from: this.getTranslateKey(fromKey),
                     to: this.getTranslateKey(toKey),
                     salt,
-                    sign: CryptoJS.MD5(option.appId + text + salt + option.appKey).toString()
+                    sign: CryptoJS.MD5(option.appId + text + salt + option.appKey).toString(),
+                    ...(option.insertOption || {})
                 }
                 const response = await axios.post(
                     'https://fanyi-api.baidu.com/api/trans/vip/translate',

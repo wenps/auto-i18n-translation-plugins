@@ -16,6 +16,24 @@
     globalThis.$deepScan = function (val) {
       return val;
     };
+    globalThis.$iS = function (val, args) {
+        // 如果参数不是字符串或数组，直接返回原值
+        if (typeof val !== 'string' || !Array.isArray(args)) {
+            return val;
+        }
+        try {
+            // 使用更安全的正则表达式替换方式
+            return val.replace(/\$\{(\d+)\}/g, (match, index) => {
+                // 将index转换为数字
+                const position = parseInt(index, 10);
+                // 如果args[position]存在则替换，否则保留原占位符
+                return args[position] !== undefined ? String(args[position]) : match;
+            });
+        } catch (error) {
+            console.warn('字符串替换过程出现异常:', error);
+            return val;
+        }
+    }
     // 定义设置语言包的方法
     $t.locale = function (locale, nameSpace) {
       // 将指定命名空间下的语言包设置为传入的locale
@@ -45,11 +63,13 @@
         'en': (globalThis && globalThis.lang && globalThis.lang.en) ? globalThis.lang.en : globalThis._getJSONKey('en', langJSON),
 'zhcn': (globalThis && globalThis.lang && globalThis.lang.zhcn) ? globalThis.lang.zhcn : globalThis._getJSONKey('zh-cn', langJSON)
     };
+    globalThis.langMap = langMap;
     // 存储语言是否存在
     // 判断 globalThis.localStorage.getItem 是否为函数
     const isFunction = (fn) => {
         return typeof fn === 'function';
     };
+    
     const withStorageLang = isFunction && globalThis && globalThis.localStorage && 
     isFunction(globalThis.localStorage.getItem) && globalThis.localStorage.getItem('lang');
     const withStorageCommonLang = isFunction && globalThis && globalThis.localStorage && 
@@ -60,5 +80,8 @@
     const baseLang = withStorageLang ? globalThis.localStorage.getItem('lang') : 'zhcn';
     const lang = commonLang ? commonLang : baseLang;
     // 根据当前语言设置翻译函数的语言包
-    globalThis.$t.locale(langMap[lang], 'lang');
+    globalThis.$t.locale(globalThis.langMap[lang], 'lang');
+    globalThis.$changeLang = (lang) => {
+        globalThis.$t.locale(globalThis.langMap[lang], 'lang');
+    };
   

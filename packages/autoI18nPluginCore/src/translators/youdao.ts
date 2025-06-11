@@ -9,6 +9,9 @@ export interface YoudaoTranslatorOption {
     proxy?: AxiosProxyConfig
     /** 翻译api执行间隔，默认为1000 */
     interval?: number
+    insertOption?: {
+        [key: string]: any
+    }
 }
 
 /**
@@ -67,7 +70,8 @@ export class YoudaoTranslator extends Translator {
                     to: this.getTranslateKey(toKey),
                     sign,
                     signType: 'v3',
-                    curtime: curTime
+                    curtime: curTime,
+                    ...(option.insertOption || {})
                 }
                 const response = await axios.post('https://openapi.youdao.com/api', data, {
                     headers: {

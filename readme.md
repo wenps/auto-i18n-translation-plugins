@@ -477,6 +477,12 @@ const HelloWorld: React.FC<HelloWorldProps> = ({ name = 'World' }) => {
 
 ## 更新日志
 
+### v1.1.4 (推荐版本)
+
+-   修复排除函数处理模版字符串异常问题
+-   谷歌新增interval配置
+-   新增翻译器支持自定义接口入参
+
 ### v1.1.3 (推荐版本)
 
 -   新增无刷更新语言能力及最佳实践

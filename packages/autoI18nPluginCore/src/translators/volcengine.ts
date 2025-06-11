@@ -13,6 +13,9 @@ export interface VolcengineTranslatorOption {
     proxy?: AxiosProxyConfig
     /** 翻译api执行间隔，默认为1000 */
     interval?: number
+    insertOption?: {
+        [key: string]: any
+    }
 }
 
 /**
@@ -76,7 +79,8 @@ export class VolcengineTranslator extends Translator {
                             role: 'user',
                             content: `${fromKey} -> ${toKey} ${JSON.stringify(sourceMap)}`
                         }
-                    ]
+                    ],
+                    ...(option.insertOption || {})
                 }
                 const response = await axios.post(
                     `https://ark.cn-beijing.volces.com/api/v3/chat/completions?t=${salt}`,

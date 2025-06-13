@@ -463,6 +463,10 @@ Original authors: wenps, xu-code, Caleb-Xu, Winfans
 
 ## Changelog
 
+### v1.1.5 (Recommended Version)
+
+-   Added support for interpolation translation
+
 ### v1.1.4 (Recommended Version)
 
 -   Fixed template string processing exception in exclude functions

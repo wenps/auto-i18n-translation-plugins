@@ -267,7 +267,7 @@ async function translateChunks(transLangObj: Record<string, string>, translateKe
             translator
                 .translate(translationChunks[i], option.originLang, translateKey, SEPARATOR)
                 .finally(() => {
-                    progressBar.tick()
+                    progressBar.tick({ sign: signs[signIndex % signs.length] })
                 })
         )
     }

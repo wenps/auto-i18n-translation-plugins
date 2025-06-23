@@ -190,12 +190,11 @@ export function getLangTranslateJSONFile() {
  * @param {string} key
  * @return {*}
  */
-export function getLangObjByJSONFileWithLangKey(
-    key: string,
-    insertJSONObj: object | undefined = undefined
-) {
-    const JSONObj = insertJSONObj || JSON.parse(getLangTranslateJSONFile())
-    const langObj: any = {}
+export function getLangObjByJSONFileWithLangKey(key: string) {
+    const JSONObj: Record<string, Record<string, string>> = JSON.parse(
+        getLangTranslateJSONFile()
+    ) || {}
+    const langObj: Record<string, string> = {}
     Object.keys(JSONObj).forEach(value => {
         langObj[value] = JSONObj[value][key]
     })

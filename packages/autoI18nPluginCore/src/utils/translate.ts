@@ -157,23 +157,24 @@ export async function autoTranslate() {
 
 /**
  * @description: 新增语言类型配置补全
- * @param {any} obj
- * @return {*}
+ * @param langObj
  */
-export function languageConfigCompletion(obj: any) {
-    if (!Object.keys(obj)) return
-    let needCompletionList: any[] = []
-    const JSONobj = JSON.parse(fileUtils.getLangTranslateJSONFile())
+export async function languageConfigCompletion(langObj: Record<string, string>) {
+    if (!Object.keys(langObj)) return
+    const needCompletionList: { key: string; curLangObj: Record<string, string> }[] = []
+
     option.targetLangList.forEach(item => {
-        let langObj = fileUtils.getLangObjByJSONFileWithLangKey(item, JSONobj)
+        let langObj = fileUtils.getLangObjByJSONFileWithLangKey(item)
         needCompletionList.push({
             key: item,
             curLangObj: langObj
         })
     })
-    needCompletionList.forEach(async item => {
-        await completionTranslateAndWriteConfigFile(obj, item.curLangObj, item.key)
-    })
+
+    const taskList = needCompletionList.map(item =>
+        completionTranslateAndWriteConfigFile(langObj, item.curLangObj, item.key)
+    )
+    await Promise.allSettled(taskList)
 }
 
 /**

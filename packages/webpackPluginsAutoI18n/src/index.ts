@@ -2,13 +2,11 @@
 // 从 webpack 导入核心接口
 // 导入 auto-i18n-plugin-core 提供的工具和类型
 import {
-    fileUtils,
     translateUtils,
     OptionInfo,
     option,
-    initOption,
-    checkOption,
-    FunctionFactoryOption
+    FunctionFactoryOption,
+    initCore
 } from 'auto-i18n-plugin-core'
 import webpack from 'webpack'
 // 导入 path 模块，用于处理文件和目录路径
@@ -33,23 +31,11 @@ export default class webpackPluginsAutoI18n {
      * @param optionInfo 用户提供的配置
      */
     constructor(optionInfo: OptionInfo) {
-        // 初始化插件配置
-        initOption(optionInfo)
-
-        // 检查配置有效性，如果无效则不执行后续逻辑
-        if (!checkOption()) return
-
-        // 初始化语言文件
-        fileUtils.initLangFile()
-
-        // 获取来源语言内容对象
-        const originLangObj = fileUtils.getLangObjByJSONFileWithLangKey(option.originLang)
-
-        // 补全语言配置，确保来源语言文件的内容完整性
-        translateUtils.languageConfigCompletion(originLangObj)
-
-        // 初始化翻译对象（用于翻译操作）
-        translateUtils.initLangObj(originLangObj)
+        try {
+            initCore(optionInfo)
+        } catch (e) {
+            return
+        }
 
         // 配置初始语言选项，将来源语言设置为配置的 originLang
         FunctionFactoryOption.originLang = option.originLang

@@ -12,8 +12,7 @@ import {
     FunctionFactoryOption,
     OptionInfo,
     option,
-    initOption,
-    checkOption
+    initCore
 } from 'auto-i18n-plugin-core'
 import { ResolvedConfig, Plugin } from 'vite'
 import * as babel from '@babel/core'
@@ -25,14 +24,11 @@ export default function vitePluginsAutoI18n(optionInfo: OptionInfo) {
     const name = 'vite-auto-i18n-plugin'
     let config: ResolvedConfig
 
-    initOption(optionInfo)
-
-    if (!checkOption()) return { name }
-
-    fileUtils.initLangFile()
-    const originLangObj = fileUtils.getLangObjByJSONFileWithLangKey(option.originLang)
-    translateUtils.languageConfigCompletion(originLangObj)
-    translateUtils.initLangObj(originLangObj)
+    try {
+        initCore(optionInfo)
+    } catch (e) {
+        return { name }
+    }
 
     const plugin: Plugin = {
         name,

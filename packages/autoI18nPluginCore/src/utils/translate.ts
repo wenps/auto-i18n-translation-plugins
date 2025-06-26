@@ -13,9 +13,9 @@ import { chunkUtils } from '.'
 export const SEPARATOR = '\n┇┇┇\n'
 export const SPLIT_SEPARATOR_REGEX = /\n┇ *┇ *┇\n/
 
-type langObj = { [key: string]: string }
+type LangObj = { [key: string]: string }
 
-export let langObj: langObj = {}
+export let globalLangObj: LangObj = {}
 
 /**
  * @description: 设置翻译对象属性
@@ -24,8 +24,8 @@ export let langObj: langObj = {}
  * @return {*}
  */
 export function setLangObj(key: string, value: string) {
-    if (!langObj[key]) {
-        langObj[key] = value
+    if (!globalLangObj[key]) {
+        globalLangObj[key] = value
     }
 }
 
@@ -34,17 +34,17 @@ export function setLangObj(key: string, value: string) {
  * @return {*}
  */
 export function getLangObj() {
-    return langObj
+    return globalLangObj
 }
 
 /**
  * @description: 初始化翻译对象
- * @param {langObj} obj
+ * @param {LangObj} obj
  * @return {*}
  */
-export function initLangObj(obj: langObj) {
-    if (!Object.keys(langObj)) {
-        langObj = obj
+export function initLangObj(obj: LangObj) {
+    if (!Object.keys(globalLangObj)) {
+        globalLangObj = obj
     }
 }
 
@@ -157,23 +157,15 @@ export async function autoTranslate() {
 
 /**
  * @description: 新增语言类型配置补全
- * @param langObj
+ * @param originLang 源语言
  */
-export async function languageConfigCompletion(langObj: Record<string, string>) {
-    if (!Object.keys(langObj)) return
-    const needCompletionList: { key: string; curLangObj: Record<string, string> }[] = []
-
-    option.targetLangList.forEach(item => {
-        let langObj = fileUtils.getLangObjByJSONFileWithLangKey(item)
-        needCompletionList.push({
-            key: item,
-            curLangObj: langObj
-        })
+export async function languageConfigCompletion(originLang: string) {
+    const originLangObj = fileUtils.getLangObjByJSONFileWithLangKey(originLang)
+    const taskList = option.targetLangList.map(translateKey => {
+        let curLangObj = fileUtils.getLangObjByJSONFileWithLangKey(translateKey)
+        return completionTranslateAndWriteConfigFile(originLangObj, curLangObj, translateKey)
     })
 
-    const taskList = needCompletionList.map(item =>
-        completionTranslateAndWriteConfigFile(langObj, item.curLangObj, item.key)
-    )
     await Promise.allSettled(taskList)
 }
 

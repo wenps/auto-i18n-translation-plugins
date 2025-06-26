@@ -174,6 +174,7 @@ export function initOption(optionInfo: OptionInfo) {
 
 /**
  * 校验插件配置选项是否完整有效
+ * 主要用于校验用户在不使用ts类型检查的情况下硬传的奇怪的配置选项
  * @returns {boolean} 校验结果，完整返回 true，否则返回 false
  */
 export function checkOption() {

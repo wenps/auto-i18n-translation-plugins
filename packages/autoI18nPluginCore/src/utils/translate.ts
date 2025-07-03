@@ -70,12 +70,21 @@ export async function autoTranslate() {
     const originLangObjMap: Record<string, any> = {}
 
     // 加载所有语言的现有翻译内容
-    option.langKey.forEach(lang => {
-        originLangObjMap[lang] = fileUtils.getLangObjByJSONFileWithLangKey(lang)
-    })
-
     // 获取当前待翻译内容（深拷贝避免污染原始数据）
     const currentLangObj = JSON.parse(JSON.stringify(getLangObj()))
+    option.langKey.forEach(lang => {
+        const keyMap = fileUtils.getLangObjByJSONFileWithLangKey(lang)
+        if (option.isClear) {
+            const list = Object.keys(keyMap).filter(key => currentLangObj[key])
+            const resMap: Record<string, any> = {}
+            list.forEach(key => {
+                resMap[key] = keyMap[key]
+            })
+            originLangObjMap[lang] = resMap
+        } else {
+            originLangObjMap[lang] = keyMap
+        }
+    })
 
     // 筛选需要翻译的新增内容
     const transLangObj: Record<string, string> = {}

@@ -71,12 +71,21 @@ export async function autoTranslate() {
     const originLangObjMap: Record<string, any> = {}
 
     // 加载所有语言的现有翻译内容
-    option.langKey.forEach(lang => {
-        originLangObjMap[lang] = fileUtils.getLangObjByJSONFileWithLangKey(lang)
-    })
-
     // 获取当前待翻译内容（深拷贝避免污染原始数据）
     const currentLangObj = JSON.parse(JSON.stringify(getLangObj()))
+    option.langKey.forEach(lang => {
+        const keyMap = fileUtils.getLangObjByJSONFileWithLangKey(lang)
+        if (option.isClear) {
+            const list = Object.keys(keyMap).filter(key => currentLangObj[key])
+            const resMap: Record<string, any> = {}
+            list.forEach(key => {
+                resMap[key] = keyMap[key]
+            })
+            originLangObjMap[lang] = resMap
+        } else {
+            originLangObjMap[lang] = keyMap
+        }
+    })
 
     // 筛选需要翻译的新增内容
     const transLangObj: Record<string, string> = {}
@@ -162,6 +171,7 @@ export async function autoTranslate() {
 export async function languageConfigCompletion(originLang: string) {
     const originLangObj = fileUtils.getLangObjByJSONFileWithLangKey(originLang)
     const taskList = option.targetLangList.map(translateKey => {
+        // 获取目标语言 hash：value 对象 和 语言的复合对象，如果当前语言不存在，是langObj的value都为空
         let curLangObj = fileUtils.getLangObjByJSONFileWithLangKey(translateKey)
         return completionTranslateAndWriteConfigFile(originLangObj, curLangObj, translateKey)
     })
@@ -181,9 +191,14 @@ export async function completionTranslateAndWriteConfigFile(
     curLangObj: Record<string, string>,
     translateKey: string
 ) {
-    // 生产需要更新的语言对象
+    // 构建需要翻译的语言映射对象
+    // langObj: 源语言的键值对映射，格式为 { hash: sourceText }
+    // curLangObj: 目标语言的键值对映射，格式为 { hash: targetText }，未翻译的值为空
+
+    // 创建待翻译内容对象，仅包含未翻译的条目，key是hash，value是源语言的对应hash的文本
     const transLangObj: Record<string, string> = {}
     Object.keys(langObj).forEach(key => {
+        // 如果目标语言中对应的翻译为空，则将 源语言的对应hash的文本 加入待翻译内容对象 中
         if (!curLangObj[key]) {
             transLangObj[key] = langObj[key]
         }

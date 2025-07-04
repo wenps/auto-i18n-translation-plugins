@@ -191,13 +191,20 @@ export function getLangTranslateJSONFile() {
  * @return {*}
  */
 export function getLangObjByJSONFileWithLangKey(key: string) {
+    // 获取翻译配置对象
     const JSONObj: Record<string, Record<string, string>> = JSON.parse(
         getLangTranslateJSONFile()
     ) || {}
+    // 初始化语言映射对象，用于存储不同语言的hash: value映射
     const langObj: Record<string, string> = {}
+    // 遍历hash，提取hash对应语言key的值，并写入到langObj
     Object.keys(JSONObj).forEach(value => {
         langObj[value] = JSONObj[value][key]
     })
+
+    // 返回当前语言的hash: value映射对象
+    // 例如: 'zh-cn' > {'hash1': '你好', 'hash2': '世界'}
+    // 'en' > {'hash1': 'hello', 'hash2': 'world'}
     return langObj
 }
 

@@ -116,7 +116,7 @@ const DEFAULT_OPTION = {
      * 注意：该属性需要继承BaseExtends类，并且需要实现handleInitFile和handleCodeCall和handleCodeString方法
      */
     translateExtends: null as BaseExtendsType | null,
-    isClear: false // 是否清除已经不在上下文中的内容（清除项目中不再使用到的中文键值对）
+    isClear: false // 是否清除已经不在上下文中的内容（清除项目中不再使用到的源语言键值对）
 }
 
 /**

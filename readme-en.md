@@ -341,6 +341,7 @@ import '../lang/index.js' // 📍 Must be imported on the first line of the entr
 | deepScan             | boolean    | ❌       | `false`                  | Experimental: Whether to perform deep string scanning    |
 | commonTranslateKey   | string     | ❌       | `''`                     | General translation key                                  |
 | insertFileExtensions | string[]   | ❌       | `[]`                     | List of file extensions to insert translation code into  |
+| isClear              | boolean    | ❌       | `false`                  | Whether to clear content not in context (clear source language key-value pairs not in context) |
 
 ---
 
